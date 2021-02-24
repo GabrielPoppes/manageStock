@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using GerenciadorDeEstoque.Apresentação;
+using GerenciadorDeEstoque.Modelo;
 
 namespace GerenciadorDeEstoque
 {
@@ -40,6 +41,30 @@ namespace GerenciadorDeEstoque
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Botão entrar
+        private void txb_join_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            controle.Acessar(txb_email.Text, txb_password.Text);
+
+            if (controle.mensagem.Equals(""))
+            {
+                if (controle.verificacao)
+                {
+                    MessageBox.Show("Logado com sucesso!");
+                }
+
+                else
+                {
+                    MessageBox.Show("Dados incorretos!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(controle.mensagem);
+            }
         }
     }
 }

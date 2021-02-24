@@ -45,6 +45,7 @@ namespace GerenciadorDeEstoque
             resources.ApplyResources(this.txb_join, "txb_join");
             this.txb_join.Name = "txb_join";
             this.txb_join.UseVisualStyleBackColor = false;
+            this.txb_join.Click += new System.EventHandler(this.txb_join_Click);
             // 
             // txb_register
             // 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using GerenciadorDeEstoque.Apresentação;
+using GerenciadorDeEstoque.Modelo;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
@@ -35,5 +36,24 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             Application.Run(new TelaLogin());
         }
+
+        // botão cadastre-se
+        private void txb_register_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+
+            string mensagem = controle.Cadastrar(txb_email_c.Text, txb_password_c.Text, txb_confirmpassword.Text, txb_celphone.Text, txtb_reminderpassword.Text);
+
+            if (controle.verificacao)
+            {
+                MessageBox.Show("Cadastro realizado!");
+            }
+
+            else
+            {
+                MessageBox.Show("Erro ao realizar o cadastro!");
+            }
+        }
+
     }
 }
