@@ -68,10 +68,6 @@ namespace GerenciadorDeEstoque.DAO
                     this.mensagem = "Erro com o banco de dados!";
                 }
             }
-            else
-            {
-                this.mensagem = "Usuário ou senha incorretos!";
-            }
             return mensagem;
         }
     }
