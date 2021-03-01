@@ -5,10 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GerenciadorDeEstoque.Modelo;
+using GerenciadorDeEstoque.Apresentação;
+using GerenciadorDeEstoque.DAO;
+using GerenciadorDeEstoque.Properties;
 
 namespace GerenciadorDeEstoque.DAO
 {
-    public class LoginDaoComandos
+    public class LoginDaoComandos : Cadastrar
     {
         public bool check = false;
         public string mensagem = "";
@@ -43,54 +47,67 @@ namespace GerenciadorDeEstoque.DAO
             return check;
         }
 
-        public string Cadastrar(string email, string senha, string confirmarsenha, string celular, string lembretesenha)
+
+
+        public string Cadastrar(string nome, string email, string senha, string confirmarsenha, string celular, string lembretesenha)
         {
-            // checar se campos não estão em branco
-            if (!email.Equals("") && !senha.Equals("") && !celular.Equals("") && !lembretesenha.Equals(""))
+            string check_email = email;
+            bool valor_checkemail = check_email.Contains("@") && check_email.Contains(".com");
+            if (valor_checkemail == true)
             {
-                // checar se senha e email tem caracteres minimos
-                if (senha.Length >= 5 && email.Length >= 3)
+                // checar se campos não estão em branco
+                if (!nome.Equals("") && !email.Equals("") && !senha.Equals("") && !celular.Equals("") && !lembretesenha.Equals(""))
                 {
-                    // checar se senha é igual a confirmar senha
-                    if (senha.Equals(confirmarsenha))
+                    // checar se senha e email tem caracteres minimos
+                    if (senha.Length >= 5 && email.Length >= 8)
                     {
-                        comando.CommandText = "insert into funcionario(email, senha, celular, lembretesenha)values(@email, @senha, @celular, @lembretesenha);";
-                        comando.Parameters.AddWithValue("@email", email);
-                        comando.Parameters.AddWithValue("@senha", senha);
-                        comando.Parameters.AddWithValue("@celular", celular);
-                        comando.Parameters.AddWithValue("@lembretesenha", lembretesenha);
-
-                        check = false;
-                        try
+                        // checar se senha é igual a confirmar senha
+                        if (senha.Equals(confirmarsenha))
                         {
-                            comando.Connection = conect.Conectar();
-                            comando.ExecuteNonQuery();
-                            conect.Desconectar();
-                            this.mensagem = "Cadastrado com sucesso!";
+                            comando.CommandText = "insert into funcionario(nome, email, senha, celular, lembretesenha)values(@nome, @email, @senha, @celular, @lembretesenha);";
+                            comando.Parameters.AddWithValue("@nome", nome);
+                            comando.Parameters.AddWithValue("@email", email);
+                            comando.Parameters.AddWithValue("@senha", senha);
+                            comando.Parameters.AddWithValue("@celular", celular);
+                            comando.Parameters.AddWithValue("@lembretesenha", lembretesenha);
 
-                            check = true;
+                            check = false;
+                            try
+                            {
+                                comando.Connection = conect.Conectar();
+                                comando.ExecuteNonQuery();
+                                conect.Desconectar();
+                                this.mensagem = "Cadastrado com sucesso!";
+
+                                check = true;
+                            }
+
+                            catch (SqlException)
+                            {
+                                this.mensagem = "Erro com o banco de dados!";
+                            }
                         }
 
-                        catch (SqlException)
+                        else
                         {
-                            this.mensagem = "Erro com o banco de dados!";
+                            MessageBox.Show("As senhas devem ser iguais!");
                         }
                     }
-
                     else
                     {
-                        MessageBox.Show("As senhas devem ser iguais!");
+                        MessageBox.Show("Por favor, use uma senha com mais de 5 caracteres!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, use uma senha com mais de 5 caracteres!");
+                    MessageBox.Show("Por favor, não deixe campos em branco!");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, não deixe campos em branco!");
+                MessageBox.Show("Digite um e-mail válido!");
             }
+            
             return mensagem;
         }
     }

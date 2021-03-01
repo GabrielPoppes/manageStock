@@ -29,10 +29,10 @@ namespace GerenciadorDeEstoque.Modelo
 
 
         // Método para cadastrar a acc
-        public string Cadastrar(string email, string senha, string confirmarsenha, string celular, string lembretesenha)
+        public string Cadastrar(string nome, string email, string senha, string confirmarsenha, string celular, string lembretesenha)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
-            this.mensagem = loginDao.Cadastrar(email, senha, confirmarsenha, celular, lembretesenha);
+            this.mensagem = loginDao.Cadastrar(nome, email, senha, confirmarsenha, celular, lembretesenha);
 
             if (loginDao.check)
             {

@@ -42,7 +42,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             Controle controle = new Controle();
 
-            string mensagem = controle.Cadastrar(txb_email_c.Text, txb_password_c.Text, txb_confirmpassword.Text, txb_celphone.Text, txtb_reminderpassword.Text);
+            string mensagem = controle.Cadastrar(txb_name.Text, txb_email_c.Text, txb_password_c.Text, txb_confirmpassword.Text, txb_celphone.Text, txtb_reminderpassword.Text);
 
             if (controle.verificacao)
             {
