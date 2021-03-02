@@ -13,11 +13,11 @@ using GerenciadorDeEstoque.Modelo;
 
 namespace GerenciadorDeEstoque
 {
-    public partial class TelaLogin : Form
+    public partial class Form1 : Form
     {
         // Criando tela cadastro
         Thread TelaCadastro;
-        public TelaLogin()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -53,7 +53,7 @@ namespace GerenciadorDeEstoque
             {
                 if (controle.verificacao)
                 {
-                    MessageBox.Show("Logado com sucesso!");
+                    
                 }
 
                 else

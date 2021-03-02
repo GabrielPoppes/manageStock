@@ -28,13 +28,12 @@ namespace GerenciadorDeEstoque.Apresentação
             TelaLogin = new Thread(OpenLogin);
             TelaLogin.SetApartmentState(ApartmentState.MTA);
             TelaLogin.Start();
-            this.Close();
         }
 
         // Método para abrir a tela Login
         private void OpenLogin()
         {
-            Application.Run(new TelaLogin());
+            Application.Run(new Form1());
         }
 
         // botão cadastre-se

@@ -1,7 +1,7 @@
 ﻿
 namespace GerenciadorDeEstoque
 {
-    partial class TelaLogin
+    partial class Form1
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,7 +29,7 @@ namespace GerenciadorDeEstoque
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txb_join = new System.Windows.Forms.Button();
             this.txb_register = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@ namespace GerenciadorDeEstoque
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // TelaLogin
+            // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,7 +106,7 @@ namespace GerenciadorDeEstoque
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "TelaLogin";
+            this.Name = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

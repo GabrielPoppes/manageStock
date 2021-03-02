@@ -9,16 +9,25 @@ using GerenciadorDeEstoque.Modelo;
 using GerenciadorDeEstoque.Apresentação;
 using GerenciadorDeEstoque.DAO;
 using GerenciadorDeEstoque.Properties;
+using System.Threading;
 
 namespace GerenciadorDeEstoque.DAO
 {
     public class LoginDaoComandos : Cadastrar
     {
+        // tela após logar
+        Thread TelaInicial;
         public bool check = false;
         public string mensagem = "";
         SqlCommand comando = new SqlCommand();
         Conexao conect = new Conexao();
         SqlDataReader armazenardados;
+
+        // Método para abrir a tela após logar
+        private void telaLogada()
+        {
+            Application.Run(new TelaLogado());
+        }
 
         // Método que verifica se login e senha estão corretos, passando a string true or false
         public bool VerificarLogin(string login, string senha)
@@ -35,7 +44,14 @@ namespace GerenciadorDeEstoque.DAO
                 if (armazenardados.HasRows)
                 {
                     check = true;
+                    // Cmds para abrir a tela "TelaLogado" após a checagem dos logins
+                    this.Visible = false;
+                    TelaInicial = new Thread(telaLogada);
+                    TelaInicial.SetApartmentState(ApartmentState.MTA);
+                    TelaInicial.Start();
+
                 }
+
                 conect.Desconectar();
                 armazenardados.Close();
             }
@@ -51,6 +67,7 @@ namespace GerenciadorDeEstoque.DAO
 
         public string Cadastrar(string nome, string email, string senha, string confirmarsenha, string celular, string lembretesenha)
         {
+            // Validar se o e-mail digitado contem @ e .com
             string check_email = email;
             bool valor_checkemail = check_email.Contains("@") && check_email.Contains(".com");
             if (valor_checkemail == true)
