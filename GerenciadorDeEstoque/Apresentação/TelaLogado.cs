@@ -57,13 +57,7 @@ namespace GerenciadorDeEstoque.Apresentação
             label_EditEstoq.Show();
         }
 
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        // Botão com imagem (ESTOQUE)
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void AdicionarItemListView()
         {
             // método para exibir os botões visuais do estoque
             ExibirEstoque();
@@ -95,6 +89,17 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
 
             }
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // Botão com imagem (ESTOQUE)
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AdicionarItemListView();            
         }
     }
 }
