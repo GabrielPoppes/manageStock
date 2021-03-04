@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
@@ -16,6 +17,9 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        // Thread da tela de adicionar novo produto no estoque
+        Thread AddProduto;
+
         // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
 
@@ -106,6 +110,19 @@ namespace GerenciadorDeEstoque.Apresentação
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AdicionarItemListView();            
+        }
+
+        // Imagem do "Criar novo produto"
+        private void picture_AddProd_Click(object sender, EventArgs e)
+        {
+            AddProduto = new Thread(TelaAddProduct);
+            AddProduto.SetApartmentState(ApartmentState.MTA);
+            AddProduto.Start();
+        }
+
+        private void TelaAddProduct()
+        {
+            Application.Run(new AddProduct());
         }
     }
 }

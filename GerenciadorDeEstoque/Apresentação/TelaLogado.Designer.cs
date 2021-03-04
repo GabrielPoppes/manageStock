@@ -139,6 +139,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_AddProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture_AddProd.TabIndex = 2;
             this.picture_AddProd.TabStop = false;
+            this.picture_AddProd.Click += new System.EventHandler(this.picture_AddProd_Click);
             // 
             // listView_Estoque
             // 
