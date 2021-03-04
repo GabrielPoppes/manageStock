@@ -37,10 +37,10 @@ namespace GerenciadorDeEstoque.Apresentação
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_AddProd = new System.Windows.Forms.Label();
-            this.label_EditEstoq = new System.Windows.Forms.Label();
             this.picture_Edit = new System.Windows.Forms.PictureBox();
             this.picture_AddProd = new System.Windows.Forms.PictureBox();
             this.listView_Estoque = new System.Windows.Forms.ListView();
+            this.label_EditEstoq = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -120,15 +120,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label_AddProd.TabIndex = 2;
             this.label_AddProd.Text = "Criar novo produto";
             // 
-            // label_EditEstoq
-            // 
-            this.label_EditEstoq.AutoSize = true;
-            this.label_EditEstoq.Location = new System.Drawing.Point(552, 82);
-            this.label_EditEstoq.Name = "label_EditEstoq";
-            this.label_EditEstoq.Size = new System.Drawing.Size(75, 13);
-            this.label_EditEstoq.TabIndex = 3;
-            this.label_EditEstoq.Text = "Editar estoque";
-            // 
             // picture_Edit
             // 
             this.picture_Edit.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
@@ -151,24 +142,30 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // listView_Estoque
             // 
-            this.listView_Estoque.FullRowSelect = true;
-            this.listView_Estoque.GridLines = true;
             this.listView_Estoque.HideSelection = false;
-            this.listView_Estoque.Location = new System.Drawing.Point(126, 142);
+            this.listView_Estoque.Location = new System.Drawing.Point(145, 106);
             this.listView_Estoque.Name = "listView_Estoque";
-            this.listView_Estoque.Size = new System.Drawing.Size(662, 296);
+            this.listView_Estoque.Size = new System.Drawing.Size(631, 312);
             this.listView_Estoque.TabIndex = 5;
             this.listView_Estoque.UseCompatibleStateImageBehavior = false;
             this.listView_Estoque.View = System.Windows.Forms.View.Details;
-            this.listView_Estoque.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // label_EditEstoq
+            // 
+            this.label_EditEstoq.AutoSize = true;
+            this.label_EditEstoq.Location = new System.Drawing.Point(552, 82);
+            this.label_EditEstoq.Name = "label_EditEstoq";
+            this.label_EditEstoq.Size = new System.Drawing.Size(73, 13);
+            this.label_EditEstoq.TabIndex = 6;
+            this.label_EditEstoq.Text = "Editar produto";
             // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView_Estoque);
             this.Controls.Add(this.label_EditEstoq);
+            this.Controls.Add(this.listView_Estoque);
             this.Controls.Add(this.picture_Edit);
             this.Controls.Add(this.label_AddProd);
             this.Controls.Add(this.picture_AddProd);
@@ -200,8 +197,8 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picture_AddProd;
         private System.Windows.Forms.Label label_AddProd;
-        private System.Windows.Forms.Label label_EditEstoq;
         private System.Windows.Forms.PictureBox picture_Edit;
         private System.Windows.Forms.ListView listView_Estoque;
+        private System.Windows.Forms.Label label_EditEstoq;
     }
 }

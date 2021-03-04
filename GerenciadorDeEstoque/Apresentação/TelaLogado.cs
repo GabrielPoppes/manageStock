@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GerenciadorDeEstoque.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,17 @@ namespace GerenciadorDeEstoque.Apresentação
 {
     public partial class TelaLogado : Form
     {
+        // Variável do tipo SqlCommand para executar os cmds do BD
+        SqlCommand cmdListView = new SqlCommand();
+
+        // Conectando no banco de dados
+        SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+        // variáveis necessárias para pegar os dados do BD e atribuir na list view
+        DataTable dt;
+        SqlDataAdapter da;
+        DataSet ds;
+        // end 
+
         public TelaLogado()
         {
             InitializeComponent();
@@ -30,8 +43,18 @@ namespace GerenciadorDeEstoque.Apresentação
         private void GerarColunas()
         {
             listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Produto", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
             listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
+        }
+
+        private void ExibirEstoque()
+        {
+            listView_Estoque.Show();
+            picture_AddProd.Show();
+            picture_Edit.Show();
+            label_AddProd.Show();
+            label_EditEstoq.Show();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,19 +62,39 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Exit();
         }
 
+        // Botão com imagem (ESTOQUE)
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            picture_AddProd.Show();
-            picture_Edit.Show();
-            label_EditEstoq.Show();
-            label_AddProd.Show();
-            listView_Estoque.Show();
-        }
+            // método para exibir os botões visuais do estoque
+            ExibirEstoque();
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+            // Conectar com o banco de dados
+            con.Open();
+            // Instrução SQL para executar
+            cmdListView = new SqlCommand("select * from produtos", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            // Fill, que passar os dados da tabela "estoque" para o data set = ds
+            // estoque = nome da tabela
+            da.Fill(ds, "estoque");
 
+            // fechar conexão
+            con.Close();
+            // o data set (ds) não consegue passar os dados no "visual" do programa, então, passando para o data table (dt)
+            // estoque = tabela do bd
+            dt = ds.Tables["estoque"];
+
+            // lógica com o for para atribuir os dados do bd nas colunas do list view do programa
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Estoque.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+
+            }
         }
     }
 }
