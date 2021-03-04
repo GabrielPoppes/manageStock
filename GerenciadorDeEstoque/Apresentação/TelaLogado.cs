@@ -44,6 +44,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
             listView_Estoque.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
             listView_Estoque.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
             listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
         }
@@ -57,6 +58,7 @@ namespace GerenciadorDeEstoque.Apresentação
             label_EditEstoq.Show();
         }
 
+        // Método para passar os dados do BD para a List View
         private void AdicionarItemListView()
         {
             // método para exibir os botões visuais do estoque
@@ -87,10 +89,12 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
 
             }
         }
 
+        // Botão sair do menu
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
