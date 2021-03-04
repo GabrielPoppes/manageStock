@@ -12,6 +12,8 @@ using System.Windows.Forms;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
+    // NOME DO BANCO DE DADOS: ESTOQUE
+    // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
         // Variável do tipo SqlCommand para executar os cmds do BD
