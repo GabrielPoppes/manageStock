@@ -73,6 +73,16 @@ namespace GerenciadorDeEstoque.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_icon_ios7_refresh_211814 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_icon-ios7-refresh_211814", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_kthememgr_7240 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_kthememgr_7240", resourceCulture);

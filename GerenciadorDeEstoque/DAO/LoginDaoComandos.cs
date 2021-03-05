@@ -62,6 +62,36 @@ namespace GerenciadorDeEstoque.DAO
             }
             return check;
         }
+        
+        // Método para cadastrar o Produto no estoque
+        public string CadastrarProduto(string nome, string cor, string preco, string quantidade)
+        {
+            if (!nome.Equals("") && !preco.Equals("") && !quantidade.Equals(""))
+            {
+                comando.CommandText = "insert into produtos(nome, cor, preco, quantidade)values(@nome, @cor, @preco, @quantidade);";
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@cor", cor);
+                comando.Parameters.AddWithValue("@preco", preco);
+                comando.Parameters.AddWithValue("@quantidade", quantidade);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Produto cadastrado!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro no cadastro do produto!";
+                }
+            }
+            return mensagem;
+        }
 
 
 
@@ -126,6 +156,25 @@ namespace GerenciadorDeEstoque.DAO
             }
             
             return mensagem;
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // LoginDaoComandos
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "LoginDaoComandos";
+            this.Load += new System.EventHandler(this.LoginDaoComandos_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void LoginDaoComandos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

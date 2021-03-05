@@ -40,5 +40,18 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
+
+        // Método para cadastrar um produto novo no estoque
+        public string CadastrarProdutos(string nome, string cor, string preco, string quantidade)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.CadastrarProduto(nome, cor, preco, quantidade);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
     }
 }

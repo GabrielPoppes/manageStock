@@ -31,21 +31,22 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_AddProd = new System.Windows.Forms.Label();
-            this.picture_Edit = new System.Windows.Forms.PictureBox();
-            this.picture_AddProd = new System.Windows.Forms.PictureBox();
             this.listView_Estoque = new System.Windows.Forms.ListView();
             this.label_EditEstoq = new System.Windows.Forms.Label();
+            this.btn_AtualizarLista = new System.Windows.Forms.Button();
+            this.picture_Edit = new System.Windows.Forms.PictureBox();
+            this.picture_AddProd = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -66,17 +67,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Estoque";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_kthememgr_7240;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // menuStrip1
             // 
@@ -114,32 +104,11 @@ namespace GerenciadorDeEstoque.Apresentação
             // label_AddProd
             // 
             this.label_AddProd.AutoSize = true;
-            this.label_AddProd.Location = new System.Drawing.Point(231, 82);
+            this.label_AddProd.Location = new System.Drawing.Point(146, 82);
             this.label_AddProd.Name = "label_AddProd";
             this.label_AddProd.Size = new System.Drawing.Size(94, 13);
             this.label_AddProd.TabIndex = 2;
             this.label_AddProd.Text = "Criar novo produto";
-            // 
-            // picture_Edit
-            // 
-            this.picture_Edit.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
-            this.picture_Edit.Location = new System.Drawing.Point(567, 41);
-            this.picture_Edit.Name = "picture_Edit";
-            this.picture_Edit.Size = new System.Drawing.Size(40, 38);
-            this.picture_Edit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picture_Edit.TabIndex = 4;
-            this.picture_Edit.TabStop = false;
-            // 
-            // picture_AddProd
-            // 
-            this.picture_AddProd.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
-            this.picture_AddProd.Location = new System.Drawing.Point(252, 41);
-            this.picture_AddProd.Name = "picture_AddProd";
-            this.picture_AddProd.Size = new System.Drawing.Size(48, 38);
-            this.picture_AddProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picture_AddProd.TabIndex = 2;
-            this.picture_AddProd.TabStop = false;
-            this.picture_AddProd.Click += new System.EventHandler(this.picture_AddProd_Click);
             // 
             // listView_Estoque
             // 
@@ -154,17 +123,60 @@ namespace GerenciadorDeEstoque.Apresentação
             // label_EditEstoq
             // 
             this.label_EditEstoq.AutoSize = true;
-            this.label_EditEstoq.Location = new System.Drawing.Point(552, 82);
+            this.label_EditEstoq.Location = new System.Drawing.Point(249, 82);
             this.label_EditEstoq.Name = "label_EditEstoq";
             this.label_EditEstoq.Size = new System.Drawing.Size(73, 13);
             this.label_EditEstoq.TabIndex = 6;
             this.label_EditEstoq.Text = "Editar produto";
+            // 
+            // btn_AtualizarLista
+            // 
+            this.btn_AtualizarLista.Location = new System.Drawing.Point(673, 72);
+            this.btn_AtualizarLista.Name = "btn_AtualizarLista";
+            this.btn_AtualizarLista.Size = new System.Drawing.Size(103, 23);
+            this.btn_AtualizarLista.TabIndex = 7;
+            this.btn_AtualizarLista.Text = "Atualizar lista";
+            this.btn_AtualizarLista.UseVisualStyleBackColor = true;
+            this.btn_AtualizarLista.Click += new System.EventHandler(this.btn_AtualizarLista_Click);
+            // 
+            // picture_Edit
+            // 
+            this.picture_Edit.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
+            this.picture_Edit.Location = new System.Drawing.Point(264, 41);
+            this.picture_Edit.Name = "picture_Edit";
+            this.picture_Edit.Size = new System.Drawing.Size(40, 38);
+            this.picture_Edit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picture_Edit.TabIndex = 4;
+            this.picture_Edit.TabStop = false;
+            // 
+            // picture_AddProd
+            // 
+            this.picture_AddProd.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
+            this.picture_AddProd.Location = new System.Drawing.Point(167, 41);
+            this.picture_AddProd.Name = "picture_AddProd";
+            this.picture_AddProd.Size = new System.Drawing.Size(48, 38);
+            this.picture_AddProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picture_AddProd.TabIndex = 2;
+            this.picture_AddProd.TabStop = false;
+            this.picture_AddProd.Click += new System.EventHandler(this.picture_AddProd_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_kthememgr_7240;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_AtualizarLista);
             this.Controls.Add(this.label_EditEstoq);
             this.Controls.Add(this.listView_Estoque);
             this.Controls.Add(this.picture_Edit);
@@ -177,11 +189,11 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Text = "X";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +213,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox picture_Edit;
         private System.Windows.Forms.ListView listView_Estoque;
         private System.Windows.Forms.Label label_EditEstoq;
+        private System.Windows.Forms.Button btn_AtualizarLista;
     }
 }

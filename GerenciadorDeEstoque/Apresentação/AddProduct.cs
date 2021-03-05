@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDeEstoque.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace GerenciadorDeEstoque.Apresentação
 {
     public partial class AddProduct : Form
     {
+        TelaLogado refresh = new TelaLogado();
         public AddProduct()
         {
             InitializeComponent();
+        }
+
+        private void btn_Cadastrar_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text);
+            if (!txb_NomeProduto.Text.Equals("") && !txb_Preco.Equals("") && !txb_Quantidade.Equals(""))
+            {
+                MessageBox.Show("Produto cadastrado!");
+            }
         }
     }
 }

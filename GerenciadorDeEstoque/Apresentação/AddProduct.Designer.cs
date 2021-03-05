@@ -30,7 +30,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private void InitializeComponent()
         {
             this.label_nome = new System.Windows.Forms.Label();
-            this.txb_Nome = new System.Windows.Forms.TextBox();
+            this.txb_NomeProduto = new System.Windows.Forms.TextBox();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
             this.txb_Cor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,12 +51,12 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label_nome.TabIndex = 0;
             this.label_nome.Text = "NOME";
             // 
-            // txb_Nome
+            // txb_NomeProduto
             // 
-            this.txb_Nome.Location = new System.Drawing.Point(199, 51);
-            this.txb_Nome.Name = "txb_Nome";
-            this.txb_Nome.Size = new System.Drawing.Size(244, 20);
-            this.txb_Nome.TabIndex = 1;
+            this.txb_NomeProduto.Location = new System.Drawing.Point(199, 51);
+            this.txb_NomeProduto.Name = "txb_NomeProduto";
+            this.txb_NomeProduto.Size = new System.Drawing.Size(244, 20);
+            this.txb_NomeProduto.TabIndex = 1;
             // 
             // btn_Cadastrar
             // 
@@ -66,6 +66,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_Cadastrar.TabIndex = 2;
             this.btn_Cadastrar.Text = "CADASTRAR";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // txb_Cor
             // 
@@ -120,7 +121,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox1.Controls.Add(this.txb_Quantidade);
             this.groupBox1.Controls.Add(this.label_nome);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txb_Nome);
+            this.groupBox1.Controls.Add(this.txb_NomeProduto);
             this.groupBox1.Controls.Add(this.txb_Preco);
             this.groupBox1.Controls.Add(this.btn_Cadastrar);
             this.groupBox1.Controls.Add(this.label2);
@@ -150,7 +151,7 @@ namespace GerenciadorDeEstoque.Apresentação
         #endregion
 
         private System.Windows.Forms.Label label_nome;
-        private System.Windows.Forms.TextBox txb_Nome;
+        private System.Windows.Forms.TextBox txb_NomeProduto;
         private System.Windows.Forms.Button btn_Cadastrar;
         private System.Windows.Forms.TextBox txb_Cor;
         private System.Windows.Forms.Label label1;

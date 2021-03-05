@@ -45,6 +45,7 @@ namespace GerenciadorDeEstoque.Apresentação
             label_AddProd.Hide();
             label_EditEstoq.Hide();
             listView_Estoque.Hide();
+            btn_AtualizarLista.Hide();
         }
         private void GerarColunas()
         {
@@ -62,10 +63,11 @@ namespace GerenciadorDeEstoque.Apresentação
             picture_Edit.Show();
             label_AddProd.Show();
             label_EditEstoq.Show();
+            btn_AtualizarLista.Show();
         }
 
         // Método para passar os dados do BD para a List View
-        private void AdicionarItemListView()
+        public void AdicionarItemListView()
         {
             // método para exibir os botões visuais do estoque
             ExibirEstoque();
@@ -120,9 +122,43 @@ namespace GerenciadorDeEstoque.Apresentação
             AddProduto.Start();
         }
 
+        // Método para abrir a tela para Adicionar um novo produto
         private void TelaAddProduct()
         {
             Application.Run(new AddProduct());
+        }
+
+        // Método para atualizar a ListView
+        private void RefreshList()
+        {
+            // Limpar o campo da List View
+            listView_Estoque.Items.Clear();
+
+            // Lógica para atualizar a list view
+            con.Open();
+            cmdListView = new SqlCommand("select * from produtos", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Estoque.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+
+            }
+        }
+        private void btn_AtualizarLista_Click(object sender, EventArgs e)
+        {
+            RefreshList();
         }
     }
 }

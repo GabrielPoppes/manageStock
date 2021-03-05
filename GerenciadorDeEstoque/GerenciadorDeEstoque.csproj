@@ -89,6 +89,9 @@
     <EmbeddedResource Include="Apresentação\TelaLogado.resx">
       <DependentUpon>TelaLogado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DAO\LoginDaoComandos.resx">
+      <DependentUpon>LoginDaoComandos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_General_Office_09_2530835.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_icon-ios7-refresh_211814.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
