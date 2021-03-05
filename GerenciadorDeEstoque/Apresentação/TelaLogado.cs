@@ -39,8 +39,19 @@ namespace GerenciadorDeEstoque.Apresentação
             InitializeComponent();
             EsconderBotoesEstoque();
             GerarColunas();
+            EsconderBotoesCliente();
         }
 
+        // Mostrar interface gráfica do cliente
+        private void MostrarBotoesCliente()
+        {
+            gpb_Cliente.Show();
+        }
+        // Esconder interface gráfica do cliente
+        private void EsconderBotoesCliente()
+        {
+            gpb_Cliente.Hide();
+        }
         // Esconder interface gráfica do estoque
         private void EsconderBotoesEstoque()
         {
@@ -120,7 +131,8 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão com imagem (ESTOQUE)
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AdicionarItemListView();            
+            AdicionarItemListView();
+            EsconderBotoesCliente();
         }
 
         // Imagem do "Criar novo produto"
@@ -185,6 +197,12 @@ namespace GerenciadorDeEstoque.Apresentação
         private void EditProduct()
         {
             Application.Run(new EditarProduto());
+        }
+
+        private void btnImg_Cliente_Click(object sender, EventArgs e)
+        {
+            EsconderBotoesEstoque();
+            MostrarBotoesCliente();
         }
     }
 }

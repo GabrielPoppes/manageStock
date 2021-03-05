@@ -136,5 +136,8 @@
   <ItemGroup>
     <None Include="Resources\iconfinder_icon-ios7-refresh_211814.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_User_Customers_1218712.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
