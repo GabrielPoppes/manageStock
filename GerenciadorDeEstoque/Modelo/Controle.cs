@@ -41,7 +41,20 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para editar o produto no estoque
+        // Método para editar o produto no estoque (REMOVER QNT)
+        public string EditarProdutosRemvQnt(string id, string quantidade)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.EditarProdutoRemoverQnt(id, quantidade);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
+
+        // Método para editar o produto no estoque (ADICIONAR QNT)
         public string EditarProdutos(string id, string quantidade)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();

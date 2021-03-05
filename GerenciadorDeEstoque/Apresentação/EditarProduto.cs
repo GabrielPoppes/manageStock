@@ -18,10 +18,22 @@ namespace GerenciadorDeEstoque.Apresentação
             InitializeComponent();
         }
 
+        // ADICIONAR QUANTIDADE DO PRODUTO
         private void btn_AddQnt_Click(object sender, EventArgs e)
         {
             Controle controle = new Controle();
             string mensagem = controle.EditarProdutos(txb_idProduto.Text, txb_Quantidade.Text);
+            if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
+            {
+                MessageBox.Show("Produto editado!");
+            }
+        }
+
+        // REMOVER QUANTIDADE DO PRODUTO
+        private void btn_rmvQnt_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            string mensagem = controle.EditarProdutosRemvQnt(txb_idProduto.Text, txb_Quantidade.Text);
             if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
             {
                 MessageBox.Show("Produto editado!");

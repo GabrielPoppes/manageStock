@@ -106,6 +106,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_rmvQnt.TabIndex = 9;
             this.btn_rmvQnt.Text = "REMOVER";
             this.btn_rmvQnt.UseVisualStyleBackColor = true;
+            this.btn_rmvQnt.Click += new System.EventHandler(this.btn_rmvQnt_Click);
             // 
             // btn_deleteProduto
             // 
