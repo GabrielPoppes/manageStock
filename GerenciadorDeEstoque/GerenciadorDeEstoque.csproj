@@ -58,6 +58,12 @@
     <Compile Include="Apresentação\Cadastrar.Designer.cs">
       <DependentUpon>Cadastrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\EditarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\EditarProduto.Designer.cs">
+      <DependentUpon>EditarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentação\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Cadastrar.resx">
       <DependentUpon>Cadastrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\EditarProduto.resx">
+      <DependentUpon>EditarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

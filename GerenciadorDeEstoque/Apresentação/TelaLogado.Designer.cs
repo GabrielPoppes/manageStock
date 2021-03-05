@@ -31,6 +31,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,12 +42,11 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_AtualizarLista = new System.Windows.Forms.Button();
             this.picture_Edit = new System.Windows.Forms.PictureBox();
             this.picture_AddProd = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -67,6 +67,17 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Estoque";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_kthememgr_7240;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // menuStrip1
             // 
@@ -148,6 +159,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_Edit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture_Edit.TabIndex = 4;
             this.picture_Edit.TabStop = false;
+            this.picture_Edit.Click += new System.EventHandler(this.picture_Edit_Click);
             // 
             // picture_AddProd
             // 
@@ -159,17 +171,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_AddProd.TabIndex = 2;
             this.picture_AddProd.TabStop = false;
             this.picture_AddProd.Click += new System.EventHandler(this.picture_AddProd_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_kthememgr_7240;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TelaLogado
             // 
@@ -189,11 +190,11 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Text = "X";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

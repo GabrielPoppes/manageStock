@@ -20,6 +20,9 @@ namespace GerenciadorDeEstoque.Apresentação
         // Thread da tela de adicionar novo produto no estoque
         Thread AddProduto;
 
+        // Thred da tela de editar produto no estoque;
+        Thread EditarProduto;
+
         // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
 
@@ -159,6 +162,21 @@ namespace GerenciadorDeEstoque.Apresentação
         private void btn_AtualizarLista_Click(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        // Botão Editar Produtos do estoque
+        private void picture_Edit_Click(object sender, EventArgs e)
+        {
+            // Lógica para chamar a tela (thread) editar produtos
+            EditarProduto = new Thread(EditProduct);
+            EditarProduto.SetApartmentState(ApartmentState.MTA);
+            EditarProduto.Start();
+        }
+
+
+        private void EditProduct()
+        {
+            Application.Run(new EditarProduto());
         }
     }
 }

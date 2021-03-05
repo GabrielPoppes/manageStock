@@ -62,6 +62,33 @@ namespace GerenciadorDeEstoque.DAO
             }
             return check;
         }
+        // Método para editar o Produto no estoque
+        public string EditarProduto(string id, string quantidade)
+        {
+            if(!id.Equals("") && !quantidade.Equals(""))
+            {
+                comando.CommandText = "update produtos set quantidade = quantidade + @quantidade where idproduto = @id;";
+                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@quantidade", quantidade);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Produto editado!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro no cadastro do produto!";
+                }
+            }
+            return mensagem;
+        }
         
         // Método para cadastrar o Produto no estoque
         public string CadastrarProduto(string nome, string cor, string preco, string quantidade)
