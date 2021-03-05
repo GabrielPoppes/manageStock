@@ -37,11 +37,12 @@ namespace GerenciadorDeEstoque.Apresentação
         public TelaLogado()
         {
             InitializeComponent();
-            EsconderBotoes();
+            EsconderBotoesEstoque();
             GerarColunas();
         }
 
-        private void EsconderBotoes()
+        // Esconder interface gráfica do estoque
+        private void EsconderBotoesEstoque()
         {
             picture_AddProd.Hide();
             picture_Edit.Hide();
@@ -50,15 +51,8 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Estoque.Hide();
             btn_AtualizarLista.Hide();
         }
-        private void GerarColunas()
-        {
-            listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
-        }
 
+        // Exibir interface gráfica do estoque
         private void ExibirEstoque()
         {
             listView_Estoque.Show();
@@ -68,6 +62,18 @@ namespace GerenciadorDeEstoque.Apresentação
             label_EditEstoq.Show();
             btn_AtualizarLista.Show();
         }
+
+        // Gerar colunas da List View
+        private void GerarColunas()
+        {
+            listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
+        }
+
+        
 
         // Método para passar os dados do BD para a List View
         public void AdicionarItemListView()
@@ -159,6 +165,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
             }
         }
+        // Botão Atualizar list View
         private void btn_AtualizarLista_Click(object sender, EventArgs e)
         {
             RefreshList();
@@ -174,6 +181,7 @@ namespace GerenciadorDeEstoque.Apresentação
         }
 
 
+        // Chamando a tela para Editar produtos do estoque
         private void EditProduct()
         {
             Application.Run(new EditarProduto());
