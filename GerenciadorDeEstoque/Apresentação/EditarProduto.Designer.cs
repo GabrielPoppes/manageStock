@@ -116,6 +116,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_deleteProduto.TabIndex = 10;
             this.btn_deleteProduto.Text = "EXCLUIR PRODUTO";
             this.btn_deleteProduto.UseVisualStyleBackColor = true;
+            this.btn_deleteProduto.Click += new System.EventHandler(this.btn_deleteProduto_Click);
             // 
             // EditarProduto
             // 

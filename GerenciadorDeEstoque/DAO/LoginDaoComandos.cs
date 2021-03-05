@@ -63,6 +63,33 @@ namespace GerenciadorDeEstoque.DAO
             return check;
         }
 
+        // Método para remover o produto do estoque
+        public string RemoverProdutoEstoque(string id)
+        {
+            if (!id.Equals(""))
+            {
+                comando.CommandText = "delete from produtos where idproduto = @id;";
+                comando.Parameters.AddWithValue("@id", id);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Produto removido!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro na removação do produto!";
+                }
+            }
+            return mensagem;
+        }
+
         // Método para editar o Produto no estoque (EDITAR)
         public string EditarProdutoRemoverQnt(string id, string quantidade)
         {
@@ -78,14 +105,14 @@ namespace GerenciadorDeEstoque.DAO
                     comando.Connection = conect.Conectar();
                     comando.ExecuteNonQuery();
                     conect.Desconectar();
-                    this.mensagem = "Produto editado!";
+                    this.mensagem = "Quantidade removida com sucesso!";
 
                     check = true;
                 }
 
                 catch (SqlException)
                 {
-                    this.mensagem = "Erro no cadastro do produto!";
+                    this.mensagem = "Erro na remoção da quantia do produto!";
                 }
             }
             return mensagem;
@@ -106,14 +133,14 @@ namespace GerenciadorDeEstoque.DAO
                     comando.Connection = conect.Conectar();
                     comando.ExecuteNonQuery();
                     conect.Desconectar();
-                    this.mensagem = "Produto editado!";
+                    this.mensagem = "Quantidade adicionada com sucesso!";
 
                     check = true;
                 }
 
                 catch (SqlException)
                 {
-                    this.mensagem = "Erro no cadastro do produto!";
+                    this.mensagem = "Erro na adição de quantidade do produto!";
                 }
             }
             return mensagem;

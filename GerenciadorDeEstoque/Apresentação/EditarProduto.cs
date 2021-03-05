@@ -25,7 +25,7 @@ namespace GerenciadorDeEstoque.Apresentação
             string mensagem = controle.EditarProdutos(txb_idProduto.Text, txb_Quantidade.Text);
             if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
             {
-                MessageBox.Show("Produto editado!");
+                MessageBox.Show("Quantidade adicionada com sucesso!");
             }
         }
 
@@ -36,7 +36,18 @@ namespace GerenciadorDeEstoque.Apresentação
             string mensagem = controle.EditarProdutosRemvQnt(txb_idProduto.Text, txb_Quantidade.Text);
             if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
             {
-                MessageBox.Show("Produto editado!");
+                MessageBox.Show("Quantidade removida com sucesso!");
+            }
+        }
+
+        // REMOVER PRODUTO DO ESTOQUE
+        private void btn_deleteProduto_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            string mensagem = controle.RemoverProductEstoque(txb_idProduto.Text);
+            if (!txb_idProduto.Text.Equals(""))
+            {
+                MessageBox.Show("Produto removido com sucesso!");
             }
         }
     }
