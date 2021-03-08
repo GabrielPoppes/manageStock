@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apresentação\AddClient.cs">
+    <Compile Include="Apresentação\Cliente\AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentação\AddClient.Designer.cs">
+    <Compile Include="Apresentação\Cliente\AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentação\AddProduct.cs">
+    <Compile Include="Apresentação\Produto\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentação\AddProduct.Designer.cs">
+    <Compile Include="Apresentação\Produto\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentação\Cadastrar.cs">
@@ -64,10 +64,10 @@
     <Compile Include="Apresentação\Cadastrar.Designer.cs">
       <DependentUpon>Cadastrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentação\EditarProduto.cs">
+    <Compile Include="Apresentação\Produto\EditarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentação\EditarProduto.Designer.cs">
+    <Compile Include="Apresentação\Produto\EditarProduto.Designer.cs">
       <DependentUpon>EditarProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentação\Form1.cs">
@@ -89,16 +89,16 @@
     <Compile Include="Modelo\Controle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Apresentação\AddClient.resx">
+    <EmbeddedResource Include="Apresentação\Cliente\AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentação\AddProduct.resx">
+    <EmbeddedResource Include="Apresentação\Produto\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Cadastrar.resx">
       <DependentUpon>Cadastrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentação\EditarProduto.resx">
+    <EmbeddedResource Include="Apresentação\Produto\EditarProduto.resx">
       <DependentUpon>EditarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Form1.resx">
