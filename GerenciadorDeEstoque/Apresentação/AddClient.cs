@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDeEstoque.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,33 @@ namespace GerenciadorDeEstoque.Apresentação
             if(checkBox_Empresa.Checked == false)
             {
                 gpbox_PessoaFisica.Show();
+            }
+        }
+
+        // Método para limpar os campos do cadastro após criar o cadastro do cliente
+        private void LimparCamposClienteNovo()
+        {
+            txb_Nome.Clear();
+            txb_DataNascimento.Clear();
+            txb_Telefone.Clear();
+            txb_Telefone.Clear();
+            txb_Celular.Clear();
+            txb_RG.Clear();
+            txb_CPF.Clear();
+            txb_Endereco.Clear();
+            txb_Email.Clear();
+            txb_Observacoes.Clear();
+        }
+
+        // Botão Cadastrar cliente novo
+        private void btn_CadastrarCliente_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            string mensagem = controle.CadastrarClientesFisico(txb_Nome.Text, txb_DataNascimento.Text, txb_Telefone.Text, txb_Celular.Text, txb_RG.Text, txb_CPF.Text, txb_Endereco.Text, txb_Email.Text, txb_Observacoes.Text);
+            if (!txb_Nome.Text.Equals("") && !txb_DataNascimento.Equals("") && !txb_Telefone.Equals("") && !txb_Celular.Equals("") && !txb_RG.Equals("") && !txb_CPF.Equals("") && !txb_Endereco.Equals("") && !txb_Email.Equals("") && !txb_Observacoes.Equals(""))
+            {
+                MessageBox.Show("Cliente cadastrado!");
+                LimparCamposClienteNovo();
             }
         }
     }

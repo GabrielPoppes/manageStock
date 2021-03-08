@@ -91,5 +91,18 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
+
+        // Método para cadastrar cliente físico
+        public string CadastrarClientesFisico(string nome, string datanascimento, string telefone, string celular, string rg, string cpf, string endereco, string email, string observacoes)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.AddClienteFisico(nome, datanascimento, telefone, celular, rg, cpf, endereco, email, observacoes);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
     }
 }

@@ -176,6 +176,40 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
+        // Método para adicionar novo Cliente Físico
+        public string AddClienteFisico(string nome, string datanascimento, string telefone, string celular, string rg, string cpf, string endereco, string email, string observacoes)
+        {
+            if (!nome.Equals("") && !datanascimento.Equals("") && !celular.Equals("") && !cpf.Equals("") && !endereco.Equals("") && !email.Equals(""))
+            {
+                comando.CommandText = "insert into ClienteFisico(nome, datanascimento, telefone, celular, rg, cpf, endereco, email, observacoes)values(@nome, @datanascimento, @telefone, @celular, @rg, @cpf, @endereco, @email, @observacoes)";
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@datanascimento", datanascimento);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@celular", celular);
+                comando.Parameters.AddWithValue("@rg", rg);
+                comando.Parameters.AddWithValue("@cpf", cpf);
+                comando.Parameters.AddWithValue("@endereco", endereco);
+                comando.Parameters.AddWithValue("@email", email);
+                comando.Parameters.AddWithValue("@observacoes", observacoes);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Cliente adicionado com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro no cadastro do cliente!";
+                }
+            }
+            return mensagem;
+        }
 
 
         public string Cadastrar(string nome, string email, string senha, string confirmarsenha, string celular, string lembretesenha)

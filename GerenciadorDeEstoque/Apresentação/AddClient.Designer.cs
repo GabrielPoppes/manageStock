@@ -44,7 +44,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_Observacoes = new System.Windows.Forms.TextBox();
             this.txb_DataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.txb_Telefone = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txb_Celular = new System.Windows.Forms.MaskedTextBox();
             this.checkBox_Empresa = new System.Windows.Forms.CheckBox();
             this.gpbox_PessoaFisica = new System.Windows.Forms.GroupBox();
             this.btn_CadastrarCliente = new System.Windows.Forms.Button();
@@ -143,7 +143,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.txb_Email.Location = new System.Drawing.Point(149, 250);
             this.txb_Email.Name = "txb_Email";
-            this.txb_Email.Size = new System.Drawing.Size(100, 20);
+            this.txb_Email.Size = new System.Drawing.Size(355, 20);
             this.txb_Email.TabIndex = 16;
             // 
             // label10
@@ -179,13 +179,13 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_Telefone.Size = new System.Drawing.Size(190, 20);
             this.txb_Telefone.TabIndex = 21;
             // 
-            // maskedTextBox1
+            // txb_Celular
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(437, 146);
-            this.maskedTextBox1.Mask = "(000) 00000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(190, 20);
-            this.maskedTextBox1.TabIndex = 22;
+            this.txb_Celular.Location = new System.Drawing.Point(437, 146);
+            this.txb_Celular.Mask = "(000) 00000-0000";
+            this.txb_Celular.Name = "txb_Celular";
+            this.txb_Celular.Size = new System.Drawing.Size(190, 20);
+            this.txb_Celular.TabIndex = 22;
             // 
             // checkBox_Empresa
             // 
@@ -203,7 +203,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpbox_PessoaFisica.Controls.Add(this.txb_CPF);
             this.gpbox_PessoaFisica.Controls.Add(this.btn_CadastrarCliente);
             this.gpbox_PessoaFisica.Controls.Add(this.checkBox_Empresa);
-            this.gpbox_PessoaFisica.Controls.Add(this.maskedTextBox1);
+            this.gpbox_PessoaFisica.Controls.Add(this.txb_Celular);
             this.gpbox_PessoaFisica.Controls.Add(this.txb_Nome);
             this.gpbox_PessoaFisica.Controls.Add(this.txb_Telefone);
             this.gpbox_PessoaFisica.Controls.Add(this.label2);
@@ -234,6 +234,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_CadastrarCliente.TabIndex = 24;
             this.btn_CadastrarCliente.Text = "CADASTRAR CLIENTE";
             this.btn_CadastrarCliente.UseVisualStyleBackColor = true;
+            this.btn_CadastrarCliente.Click += new System.EventHandler(this.btn_CadastrarCliente_Click);
             // 
             // txb_CPF
             // 
@@ -280,7 +281,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.TextBox txb_Observacoes;
         private System.Windows.Forms.MaskedTextBox txb_DataNascimento;
         private System.Windows.Forms.MaskedTextBox txb_Telefone;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txb_Celular;
         private System.Windows.Forms.CheckBox checkBox_Empresa;
         private System.Windows.Forms.GroupBox gpbox_PessoaFisica;
         private System.Windows.Forms.Button btn_CadastrarCliente;
