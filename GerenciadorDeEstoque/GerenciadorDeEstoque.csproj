@@ -52,6 +52,12 @@
     <Compile Include="Apresentação\Cliente\AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\Cliente\AddClientCNPJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\Cliente\AddClientCNPJ.Designer.cs">
+      <DependentUpon>AddClientCNPJ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentação\Produto\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentação\Cliente\AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\Cliente\AddClientCNPJ.resx">
+      <DependentUpon>AddClientCNPJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Produto\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
