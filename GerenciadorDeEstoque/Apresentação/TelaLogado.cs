@@ -17,6 +17,8 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        // Thread da tela de adicionar novo cliente
+        Thread AddClients;
         // Thread da tela de adicionar novo produto no estoque
         Thread AddProduto;
 
@@ -203,6 +205,18 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             EsconderBotoesEstoque();
             MostrarBotoesCliente();
+        }
+
+        private void btn_NovoCliente_Click(object sender, EventArgs e)
+        {
+            AddClients = new Thread(TelaAddClients);
+            AddClients.SetApartmentState(ApartmentState.MTA);
+            AddClients.Start();
+        }
+
+        private void TelaAddClients()
+        {
+            Application.Run(new AddClient());
         }
     }
 }
