@@ -16,11 +16,7 @@ namespace GerenciadorDeEstoque.Apresentação
         public AddClient()
         {
             InitializeComponent();
-            // Tela pessoa jurídica começa escondida
-            gpbox_CNPJ.Hide();
         }
-        
-        
 
         // Método para limpar os campos do cadastro após criar o cadastro do cliente
         private void LimparCamposClienteNovo()
@@ -48,18 +44,5 @@ namespace GerenciadorDeEstoque.Apresentação
                 LimparCamposClienteNovo();
             }
         }
-
-        // Checar se está selecionado pessoa física ou jurídica
-        // Checked Tela Pessoa física
-        private void checkBox_Empresa_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox_Empresa.Checked == true)
-            {
-                gpbox_PessoaFisica.Hide();
-                gpbox_CNPJ.Show();
-                checkBox_Tipo.Checked = true;
-            }
-
-        }
-    }
+}
 }

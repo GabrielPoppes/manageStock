@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GerenciadorDeEstoque.Apresentação.Cliente
 {
-    public partial class AddClientCNPJ : Form
+    public partial class AddClienteCNPJ : Form
     {
-        public AddClientCNPJ()
+        public AddClienteCNPJ()
         {
             InitializeComponent();
         }

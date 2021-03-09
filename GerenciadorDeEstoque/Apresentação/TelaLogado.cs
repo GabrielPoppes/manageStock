@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using GerenciadorDeEstoque.Apresentação.Cliente;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
@@ -17,7 +18,10 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
-        // Thread da tela de adicionar novo cliente
+        // Thread da tela de adicionar novo cliente jurídico
+        Thread AddClientsCNPJ;
+
+        // Thread da tela de adicionar novo cliente físico
         Thread AddClients;
         // Thread da tela de adicionar novo produto no estoque
         Thread AddProduto;
@@ -217,6 +221,19 @@ namespace GerenciadorDeEstoque.Apresentação
         private void TelaAddClients()
         {
             Application.Run(new AddClient());
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            // Lógica para chamar a tela (thread) cliente novo juridico
+            AddClientsCNPJ = new Thread(AddClienteCNPJ);
+            AddClientsCNPJ.SetApartmentState(ApartmentState.MTA);
+            AddClientsCNPJ.Start();
+        }
+
+        private void AddClienteCNPJ()
+        {
+            Application.Run(new AddClienteCNPJ());
         }
     }
 }

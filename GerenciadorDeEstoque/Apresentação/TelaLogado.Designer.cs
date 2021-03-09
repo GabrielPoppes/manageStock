@@ -50,6 +50,8 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Clientes = new System.Windows.Forms.ListView();
             this.picture_AddProd = new System.Windows.Forms.PictureBox();
             this.picture_Edit = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,6 +61,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -201,6 +204,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpb_Cliente
             // 
+            this.gpb_Cliente.Controls.Add(this.pictureBox2);
+            this.gpb_Cliente.Controls.Add(this.label5);
             this.gpb_Cliente.Controls.Add(this.btn_NovoCliente);
             this.gpb_Cliente.Controls.Add(this.label3);
             this.gpb_Cliente.Controls.Add(this.label4);
@@ -235,9 +240,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(31, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Novo cliente";
+            this.label4.Text = "Cliente físico";
             // 
             // listView_Clientes
             // 
@@ -270,6 +275,26 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_Edit.TabStop = false;
             this.picture_Edit.Click += new System.EventHandler(this.picture_Edit_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
+            this.pictureBox2.Location = new System.Drawing.Point(127, 27);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(116, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Cliente jurídico";
+            // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +319,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +348,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox btn_NovoCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
     }
 }
