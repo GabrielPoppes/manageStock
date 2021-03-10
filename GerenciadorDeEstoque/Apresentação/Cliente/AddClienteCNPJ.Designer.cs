@@ -32,39 +32,39 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.gpbox_CNPJ = new System.Windows.Forms.GroupBox();
             this.txb_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txb_NomeCNPJ = new System.Windows.Forms.TextBox();
+            this.txb_telefoneCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txb_observacoes = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txb_email = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.CNPJ = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txb_endereco = new System.Windows.Forms.TextBox();
+            this.txb_celularCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.gpbox_CNPJ.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbox_CNPJ
             // 
+            this.gpbox_CNPJ.Controls.Add(this.txb_celularCNPJ);
             this.gpbox_CNPJ.Controls.Add(this.txb_CNPJ);
             this.gpbox_CNPJ.Controls.Add(this.button1);
-            this.gpbox_CNPJ.Controls.Add(this.maskedTextBox1);
-            this.gpbox_CNPJ.Controls.Add(this.textBox1);
-            this.gpbox_CNPJ.Controls.Add(this.maskedTextBox2);
+            this.gpbox_CNPJ.Controls.Add(this.txb_NomeCNPJ);
+            this.gpbox_CNPJ.Controls.Add(this.txb_telefoneCNPJ);
             this.gpbox_CNPJ.Controls.Add(this.label1);
             this.gpbox_CNPJ.Controls.Add(this.label11);
             this.gpbox_CNPJ.Controls.Add(this.label12);
-            this.gpbox_CNPJ.Controls.Add(this.textBox2);
+            this.gpbox_CNPJ.Controls.Add(this.txb_observacoes);
             this.gpbox_CNPJ.Controls.Add(this.label13);
-            this.gpbox_CNPJ.Controls.Add(this.textBox3);
+            this.gpbox_CNPJ.Controls.Add(this.txb_email);
             this.gpbox_CNPJ.Controls.Add(this.label14);
             this.gpbox_CNPJ.Controls.Add(this.CNPJ);
             this.gpbox_CNPJ.Controls.Add(this.label15);
-            this.gpbox_CNPJ.Controls.Add(this.textBox4);
+            this.gpbox_CNPJ.Controls.Add(this.txb_endereco);
             this.gpbox_CNPJ.Location = new System.Drawing.Point(12, 12);
             this.gpbox_CNPJ.Name = "gpbox_CNPJ";
             this.gpbox_CNPJ.Size = new System.Drawing.Size(776, 426);
@@ -74,7 +74,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             // txb_CNPJ
             // 
             this.txb_CNPJ.Location = new System.Drawing.Point(149, 147);
-            this.txb_CNPJ.Mask = "000.000.000-00";
+            this.txb_CNPJ.Mask = "00.000.000/0000-00";
             this.txb_CNPJ.Name = "txb_CNPJ";
             this.txb_CNPJ.Size = new System.Drawing.Size(190, 20);
             this.txb_CNPJ.TabIndex = 25;
@@ -87,29 +87,22 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.button1.TabIndex = 24;
             this.button1.Text = "CADASTRAR CLIENTE";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // maskedTextBox1
+            // txb_NomeCNPJ
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(436, 120);
-            this.maskedTextBox1.Mask = "(000) 00000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(190, 20);
-            this.maskedTextBox1.TabIndex = 22;
+            this.txb_NomeCNPJ.Location = new System.Drawing.Point(149, 94);
+            this.txb_NomeCNPJ.Name = "txb_NomeCNPJ";
+            this.txb_NomeCNPJ.Size = new System.Drawing.Size(431, 20);
+            this.txb_NomeCNPJ.TabIndex = 2;
             // 
-            // textBox1
+            // txb_telefoneCNPJ
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(431, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(149, 120);
-            this.maskedTextBox2.Mask = "(000) 0000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(190, 20);
-            this.maskedTextBox2.TabIndex = 21;
+            this.txb_telefoneCNPJ.Location = new System.Drawing.Point(149, 120);
+            this.txb_telefoneCNPJ.Mask = "(000) 0000-0000";
+            this.txb_telefoneCNPJ.Name = "txb_telefoneCNPJ";
+            this.txb_telefoneCNPJ.Size = new System.Drawing.Size(190, 20);
+            this.txb_telefoneCNPJ.TabIndex = 21;
             // 
             // label1
             // 
@@ -138,12 +131,12 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.label12.TabIndex = 7;
             this.label12.Text = "TELEFONE";
             // 
-            // textBox2
+            // txb_observacoes
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(590, 20);
-            this.textBox2.TabIndex = 18;
+            this.txb_observacoes.Location = new System.Drawing.Point(148, 225);
+            this.txb_observacoes.Name = "txb_observacoes";
+            this.txb_observacoes.Size = new System.Drawing.Size(590, 20);
+            this.txb_observacoes.TabIndex = 18;
             // 
             // label13
             // 
@@ -154,12 +147,12 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.label13.TabIndex = 17;
             this.label13.Text = "E-MAIL";
             // 
-            // textBox3
+            // txb_email
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 199);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(355, 20);
-            this.textBox3.TabIndex = 16;
+            this.txb_email.Location = new System.Drawing.Point(148, 199);
+            this.txb_email.Name = "txb_email";
+            this.txb_email.Size = new System.Drawing.Size(355, 20);
+            this.txb_email.TabIndex = 16;
             // 
             // label14
             // 
@@ -188,12 +181,20 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.label15.TabIndex = 13;
             this.label15.Text = "ENDEREÇO";
             // 
-            // textBox4
+            // txb_endereco
             // 
-            this.textBox4.Location = new System.Drawing.Point(148, 173);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(590, 20);
-            this.textBox4.TabIndex = 12;
+            this.txb_endereco.Location = new System.Drawing.Point(148, 173);
+            this.txb_endereco.Name = "txb_endereco";
+            this.txb_endereco.Size = new System.Drawing.Size(590, 20);
+            this.txb_endereco.TabIndex = 12;
+            // 
+            // txb_celularCNPJ
+            // 
+            this.txb_celularCNPJ.Location = new System.Drawing.Point(425, 120);
+            this.txb_celularCNPJ.Mask = "(000) 00000-0000";
+            this.txb_celularCNPJ.Name = "txb_celularCNPJ";
+            this.txb_celularCNPJ.Size = new System.Drawing.Size(190, 20);
+            this.txb_celularCNPJ.TabIndex = 26;
             // 
             // AddClienteCNPJ
             // 
@@ -214,18 +215,18 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
         private System.Windows.Forms.GroupBox gpbox_CNPJ;
         private System.Windows.Forms.MaskedTextBox txb_CNPJ;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.TextBox txb_NomeCNPJ;
+        private System.Windows.Forms.MaskedTextBox txb_telefoneCNPJ;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txb_observacoes;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txb_email;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label CNPJ;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txb_endereco;
+        private System.Windows.Forms.MaskedTextBox txb_celularCNPJ;
     }
 }

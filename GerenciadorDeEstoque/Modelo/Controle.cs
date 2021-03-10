@@ -104,5 +104,18 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
+
+        // Método para cadastrar cliente jurídico / CNPJ
+        public string CadastrarClientesJuridicos(string nome, string telefone, string celular, string cpf, string endereco, string email, string observacoes)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.AddClienteJuridico(nome, telefone, celular, cpf, endereco, email, observacoes);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
     }
 }

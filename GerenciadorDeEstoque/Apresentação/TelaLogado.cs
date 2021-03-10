@@ -46,6 +46,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesEstoque();
             GerarColunas();
             EsconderBotoesCliente();
+            GerarColunasClientes();
         }
 
         // Mostrar interface gráfica do cliente
@@ -80,7 +81,7 @@ namespace GerenciadorDeEstoque.Apresentação
             btn_AtualizarLista.Show();
         }
 
-        // Gerar colunas da List View
+        // Gerar colunas da List View Produtos
         private void GerarColunas()
         {
             listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
@@ -90,7 +91,22 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
         }
 
-        
+        // Gerar colunas da List View Clientes
+        private void GerarColunasClientes()
+        {
+            listView_Clientes.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Data de nascimento", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Telefone", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Celular", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("RG", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("CPF", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Endereço", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("E-mail", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Observações", 100).TextAlign = HorizontalAlignment.Center;
+        }
+
+
 
         // Método para passar os dados do BD para a List View
         public void AdicionarItemListView()
@@ -234,6 +250,11 @@ namespace GerenciadorDeEstoque.Apresentação
         private void AddClienteCNPJ()
         {
             Application.Run(new AddClienteCNPJ());
+        }
+
+        private void gpb_Cliente_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

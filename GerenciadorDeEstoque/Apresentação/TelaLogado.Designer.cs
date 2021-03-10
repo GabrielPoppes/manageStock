@@ -44,24 +44,24 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_AtualizarLista = new System.Windows.Forms.Button();
             this.gpb_Estoque = new System.Windows.Forms.GroupBox();
             this.gpb_Cliente = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btn_NovoCliente = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listView_Clientes = new System.Windows.Forms.ListView();
             this.picture_AddProd = new System.Windows.Forms.PictureBox();
             this.picture_Edit = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gpb_Estoque.SuspendLayout();
             this.gpb_Cliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -122,7 +122,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.arquivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1167, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -163,7 +163,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Estoque.HideSelection = false;
             this.listView_Estoque.Location = new System.Drawing.Point(16, 106);
             this.listView_Estoque.Name = "listView_Estoque";
-            this.listView_Estoque.Size = new System.Drawing.Size(631, 312);
+            this.listView_Estoque.Size = new System.Drawing.Size(1013, 488);
             this.listView_Estoque.TabIndex = 5;
             this.listView_Estoque.UseCompatibleStateImageBehavior = false;
             this.listView_Estoque.View = System.Windows.Forms.View.Details;
@@ -198,7 +198,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpb_Estoque.Controls.Add(this.picture_Edit);
             this.gpb_Estoque.Location = new System.Drawing.Point(126, -9);
             this.gpb_Estoque.Name = "gpb_Estoque";
-            this.gpb_Estoque.Size = new System.Drawing.Size(674, 447);
+            this.gpb_Estoque.Size = new System.Drawing.Size(1041, 634);
             this.gpb_Estoque.TabIndex = 8;
             this.gpb_Estoque.TabStop = false;
             // 
@@ -212,9 +212,30 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpb_Cliente.Controls.Add(this.listView_Clientes);
             this.gpb_Cliente.Location = new System.Drawing.Point(0, 9);
             this.gpb_Cliente.Name = "gpb_Cliente";
-            this.gpb_Cliente.Size = new System.Drawing.Size(668, 451);
+            this.gpb_Cliente.Size = new System.Drawing.Size(1041, 625);
             this.gpb_Cliente.TabIndex = 8;
             this.gpb_Cliente.TabStop = false;
+            this.gpb_Cliente.Enter += new System.EventHandler(this.gpb_Cliente_Enter);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
+            this.pictureBox2.Location = new System.Drawing.Point(127, 27);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(116, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Cliente jurídico";
             // 
             // btn_NovoCliente
             // 
@@ -247,11 +268,12 @@ namespace GerenciadorDeEstoque.Apresentação
             // listView_Clientes
             // 
             this.listView_Clientes.HideSelection = false;
-            this.listView_Clientes.Location = new System.Drawing.Point(20, 89);
+            this.listView_Clientes.Location = new System.Drawing.Point(16, 97);
             this.listView_Clientes.Name = "listView_Clientes";
-            this.listView_Clientes.Size = new System.Drawing.Size(627, 334);
+            this.listView_Clientes.Size = new System.Drawing.Size(1013, 501);
             this.listView_Clientes.TabIndex = 0;
             this.listView_Clientes.UseCompatibleStateImageBehavior = false;
+            this.listView_Clientes.View = System.Windows.Forms.View.Details;
             // 
             // picture_AddProd
             // 
@@ -275,31 +297,11 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_Edit.TabStop = false;
             this.picture_Edit.Click += new System.EventHandler(this.picture_Edit_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
-            this.pictureBox2.Location = new System.Drawing.Point(127, 27);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Cliente jurídico";
-            // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1167, 625);
             this.Controls.Add(this.gpb_Estoque);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
@@ -316,10 +318,10 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpb_Estoque.PerformLayout();
             this.gpb_Cliente.ResumeLayout(false);
             this.gpb_Cliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

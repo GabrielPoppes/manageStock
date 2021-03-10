@@ -121,7 +121,7 @@ namespace GerenciadorDeEstoque.DAO
         // Método para editar o Produto no estoque (ADICIONAR)
         public string EditarProduto(string id, string quantidade)
         {
-            if(!id.Equals("") && !quantidade.Equals(""))
+            if (!id.Equals("") && !quantidade.Equals(""))
             {
                 comando.CommandText = "update produtos set quantidade = quantidade + @quantidade where idproduto = @id;";
                 comando.Parameters.AddWithValue("@id", id);
@@ -145,7 +145,7 @@ namespace GerenciadorDeEstoque.DAO
             }
             return mensagem;
         }
-        
+
         // Método para cadastrar o Produto no estoque
         public string CadastrarProduto(string nome, string cor, string preco, string quantidade)
         {
@@ -187,6 +187,39 @@ namespace GerenciadorDeEstoque.DAO
                 comando.Parameters.AddWithValue("@telefone", telefone);
                 comando.Parameters.AddWithValue("@celular", celular);
                 comando.Parameters.AddWithValue("@rg", rg);
+                comando.Parameters.AddWithValue("@cpf", cpf);
+                comando.Parameters.AddWithValue("@endereco", endereco);
+                comando.Parameters.AddWithValue("@email", email);
+                comando.Parameters.AddWithValue("@observacoes", observacoes);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Cliente adicionado com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro no cadastro do cliente!";
+                }
+            }
+            return mensagem;
+        }
+
+        // Método para adicionar novo Cliente Juridico / CNPJ
+        public string AddClienteJuridico(string nome, string telefone, string celular, string cpf, string endereco, string email, string observacoes)
+        {
+            if (!nome.Equals("") && !celular.Equals("") && !cpf.Equals("") && !endereco.Equals("") && !email.Equals(""))
+            {
+                comando.CommandText = "insert into ClienteFisico(nome, telefone, celular, cpf, endereco, email, observacoes)values(@nome, @telefone, @celular, @cpf, @endereco, @email, @observacoes)";
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@celular", celular);
                 comando.Parameters.AddWithValue("@cpf", cpf);
                 comando.Parameters.AddWithValue("@endereco", endereco);
                 comando.Parameters.AddWithValue("@email", email);
@@ -271,7 +304,7 @@ namespace GerenciadorDeEstoque.DAO
             {
                 MessageBox.Show("Digite um e-mail válido!");
             }
-            
+
             return mensagem;
         }
 
