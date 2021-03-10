@@ -253,7 +253,7 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Run(new AddClienteCNPJ());
         }
 
-        // Método para passar os dados do BD para a List View
+        // Método para passar os dados do BD para a List View (clientes)
         public void AdicionarItemListViewCliente()
         {
             // Conectar com o banco de dados
