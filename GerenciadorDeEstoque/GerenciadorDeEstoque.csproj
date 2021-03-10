@@ -58,6 +58,12 @@
     <Compile Include="Apresentação\Cliente\AddClienteCNPJ.Designer.cs">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\Pedido\Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\Pedido\Pedidos.Designer.cs">
+      <DependentUpon>Pedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentação\Produto\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Cliente\AddClienteCNPJ.resx">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\Pedido\Pedidos.resx">
+      <DependentUpon>Pedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Produto\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
@@ -156,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_User_Customers_1218712.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3688519-128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

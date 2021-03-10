@@ -63,6 +63,16 @@ namespace GerenciadorDeEstoque.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3688519_128 {
+            get {
+                object obj = ResourceManager.GetObject("3688519-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_General_Office_09_2530835 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_General_Office_09_2530835", resourceCulture);
