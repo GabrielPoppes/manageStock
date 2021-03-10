@@ -155,6 +155,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             AdicionarItemListView();
             EsconderBotoesCliente();
+            RefreshList();
         }
 
         // Imagem do "Criar novo produto"
@@ -226,6 +227,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesEstoque();
             MostrarBotoesCliente();
             AdicionarItemListViewCliente();
+            RefreshListClient();
         }
 
         private void btn_NovoCliente_Click(object sender, EventArgs e)
