@@ -32,7 +32,7 @@ namespace GerenciadorDeEstoque.Apresentação
         // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
 
-        // Conectando no banco de dados
+        // Conectando com o banco de dados ESTOQUE
         SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
         // variáveis necessárias para pegar os dados do BD e atribuir na list view
         DataTable dt;
@@ -66,14 +66,14 @@ namespace GerenciadorDeEstoque.Apresentação
             picture_Edit.Hide();
             label_AddProd.Hide();
             label_EditEstoq.Hide();
-            listView_Estoque.Hide();
+            listView_Cliente.Hide();
             btn_AtualizarLista.Hide();
         }
 
         // Exibir interface gráfica do estoque
         private void ExibirEstoque()
         {
-            listView_Estoque.Show();
+            listView_Cliente.Show();
             picture_AddProd.Show();
             picture_Edit.Show();
             label_AddProd.Show();
@@ -84,11 +84,11 @@ namespace GerenciadorDeEstoque.Apresentação
         // Gerar colunas da List View Produtos
         private void GerarColunas()
         {
-            listView_Estoque.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Estoque.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
         }
 
         // Gerar colunas da List View Clientes
@@ -134,12 +134,12 @@ namespace GerenciadorDeEstoque.Apresentação
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                listView_Estoque.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listView_Cliente.Items.Add(dt.Rows[i].ItemArray[0].ToString());
                 // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
 
             }
         }
@@ -171,11 +171,11 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Run(new AddProduct());
         }
 
-        // Método para atualizar a ListView
+        // Método para atualizar a ListView Produtos
         private void RefreshList()
         {
             // Limpar o campo da List View
-            listView_Estoque.Items.Clear();
+            listView_Cliente.Items.Clear();
 
             // Lógica para atualizar a list view
             con.Open();
@@ -190,12 +190,12 @@ namespace GerenciadorDeEstoque.Apresentação
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                listView_Estoque.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listView_Cliente.Items.Add(dt.Rows[i].ItemArray[0].ToString());
                 // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-                listView_Estoque.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
 
             }
         }
@@ -225,6 +225,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             EsconderBotoesEstoque();
             MostrarBotoesCliente();
+            AdicionarItemListViewCliente();
         }
 
         private void btn_NovoCliente_Click(object sender, EventArgs e)
@@ -252,9 +253,81 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Run(new AddClienteCNPJ());
         }
 
-        private void gpb_Cliente_Enter(object sender, EventArgs e)
+        // Método para passar os dados do BD para a List View
+        public void AdicionarItemListViewCliente()
         {
+            // Conectar com o banco de dados
+            con.Open();
+            // Instrução SQL para executar
+            cmdListView = new SqlCommand("select * from clientefisico", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            // Fill, que passar os dados da tabela "estoque" para o data set = ds
+            // estoque = nome da tabela
+            da.Fill(ds, "estoque");
 
+            // fechar conexão
+            con.Close();
+            // o data set (ds) não consegue passar os dados no "visual" do programa, então, passando para o data table (dt)
+            // estoque = tabela do bd
+            dt = ds.Tables["estoque"];
+
+            // lógica com o for para atribuir os dados do bd nas colunas do list view do programa
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Clientes.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                // temos 10 colunas (sendo uma a ID), então aqui só criamos 9, a ID vai automática
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+
+            }
+        }
+
+        // Método para atualizar a ListView Cliente
+        private void RefreshListClient()
+        {
+            // Limpar o campo da List View
+            listView_Clientes.Items.Clear();
+
+            // Lógica para atualizar a list view
+            con.Open();
+            cmdListView = new SqlCommand("select * from clientefisico", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Clientes.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+
+            }
+        }
+
+        private void btn_atualizarlistaClientes_Click(object sender, EventArgs e)
+        {
+            RefreshListClient();
         }
     }
 }
