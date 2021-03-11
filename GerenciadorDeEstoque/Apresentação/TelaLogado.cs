@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using GerenciadorDeEstoque.Apresentação.Cliente;
+using GerenciadorDeEstoque.Apresentação.Pedido;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
@@ -47,6 +48,8 @@ namespace GerenciadorDeEstoque.Apresentação
             GerarColunas();
             EsconderBotoesCliente();
             GerarColunasClientes();
+            EsconderTelaPedidos();
+
         }
 
         // Mostrar interface gráfica do cliente
@@ -155,6 +158,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             AdicionarItemListView();
             EsconderBotoesCliente();
+            EsconderTelaPedidos();
             RefreshList();
         }
 
@@ -222,10 +226,12 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Run(new EditarProduto());
         }
 
+        // Botão imagem cliente
         private void btnImg_Cliente_Click(object sender, EventArgs e)
         {
             EsconderBotoesEstoque();
             MostrarBotoesCliente();
+            EsconderTelaPedidos();
             AdicionarItemListViewCliente();
             RefreshListClient();
         }
@@ -327,9 +333,37 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
+        // Botão para atualizar a lista de clientes
         private void btn_atualizarlistaClientes_Click(object sender, EventArgs e)
         {
             RefreshListClient();
+        }
+
+        // Método para esconder a tela de pedidos
+        private void EsconderTelaPedidos()
+        {
+            groupBox_pedidos.Hide();
+            btn_criarPedido.Hide();
+            label9.Hide();
+            listView_Pedido.Hide();
+
+        }
+
+        // Método para mostrar a tela de pedidos
+        private void MostrarTelaPedidos()
+        {
+            groupBox_pedidos.Show();
+            btn_criarPedido.Show();
+            label9.Show();
+            listView_Pedido.Show();
+        }
+
+        // Botão com imagem dos pedidos
+        private void btn_pedido_Click(object sender, EventArgs e)
+        {
+            EsconderBotoesCliente();
+            EsconderBotoesEstoque();
+            MostrarTelaPedidos();
         }
     }
 }
