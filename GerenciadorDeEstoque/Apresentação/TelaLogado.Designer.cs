@@ -271,6 +271,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_criarPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_criarPedido.TabIndex = 7;
             this.btn_criarPedido.TabStop = false;
+            this.btn_criarPedido.Click += new System.EventHandler(this.btn_criarPedido_Click);
             // 
             // label8
             // 

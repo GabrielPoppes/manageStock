@@ -27,8 +27,11 @@ namespace GerenciadorDeEstoque.Apresentação
         // Thread da tela de adicionar novo produto no estoque
         Thread AddProduto;
 
-        // Thred da tela de editar produto no estoque;
+        // Thraed da tela de editar produto no estoque;
         Thread EditarProduto;
+
+        // Thread da tela adicionar pedido
+        Thread TelaAdicionarPedido;
 
         // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
@@ -364,6 +367,20 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderBotoesEstoque();
             MostrarTelaPedidos();
+        }
+
+        // Botão para fazer um novo pedido, joga para a tela "Pedidos"
+        private void btn_criarPedido_Click(object sender, EventArgs e)
+        {
+            TelaAdicionarPedido = new Thread(NovaTelaPedido);
+            TelaAdicionarPedido.SetApartmentState(ApartmentState.MTA);
+            TelaAdicionarPedido.Start();
+        }
+
+        // Método para rodar a tela "Pedidos"
+        private void NovaTelaPedido()
+        {
+            Application.Run(new Pedidos());
         }
     }
 }
