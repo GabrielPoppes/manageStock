@@ -382,5 +382,6 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             Application.Run(new Pedidos());
         }
+
     }
 }

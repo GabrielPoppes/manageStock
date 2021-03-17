@@ -29,6 +29,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -42,16 +43,38 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.comboBox_FormaPgt = new System.Windows.Forms.ComboBox();
             this.label_formPagt = new System.Windows.Forms.Label();
             this.comboBox_Cliente = new System.Windows.Forms.ComboBox();
-            this.comboBox_Qnt = new System.Windows.Forms.ComboBox();
             this.comboBox_Produto = new System.Windows.Forms.ComboBox();
+            this.produtosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.estoqueDataSet = new GerenciadorDeEstoque.estoqueDataSet();
+            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_cliente = new System.Windows.Forms.Label();
             this.label_Qnt = new System.Windows.Forms.Label();
             this.label_Produto = new System.Windows.Forms.Label();
+            this.produtosBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.produtosTableAdapter = new GerenciadorDeEstoque.estoqueDataSetTableAdapters.produtosTableAdapter();
+            this.produtosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.produtosBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.estoqueDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.produtosBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.txb_QntEstoque = new System.Windows.Forms.TextBox();
+            this.txbQnt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txbQnt);
+            this.groupBox1.Controls.Add(this.txb_QntEstoque);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label6);
@@ -64,7 +87,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.comboBox_FormaPgt);
             this.groupBox1.Controls.Add(this.label_formPagt);
             this.groupBox1.Controls.Add(this.comboBox_Cliente);
-            this.groupBox1.Controls.Add(this.comboBox_Qnt);
             this.groupBox1.Controls.Add(this.comboBox_Produto);
             this.groupBox1.Controls.Add(this.label_cliente);
             this.groupBox1.Controls.Add(this.label_Qnt);
@@ -156,15 +178,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // comboBox_FormaPgt
             // 
             this.comboBox_FormaPgt.FormattingEnabled = true;
-            this.comboBox_FormaPgt.Location = new System.Drawing.Point(684, 43);
+            this.comboBox_FormaPgt.Location = new System.Drawing.Point(657, 47);
             this.comboBox_FormaPgt.Name = "comboBox_FormaPgt";
-            this.comboBox_FormaPgt.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_FormaPgt.Size = new System.Drawing.Size(148, 21);
             this.comboBox_FormaPgt.TabIndex = 7;
+            this.comboBox_FormaPgt.Text = "Selecione";
             // 
             // label_formPagt
             // 
             this.label_formPagt.AutoSize = true;
-            this.label_formPagt.Location = new System.Drawing.Point(576, 46);
+            this.label_formPagt.Location = new System.Drawing.Point(549, 50);
             this.label_formPagt.Name = "label_formPagt";
             this.label_formPagt.Size = new System.Drawing.Size(107, 13);
             this.label_formPagt.TabIndex = 6;
@@ -173,31 +196,44 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // comboBox_Cliente
             // 
             this.comboBox_Cliente.FormattingEnabled = true;
-            this.comboBox_Cliente.Location = new System.Drawing.Point(444, 42);
+            this.comboBox_Cliente.Location = new System.Drawing.Point(71, 47);
             this.comboBox_Cliente.Name = "comboBox_Cliente";
-            this.comboBox_Cliente.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_Cliente.Size = new System.Drawing.Size(467, 21);
             this.comboBox_Cliente.TabIndex = 5;
-            // 
-            // comboBox_Qnt
-            // 
-            this.comboBox_Qnt.FormattingEnabled = true;
-            this.comboBox_Qnt.Location = new System.Drawing.Point(267, 42);
-            this.comboBox_Qnt.Name = "comboBox_Qnt";
-            this.comboBox_Qnt.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_Qnt.TabIndex = 4;
+            this.comboBox_Cliente.Text = "Selecione";
             // 
             // comboBox_Produto
             // 
+            this.comboBox_Produto.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produtosBindingSource1, "nome", true));
+            this.comboBox_Produto.DataSource = this.produtosBindingSource;
+            this.comboBox_Produto.DisplayMember = "nome";
             this.comboBox_Produto.FormattingEnabled = true;
-            this.comboBox_Produto.Location = new System.Drawing.Point(71, 41);
+            this.comboBox_Produto.Location = new System.Drawing.Point(71, 23);
             this.comboBox_Produto.Name = "comboBox_Produto";
-            this.comboBox_Produto.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_Produto.Size = new System.Drawing.Size(235, 21);
             this.comboBox_Produto.TabIndex = 3;
+            this.comboBox_Produto.ValueMember = "nome";
+            this.comboBox_Produto.SelectedIndexChanged += new System.EventHandler(this.comboBox_Produto_SelectedIndexChanged);
+            // 
+            // produtosBindingSource1
+            // 
+            this.produtosBindingSource1.DataMember = "produtos";
+            this.produtosBindingSource1.DataSource = this.estoqueDataSet;
+            // 
+            // estoqueDataSet
+            // 
+            this.estoqueDataSet.DataSetName = "estoqueDataSet";
+            this.estoqueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // produtosBindingSource
+            // 
+            this.produtosBindingSource.DataMember = "produtos";
+            this.produtosBindingSource.DataSource = this.estoqueDataSet;
             // 
             // label_cliente
             // 
             this.label_cliente.AutoSize = true;
-            this.label_cliente.Location = new System.Drawing.Point(399, 46);
+            this.label_cliente.Location = new System.Drawing.Point(26, 51);
             this.label_cliente.Name = "label_cliente";
             this.label_cliente.Size = new System.Drawing.Size(39, 13);
             this.label_cliente.TabIndex = 2;
@@ -206,7 +242,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_Qnt
             // 
             this.label_Qnt.AutoSize = true;
-            this.label_Qnt.Location = new System.Drawing.Point(199, 45);
+            this.label_Qnt.Location = new System.Drawing.Point(548, 25);
             this.label_Qnt.Name = "label_Qnt";
             this.label_Qnt.Size = new System.Drawing.Size(62, 13);
             this.label_Qnt.TabIndex = 1;
@@ -215,11 +251,64 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_Produto
             // 
             this.label_Produto.AutoSize = true;
-            this.label_Produto.Location = new System.Drawing.Point(21, 44);
+            this.label_Produto.Location = new System.Drawing.Point(21, 26);
             this.label_Produto.Name = "label_Produto";
             this.label_Produto.Size = new System.Drawing.Size(44, 13);
             this.label_Produto.TabIndex = 0;
             this.label_Produto.Text = "Produto";
+            // 
+            // produtosBindingSource5
+            // 
+            this.produtosBindingSource5.DataMember = "produtos";
+            this.produtosBindingSource5.DataSource = this.estoqueDataSet;
+            // 
+            // produtosTableAdapter
+            // 
+            this.produtosTableAdapter.ClearBeforeFill = true;
+            // 
+            // produtosBindingSource2
+            // 
+            this.produtosBindingSource2.DataMember = "produtos";
+            this.produtosBindingSource2.DataSource = this.estoqueDataSet;
+            // 
+            // produtosBindingSource3
+            // 
+            this.produtosBindingSource3.DataMember = "produtos";
+            this.produtosBindingSource3.DataSource = this.estoqueDataSet;
+            // 
+            // estoqueDataSetBindingSource
+            // 
+            this.estoqueDataSetBindingSource.DataSource = this.estoqueDataSet;
+            this.estoqueDataSetBindingSource.Position = 0;
+            // 
+            // produtosBindingSource4
+            // 
+            this.produtosBindingSource4.DataMember = "produtos";
+            this.produtosBindingSource4.DataSource = this.estoqueDataSetBindingSource;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(312, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Quantidade em estoque";
+            // 
+            // txb_QntEstoque
+            // 
+            this.txb_QntEstoque.Location = new System.Drawing.Point(438, 23);
+            this.txb_QntEstoque.Name = "txb_QntEstoque";
+            this.txb_QntEstoque.ReadOnly = true;
+            this.txb_QntEstoque.Size = new System.Drawing.Size(100, 20);
+            this.txb_QntEstoque.TabIndex = 18;
+            // 
+            // txbQnt
+            // 
+            this.txbQnt.Location = new System.Drawing.Point(616, 23);
+            this.txbQnt.Name = "txbQnt";
+            this.txbQnt.Size = new System.Drawing.Size(189, 20);
+            this.txbQnt.TabIndex = 19;
             // 
             // Pedidos
             // 
@@ -229,8 +318,17 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.Controls.Add(this.groupBox1);
             this.Name = "Pedidos";
             this.Text = "Pedidos";
+            this.Load += new System.EventHandler(this.Pedidos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,10 +348,21 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.ComboBox comboBox_FormaPgt;
         private System.Windows.Forms.Label label_formPagt;
         private System.Windows.Forms.ComboBox comboBox_Cliente;
-        private System.Windows.Forms.ComboBox comboBox_Qnt;
         private System.Windows.Forms.ComboBox comboBox_Produto;
         private System.Windows.Forms.Label label_cliente;
         private System.Windows.Forms.Label label_Qnt;
         private System.Windows.Forms.Label label_Produto;
+        private estoqueDataSet estoqueDataSet;
+        private System.Windows.Forms.BindingSource produtosBindingSource;
+        private estoqueDataSetTableAdapters.produtosTableAdapter produtosTableAdapter;
+        private System.Windows.Forms.BindingSource produtosBindingSource1;
+        private System.Windows.Forms.BindingSource produtosBindingSource3;
+        private System.Windows.Forms.BindingSource produtosBindingSource2;
+        private System.Windows.Forms.BindingSource produtosBindingSource5;
+        private System.Windows.Forms.BindingSource estoqueDataSetBindingSource;
+        private System.Windows.Forms.BindingSource produtosBindingSource4;
+        private System.Windows.Forms.TextBox txb_QntEstoque;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txbQnt;
     }
 }
