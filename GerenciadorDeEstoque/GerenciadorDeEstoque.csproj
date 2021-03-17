@@ -104,6 +104,11 @@
       <DependentUpon>estoqueDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Controle.cs" />
+    <Compile Include="NomeClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NomeClientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentação\Cliente\AddClient.resx">
@@ -153,6 +158,17 @@
     </None>
     <None Include="estoqueDataSet.xss">
       <DependentUpon>estoqueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NomeClientes.xsc">
+      <DependentUpon>NomeClientes.xsd</DependentUpon>
+    </None>
+    <None Include="NomeClientes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NomeClientes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NomeClientes.xss">
+      <DependentUpon>NomeClientes.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

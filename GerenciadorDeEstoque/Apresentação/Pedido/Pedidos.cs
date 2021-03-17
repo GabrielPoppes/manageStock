@@ -19,8 +19,17 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             AdicionarItemComboBoxQnt();
         }
 
+        private void ComboBoxFormaPgmt()
+        {
+            comboBox_FormaPgt.Items.Add("Dinheiro");
+            comboBox_FormaPgt.Items.Add("Cartão");
+            comboBox_FormaPgt.Items.Add("Boleto");
+        }
+
         private void Pedidos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'nomeClientes.funcionario'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionarioTableAdapter.Fill(this.nomeClientes.funcionario);
             // TODO: esta linha de código carrega dados na tabela 'estoqueDataSet.produtos'. Você pode movê-la ou removê-la conforme necessário.
             this.produtosTableAdapter.Fill(this.estoqueDataSet.produtos);
         }
