@@ -34,18 +34,19 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.txbQnt = new System.Windows.Forms.TextBox();
             this.txb_QntEstoque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.listView_Pedidos = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox_FormaPgt = new System.Windows.Forms.ComboBox();
             this.label_formPagt = new System.Windows.Forms.Label();
             this.comboBox_Cliente = new System.Windows.Forms.ComboBox();
+            this.funcionarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.nomeClientes = new GerenciadorDeEstoque.NomeClientes();
+            this.funcionarioBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_Produto = new System.Windows.Forms.ComboBox();
             this.produtosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.estoqueDataSet = new GerenciadorDeEstoque.estoqueDataSet();
@@ -60,14 +61,14 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.estoqueDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtosBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.produtosBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
-            this.nomeClientes = new GerenciadorDeEstoque.NomeClientes();
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.NomeClientesTableAdapters.funcionarioTableAdapter();
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionarioBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
@@ -77,12 +78,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,13 +88,11 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.txbQnt);
             this.groupBox1.Controls.Add(this.txb_QntEstoque);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.listView_Pedidos);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBox_FormaPgt);
@@ -137,34 +133,26 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label1.TabIndex = 17;
             this.label1.Text = "Quantidade em estoque";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(454, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 23);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "FINALIZAR PEDIDO";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 374);
+            this.textBox2.Location = new System.Drawing.Point(315, 75);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(135, 20);
             this.textBox2.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 378);
+            this.label6.Location = new System.Drawing.Point(257, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "TOTAL";
+            this.label6.Text = "TOTAL R$:";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(151, 342);
+            this.button3.Location = new System.Drawing.Point(151, 72);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 13;
@@ -173,7 +161,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 344);
+            this.textBox1.Location = new System.Drawing.Point(91, 74);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(54, 20);
             this.textBox1.TabIndex = 12;
@@ -181,25 +169,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 347);
+            this.label5.Location = new System.Drawing.Point(21, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Desconto %";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(341, 342);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "REMOVER ITENS";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // listView_Pedidos
             // 
             this.listView_Pedidos.HideSelection = false;
-            this.listView_Pedidos.Location = new System.Drawing.Point(24, 100);
+            this.listView_Pedidos.Location = new System.Drawing.Point(24, 139);
             this.listView_Pedidos.Name = "listView_Pedidos";
             this.listView_Pedidos.Size = new System.Drawing.Size(781, 236);
             this.listView_Pedidos.TabIndex = 9;
@@ -207,7 +186,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 71);
+            this.button1.Location = new System.Drawing.Point(24, 101);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(781, 23);
             this.button1.TabIndex = 8;
@@ -248,6 +227,21 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.comboBox_Cliente.TabIndex = 5;
             this.comboBox_Cliente.ValueMember = "nome";
             // 
+            // funcionarioBindingSource2
+            // 
+            this.funcionarioBindingSource2.DataMember = "funcionario";
+            this.funcionarioBindingSource2.DataSource = this.nomeClientes;
+            // 
+            // nomeClientes
+            // 
+            this.nomeClientes.DataSetName = "NomeClientes";
+            this.nomeClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // funcionarioBindingSource3
+            // 
+            this.funcionarioBindingSource3.DataMember = "funcionario";
+            this.funcionarioBindingSource3.DataSource = this.nomeClientes;
+            // 
             // comboBox_Produto
             // 
             this.comboBox_Produto.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produtosBindingSource1, "nome", true));
@@ -258,7 +252,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.comboBox_Produto.Name = "comboBox_Produto";
             this.comboBox_Produto.Size = new System.Drawing.Size(235, 21);
             this.comboBox_Produto.TabIndex = 3;
-            this.comboBox_Produto.Text = "Selecione";
             this.comboBox_Produto.ValueMember = "nome";
             this.comboBox_Produto.SelectedIndexChanged += new System.EventHandler(this.comboBox_Produto_SelectedIndexChanged);
             // 
@@ -280,7 +273,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_cliente
             // 
             this.label_cliente.AutoSize = true;
-            this.label_cliente.Location = new System.Drawing.Point(26, 51);
+            this.label_cliente.Location = new System.Drawing.Point(21, 50);
             this.label_cliente.Name = "label_cliente";
             this.label_cliente.Size = new System.Drawing.Size(39, 13);
             this.label_cliente.TabIndex = 2;
@@ -338,11 +331,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.produtosBindingSource6.DataMember = "produtos";
             this.produtosBindingSource6.DataSource = this.estoqueDataSet;
             // 
-            // nomeClientes
-            // 
-            this.nomeClientes.DataSetName = "NomeClientes";
-            this.nomeClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // funcionarioBindingSource
             // 
             this.funcionarioBindingSource.DataMember = "funcionario";
@@ -362,16 +350,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioBindingSource1.DataMember = "funcionario";
             this.funcionarioBindingSource1.DataSource = this.nomeClientesBindingSource;
             // 
-            // funcionarioBindingSource2
-            // 
-            this.funcionarioBindingSource2.DataMember = "funcionario";
-            this.funcionarioBindingSource2.DataSource = this.nomeClientes;
-            // 
-            // funcionarioBindingSource3
-            // 
-            this.funcionarioBindingSource3.DataMember = "funcionario";
-            this.funcionarioBindingSource3.DataSource = this.nomeClientes;
-            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +361,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
@@ -392,12 +373,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,13 +383,11 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView_Pedidos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox_FormaPgt;
