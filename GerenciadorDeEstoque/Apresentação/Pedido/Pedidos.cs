@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDeEstoque.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -183,9 +184,28 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             
         }
 
+        // Botão para aplicar o desconto no valor total do pedido
         private void btnAplicar_Click(object sender, EventArgs e)
         {
+            // Método para aplicar o desconto no valor total do pedido
             PorcentagemValorTotalProduto();
+        }
+
+        private void btnPedido_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+
+            string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
+
+            if (controle.verificacao)
+            {
+                MessageBox.Show("Cadastrado com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Erro ao realizar o cadastro!");
+            }
         }
     }
 }

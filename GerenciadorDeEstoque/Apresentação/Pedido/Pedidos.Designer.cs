@@ -42,7 +42,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.txbDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.listView_Pedidos = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPedido = new System.Windows.Forms.Button();
             this.comboBox_FormaPgt = new System.Windows.Forms.ComboBox();
             this.label_formPagt = new System.Windows.Forms.Label();
             this.comboBox_Cliente = new System.Windows.Forms.ComboBox();
@@ -98,7 +98,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.txbDesconto);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.listView_Pedidos);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnPedido);
             this.groupBox1.Controls.Add(this.comboBox_FormaPgt);
             this.groupBox1.Controls.Add(this.label_formPagt);
             this.groupBox1.Controls.Add(this.comboBox_Cliente);
@@ -206,15 +206,17 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.listView_Pedidos.Size = new System.Drawing.Size(781, 236);
             this.listView_Pedidos.TabIndex = 9;
             this.listView_Pedidos.UseCompatibleStateImageBehavior = false;
+            this.listView_Pedidos.View = System.Windows.Forms.View.Details;
             // 
-            // button1
+            // btnPedido
             // 
-            this.button1.Location = new System.Drawing.Point(24, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(781, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "INSERIR ITENS";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPedido.Location = new System.Drawing.Point(24, 101);
+            this.btnPedido.Name = "btnPedido";
+            this.btnPedido.Size = new System.Drawing.Size(781, 23);
+            this.btnPedido.TabIndex = 8;
+            this.btnPedido.Text = "CADASTRAR PEDIDO";
+            this.btnPedido.UseVisualStyleBackColor = true;
+            this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
             // 
             // comboBox_FormaPgt
             // 
@@ -412,7 +414,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.TextBox txbDesconto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listView_Pedidos;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPedido;
         private System.Windows.Forms.ComboBox comboBox_FormaPgt;
         private System.Windows.Forms.Label label_formPagt;
         private System.Windows.Forms.ComboBox comboBox_Cliente;

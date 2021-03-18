@@ -326,5 +326,38 @@ namespace GerenciadorDeEstoque.DAO
         {
 
         }
+
+        // Método para cadastrar o Pedidos de clientes
+        public string CadastrarPedidos(string produto, string qntproduto, string valorproduto, string nomecliente, string formapgt, string desconto, string valortotalpedido)
+        {
+            if (!produto.Equals("") && !qntproduto.Equals("") && !valorproduto.Equals("") && !nomecliente.Equals("") && !formapgt.Equals("") && !valortotalpedido.Equals(""))
+            {
+                comando.CommandText = "insert into pedidos(produto, quantidadepedido, valorunitario, cliente, formadepgt, desconto, valortotalpedido) values(@produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
+                comando.Parameters.AddWithValue("@produto", produto);
+                comando.Parameters.AddWithValue("@quantidadepedido", qntproduto);
+                comando.Parameters.AddWithValue("@valorunitario", valorproduto);
+                comando.Parameters.AddWithValue("@cliente", nomecliente);
+                comando.Parameters.AddWithValue("@formadepgt", formapgt);
+                comando.Parameters.AddWithValue("@desconto", desconto);
+                comando.Parameters.AddWithValue("@valortotalpedido", valortotalpedido);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Produto cadastrado!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro no cadastro do produto!";
+                }
+            }
+            return mensagem;
+        }
     }
 }
