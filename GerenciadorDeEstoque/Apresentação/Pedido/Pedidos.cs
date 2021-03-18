@@ -18,6 +18,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             InitializeComponent();
             QuantidadeDisponivel();
+            AdicionarItemListViewPedidos();
         }
 
         // Método que adicionar os itens da Combo Box método de pagamento
@@ -206,6 +207,62 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             {
                 MessageBox.Show("Erro ao realizar o cadastro!");
             }
+
+            AdicionarItemListViewPedidos();
         }
+
+        public void GerarColunasPedidos()
+        {
+            listView_Pedidos.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Quantidade", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Valor unitário", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Comprador", 180).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Forma pagamento", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Desconto (%)", 85).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Valor total", 80).TextAlign = HorizontalAlignment.Center;
+        }
+
+        public void AdicionarItemListViewPedidos()
+        {
+            GerarColunasPedidos();
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for(i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Pedidos.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+            }
+
+        }
+
+
+
+
     }
 }
