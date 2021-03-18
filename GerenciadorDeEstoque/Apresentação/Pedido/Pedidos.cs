@@ -71,6 +71,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
         }
 
+        // Método para exibir o valor total do pedido (preço do produto * quantidade do pedido)
         private void ValorTotal()
         {
             SqlDataAdapter da;
@@ -106,9 +107,44 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
         }
 
+        // Método para exibir o valor da unidade do produto selecionado
+        private void ValorProduto()
+        {
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
+            string produto = Convert.ToString(comboBox_Produto.SelectedValue);
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdComboBox = new SqlCommand($"select preco from produtos where nome = '{produto}';", con);
+
+            da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+            con.Close();
+
+            dt = ds.Tables["estoque"];
+
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                txbValorPorUnidade.Text = dt.Rows[i].ItemArray[0].ToString();
+            }
+        }
+
         private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
         {
             QuantidadeDisponivel();
+            ValorProduto();
         }
 
         // Métodos chamados quando o usuário escreve a quantidade do pedido
