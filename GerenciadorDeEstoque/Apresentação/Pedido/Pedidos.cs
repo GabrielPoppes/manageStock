@@ -141,6 +141,30 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
         }
 
+        // Método para aplicar desconto no valorTotal do pedido
+        private void PorcentagemValorTotalProduto()
+        {
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // As strings abaixos pegam o valor da quantidade do item e do valor, para chegar no total
+            // A desconto pega o desconto informado pelo usuário em %, ex. 10%
+            // Total calcula o valor total do produto (qnt * valor)
+            double qnt = Convert.ToInt32(txbQnt.Text);
+            double valor = Convert.ToInt32(txbValorPorUnidade.Text);
+            double desconto = Convert.ToInt32(txbDesconto.Text);
+            double total = qnt * valor;
+
+            // Aqui aplicamos o desconto no valor
+            double valorcomdesconto = total - (total * (desconto / 100));
+
+            // Passamos o valor com desconto para a textbox do valor total, porem, convertendo para string novamente
+            txbValorTotal.Text = Convert.ToString(valorcomdesconto);
+            
+        }
+
         private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
         {
             QuantidadeDisponivel();
@@ -157,6 +181,11 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
                 ValorTotal();
             }
             
+        }
+
+        private void btnAplicar_Click(object sender, EventArgs e)
+        {
+            PorcentagemValorTotalProduto();
         }
     }
 }

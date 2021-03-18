@@ -31,13 +31,15 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txbQnt = new System.Windows.Forms.TextBox();
             this.txb_QntEstoque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txbValorTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnAplicar = new System.Windows.Forms.Button();
+            this.txbDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.listView_Pedidos = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
@@ -65,8 +67,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.NomeClientesTableAdapters.funcionarioTableAdapter();
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
@@ -94,8 +94,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txbValorTotal);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btnAplicar);
+            this.groupBox1.Controls.Add(this.txbDesconto);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.listView_Pedidos);
             this.groupBox1.Controls.Add(this.button1);
@@ -112,6 +112,23 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // txbValorPorUnidade
+            // 
+            this.txbValorPorUnidade.Location = new System.Drawing.Point(657, 48);
+            this.txbValorPorUnidade.Name = "txbValorPorUnidade";
+            this.txbValorPorUnidade.ReadOnly = true;
+            this.txbValorPorUnidade.Size = new System.Drawing.Size(148, 20);
+            this.txbValorPorUnidade.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(548, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Valor por unidade";
             // 
             // txbQnt
             // 
@@ -155,21 +172,22 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label6.TabIndex = 14;
             this.label6.Text = "TOTAL R$:";
             // 
-            // button3
+            // btnAplicar
             // 
-            this.button3.Location = new System.Drawing.Point(506, 75);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "APLICAR DESCONTO";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAplicar.Location = new System.Drawing.Point(506, 75);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(75, 23);
+            this.btnAplicar.TabIndex = 13;
+            this.btnAplicar.Text = "APLICAR DESCONTO";
+            this.btnAplicar.UseVisualStyleBackColor = true;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
-            // textBox1
+            // txbDesconto
             // 
-            this.textBox1.Location = new System.Drawing.Point(446, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 20);
-            this.textBox1.TabIndex = 12;
+            this.txbDesconto.Location = new System.Drawing.Point(446, 77);
+            this.txbDesconto.Name = "txbDesconto";
+            this.txbDesconto.Size = new System.Drawing.Size(54, 20);
+            this.txbDesconto.TabIndex = 12;
             // 
             // label5
             // 
@@ -355,23 +373,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioBindingSource1.DataMember = "funcionario";
             this.funcionarioBindingSource1.DataSource = this.nomeClientesBindingSource;
             // 
-            // txbValorPorUnidade
-            // 
-            this.txbValorPorUnidade.Location = new System.Drawing.Point(657, 48);
-            this.txbValorPorUnidade.Name = "txbValorPorUnidade";
-            this.txbValorPorUnidade.ReadOnly = true;
-            this.txbValorPorUnidade.Size = new System.Drawing.Size(148, 20);
-            this.txbValorPorUnidade.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(548, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Valor por unidade";
-            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,8 +408,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txbValorTotal;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnAplicar;
+        private System.Windows.Forms.TextBox txbDesconto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView listView_Pedidos;
         private System.Windows.Forms.Button button1;
