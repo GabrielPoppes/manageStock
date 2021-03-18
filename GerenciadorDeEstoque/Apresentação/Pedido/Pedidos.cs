@@ -16,9 +16,10 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         public Pedidos()
         {
             InitializeComponent();
-            AdicionarItemComboBoxQnt();
+            QuantidadeDisponivel();
         }
 
+        // Método que adicionar os itens da Combo Box método de pagamento
         private void ComboBoxFormaPgmt()
         {
             comboBox_FormaPgt.Items.Add("Dinheiro");
@@ -26,6 +27,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             comboBox_FormaPgt.Items.Add("Boleto");
         }
 
+        // Método que carrega o nome dos Clientes e o nome dos produtos
         private void Pedidos_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'nomeClientes.funcionario'. Você pode movê-la ou removê-la conforme necessário.
@@ -36,7 +38,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
 
 
-        private void AdicionarItemComboBoxQnt()
+        private void QuantidadeDisponivel()
         {
             SqlDataAdapter da;
             DataSet ds;
@@ -69,10 +71,56 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
         }
 
-        private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
+        private void ValorTotal()
         {
-            AdicionarItemComboBoxQnt();
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
+            string nome = Convert.ToString(comboBox_Produto.SelectedValue);
+            // String quantidade para ver qual a quantidade do pedido
+            string quantidade = txbQnt.Text;
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdComboBox = new SqlCommand($"select preco * {quantidade} from produtos where nome = '{nome}';", con);
+
+            da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+            con.Close();
+
+            dt = ds.Tables["estoque"];
+
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                txbValorTotal.Text = dt.Rows[i].ItemArray[0].ToString();
+            }
         }
 
+        private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            QuantidadeDisponivel();
+        }
+
+        // Métodos chamados quando o usuário escreve a quantidade do pedido
+        private void txbQnt_TextChanged(object sender, EventArgs e)
+        {
+            // Se o campo quantidade não estiver em branco
+            if (!txbQnt.Text.Equals(""))
+            {
+                // É exibido o valor total
+                ValorTotal();
+            }
+            
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.txbQnt = new System.Windows.Forms.TextBox();
             this.txb_QntEstoque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbValorTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -88,7 +88,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.txbQnt);
             this.groupBox1.Controls.Add(this.txb_QntEstoque);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txbValorTotal);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -115,6 +115,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.txbQnt.Name = "txbQnt";
             this.txbQnt.Size = new System.Drawing.Size(189, 20);
             this.txbQnt.TabIndex = 19;
+            this.txbQnt.TextChanged += new System.EventHandler(this.txbQnt_TextChanged);
             // 
             // txb_QntEstoque
             // 
@@ -133,18 +134,18 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label1.TabIndex = 17;
             this.label1.Text = "Quantidade em estoque";
             // 
-            // textBox2
+            // txbValorTotal
             // 
-            this.textBox2.Location = new System.Drawing.Point(315, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 15;
+            this.txbValorTotal.Location = new System.Drawing.Point(315, 72);
+            this.txbValorTotal.Name = "txbValorTotal";
+            this.txbValorTotal.ReadOnly = true;
+            this.txbValorTotal.Size = new System.Drawing.Size(135, 20);
+            this.txbValorTotal.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(257, 78);
+            this.label6.Location = new System.Drawing.Point(257, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 14;
@@ -383,7 +384,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbValorTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
