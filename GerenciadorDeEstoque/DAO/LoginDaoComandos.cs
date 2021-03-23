@@ -9,6 +9,8 @@ using GerenciadorDeEstoque.Modelo;
 using GerenciadorDeEstoque.Apresentação;
 using GerenciadorDeEstoque.DAO;
 using GerenciadorDeEstoque.Properties;
+using GerenciadorDeEstoque.Apresentação.Pedido;
+using GerenciadorDeEstoque.Apresentação.Cliente;
 using System.Threading;
 
 namespace GerenciadorDeEstoque.DAO
@@ -359,5 +361,68 @@ namespace GerenciadorDeEstoque.DAO
             }
             return mensagem;
         }
+
+        // Método para cadastrar pedidos encerrados
+        public string PedidosEncerrados(string id, Boolean pago, Boolean cancelado)
+        {
+            // Se o campo ID do pedido não estiver em branco
+            if (!id.Equals(""))
+            {
+                if(pago == true && cancelado == true)
+                {
+                    this.mensagem = "Erro no cadastro do produto!";
+                }
+
+                else
+                {
+                    if (pago == true)
+                    {
+                        comando.CommandText = "INSERT INTO pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) SELECT 'Pago', produto, quantidadepedido, valorunitario, cliente, formadepgt, desconto, valortotalpedido FROM pedidos where idpedidos = @id;";
+                        comando.Parameters.AddWithValue("@id", id);
+
+                        check = false;
+                        try
+                        {
+                            comando.Connection = conect.Conectar();
+                            comando.ExecuteNonQuery();
+                            conect.Desconectar();
+                            this.mensagem = "Estado do pedido modificado!";
+
+                            check = true;
+                        }
+
+                        catch (SqlException)
+                        {
+                            this.mensagem = "Erro no cadastro do produto!";
+                        }
+                    }
+
+                    if (cancelado == true)
+                    {
+                        comando.CommandText = "INSERT INTO pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) SELECT 'Cancelado', produto, quantidadepedido, valorunitario, cliente, formadepgt, desconto, valortotalpedido FROM pedidos where idpedidos = @id;";
+                        comando.Parameters.AddWithValue("@id", id);
+
+                        check = false;
+                        try
+                        {
+                            comando.Connection = conect.Conectar();
+                            comando.ExecuteNonQuery();
+                            conect.Desconectar();
+                            this.mensagem = "Estado do pedido modificado!";
+
+                            check = true;
+                        }
+
+                        catch (SqlException)
+                        {
+                            this.mensagem = "Erro no cadastro do produto!";
+                        }
+                    }
+                }               
+            }
+
+            return mensagem;
+        }
+
     }
 }

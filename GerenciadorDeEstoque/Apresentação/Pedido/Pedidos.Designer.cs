@@ -67,6 +67,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.NomeClientesTableAdapters.funcionarioTableAdapter();
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEncerrarPedido = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
@@ -87,6 +88,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEncerrarPedido);
             this.groupBox1.Controls.Add(this.txbValorPorUnidade);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txbQnt);
@@ -111,7 +113,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Size = new System.Drawing.Size(882, 436);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Pedidos";
             // 
             // txbValorPorUnidade
             // 
@@ -375,6 +377,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioBindingSource1.DataMember = "funcionario";
             this.funcionarioBindingSource1.DataSource = this.nomeClientesBindingSource;
             // 
+            // btnEncerrarPedido
+            // 
+            this.btnEncerrarPedido.Location = new System.Drawing.Point(24, 381);
+            this.btnEncerrarPedido.Name = "btnEncerrarPedido";
+            this.btnEncerrarPedido.Size = new System.Drawing.Size(781, 23);
+            this.btnEncerrarPedido.TabIndex = 22;
+            this.btnEncerrarPedido.Text = "ENCERRAR O PEDIDO";
+            this.btnEncerrarPedido.UseVisualStyleBackColor = true;
+            this.btnEncerrarPedido.Click += new System.EventHandler(this.btnEncerrarPedido_Click);
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,5 +456,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.BindingSource funcionarioBindingSource1;
         private System.Windows.Forms.TextBox txbValorPorUnidade;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEncerrarPedido;
     }
 }

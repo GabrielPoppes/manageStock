@@ -58,6 +58,12 @@
     <Compile Include="Apresentação\Cliente\AddClienteCNPJ.Designer.cs">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\Pedido\EncerrarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\Pedido\EncerrarPedido.Designer.cs">
+      <DependentUpon>EncerrarPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentação\Pedido\Pedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Cliente\AddClienteCNPJ.resx">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\Pedido\EncerrarPedido.resx">
+      <DependentUpon>EncerrarPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Pedido\Pedidos.resx">
       <DependentUpon>Pedidos.cs</DependentUpon>

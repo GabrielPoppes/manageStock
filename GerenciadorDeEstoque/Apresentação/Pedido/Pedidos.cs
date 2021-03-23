@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GerenciadorDeEstoque.Apresentação.Pedido
 {
     public partial class Pedidos : Form
     {
+        Thread TelaEncerrarPedido;
+
         public Pedidos()
         {
             InitializeComponent();
@@ -261,8 +264,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
         }
 
+        private void btnEncerrarPedido_Click(object sender, EventArgs e)
+        {
+            TelaEncerrarPedido = new Thread(AbrirTelaEncerrarPedido);
+            TelaEncerrarPedido.SetApartmentState(ApartmentState.MTA);
+            TelaEncerrarPedido.Start();
+        }
 
-
-
+        private void AbrirTelaEncerrarPedido()
+        {
+            Application.Run(new EncerrarPedido());
+        }
     }
 }

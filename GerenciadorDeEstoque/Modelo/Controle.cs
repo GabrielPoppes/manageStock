@@ -130,5 +130,18 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
+
+        // Método para alterar estado do pedido
+        public string CadastrarPedidoEstado(string id, Boolean pago, Boolean cancelado)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.PedidosEncerrados(id, pago, cancelado);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
     }
 }
