@@ -389,6 +389,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido.TabIndex = 0;
             this.listView_Pedido.UseCompatibleStateImageBehavior = false;
             this.listView_Pedido.View = System.Windows.Forms.View.Details;
+            this.listView_Pedido.SelectedIndexChanged += new System.EventHandler(this.listView_Pedido_SelectedIndexChanged);
             // 
             // TelaLogado
             // 

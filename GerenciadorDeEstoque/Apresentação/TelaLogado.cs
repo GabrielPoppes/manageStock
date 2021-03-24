@@ -52,6 +52,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             GerarColunasClientes();
             EsconderTelaPedidos();
+            AdicionarItemListViewPedidos();
 
         }
 
@@ -383,5 +384,63 @@ namespace GerenciadorDeEstoque.Apresentação
             Application.Run(new Pedidos());
         }
 
+        // Gerar as colunas da list view pedidos
+        public void GerarColunasPedidos()
+        {
+            listView_Pedido.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Estado", 130).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Quantidade", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Valor unitário", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Comprador", 180).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Forma pagamento", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Desconto (%)", 85).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Valor total", 80).TextAlign = HorizontalAlignment.Center;
+        }
+
+        // Adicionar os itens na LIST VIEW de PEDIDOS
+        public void AdicionarItemListViewPedidos()
+        {
+            GerarColunasPedidos();
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+            }
+
+        }
+
+        private void listView_Pedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

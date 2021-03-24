@@ -217,6 +217,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         public void GerarColunasPedidos()
         {
             listView_Pedidos.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Pedidos.Columns.Add("Estado", 130).TextAlign = HorizontalAlignment.Center;
             listView_Pedidos.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
             listView_Pedidos.Columns.Add("Quantidade", 90).TextAlign = HorizontalAlignment.Center;
             listView_Pedidos.Columns.Add("Valor unitário", 90).TextAlign = HorizontalAlignment.Center;
@@ -238,7 +239,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             con.Open();
 
             // Variável do tipo SqlCOmmand para executar os cmds do BD
-            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos;", con);
+            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
             ds = new DataSet();
@@ -260,6 +261,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
                 listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
                 listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                 listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Pedidos.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
             }
 
         }
