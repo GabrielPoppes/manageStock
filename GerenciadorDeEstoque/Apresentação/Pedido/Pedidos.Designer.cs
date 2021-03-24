@@ -31,6 +31,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEncerrarPedido = new System.Windows.Forms.Button();
             this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbQnt = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.btnAplicar = new System.Windows.Forms.Button();
             this.txbDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView_Pedidos = new System.Windows.Forms.ListView();
             this.btnPedido = new System.Windows.Forms.Button();
             this.comboBox_FormaPgt = new System.Windows.Forms.ComboBox();
             this.label_formPagt = new System.Windows.Forms.Label();
@@ -67,7 +67,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.NomeClientesTableAdapters.funcionarioTableAdapter();
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEncerrarPedido = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
@@ -99,7 +98,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.btnAplicar);
             this.groupBox1.Controls.Add(this.txbDesconto);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.listView_Pedidos);
             this.groupBox1.Controls.Add(this.btnPedido);
             this.groupBox1.Controls.Add(this.comboBox_FormaPgt);
             this.groupBox1.Controls.Add(this.label_formPagt);
@@ -114,6 +112,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedidos";
+            // 
+            // btnEncerrarPedido
+            // 
+            this.btnEncerrarPedido.Location = new System.Drawing.Point(24, 130);
+            this.btnEncerrarPedido.Name = "btnEncerrarPedido";
+            this.btnEncerrarPedido.Size = new System.Drawing.Size(781, 23);
+            this.btnEncerrarPedido.TabIndex = 22;
+            this.btnEncerrarPedido.Text = "ENCERRAR O PEDIDO";
+            this.btnEncerrarPedido.UseVisualStyleBackColor = true;
+            this.btnEncerrarPedido.Click += new System.EventHandler(this.btnEncerrarPedido_Click);
             // 
             // txbValorPorUnidade
             // 
@@ -199,16 +207,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Desconto %";
-            // 
-            // listView_Pedidos
-            // 
-            this.listView_Pedidos.HideSelection = false;
-            this.listView_Pedidos.Location = new System.Drawing.Point(24, 139);
-            this.listView_Pedidos.Name = "listView_Pedidos";
-            this.listView_Pedidos.Size = new System.Drawing.Size(781, 236);
-            this.listView_Pedidos.TabIndex = 9;
-            this.listView_Pedidos.UseCompatibleStateImageBehavior = false;
-            this.listView_Pedidos.View = System.Windows.Forms.View.Details;
             // 
             // btnPedido
             // 
@@ -377,21 +375,11 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioBindingSource1.DataMember = "funcionario";
             this.funcionarioBindingSource1.DataSource = this.nomeClientesBindingSource;
             // 
-            // btnEncerrarPedido
-            // 
-            this.btnEncerrarPedido.Location = new System.Drawing.Point(24, 381);
-            this.btnEncerrarPedido.Name = "btnEncerrarPedido";
-            this.btnEncerrarPedido.Size = new System.Drawing.Size(781, 23);
-            this.btnEncerrarPedido.TabIndex = 22;
-            this.btnEncerrarPedido.Text = "ENCERRAR O PEDIDO";
-            this.btnEncerrarPedido.UseVisualStyleBackColor = true;
-            this.btnEncerrarPedido.Click += new System.EventHandler(this.btnEncerrarPedido_Click);
-            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 450);
+            this.ClientSize = new System.Drawing.Size(897, 184);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pedidos";
             this.Text = "Pedidos";
@@ -425,7 +413,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.TextBox txbDesconto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListView listView_Pedidos;
         private System.Windows.Forms.Button btnPedido;
         private System.Windows.Forms.ComboBox comboBox_FormaPgt;
         private System.Windows.Forms.Label label_formPagt;

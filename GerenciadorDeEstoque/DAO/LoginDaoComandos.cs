@@ -334,7 +334,7 @@ namespace GerenciadorDeEstoque.DAO
         {
             if (!produto.Equals("") && !qntproduto.Equals("") && !valorproduto.Equals("") && !nomecliente.Equals("") && !formapgt.Equals("") && !valortotalpedido.Equals(""))
             {
-                comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) values('PENDENTE', @produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
+                comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
                 comando.Parameters.AddWithValue("@produto", produto);
                 comando.Parameters.AddWithValue("@quantidadepedido", qntproduto);
                 comando.Parameters.AddWithValue("@valorunitario", valorproduto);
@@ -381,9 +381,7 @@ namespace GerenciadorDeEstoque.DAO
                     // Se ele selecionou que o pedido está pago, executa estes comandos
                     if (pago == true)
                     {
-                        comando.CommandText = "INSERT INTO pedidos_encerrados(estado, produto, quantidade, " +
-                            "valorunitario, comprador, formapgt, desconto, valortotal) SELECT 'PAGO', produto, quantidadepedido, " +
-                            "valorunitario, cliente, formadepgt, desconto, valortotalpedido FROM pedidos where idpedidos = @id;";
+                        comando.CommandText = "update pedidos_encerrados set estado = 'Pago' where idpedido = @id;";
                         comando.Parameters.AddWithValue("@id", id);
 
                         check = false;
@@ -406,7 +404,7 @@ namespace GerenciadorDeEstoque.DAO
                     // Se ele selecionou que o pedido está cancelado, executa estes comandos
                     if (cancelado == true)
                     {
-                        comando.CommandText = "INSERT INTO pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) SELECT 'CANCELADO', produto, quantidadepedido, valorunitario, cliente, formadepgt, desconto, valortotalpedido FROM pedidos where idpedidos = @id;";
+                        comando.CommandText = "update pedidos_encerrados set estado = 'Cancelado' where idpedido = @id;";
                         comando.Parameters.AddWithValue("@id", id);
 
                         check = false;
