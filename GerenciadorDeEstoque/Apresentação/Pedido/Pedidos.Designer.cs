@@ -31,7 +31,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEncerrarPedido = new System.Windows.Forms.Button();
             this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbQnt = new System.Windows.Forms.TextBox();
@@ -87,7 +86,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnEncerrarPedido);
             this.groupBox1.Controls.Add(this.txbValorPorUnidade);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txbQnt);
@@ -112,16 +110,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedidos";
-            // 
-            // btnEncerrarPedido
-            // 
-            this.btnEncerrarPedido.Location = new System.Drawing.Point(24, 130);
-            this.btnEncerrarPedido.Name = "btnEncerrarPedido";
-            this.btnEncerrarPedido.Size = new System.Drawing.Size(781, 23);
-            this.btnEncerrarPedido.TabIndex = 22;
-            this.btnEncerrarPedido.Text = "ENCERRAR O PEDIDO";
-            this.btnEncerrarPedido.UseVisualStyleBackColor = true;
-            this.btnEncerrarPedido.Click += new System.EventHandler(this.btnEncerrarPedido_Click);
             // 
             // txbValorPorUnidade
             // 
@@ -379,7 +367,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 184);
+            this.ClientSize = new System.Drawing.Size(897, 146);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pedidos";
             this.Text = "Pedidos";
@@ -443,6 +431,5 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.BindingSource funcionarioBindingSource1;
         private System.Windows.Forms.TextBox txbValorPorUnidade;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnEncerrarPedido;
     }
 }

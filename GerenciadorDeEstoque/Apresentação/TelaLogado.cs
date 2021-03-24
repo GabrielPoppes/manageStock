@@ -19,6 +19,9 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        // Thread da tela para encerrar o pedido
+        Thread TelaEncerrarPedido;
+
         // Thread da tela de adicionar novo cliente jurídico
         Thread AddClientsCNPJ;
 
@@ -438,9 +441,16 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
-        private void listView_Pedido_SelectedIndexChanged(object sender, EventArgs e)
+        private void AbrirTelaEncerrarPedido()
         {
+            Application.Run(new EncerrarPedido());
+        }
 
+        private void pictureAlterarEstadoPedido_Click(object sender, EventArgs e)
+        {
+            TelaEncerrarPedido = new Thread(AbrirTelaEncerrarPedido);
+            TelaEncerrarPedido.SetApartmentState(ApartmentState.MTA);
+            TelaEncerrarPedido.Start();
         }
     }
 }

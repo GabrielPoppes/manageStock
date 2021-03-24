@@ -381,6 +381,7 @@ namespace GerenciadorDeEstoque.DAO
                     // Se ele selecionou que o pedido está pago, executa estes comandos
                     if (pago == true)
                     {
+                        // Atualizando o estado do pedido para PAGO
                         comando.CommandText = "update pedidos_encerrados set estado = 'Pago' where idpedido = @id;";
                         comando.Parameters.AddWithValue("@id", id);
 
@@ -404,6 +405,7 @@ namespace GerenciadorDeEstoque.DAO
                     // Se ele selecionou que o pedido está cancelado, executa estes comandos
                     if (cancelado == true)
                     {
+                        // Atualizando o estado do pedido para CANCELADO
                         comando.CommandText = "update pedidos_encerrados set estado = 'Cancelado' where idpedido = @id;";
                         comando.Parameters.AddWithValue("@id", id);
 

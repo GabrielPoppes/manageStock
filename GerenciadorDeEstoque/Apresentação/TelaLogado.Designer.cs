@@ -60,6 +60,8 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.listView_Pedido = new System.Windows.Forms.ListView();
+            this.pictureAlterarEstadoPedido = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).BeginInit();
@@ -73,6 +75,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
             this.groupBox_pedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -342,6 +345,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // groupBox_pedidos
             // 
+            this.groupBox_pedidos.Controls.Add(this.label7);
+            this.groupBox_pedidos.Controls.Add(this.pictureAlterarEstadoPedido);
             this.groupBox_pedidos.Controls.Add(this.btn_criarPedido);
             this.groupBox_pedidos.Controls.Add(this.label8);
             this.groupBox_pedidos.Controls.Add(this.label9);
@@ -389,7 +394,26 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido.TabIndex = 0;
             this.listView_Pedido.UseCompatibleStateImageBehavior = false;
             this.listView_Pedido.View = System.Windows.Forms.View.Details;
-            this.listView_Pedido.SelectedIndexChanged += new System.EventHandler(this.listView_Pedido_SelectedIndexChanged);
+            // 
+            // pictureAlterarEstadoPedido
+            // 
+            this.pictureAlterarEstadoPedido.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
+            this.pictureAlterarEstadoPedido.Location = new System.Drawing.Point(110, 27);
+            this.pictureAlterarEstadoPedido.Name = "pictureAlterarEstadoPedido";
+            this.pictureAlterarEstadoPedido.Size = new System.Drawing.Size(48, 38);
+            this.pictureAlterarEstadoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureAlterarEstadoPedido.TabIndex = 11;
+            this.pictureAlterarEstadoPedido.TabStop = false;
+            this.pictureAlterarEstadoPedido.Click += new System.EventHandler(this.pictureAlterarEstadoPedido_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(100, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Alterar estado";
             // 
             // TelaLogado
             // 
@@ -421,6 +445,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox_pedidos.ResumeLayout(false);
             this.groupBox_pedidos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,5 +484,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListView listView_Pedido;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureAlterarEstadoPedido;
     }
 }

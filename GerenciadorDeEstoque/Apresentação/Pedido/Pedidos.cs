@@ -15,7 +15,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 {
     public partial class Pedidos : Form
     {
-        Thread TelaEncerrarPedido;
 
         public Pedidos()
         {
@@ -209,18 +208,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             {
                 MessageBox.Show("Erro ao realizar o cadastro!");
             }
-        }
-
-        private void btnEncerrarPedido_Click(object sender, EventArgs e)
-        {
-            TelaEncerrarPedido = new Thread(AbrirTelaEncerrarPedido);
-            TelaEncerrarPedido.SetApartmentState(ApartmentState.MTA);
-            TelaEncerrarPedido.Start();
-        }
-
-        private void AbrirTelaEncerrarPedido()
-        {
-            Application.Run(new EncerrarPedido());
         }
     }
 }
