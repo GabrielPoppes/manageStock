@@ -373,6 +373,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // checkBoxCancelados
             // 
             this.checkBoxCancelados.AutoSize = true;
+            this.checkBoxCancelados.Checked = true;
+            this.checkBoxCancelados.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCancelados.Location = new System.Drawing.Point(542, 49);
             this.checkBoxCancelados.Name = "checkBoxCancelados";
             this.checkBoxCancelados.Size = new System.Drawing.Size(82, 17);
@@ -384,6 +386,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // checkBoxPago
             // 
             this.checkBoxPago.AutoSize = true;
+            this.checkBoxPago.Checked = true;
+            this.checkBoxPago.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPago.Location = new System.Drawing.Point(480, 49);
             this.checkBoxPago.Name = "checkBoxPago";
             this.checkBoxPago.Size = new System.Drawing.Size(56, 17);
@@ -395,6 +399,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // checkBoxPendentes
             // 
             this.checkBoxPendentes.AutoSize = true;
+            this.checkBoxPendentes.Checked = true;
+            this.checkBoxPendentes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPendentes.Location = new System.Drawing.Point(397, 49);
             this.checkBoxPendentes.Name = "checkBoxPendentes";
             this.checkBoxPendentes.Size = new System.Drawing.Size(77, 17);
