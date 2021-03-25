@@ -116,7 +116,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.ClientSize = new System.Drawing.Size(483, 178);
             this.Controls.Add(this.groupBox1);
             this.Name = "EncerrarPedido";
-            this.Text = "EncerrarPedido";
+            this.Text = "Alterar status do pedido";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

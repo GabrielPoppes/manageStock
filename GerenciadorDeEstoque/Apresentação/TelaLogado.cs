@@ -696,45 +696,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 }
             }
 
-            // Se marcar somente a BOX PAGO, PENDENTE e CANCELADO
-            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true)
-            {
-                listView_Pedido.Items.Clear();
-                SqlDataAdapter da;
-                DataSet ds;
-
-                // Conectar com o BD
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
-                con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
-                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
-
-                da = new SqlDataAdapter(cmdAddPedido);
-                ds = new DataSet();
-                DataTable dt = new DataTable();
-
-                da.Fill(ds, "estoque");
-
-                con.Close();
-                dt = ds.Tables["estoque"];
-
-                int i;
-                for (i = 0; i <= dt.Rows.Count - 1; i++)
-                {
-                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
-                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
-                }
-            }
-
             // Se marcar somente a BOX PAGO e CANCELADO
             if (checkBoxPago.Checked == true && checkBoxCancelados.Checked == true)
             {
@@ -788,6 +749,45 @@ namespace GerenciadorDeEstoque.Apresentação
 
                 // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
+
+                da = new SqlDataAdapter(cmdAddPedido);
+                ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                da.Fill(ds, "estoque");
+
+                con.Close();
+                dt = ds.Tables["estoque"];
+
+                int i;
+                for (i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                }
+            }
+
+            // Se marcar somente a BOX PAGO, PENDENTE e CANCELADO
+            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true)
+            {
+                listView_Pedido.Items.Clear();
+                SqlDataAdapter da;
+                DataSet ds;
+
+                // Conectar com o BD
+                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                // Abrindo a conexão
+                con.Open();
+
+                // Variável do tipo SqlCOmmand para executar os cmds do BD
+                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
                 ds = new DataSet();

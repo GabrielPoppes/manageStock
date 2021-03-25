@@ -141,7 +141,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.ClientSize = new System.Drawing.Size(527, 276);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddProduct";
-            this.Text = "AddProduct";
+            this.Text = "Adicionar produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

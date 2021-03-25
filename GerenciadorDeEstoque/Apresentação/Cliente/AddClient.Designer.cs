@@ -245,7 +245,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gpbox_PessoaFisica);
             this.Name = "AddClient";
-            this.Text = "AddClient";
+            this.Text = "Adicionar cliente (Pessoa física)";
             this.gpbox_PessoaFisica.ResumeLayout(false);
             this.gpbox_PessoaFisica.PerformLayout();
             this.ResumeLayout(false);

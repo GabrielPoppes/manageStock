@@ -364,7 +364,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox_pedidos.Controls.Add(this.label8);
             this.groupBox_pedidos.Controls.Add(this.label9);
             this.groupBox_pedidos.Controls.Add(this.listView_Pedido);
-            this.groupBox_pedidos.Location = new System.Drawing.Point(126, 10);
+            this.groupBox_pedidos.Location = new System.Drawing.Point(126, 19);
             this.groupBox_pedidos.Name = "groupBox_pedidos";
             this.groupBox_pedidos.Size = new System.Drawing.Size(1041, 625);
             this.groupBox_pedidos.TabIndex = 14;
@@ -507,7 +507,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLogado";
-            this.Text = "X";
+            this.Text = "Gerenciador de estoque";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pedido)).EndInit();

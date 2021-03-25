@@ -30,6 +30,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
         private void InitializeComponent()
         {
             this.gpbox_CNPJ = new System.Windows.Forms.GroupBox();
+            this.txb_celularCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.txb_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txb_NomeCNPJ = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.CNPJ = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txb_endereco = new System.Windows.Forms.TextBox();
-            this.txb_celularCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.gpbox_CNPJ.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,14 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.gpbox_CNPJ.Size = new System.Drawing.Size(776, 426);
             this.gpbox_CNPJ.TabIndex = 27;
             this.gpbox_CNPJ.TabStop = false;
+            // 
+            // txb_celularCNPJ
+            // 
+            this.txb_celularCNPJ.Location = new System.Drawing.Point(425, 120);
+            this.txb_celularCNPJ.Mask = "(000) 00000-0000";
+            this.txb_celularCNPJ.Name = "txb_celularCNPJ";
+            this.txb_celularCNPJ.Size = new System.Drawing.Size(190, 20);
+            this.txb_celularCNPJ.TabIndex = 26;
             // 
             // txb_CNPJ
             // 
@@ -188,14 +196,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.txb_endereco.Size = new System.Drawing.Size(590, 20);
             this.txb_endereco.TabIndex = 12;
             // 
-            // txb_celularCNPJ
-            // 
-            this.txb_celularCNPJ.Location = new System.Drawing.Point(425, 120);
-            this.txb_celularCNPJ.Mask = "(000) 00000-0000";
-            this.txb_celularCNPJ.Name = "txb_celularCNPJ";
-            this.txb_celularCNPJ.Size = new System.Drawing.Size(190, 20);
-            this.txb_celularCNPJ.TabIndex = 26;
-            // 
             // AddClienteCNPJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,7 +203,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gpbox_CNPJ);
             this.Name = "AddClienteCNPJ";
-            this.Text = "AddClienteCNPJ";
+            this.Text = "Adicionar cliente (jurídico)";
             this.gpbox_CNPJ.ResumeLayout(false);
             this.gpbox_CNPJ.PerformLayout();
             this.ResumeLayout(false);

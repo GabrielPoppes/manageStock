@@ -30,13 +30,13 @@ namespace GerenciadorDeEstoque.Apresentação
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_deleteProduto = new System.Windows.Forms.Button();
+            this.btn_rmvQnt = new System.Windows.Forms.Button();
             this.txb_Quantidade = new System.Windows.Forms.TextBox();
             this.label_nome = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txb_idProduto = new System.Windows.Forms.TextBox();
             this.btn_AddQnt = new System.Windows.Forms.Button();
-            this.btn_rmvQnt = new System.Windows.Forms.Button();
-            this.btn_deleteProduto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,26 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editar produto";
+            // 
+            // btn_deleteProduto
+            // 
+            this.btn_deleteProduto.Location = new System.Drawing.Point(157, 148);
+            this.btn_deleteProduto.Name = "btn_deleteProduto";
+            this.btn_deleteProduto.Size = new System.Drawing.Size(244, 23);
+            this.btn_deleteProduto.TabIndex = 10;
+            this.btn_deleteProduto.Text = "EXCLUIR PRODUTO";
+            this.btn_deleteProduto.UseVisualStyleBackColor = true;
+            this.btn_deleteProduto.Click += new System.EventHandler(this.btn_deleteProduto_Click);
+            // 
+            // btn_rmvQnt
+            // 
+            this.btn_rmvQnt.Location = new System.Drawing.Point(288, 119);
+            this.btn_rmvQnt.Name = "btn_rmvQnt";
+            this.btn_rmvQnt.Size = new System.Drawing.Size(113, 23);
+            this.btn_rmvQnt.TabIndex = 9;
+            this.btn_rmvQnt.Text = "REMOVER";
+            this.btn_rmvQnt.UseVisualStyleBackColor = true;
+            this.btn_rmvQnt.Click += new System.EventHandler(this.btn_rmvQnt_Click);
             // 
             // txb_Quantidade
             // 
@@ -98,26 +118,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btn_AddQnt.UseVisualStyleBackColor = true;
             this.btn_AddQnt.Click += new System.EventHandler(this.btn_AddQnt_Click);
             // 
-            // btn_rmvQnt
-            // 
-            this.btn_rmvQnt.Location = new System.Drawing.Point(288, 119);
-            this.btn_rmvQnt.Name = "btn_rmvQnt";
-            this.btn_rmvQnt.Size = new System.Drawing.Size(113, 23);
-            this.btn_rmvQnt.TabIndex = 9;
-            this.btn_rmvQnt.Text = "REMOVER";
-            this.btn_rmvQnt.UseVisualStyleBackColor = true;
-            this.btn_rmvQnt.Click += new System.EventHandler(this.btn_rmvQnt_Click);
-            // 
-            // btn_deleteProduto
-            // 
-            this.btn_deleteProduto.Location = new System.Drawing.Point(157, 148);
-            this.btn_deleteProduto.Name = "btn_deleteProduto";
-            this.btn_deleteProduto.Size = new System.Drawing.Size(244, 23);
-            this.btn_deleteProduto.TabIndex = 10;
-            this.btn_deleteProduto.Text = "EXCLUIR PRODUTO";
-            this.btn_deleteProduto.UseVisualStyleBackColor = true;
-            this.btn_deleteProduto.Click += new System.EventHandler(this.btn_deleteProduto_Click);
-            // 
             // EditarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,7 +125,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.ClientSize = new System.Drawing.Size(523, 285);
             this.Controls.Add(this.groupBox1);
             this.Name = "EditarProduto";
-            this.Text = "EditarProduto";
+            this.Text = "Editar produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

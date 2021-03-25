@@ -370,7 +370,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.ClientSize = new System.Drawing.Size(897, 146);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pedidos";
-            this.Text = "Pedidos";
+            this.Text = "Cadastrar pedidos";
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
