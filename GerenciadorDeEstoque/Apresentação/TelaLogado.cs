@@ -441,6 +441,46 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
+        // Refresh na LIST VIEW de PEDIDOS
+        public void RefreshPedidos()
+        {
+            listView_Pedido.Items.Clear();
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+            }
+
+        }
+
         private void AbrirTelaEncerrarPedido()
         {
             Application.Run(new EncerrarPedido());
@@ -451,6 +491,189 @@ namespace GerenciadorDeEstoque.Apresentação
             TelaEncerrarPedido = new Thread(AbrirTelaEncerrarPedido);
             TelaEncerrarPedido.SetApartmentState(ApartmentState.MTA);
             TelaEncerrarPedido.Start();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            RefreshPedidos();
+        }
+
+        // Método para exibir somente pedidos PENDENTES, PAGOS ou CANCELADOS
+        private void MetodoExibirPedidosporEstado()
+        {
+            // Se TODAS AS BOX tiverem desmarcadas
+            if(checkBoxPendentes.Checked == false && checkBoxPago.Checked == false && checkBoxCancelados.Checked == false)
+            {
+                listView_Pedido.Items.Clear();
+                SqlDataAdapter da;
+                DataSet ds;
+
+                // Conectar com o BD
+                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                // Abrindo a conexão
+                con.Open();
+
+                // Variável do tipo SqlCOmmand para executar os cmds do BD
+                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
+
+                da = new SqlDataAdapter(cmdAddPedido);
+                ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                da.Fill(ds, "estoque");
+
+                con.Close();
+                dt = ds.Tables["estoque"];
+
+                int i;
+                for (i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                }
+            }
+
+            // Se marcar somente a BOX PENDENTES
+            if(checkBoxPendentes.Checked == true)
+            {
+                listView_Pedido.Items.Clear();
+                SqlDataAdapter da;
+                DataSet ds;
+
+                // Conectar com o BD
+                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                // Abrindo a conexão
+                con.Open();
+
+                // Variável do tipo SqlCOmmand para executar os cmds do BD
+                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%';", con);
+
+                da = new SqlDataAdapter(cmdAddPedido);
+                ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                da.Fill(ds, "estoque");
+
+                con.Close();
+                dt = ds.Tables["estoque"];
+
+                int i;
+                for (i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                }
+            }
+
+            // Se marcar somente a BOX PAGO
+            if (checkBoxPago.Checked == true)
+            {
+                listView_Pedido.Items.Clear();
+                SqlDataAdapter da;
+                DataSet ds;
+
+                // Conectar com o BD
+                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                // Abrindo a conexão
+                con.Open();
+
+                // Variável do tipo SqlCOmmand para executar os cmds do BD
+                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%';", con);
+
+                da = new SqlDataAdapter(cmdAddPedido);
+                ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                da.Fill(ds, "estoque");
+
+                con.Close();
+                dt = ds.Tables["estoque"];
+
+                int i;
+                for (i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                }
+            }
+
+            // Se marcar somente a BOX CANCELADO
+            if (checkBoxCancelados.Checked == true)
+            {
+                listView_Pedido.Items.Clear();
+                SqlDataAdapter da;
+                DataSet ds;
+
+                // Conectar com o BD
+                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+                // Abrindo a conexão
+                con.Open();
+
+                // Variável do tipo SqlCOmmand para executar os cmds do BD
+                SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Cancelado%';", con);
+
+                da = new SqlDataAdapter(cmdAddPedido);
+                ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                da.Fill(ds, "estoque");
+
+                con.Close();
+                dt = ds.Tables["estoque"];
+
+                int i;
+                for (i = 0; i <= dt.Rows.Count - 1; i++)
+                {
+                    listView_Pedido.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                }
+            }
+        }
+
+        // Check box pendentes
+        private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e)
+        {
+            MetodoExibirPedidosporEstado();
+        }
+
+        // Check box pagos
+        private void checkBoxPago_CheckedChanged(object sender, EventArgs e)
+        {
+            MetodoExibirPedidosporEstado();
+        }
+
+        // Check box cancelados
+        private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e)
+        {
+            MetodoExibirPedidosporEstado();
         }
     }
 }

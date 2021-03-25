@@ -56,12 +56,18 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picture_AddProd = new System.Windows.Forms.PictureBox();
             this.picture_Edit = new System.Windows.Forms.PictureBox();
             this.groupBox_pedidos = new System.Windows.Forms.GroupBox();
+            this.checkBoxCancelados = new System.Windows.Forms.CheckBox();
+            this.checkBoxPago = new System.Windows.Forms.CheckBox();
+            this.checkBoxPendentes = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureAlterarEstadoPedido = new System.Windows.Forms.PictureBox();
             this.btn_criarPedido = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.listView_Pedido = new System.Windows.Forms.ListView();
-            this.pictureAlterarEstadoPedido = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).BeginInit();
@@ -74,8 +80,9 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.picture_AddProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).BeginInit();
             this.groupBox_pedidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -345,6 +352,12 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // groupBox_pedidos
             // 
+            this.groupBox_pedidos.Controls.Add(this.label11);
+            this.groupBox_pedidos.Controls.Add(this.checkBoxCancelados);
+            this.groupBox_pedidos.Controls.Add(this.checkBoxPago);
+            this.groupBox_pedidos.Controls.Add(this.checkBoxPendentes);
+            this.groupBox_pedidos.Controls.Add(this.label10);
+            this.groupBox_pedidos.Controls.Add(this.pictureBox3);
             this.groupBox_pedidos.Controls.Add(this.label7);
             this.groupBox_pedidos.Controls.Add(this.pictureAlterarEstadoPedido);
             this.groupBox_pedidos.Controls.Add(this.btn_criarPedido);
@@ -356,6 +369,79 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox_pedidos.Size = new System.Drawing.Size(1041, 625);
             this.groupBox_pedidos.TabIndex = 14;
             this.groupBox_pedidos.TabStop = false;
+            // 
+            // checkBoxCancelados
+            // 
+            this.checkBoxCancelados.AutoSize = true;
+            this.checkBoxCancelados.Location = new System.Drawing.Point(542, 49);
+            this.checkBoxCancelados.Name = "checkBoxCancelados";
+            this.checkBoxCancelados.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxCancelados.TabIndex = 17;
+            this.checkBoxCancelados.Text = "Cancelados";
+            this.checkBoxCancelados.UseVisualStyleBackColor = true;
+            this.checkBoxCancelados.CheckedChanged += new System.EventHandler(this.checkBoxCancelados_CheckedChanged);
+            // 
+            // checkBoxPago
+            // 
+            this.checkBoxPago.AutoSize = true;
+            this.checkBoxPago.Location = new System.Drawing.Point(480, 49);
+            this.checkBoxPago.Name = "checkBoxPago";
+            this.checkBoxPago.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxPago.TabIndex = 16;
+            this.checkBoxPago.Text = "Pagos";
+            this.checkBoxPago.UseVisualStyleBackColor = true;
+            this.checkBoxPago.CheckedChanged += new System.EventHandler(this.checkBoxPago_CheckedChanged);
+            // 
+            // checkBoxPendentes
+            // 
+            this.checkBoxPendentes.AutoSize = true;
+            this.checkBoxPendentes.Location = new System.Drawing.Point(397, 49);
+            this.checkBoxPendentes.Name = "checkBoxPendentes";
+            this.checkBoxPendentes.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxPendentes.TabIndex = 15;
+            this.checkBoxPendentes.Text = "Pendentes";
+            this.checkBoxPendentes.UseVisualStyleBackColor = true;
+            this.checkBoxPendentes.CheckedChanged += new System.EventHandler(this.checkBoxPendentes_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(176, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Atualizar lista";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_icon_ios7_refresh_211814;
+            this.pictureBox3.Location = new System.Drawing.Point(185, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(100, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Alterar estado";
+            // 
+            // pictureAlterarEstadoPedido
+            // 
+            this.pictureAlterarEstadoPedido.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
+            this.pictureAlterarEstadoPedido.Location = new System.Drawing.Point(110, 27);
+            this.pictureAlterarEstadoPedido.Name = "pictureAlterarEstadoPedido";
+            this.pictureAlterarEstadoPedido.Size = new System.Drawing.Size(48, 38);
+            this.pictureAlterarEstadoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureAlterarEstadoPedido.TabIndex = 11;
+            this.pictureAlterarEstadoPedido.TabStop = false;
+            this.pictureAlterarEstadoPedido.Click += new System.EventHandler(this.pictureAlterarEstadoPedido_Click);
             // 
             // btn_criarPedido
             // 
@@ -395,25 +481,14 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido.UseCompatibleStateImageBehavior = false;
             this.listView_Pedido.View = System.Windows.Forms.View.Details;
             // 
-            // pictureAlterarEstadoPedido
+            // label11
             // 
-            this.pictureAlterarEstadoPedido.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
-            this.pictureAlterarEstadoPedido.Location = new System.Drawing.Point(110, 27);
-            this.pictureAlterarEstadoPedido.Name = "pictureAlterarEstadoPedido";
-            this.pictureAlterarEstadoPedido.Size = new System.Drawing.Size(48, 38);
-            this.pictureAlterarEstadoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureAlterarEstadoPedido.TabIndex = 11;
-            this.pictureAlterarEstadoPedido.TabStop = false;
-            this.pictureAlterarEstadoPedido.Click += new System.EventHandler(this.pictureAlterarEstadoPedido_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(100, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Alterar estado";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(316, 50);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Exibir pedidos:";
             // 
             // TelaLogado
             // 
@@ -444,8 +519,9 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.picture_Edit)).EndInit();
             this.groupBox_pedidos.ResumeLayout(false);
             this.groupBox_pedidos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +562,11 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.ListView listView_Pedido;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureAlterarEstadoPedido;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.CheckBox checkBoxCancelados;
+        private System.Windows.Forms.CheckBox checkBoxPago;
+        private System.Windows.Forms.CheckBox checkBoxPendentes;
+        private System.Windows.Forms.Label label11;
     }
 }
