@@ -33,6 +33,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         // Método que carrega o nome dos Clientes e o nome dos produtos
         private void Pedidos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'estoqueDataSet1.clientefisico'. Você pode movê-la ou removê-la conforme necessário.
+            this.clientefisicoTableAdapter.Fill(this.estoqueDataSet1.clientefisico);
             // TODO: esta linha de código carrega dados na tabela 'nomeClientes.funcionario'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionarioTableAdapter.Fill(this.nomeClientes.funcionario);
             // TODO: esta linha de código carrega dados na tabela 'estoqueDataSet.produtos'. Você pode movê-la ou removê-la conforme necessário.

@@ -66,6 +66,10 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.NomeClientesTableAdapters.funcionarioTableAdapter();
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.estoqueDataSet1 = new GerenciadorDeEstoque.estoqueDataSet1();
+            this.clientefisicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientefisicoTableAdapter = new GerenciadorDeEstoque.estoqueDataSet1TableAdapters.clientefisicoTableAdapter();
+            this.produtosBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientes)).BeginInit();
@@ -82,6 +86,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientefisicoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource7)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -230,8 +237,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // comboBox_Cliente
             // 
-            this.comboBox_Cliente.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.funcionarioBindingSource2, "nome", true));
-            this.comboBox_Cliente.DataSource = this.funcionarioBindingSource3;
+            this.comboBox_Cliente.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.clientefisicoBindingSource, "nome", true));
+            this.comboBox_Cliente.DataSource = this.clientefisicoBindingSource;
             this.comboBox_Cliente.DisplayMember = "nome";
             this.comboBox_Cliente.FormattingEnabled = true;
             this.comboBox_Cliente.Location = new System.Drawing.Point(71, 47);
@@ -257,8 +264,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // comboBox_Produto
             // 
-            this.comboBox_Produto.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produtosBindingSource1, "nome", true));
-            this.comboBox_Produto.DataSource = this.produtosBindingSource;
+            this.comboBox_Produto.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produtosBindingSource7, "nome", true));
+            this.comboBox_Produto.DataSource = this.produtosBindingSource7;
             this.comboBox_Produto.DisplayMember = "nome";
             this.comboBox_Produto.FormattingEnabled = true;
             this.comboBox_Produto.Location = new System.Drawing.Point(71, 23);
@@ -363,6 +370,25 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.funcionarioBindingSource1.DataMember = "funcionario";
             this.funcionarioBindingSource1.DataSource = this.nomeClientesBindingSource;
             // 
+            // estoqueDataSet1
+            // 
+            this.estoqueDataSet1.DataSetName = "estoqueDataSet1";
+            this.estoqueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientefisicoBindingSource
+            // 
+            this.clientefisicoBindingSource.DataMember = "clientefisico";
+            this.clientefisicoBindingSource.DataSource = this.estoqueDataSet1;
+            // 
+            // clientefisicoTableAdapter
+            // 
+            this.clientefisicoTableAdapter.ClearBeforeFill = true;
+            // 
+            // produtosBindingSource7
+            // 
+            this.produtosBindingSource7.DataMember = "produtos";
+            this.produtosBindingSource7.DataSource = this.estoqueDataSetBindingSource;
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +415,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientefisicoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,5 +460,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.BindingSource funcionarioBindingSource1;
         private System.Windows.Forms.TextBox txbValorPorUnidade;
         private System.Windows.Forms.Label label2;
+        private estoqueDataSet1 estoqueDataSet1;
+        private System.Windows.Forms.BindingSource clientefisicoBindingSource;
+        private estoqueDataSet1TableAdapters.clientefisicoTableAdapter clientefisicoTableAdapter;
+        private System.Windows.Forms.BindingSource produtosBindingSource7;
     }
 }
