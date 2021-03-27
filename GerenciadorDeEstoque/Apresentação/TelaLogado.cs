@@ -77,7 +77,8 @@ namespace GerenciadorDeEstoque.Apresentação
             label_AddProd.Hide();
             label_EditEstoq.Hide();
             listView_Cliente.Hide();
-            btn_AtualizarLista.Hide();
+            gpb_Estoque.Hide();
+
         }
 
         // Exibir interface gráfica do estoque
@@ -88,7 +89,7 @@ namespace GerenciadorDeEstoque.Apresentação
             picture_Edit.Show();
             label_AddProd.Show();
             label_EditEstoq.Show();
-            btn_AtualizarLista.Show();
+            gpb_Estoque.Show();
         }
 
         // Gerar colunas da List View Produtos
@@ -210,11 +211,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
 
             }
-        }
-        // Botão Atualizar list View
-        private void btn_AtualizarLista_Click(object sender, EventArgs e)
-        {
-            RefreshList();
         }
 
         // Botão Editar Produtos do estoque
@@ -340,36 +336,23 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para atualizar a lista de clientes
-        private void btn_atualizarlistaClientes_Click(object sender, EventArgs e)
-        {
-            RefreshListClient();
-        }
-
         // Método para esconder a tela de pedidos
         private void EsconderTelaPedidos()
         {
             groupBox_pedidos.Hide();
-            btn_criarPedido.Hide();
-            label9.Hide();
-            listView_Pedido.Hide();
-
         }
 
         // Método para mostrar a tela de pedidos
         private void MostrarTelaPedidos()
         {
             groupBox_pedidos.Show();
-            btn_criarPedido.Show();
-            label9.Show();
-            listView_Pedido.Show();
         }
 
         // Botão com imagem dos pedidos
         private void btn_pedido_Click(object sender, EventArgs e)
         {
-            EsconderBotoesCliente();
             EsconderBotoesEstoque();
+            EsconderBotoesCliente();
             MostrarTelaPedidos();
         }
 
@@ -832,6 +815,18 @@ namespace GerenciadorDeEstoque.Apresentação
         private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e)
         {
             MetodoExibirPedidosporEstado();
+        }
+
+        // Botão para atualizar a lista de clientes
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            RefreshListClient();
+        }
+
+        // Botão atualizar lista
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            RefreshList();
         }
     }
 }
