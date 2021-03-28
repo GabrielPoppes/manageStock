@@ -113,9 +113,29 @@ namespace GerenciadorDeEstoque.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_user_285655 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_user_285655", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_User_Customers_1218712 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_User_Customers_1218712", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_user_male4_172628 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_user_male4_172628", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
