@@ -324,7 +324,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(203, 67);
+            this.label12.Location = new System.Drawing.Point(195, 65);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(68, 13);
             this.label12.TabIndex = 16;
@@ -333,7 +333,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_icon_ios7_refresh_211814;
-            this.pictureBox4.Location = new System.Drawing.Point(212, 27);
+            this.pictureBox4.Location = new System.Drawing.Point(204, 25);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(48, 38);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -344,7 +344,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
-            this.pictureBox2.Location = new System.Drawing.Point(127, 27);
+            this.pictureBox2.Location = new System.Drawing.Point(119, 25);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 38);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -355,7 +355,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 68);
+            this.label5.Location = new System.Drawing.Point(108, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 12;
@@ -364,7 +364,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // btn_NovoCliente
             // 
             this.btn_NovoCliente.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_sign_add_299068;
-            this.btn_NovoCliente.Location = new System.Drawing.Point(38, 27);
+            this.btn_NovoCliente.Location = new System.Drawing.Point(38, 25);
             this.btn_NovoCliente.Name = "btn_NovoCliente";
             this.btn_NovoCliente.Size = new System.Drawing.Size(48, 38);
             this.btn_NovoCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -383,7 +383,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 68);
+            this.label4.Location = new System.Drawing.Point(31, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 8;
