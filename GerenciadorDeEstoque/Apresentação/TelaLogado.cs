@@ -19,6 +19,9 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        // Thread da tela para editar clientes
+        Thread EditarCliente;
+
         // Thread da tela para encerrar o pedido
         Thread TelaEncerrarPedido;
 
@@ -827,6 +830,20 @@ namespace GerenciadorDeEstoque.Apresentação
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        // Método para abrir a tela Editar Cliente
+        private void AbrirTelaEditarCliente()
+        {
+            Application.Run(new EditarCliente());
+        }
+
+        // Método para abrir a tela Editar Cliente
+        private void pictureBoxEditarCliente_Click(object sender, EventArgs e)
+        {
+            EditarCliente = new Thread(AbrirTelaEditarCliente);
+            EditarCliente.SetApartmentState(ApartmentState.MTA);
+            EditarCliente.Start();
         }
     }
 }

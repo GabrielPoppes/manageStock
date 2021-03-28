@@ -58,6 +58,12 @@
     <Compile Include="Apresentação\Cliente\AddClienteCNPJ.Designer.cs">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\Cliente\EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\Cliente\EditarCliente.Designer.cs">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentação\Pedido\EncerrarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>estoqueDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="estoqueDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>estoqueDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Controle.cs" />
     <Compile Include="NomeClientes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Cliente\AddClienteCNPJ.resx">
       <DependentUpon>AddClienteCNPJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\Cliente\EditarCliente.resx">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\Pedido\EncerrarPedido.resx">
       <DependentUpon>EncerrarPedido.cs</DependentUpon>
@@ -183,6 +197,17 @@
     </None>
     <None Include="estoqueDataSet1.xss">
       <DependentUpon>estoqueDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="estoqueDataSet2.xsc">
+      <DependentUpon>estoqueDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="estoqueDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>estoqueDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="estoqueDataSet2.xss">
+      <DependentUpon>estoqueDataSet2.xsd</DependentUpon>
     </None>
     <None Include="NomeClientes.xsc">
       <DependentUpon>NomeClientes.xsd</DependentUpon>

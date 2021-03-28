@@ -52,7 +52,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Size = new System.Drawing.Size(484, 178);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Baixa no pedido";
+            this.groupBox1.Text = "Identificação do pedido";
             // 
             // button1
             // 
