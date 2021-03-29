@@ -431,5 +431,42 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
+        // Método para adicionar Editar Cliente
+        public string EditarCliente(string id, string nome, string datanascimento, string telefone, string celular, string rg, string cpf, string endereco, string email, string observacoes)
+        {
+            if (!nome.Equals("") && !datanascimento.Equals("") && !celular.Equals("") && !celular.Equals("") && !cpf.Equals("") && !endereco.Equals("") && !email.Equals(""))
+            {
+                comando.CommandText = "update ClienteFisico set nome = @nome, datanascimento = @datanascimento, telefone = @telefone, celular = @celular, rg = @rg, cpf = @cpf, endereco = @endereco, email = @email, observacoes = @observacoes where idclientefisico = @id;";
+;
+                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@datanascimento", datanascimento);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@celular", celular);
+                comando.Parameters.AddWithValue("@rg", rg);
+                comando.Parameters.AddWithValue("@cpf", cpf);
+                comando.Parameters.AddWithValue("@endereco", endereco);
+                comando.Parameters.AddWithValue("@email", email);
+                comando.Parameters.AddWithValue("@observacoes", observacoes);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Cliente editado com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro na edição do cliente!";
+                }
+            }
+            return mensagem;
+        }
+
     }
 }

@@ -118,6 +118,19 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
+        // Método para editar cliente 
+        public string EditarClientes(string id, string nome, string datanascimento, string telefone, string celular, string rg, string cpf, string endereco, string email, string observacoes)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.EditarCliente(id, nome, datanascimento, telefone, celular, rg, cpf, endereco, email, observacoes);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
+
         // Método para cadastrar pedido do cliente
         public string CadastrarPedidoCliente(string produto, string qntproduto, string valorproduto, string nomecliente, string formapgt, string desconto, string valortotalpedido)
         {
