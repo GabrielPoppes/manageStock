@@ -100,6 +100,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.btnRemoverProdutos.TabIndex = 21;
             this.btnRemoverProdutos.Text = "REMOVER CLIENTE";
             this.btnRemoverProdutos.UseVisualStyleBackColor = true;
+            this.btnRemoverProdutos.Click += new System.EventHandler(this.btnRemoverProdutos_Click);
             // 
             // btnAlterarDados
             // 

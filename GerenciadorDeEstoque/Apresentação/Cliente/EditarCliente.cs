@@ -347,5 +347,16 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             Email();
             Observacoes();
         }
+
+        private void btnRemoverProdutos_Click(object sender, EventArgs e)
+        {
+            // REMOVER CLIENTE
+            Controle controle = new Controle();
+            string mensagem = controle.RemoverClientes(txbString.Text);
+            if (!txbString.Text.Equals(""))
+            {
+                MessageBox.Show("Cliente removido!");
+            }
+        }
     }
 }

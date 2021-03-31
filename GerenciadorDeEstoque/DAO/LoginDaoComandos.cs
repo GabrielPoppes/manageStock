@@ -468,5 +468,33 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
+        // Método para remover cliente
+        public string RemoverCliente(string id)
+        {
+            if (!id.Equals(""))
+            {
+                comando.CommandText = "delete from clientefisico where idclientefisico = @id;";
+                ;
+                comando.Parameters.AddWithValue("@id", id);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Cliente removido com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro na remoção do cliente!";
+                }
+            }
+            return mensagem;
+        }
+
     }
 }
