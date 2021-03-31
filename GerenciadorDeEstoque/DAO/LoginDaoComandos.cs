@@ -22,6 +22,7 @@ namespace GerenciadorDeEstoque.DAO
         public bool check = false;
         public string mensagem = "";
         SqlCommand comando = new SqlCommand();
+        SqlCommand comandoVar = new SqlCommand();
         Conexao conect = new Conexao();
         SqlDataReader armazenardados;
 
@@ -319,44 +320,51 @@ namespace GerenciadorDeEstoque.DAO
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "LoginDaoComandos";
-            this.Load += new System.EventHandler(this.LoginDaoComandos_Load);
             this.ResumeLayout(false);
 
         }
 
-        private void LoginDaoComandos_Load(object sender, EventArgs e)
-        {
-
-        }
-
         // Método para cadastrar o Pedidos de clientes
-        public string CadastrarPedidos(string produto, string qntproduto, string valorproduto, string nomecliente, string formapgt, string desconto, string valortotalpedido)
+        public string CadastrarPedidos(string produto, string qntestoque, string qntproduto, string valorproduto, string nomecliente, string formapgt, string desconto, string valortotalpedido)
         {
             if (!produto.Equals("") && !qntproduto.Equals("") && !valorproduto.Equals("") && !nomecliente.Equals("") && !formapgt.Equals("") && !valortotalpedido.Equals(""))
             {
-                comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
-                comando.Parameters.AddWithValue("@produto", produto);
-                comando.Parameters.AddWithValue("@quantidadepedido", qntproduto);
-                comando.Parameters.AddWithValue("@valorunitario", valorproduto);
-                comando.Parameters.AddWithValue("@cliente", nomecliente);
-                comando.Parameters.AddWithValue("@formadepgt", formapgt);
-                comando.Parameters.AddWithValue("@desconto", desconto);
-                comando.Parameters.AddWithValue("@valortotalpedido", valortotalpedido);
-
-                check = false;
-                try
+                int qntestoque_ = Convert.ToInt32(qntestoque);
+                int qntproduto_ = Convert.ToInt32(qntproduto);
+                if (qntestoque_ > qntproduto_)
                 {
-                    comando.Connection = conect.Conectar();
-                    comando.ExecuteNonQuery();
-                    conect.Desconectar();
-                    this.mensagem = "Produto cadastrado!";
+                    comandoVar.CommandText = "select quantidade from produtos where nome = '@nome'";
+                    string valorqnt = Convert.ToString(comandoVar);
 
-                    check = true;
+                    comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
+                    comando.Parameters.AddWithValue("@produto", produto);
+                    comando.Parameters.AddWithValue("@quantidadepedido", qntproduto);
+                    comando.Parameters.AddWithValue("@valorunitario", valorproduto);
+                    comando.Parameters.AddWithValue("@cliente", nomecliente);
+                    comando.Parameters.AddWithValue("@formadepgt", formapgt);
+                    comando.Parameters.AddWithValue("@desconto", desconto);
+                    comando.Parameters.AddWithValue("@valortotalpedido", valortotalpedido);
+
+                    check = false;
+                    try
+                    {
+                        MessageBox.Show(valorqnt);
+                        comando.Connection = conect.Conectar();
+                        comando.ExecuteNonQuery();
+                        conect.Desconectar();
+                        this.mensagem = "Produto cadastrado!";
+
+                        check = true;
+                    }
+
+                    catch (SqlException)
+                    {
+                        this.mensagem = "Erro no cadastro do produto!";
+                    }
                 }
-
-                catch (SqlException)
+                else
                 {
-                    this.mensagem = "Erro no cadastro do produto!";
+                    this.mensagem = "Quantidade do pedido é maior que a quantidade do produto em estoque!";
                 }
             }
             return mensagem;

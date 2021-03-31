@@ -199,7 +199,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             Controle controle = new Controle();
 
-            string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
+            string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
 
             if (controle.verificacao)
             {
