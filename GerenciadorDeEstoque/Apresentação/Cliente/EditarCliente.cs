@@ -1,4 +1,5 @@
-﻿using GerenciadorDeEstoque.Modelo;
+﻿using GerenciadorDeEstoque.DAO;
+using GerenciadorDeEstoque.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 {
     public partial class EditarCliente : Form
     {
+        public bool check = false;
+        public string mensagem = "";
         public EditarCliente()
         {
             InitializeComponent();
@@ -333,6 +336,8 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             {
                 MessageBox.Show("Cliente editado!");
             }
+            // Método para atualizar os clientes
+            RefreshCliente();
         }
 
         private void txbString_SelectedIndexChanged(object sender, EventArgs e)
@@ -357,6 +362,45 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             {
                 MessageBox.Show("Cliente removido!");
             }
+        }
+
+        // Refresh cliente
+        public string RefreshCliente()
+        {
+            SqlCommand comando = new SqlCommand();
+            Conexao conect = new Conexao();
+            
+
+            // Limpar os campos
+            txbNome.Clear();
+            txbDataNascimento.Clear();
+            txbTelefone.Clear();
+            txbCelular.Clear();
+            txbRG.Clear();
+            txbCPF.Clear();
+            txbEmail.Clear();
+            txbEndereco.Clear();
+            txbObservacoes.Clear();
+
+            comando.CommandText = "select * from clientefisico;";
+
+            check = false;
+            try
+            {
+                comando.Connection = conect.Conectar();
+                comando.ExecuteNonQuery();
+                conect.Desconectar();
+                this.mensagem = "Cliente removido com sucesso!";
+
+                check = true;
+            }
+
+            catch (SqlException)
+            {
+                this.mensagem = "Erro na remoção do cliente!";
+            }
+
+            return mensagem;
         }
     }
 }

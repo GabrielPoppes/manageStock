@@ -313,7 +313,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox txbString;
         private estoqueDataSet2 estoqueDataSet2;
         private System.Windows.Forms.BindingSource clientefisicoBindingSource;
         private estoqueDataSet2TableAdapters.clientefisicoTableAdapter clientefisicoTableAdapter;
@@ -337,5 +336,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbNome;
+        public System.Windows.Forms.ComboBox txbString;
     }
 }

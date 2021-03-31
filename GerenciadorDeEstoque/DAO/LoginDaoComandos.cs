@@ -370,7 +370,7 @@ namespace GerenciadorDeEstoque.DAO
             {
                 // Checando se o usuário não deixou marcado as duas Check Box (tanto pago, quanto cancelado)...
                 // Nesse caso, retornar erro
-                if(pago == true && cancelado == true)
+                if (pago == true && cancelado == true)
                 {
                     this.mensagem = "Seleciona apenas uma opção!";
                 }
@@ -425,7 +425,7 @@ namespace GerenciadorDeEstoque.DAO
                             this.mensagem = "Erro no cadastro do produto!";
                         }
                     }
-                }               
+                }
             }
 
             return mensagem;
@@ -437,7 +437,7 @@ namespace GerenciadorDeEstoque.DAO
             if (!nome.Equals("") && !datanascimento.Equals("") && !celular.Equals("") && !celular.Equals("") && !cpf.Equals("") && !endereco.Equals("") && !email.Equals(""))
             {
                 comando.CommandText = "update ClienteFisico set nome = @nome, datanascimento = @datanascimento, telefone = @telefone, celular = @celular, rg = @rg, cpf = @cpf, endereco = @endereco, email = @email, observacoes = @observacoes where idclientefisico = @id;";
-;
+                ;
                 comando.Parameters.AddWithValue("@id", id);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@datanascimento", datanascimento);
@@ -474,7 +474,6 @@ namespace GerenciadorDeEstoque.DAO
             if (!id.Equals(""))
             {
                 comando.CommandText = "delete from clientefisico where idclientefisico = @id;";
-                ;
                 comando.Parameters.AddWithValue("@id", id);
 
                 check = false;
@@ -495,6 +494,5 @@ namespace GerenciadorDeEstoque.DAO
             }
             return mensagem;
         }
-
     }
 }
