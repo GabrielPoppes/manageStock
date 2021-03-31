@@ -36,11 +36,13 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label2 = new System.Windows.Forms.Label();
             this.txb_Id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluirPedido = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcluirPedido);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.checkBox_Cancelado);
             this.groupBox1.Controls.Add(this.checkBox_Pago);
@@ -49,7 +51,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(-5, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 178);
+            this.groupBox1.Size = new System.Drawing.Size(484, 198);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identificação do pedido";
@@ -60,7 +62,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(423, 23);
             this.button1.TabIndex = 6;
-            this.button1.Text = "ENCERRAR PEDIDO";
+            this.button1.Text = "MUDAR STATUS DO PEDIDO";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -109,11 +111,21 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label1.TabIndex = 1;
             this.label1.Text = "ID";
             // 
+            // btnExcluirPedido
+            // 
+            this.btnExcluirPedido.Location = new System.Drawing.Point(33, 163);
+            this.btnExcluirPedido.Name = "btnExcluirPedido";
+            this.btnExcluirPedido.Size = new System.Drawing.Size(423, 23);
+            this.btnExcluirPedido.TabIndex = 7;
+            this.btnExcluirPedido.Text = "EXCLUIR PEDIDO";
+            this.btnExcluirPedido.UseVisualStyleBackColor = true;
+            this.btnExcluirPedido.Click += new System.EventHandler(this.btnExcluirPedido_Click);
+            // 
             // EncerrarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 178);
+            this.ClientSize = new System.Drawing.Size(483, 210);
             this.Controls.Add(this.groupBox1);
             this.Name = "EncerrarPedido";
             this.Text = "Alterar status do pedido";
@@ -132,5 +144,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private System.Windows.Forms.CheckBox checkBox_Pago;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txb_Id;
+        private System.Windows.Forms.Button btnExcluirPedido;
     }
 }

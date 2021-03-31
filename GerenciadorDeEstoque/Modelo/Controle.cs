@@ -169,5 +169,18 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
+
+        // Método para remover pedido
+        public string RemovePedidos(string id)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.RemoverPedido(id);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
     }
 }

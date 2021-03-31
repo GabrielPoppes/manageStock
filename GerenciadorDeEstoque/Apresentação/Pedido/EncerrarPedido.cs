@@ -47,5 +47,16 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
 
         }
+
+        // Botão de remoção dos pedidos
+        private void btnExcluirPedido_Click(object sender, EventArgs e)
+        {
+            Controle controle = new Controle();
+            string mensagem = controle.RemovePedidos(txb_Id.Text);
+            if (!txb_Id.Text.Equals(""))
+            {
+                MessageBox.Show("Pedido removido com sucesso!");
+            }
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // REMOVER PRODUTO DO ESTOQUE
+        // BOTÃO REMOVER PRODUTO DO ESTOQUE
         private void btn_deleteProduto_Click(object sender, EventArgs e)
         {
             Controle controle = new Controle();

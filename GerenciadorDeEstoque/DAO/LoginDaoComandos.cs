@@ -494,5 +494,32 @@ namespace GerenciadorDeEstoque.DAO
             }
             return mensagem;
         }
+
+        // Método para remover Pedido
+        public string RemoverPedido(string id)
+        {
+            if (!id.Equals(""))
+            {
+                comando.CommandText = "delete from pedidos_encerrados where idpedido = @id;";
+                comando.Parameters.AddWithValue("@id", id);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Pedido removido com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro na remoção do pedido!";
+                }
+            }
+            return mensagem;
+        }
     }
 }

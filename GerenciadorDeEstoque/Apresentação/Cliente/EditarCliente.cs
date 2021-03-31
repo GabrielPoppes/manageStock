@@ -362,6 +362,9 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             {
                 MessageBox.Show("Cliente removido!");
             }
+
+            // método para atualizar a lista de cliente
+            RefreshCliente();
         }
 
         // Refresh cliente
