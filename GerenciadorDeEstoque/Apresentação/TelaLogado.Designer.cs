@@ -80,6 +80,8 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label9 = new System.Windows.Forms.Label();
             this.listView_Pedido = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.imagemRefreshList = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxUsuarios)).BeginInit();
@@ -102,6 +104,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -478,6 +481,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxUsuario
             // 
+            this.gpBoxUsuario.Controls.Add(this.label16);
+            this.gpBoxUsuario.Controls.Add(this.imagemRefreshList);
             this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
             this.gpBoxUsuario.Controls.Add(this.pictureBox6);
             this.gpBoxUsuario.Controls.Add(this.label15);
@@ -500,7 +505,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBox6
             // 
             this.pictureBox6.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
-            this.pictureBox6.Location = new System.Drawing.Point(38, 31);
+            this.pictureBox6.Location = new System.Drawing.Point(42, 31);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(48, 38);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -642,6 +647,25 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label8.Size = new System.Drawing.Size(0, 13);
             this.label8.TabIndex = 10;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(110, 71);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 13);
+            this.label16.TabIndex = 16;
+            this.label16.Text = "Atualizar lista";
+            // 
+            // imagemRefreshList
+            // 
+            this.imagemRefreshList.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_icon_ios7_refresh_211814;
+            this.imagemRefreshList.Location = new System.Drawing.Point(119, 31);
+            this.imagemRefreshList.Name = "imagemRefreshList";
+            this.imagemRefreshList.Size = new System.Drawing.Size(48, 38);
+            this.imagemRefreshList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imagemRefreshList.TabIndex = 15;
+            this.imagemRefreshList.TabStop = false;
+            // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,6 +707,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,5 +766,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.ListView listViewUsuario;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox imagemRefreshList;
     }
 }

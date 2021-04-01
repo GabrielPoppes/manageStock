@@ -106,6 +106,12 @@
     <Compile Include="Apresentação\TelaLogado.Designer.cs">
       <DependentUpon>TelaLogado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentação\Usuário\EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentação\Usuário\EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\LoginDaoComandos.cs">
       <SubType>Form</SubType>
@@ -124,6 +130,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>estoqueDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="estoqueDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>estoqueDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Controle.cs" />
     <Compile Include="NomeClientes.Designer.cs">
@@ -162,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentação\TelaLogado.resx">
       <DependentUpon>TelaLogado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentação\Usuário\EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DAO\LoginDaoComandos.resx">
       <DependentUpon>LoginDaoComandos.cs</DependentUpon>
@@ -208,6 +222,17 @@
     </None>
     <None Include="estoqueDataSet2.xss">
       <DependentUpon>estoqueDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="estoqueDataSet3.xsc">
+      <DependentUpon>estoqueDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="estoqueDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>estoqueDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="estoqueDataSet3.xss">
+      <DependentUpon>estoqueDataSet3.xsd</DependentUpon>
     </None>
     <None Include="NomeClientes.xsc">
       <DependentUpon>NomeClientes.xsd</DependentUpon>

@@ -52,15 +52,20 @@ namespace GerenciadorDeEstoque.Apresentação
 
         public TelaLogado()
         {
+            // Método chamados na inicialização do programa
             InitializeComponent();
+
+            // Métodos pra esconder as telas da form TelaLogado
             EsconderBotoesEstoque();
-            GerarColunas();
             EsconderBotoesCliente();
-            GerarColunasClientes();
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
-            AdicionarItemListViewPedidos();
+            
+            // Métodos para gerar as colunas das List Views das forms escondidas
+            GerarColunasClientes();
+            GerarColunas();
             GerarColunasUsuarios();
+            AdicionarItemListViewPedidos();
         }
 
         // Esconder o Group Box Usuário
