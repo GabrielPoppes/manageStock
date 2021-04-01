@@ -65,7 +65,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Clientes = new System.Windows.Forms.ListView();
             this.groupBox_pedidos = new System.Windows.Forms.GroupBox();
             this.gpBoxUsuario = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewUsuario = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -125,7 +125,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblSuporte
             // 
             this.lblSuporte.AutoSize = true;
-            this.lblSuporte.Location = new System.Drawing.Point(36, 421);
+            this.lblSuporte.Location = new System.Drawing.Point(34, 452);
             this.lblSuporte.Name = "lblSuporte";
             this.lblSuporte.Size = new System.Drawing.Size(44, 13);
             this.lblSuporte.TabIndex = 9;
@@ -134,7 +134,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // imgSuporte
             // 
             this.imgSuporte.Image = global::GerenciadorDeEstoque.Properties.Resources._345523_suporte_tecnico_glyph_icons_grátis_vetor_removebg_preview;
-            this.imgSuporte.Location = new System.Drawing.Point(8, 353);
+            this.imgSuporte.Location = new System.Drawing.Point(6, 384);
             this.imgSuporte.Name = "imgSuporte";
             this.imgSuporte.Size = new System.Drawing.Size(100, 65);
             this.imgSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,16 +144,16 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(36, 337);
+            this.lblUsuario.Location = new System.Drawing.Point(36, 357);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(48, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 7;
-            this.lblUsuario.Text = "Usuários";
+            this.lblUsuario.Text = "Usuário";
             // 
             // picBoxUsuarios
             // 
             this.picBoxUsuarios.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_user_285655;
-            this.picBoxUsuarios.Location = new System.Drawing.Point(8, 269);
+            this.picBoxUsuarios.Location = new System.Drawing.Point(8, 289);
             this.picBoxUsuarios.Name = "picBoxUsuarios";
             this.picBoxUsuarios.Size = new System.Drawing.Size(100, 65);
             this.picBoxUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -164,7 +164,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 253);
+            this.label6.Location = new System.Drawing.Point(36, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 5;
@@ -173,7 +173,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // btn_pedido
             // 
             this.btn_pedido.Image = global::GerenciadorDeEstoque.Properties.Resources._3688519_128;
-            this.btn_pedido.Location = new System.Drawing.Point(8, 185);
+            this.btn_pedido.Location = new System.Drawing.Point(8, 106);
             this.btn_pedido.Name = "btn_pedido";
             this.btn_pedido.Size = new System.Drawing.Size(100, 65);
             this.btn_pedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -184,7 +184,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 169);
+            this.label2.Location = new System.Drawing.Point(37, 263);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 3;
@@ -193,7 +193,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // btnImg_Cliente
             // 
             this.btnImg_Cliente.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_User_Customers_1218712;
-            this.btnImg_Cliente.Location = new System.Drawing.Point(8, 104);
+            this.btnImg_Cliente.Location = new System.Drawing.Point(8, 198);
             this.btnImg_Cliente.Name = "btnImg_Cliente";
             this.btnImg_Cliente.Size = new System.Drawing.Size(100, 65);
             this.btnImg_Cliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -478,7 +478,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxUsuario
             // 
-            this.gpBoxUsuario.Controls.Add(this.listView1);
+            this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
             this.gpBoxUsuario.Controls.Add(this.pictureBox6);
             this.gpBoxUsuario.Controls.Add(this.label15);
             this.gpBoxUsuario.Location = new System.Drawing.Point(0, 0);
@@ -487,14 +487,15 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.TabIndex = 19;
             this.gpBoxUsuario.TabStop = false;
             // 
-            // listView1
+            // listViewUsuario
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(16, 99);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(990, 474);
-            this.listView1.TabIndex = 11;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewUsuario.HideSelection = false;
+            this.listViewUsuario.Location = new System.Drawing.Point(16, 99);
+            this.listViewUsuario.Name = "listViewUsuario";
+            this.listViewUsuario.Size = new System.Drawing.Size(990, 474);
+            this.listViewUsuario.TabIndex = 11;
+            this.listViewUsuario.UseCompatibleStateImageBehavior = false;
+            this.listViewUsuario.View = System.Windows.Forms.View.Details;
             // 
             // pictureBox6
             // 
@@ -737,7 +738,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label lblSuporte;
         private System.Windows.Forms.PictureBox imgSuporte;
         private System.Windows.Forms.GroupBox gpBoxUsuario;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewUsuario;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label15;
     }

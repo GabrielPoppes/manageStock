@@ -60,7 +60,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
             AdicionarItemListViewPedidos();
-
+            GerarColunasUsuarios();
         }
 
         // Esconder o Group Box Usuário
@@ -816,6 +816,49 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
+        public void GerarColunasUsuarios()
+        {
+            listViewUsuario.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listViewUsuario.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listViewUsuario.Columns.Add("E-mail", 350).TextAlign = HorizontalAlignment.Center;
+            listViewUsuario.Columns.Add("Celular", 150).TextAlign = HorizontalAlignment.Center;
+        }
+
+        public void AdicionarItensListaUsuario()
+        {
+            listViewUsuario.Items.Clear();
+            
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"select idfuncionario, nome, email, celular from funcionario;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewUsuario.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+            }
+
+        }
+
 
 
         // Check box pendentes
@@ -865,11 +908,11 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão usuário, quando clica exibe a tela
         private void picBoxUsuarios_Click(object sender, EventArgs e)
         {
-            MostrarTelaPedidos();
             MostrarGroupBoxUsuario();
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
-            
+            MostrarTelaPedidos();
+            AdicionarItensListaUsuario();
         }
     }
 }
