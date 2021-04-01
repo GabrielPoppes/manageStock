@@ -30,6 +30,8 @@ namespace GerenciadorDeEstoque.Apresentação
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblSuporte = new System.Windows.Forms.Label();
+            this.imgSuporte = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.picBoxUsuarios = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +64,10 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label4 = new System.Windows.Forms.Label();
             this.listView_Clientes = new System.Windows.Forms.ListView();
             this.groupBox_pedidos = new System.Windows.Forms.GroupBox();
+            this.gpBoxUsuario = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.checkBoxCancelados = new System.Windows.Forms.CheckBox();
             this.checkBoxPago = new System.Windows.Forms.CheckBox();
@@ -75,6 +81,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).BeginInit();
@@ -90,6 +97,8 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).BeginInit();
             this.groupBox_pedidos.SuspendLayout();
+            this.gpBoxUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
@@ -97,6 +106,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblSuporte);
+            this.groupBox2.Controls.Add(this.imgSuporte);
             this.groupBox2.Controls.Add(this.lblUsuario);
             this.groupBox2.Controls.Add(this.picBoxUsuarios);
             this.groupBox2.Controls.Add(this.label6);
@@ -110,6 +121,25 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox2.Size = new System.Drawing.Size(119, 580);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // lblSuporte
+            // 
+            this.lblSuporte.AutoSize = true;
+            this.lblSuporte.Location = new System.Drawing.Point(36, 421);
+            this.lblSuporte.Name = "lblSuporte";
+            this.lblSuporte.Size = new System.Drawing.Size(44, 13);
+            this.lblSuporte.TabIndex = 9;
+            this.lblSuporte.Text = "Suporte";
+            // 
+            // imgSuporte
+            // 
+            this.imgSuporte.Image = global::GerenciadorDeEstoque.Properties.Resources._345523_suporte_tecnico_glyph_icons_grátis_vetor_removebg_preview;
+            this.imgSuporte.Location = new System.Drawing.Point(8, 353);
+            this.imgSuporte.Name = "imgSuporte";
+            this.imgSuporte.Size = new System.Drawing.Size(100, 65);
+            this.imgSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgSuporte.TabIndex = 8;
+            this.imgSuporte.TabStop = false;
             // 
             // lblUsuario
             // 
@@ -129,6 +159,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.picBoxUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxUsuarios.TabIndex = 6;
             this.picBoxUsuarios.TabStop = false;
+            this.picBoxUsuarios.Click += new System.EventHandler(this.picBoxUsuarios_Click);
             // 
             // label6
             // 
@@ -419,13 +450,14 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Clientes.HideSelection = false;
             this.listView_Clientes.Location = new System.Drawing.Point(16, 97);
             this.listView_Clientes.Name = "listView_Clientes";
-            this.listView_Clientes.Size = new System.Drawing.Size(1013, 501);
+            this.listView_Clientes.Size = new System.Drawing.Size(1001, 501);
             this.listView_Clientes.TabIndex = 0;
             this.listView_Clientes.UseCompatibleStateImageBehavior = false;
             this.listView_Clientes.View = System.Windows.Forms.View.Details;
             // 
             // groupBox_pedidos
             // 
+            this.groupBox_pedidos.Controls.Add(this.gpBoxUsuario);
             this.groupBox_pedidos.Controls.Add(this.label11);
             this.groupBox_pedidos.Controls.Add(this.checkBoxCancelados);
             this.groupBox_pedidos.Controls.Add(this.checkBoxPago);
@@ -443,6 +475,45 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox_pedidos.Size = new System.Drawing.Size(1023, 605);
             this.groupBox_pedidos.TabIndex = 14;
             this.groupBox_pedidos.TabStop = false;
+            // 
+            // gpBoxUsuario
+            // 
+            this.gpBoxUsuario.Controls.Add(this.listView1);
+            this.gpBoxUsuario.Controls.Add(this.pictureBox6);
+            this.gpBoxUsuario.Controls.Add(this.label15);
+            this.gpBoxUsuario.Location = new System.Drawing.Point(0, 0);
+            this.gpBoxUsuario.Name = "gpBoxUsuario";
+            this.gpBoxUsuario.Size = new System.Drawing.Size(1029, 580);
+            this.gpBoxUsuario.TabIndex = 19;
+            this.gpBoxUsuario.TabStop = false;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(16, 99);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(990, 474);
+            this.listView1.TabIndex = 11;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_General_Office_09_2530835;
+            this.pictureBox6.Location = new System.Drawing.Point(38, 31);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(31, 71);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Editar usuário";
             // 
             // label11
             // 
@@ -557,7 +628,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido.HideSelection = false;
             this.listView_Pedido.Location = new System.Drawing.Point(16, 97);
             this.listView_Pedido.Name = "listView_Pedido";
-            this.listView_Pedido.Size = new System.Drawing.Size(1013, 483);
+            this.listView_Pedido.Size = new System.Drawing.Size(1001, 483);
             this.listView_Pedido.TabIndex = 0;
             this.listView_Pedido.UseCompatibleStateImageBehavior = false;
             this.listView_Pedido.View = System.Windows.Forms.View.Details;
@@ -585,6 +656,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Text = "Gerenciador de estoque";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg_Cliente)).EndInit();
@@ -604,6 +676,9 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.btn_NovoCliente)).EndInit();
             this.groupBox_pedidos.ResumeLayout(false);
             this.groupBox_pedidos.PerformLayout();
+            this.gpBoxUsuario.ResumeLayout(false);
+            this.gpBoxUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
@@ -659,5 +734,11 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox picBoxUsuarios;
         private System.Windows.Forms.PictureBox pictureBoxEditarCliente;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblSuporte;
+        private System.Windows.Forms.PictureBox imgSuporte;
+        private System.Windows.Forms.GroupBox gpBoxUsuario;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label15;
     }
 }

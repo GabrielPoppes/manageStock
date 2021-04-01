@@ -342,6 +342,7 @@ namespace GerenciadorDeEstoque.DAO
                     // passando para string para passar para o banco de dados de novo
                     string qntotal_ = Convert.ToString(qntotal);
 
+                    // comando para subtrair o valor do estoque, pelo valor solicitado no pedido do cliente
                     comandoVar.CommandText = "update produtos set quantidade = @quantidadepedido where nome = @produto;";
                     comandoVar.Parameters.AddWithValue("@quantidadepedido", qntotal_);
                     comandoVar.Parameters.AddWithValue("@produto", produto);

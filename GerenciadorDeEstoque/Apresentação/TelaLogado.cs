@@ -58,8 +58,21 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             GerarColunasClientes();
             EsconderTelaPedidos();
+            EsconderGroupBoxUsuario();
             AdicionarItemListViewPedidos();
 
+        }
+
+        // Esconder o Group Box Usuário
+        private void EsconderGroupBoxUsuario()
+        {
+            gpBoxUsuario.Hide();
+        }
+
+        // Mostrar Group Box Usuário
+        private void MostrarGroupBoxUsuario()
+        {
+            gpBoxUsuario.Show();
         }
 
         // Mostrar interface gráfica do cliente
@@ -168,6 +181,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AdicionarItemListView();
+            EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             RefreshList();
@@ -236,6 +250,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private void btnImg_Cliente_Click(object sender, EventArgs e)
         {
             EsconderBotoesEstoque();
+            EsconderGroupBoxUsuario();
             MostrarBotoesCliente();
             EsconderTelaPedidos();
             AdicionarItemListViewCliente();
@@ -355,6 +370,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private void btn_pedido_Click(object sender, EventArgs e)
         {
             EsconderBotoesEstoque();
+            EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
             MostrarTelaPedidos();
         }
@@ -844,6 +860,16 @@ namespace GerenciadorDeEstoque.Apresentação
             EditarCliente = new Thread(AbrirTelaEditarCliente);
             EditarCliente.SetApartmentState(ApartmentState.MTA);
             EditarCliente.Start();
+        }
+
+        // Botão usuário, quando clica exibe a tela
+        private void picBoxUsuarios_Click(object sender, EventArgs e)
+        {
+            MostrarTelaPedidos();
+            MostrarGroupBoxUsuario();
+            EsconderBotoesEstoque();
+            EsconderBotoesCliente();
+            
         }
     }
 }

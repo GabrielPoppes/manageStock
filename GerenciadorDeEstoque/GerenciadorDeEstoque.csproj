@@ -257,5 +257,8 @@
   <ItemGroup>
     <None Include="Resources\iconfinder_user_285655.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\345523-suporte-tecnico-glyph-icons-grátis-vetor-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

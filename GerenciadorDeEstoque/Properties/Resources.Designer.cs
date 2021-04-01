@@ -63,6 +63,16 @@ namespace GerenciadorDeEstoque.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _345523_suporte_tecnico_glyph_icons_grátis_vetor_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("345523-suporte-tecnico-glyph-icons-grátis-vetor-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3688519_128 {
             get {
                 object obj = ResourceManager.GetObject("3688519-128", resourceCulture);
