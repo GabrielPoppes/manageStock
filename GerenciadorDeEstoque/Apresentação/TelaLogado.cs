@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Threading;
 using GerenciadorDeEstoque.Apresentação.Cliente;
 using GerenciadorDeEstoque.Apresentação.Pedido;
+using GerenciadorDeEstoque.Apresentação.Usuário;
 
 namespace GerenciadorDeEstoque.Apresentação
 {
@@ -19,6 +20,9 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        // Thread da tela para editar usuários
+        Thread EditarUsuario;
+
         // Thread da tela para editar clientes
         Thread EditarCliente;
 
@@ -864,7 +868,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
-
+        
 
         // Check box pendentes
         private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e)
@@ -918,6 +922,20 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             MostrarTelaPedidos();
             AdicionarItensListaUsuario();
+        }
+
+        // Botão com imagem editar usuário
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            EditarUsuario = new Thread(TelaEditUser);
+            EditarUsuario.SetApartmentState(ApartmentState.MTA);
+            EditarUsuario.Start();
+        }
+
+        // Método para abrir a tela para editar um usuário
+        private void TelaEditUser()
+        {
+            Application.Run(new EditarUsuario());
         }
     }
 }
