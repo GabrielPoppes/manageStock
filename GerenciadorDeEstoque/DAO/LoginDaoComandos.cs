@@ -329,12 +329,22 @@ namespace GerenciadorDeEstoque.DAO
         {
             if (!produto.Equals("") && !qntproduto.Equals("") && !valorproduto.Equals("") && !nomecliente.Equals("") && !formapgt.Equals("") && !valortotalpedido.Equals(""))
             {
+                // Convertendo o valor da txtBox que diz a quantidade do produtos x em estoque
                 int qntestoque_ = Convert.ToInt32(qntestoque);
+                // Convertendo o valor da txtBox que diz a quantidade que o usuário quer informar no pedido
                 int qntproduto_ = Convert.ToInt32(qntproduto);
-                if (qntestoque_ > qntproduto_)
+
+                // Condição: se a quantidade em estoque for maior que a quantidade que o usuário quer no pedido, aí o pedido pode entrar no sistema
+                if (qntestoque_ >= qntproduto_)
                 {
-                    comandoVar.CommandText = "select quantidade from produtos where nome = '@nome'";
-                    string valorqnt = Convert.ToString(comandoVar);
+                    // fazendo a subtração do que tem em estoque menos o que o usuário informou no pedido
+                    int qntotal = qntestoque_ - qntproduto_;
+                    // passando para string para passar para o banco de dados de novo
+                    string qntotal_ = Convert.ToString(qntotal);
+
+                    comandoVar.CommandText = "update produtos set quantidade = @quantidadepedido where nome = @produto;";
+                    comandoVar.Parameters.AddWithValue("@quantidadepedido", qntotal_);
+                    comandoVar.Parameters.AddWithValue("@produto", produto);
 
                     comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, formapgt, desconto, valortotal) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @formadepgt, @desconto, @valortotalpedido);";
                     comando.Parameters.AddWithValue("@produto", produto);
@@ -348,7 +358,9 @@ namespace GerenciadorDeEstoque.DAO
                     check = false;
                     try
                     {
-                        MessageBox.Show(valorqnt);
+                        comandoVar.Connection = conect.Conectar();
+                        comandoVar.ExecuteNonQuery();
+
                         comando.Connection = conect.Conectar();
                         comando.ExecuteNonQuery();
                         conect.Desconectar();
