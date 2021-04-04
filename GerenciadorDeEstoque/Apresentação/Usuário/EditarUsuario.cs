@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDeEstoque.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,9 +26,15 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
 
         }
 
+        // Botão para editar o usuário
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            Controle controle = new Controle();
+            string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text);
+            if (!comboBox_Produto.Text.Equals("") && !txbEmail.Text.Equals("") && !txbCelular.Text.Equals(""))
+            {
+                MessageBox.Show("Usuário editado com sucesso!");
+            }
         }
 
         // Método para exibir na list view o e-mail do usuário

@@ -542,5 +542,36 @@ namespace GerenciadorDeEstoque.DAO
             }
             return mensagem;
         }
+
+        // Método para adicionar Editar Usuário
+        public string EditarUsuario(string nome, string email, string celular)
+        {
+            if (!nome.Equals("") && !email.Equals("") && !celular.Equals(""))
+            {
+                // A variável name eu passo da form EditarUsuario, pois é o valor do nome sem edição que o usuário selecionou
+                comando.CommandText = $"update funcionario set nome = @nome, email = @email, celular = @celular where nome = @nome;";
+                ;
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@email", email);
+                comando.Parameters.AddWithValue("@celular", celular);
+
+                check = false;
+                try
+                {
+                    comando.Connection = conect.Conectar();
+                    comando.ExecuteNonQuery();
+                    conect.Desconectar();
+                    this.mensagem = "Usuário editado com sucesso!";
+
+                    check = true;
+                }
+
+                catch (SqlException)
+                {
+                    this.mensagem = "Erro na edição do cliente!";
+                }
+            }
+            return mensagem;
+        }
     }
 }
