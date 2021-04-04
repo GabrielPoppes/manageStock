@@ -64,7 +64,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
-            
+
             // Métodos para gerar as colunas das List Views das forms escondidas
             GerarColunasClientes();
             GerarColunas();
@@ -513,7 +513,7 @@ namespace GerenciadorDeEstoque.Apresentação
         private void MetodoExibirPedidosporEstado()
         {
             // Se TODAS AS BOX tiverem desmarcadas
-            if(checkBoxPendentes.Checked == false && checkBoxPago.Checked == false && checkBoxCancelados.Checked == false)
+            if (checkBoxPendentes.Checked == false && checkBoxPago.Checked == false && checkBoxCancelados.Checked == false)
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
@@ -552,7 +552,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
 
             // Se marcar somente a BOX PENDENTES
-            if(checkBoxPendentes.Checked == true)
+            if (checkBoxPendentes.Checked == true)
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
@@ -836,7 +836,7 @@ namespace GerenciadorDeEstoque.Apresentação
         public void AdicionarItensListaUsuario()
         {
             listViewUsuario.Items.Clear();
-            
+
             SqlDataAdapter da;
             DataSet ds;
 
@@ -868,7 +868,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
-        
+
 
         // Check box pendentes
         private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e)
@@ -936,6 +936,38 @@ namespace GerenciadorDeEstoque.Apresentação
         private void TelaEditUser()
         {
             Application.Run(new EditarUsuario());
+        }
+
+        // Refresh para atualizar a list view de Usuário
+        private void RefreshUsuario()
+        {
+            listViewUsuario.Items.Clear();
+
+            // Lógica para atualizar a list view
+            con.Open();
+            cmdListView = new SqlCommand("select * from funcionario;", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewUsuario.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+            }
+        }
+
+        // método para atualizar o list view dos usuários
+        private void imagemRefreshList_Click(object sender, EventArgs e)
+        {
+            RefreshUsuario();
         }
     }
 }

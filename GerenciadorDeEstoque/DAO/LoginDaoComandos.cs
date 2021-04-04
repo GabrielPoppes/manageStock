@@ -543,7 +543,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para adicionar Editar Usuário
+        // Método para Editar Usuário
         public string EditarUsuario(string nome, string email, string celular)
         {
             if (!nome.Equals("") && !email.Equals("") && !celular.Equals(""))
