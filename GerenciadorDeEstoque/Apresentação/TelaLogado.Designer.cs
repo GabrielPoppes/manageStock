@@ -485,9 +485,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
             this.gpBoxUsuario.Controls.Add(this.pictureBox6);
             this.gpBoxUsuario.Controls.Add(this.label15);
-            this.gpBoxUsuario.Location = new System.Drawing.Point(127, 27);
+            this.gpBoxUsuario.Location = new System.Drawing.Point(126, 27);
             this.gpBoxUsuario.Name = "gpBoxUsuario";
-            this.gpBoxUsuario.Size = new System.Drawing.Size(1029, 580);
+            this.gpBoxUsuario.Size = new System.Drawing.Size(1023, 594);
             this.gpBoxUsuario.TabIndex = 19;
             this.gpBoxUsuario.TabStop = false;
             // 

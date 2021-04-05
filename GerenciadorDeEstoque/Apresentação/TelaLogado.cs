@@ -939,10 +939,11 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão usuário, quando clica exibe a tela
         private void picBoxUsuarios_Click(object sender, EventArgs e)
         {
-            MostrarGroupBoxUsuario();
+            
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
-            MostrarTelaPedidos();
+            EsconderTelaPedidos();
+            MostrarGroupBoxUsuario();
             AdicionarItensListaUsuario();
         }
 
