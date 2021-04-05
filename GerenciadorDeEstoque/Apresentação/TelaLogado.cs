@@ -401,12 +401,14 @@ namespace GerenciadorDeEstoque.Apresentação
         // Gerar as colunas da list view pedidos
         public void GerarColunasPedidos()
         {
+            listView_Pedido.Columns.Add("Data", 130).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Estado", 130).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Quantidade", 90).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Valor unitário", 90).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Comprador", 180).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Plataforma", 130).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Forma pagamento", 100).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Desconto (%)", 85).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Valor total", 80).TextAlign = HorizontalAlignment.Center;
@@ -448,6 +450,8 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
             }
 
         }
@@ -488,6 +492,8 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
             }
 
         }
@@ -548,6 +554,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -587,6 +595,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -626,6 +636,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -665,6 +677,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -704,6 +718,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -743,6 +759,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -782,6 +800,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
 
@@ -821,6 +841,8 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+                    listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
         }

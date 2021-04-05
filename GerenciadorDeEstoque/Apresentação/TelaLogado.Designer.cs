@@ -460,7 +460,6 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // groupBox_pedidos
             // 
-            this.groupBox_pedidos.Controls.Add(this.gpBoxUsuario);
             this.groupBox_pedidos.Controls.Add(this.label11);
             this.groupBox_pedidos.Controls.Add(this.checkBoxCancelados);
             this.groupBox_pedidos.Controls.Add(this.checkBoxPago);
@@ -486,7 +485,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
             this.gpBoxUsuario.Controls.Add(this.pictureBox6);
             this.gpBoxUsuario.Controls.Add(this.label15);
-            this.gpBoxUsuario.Location = new System.Drawing.Point(0, 0);
+            this.gpBoxUsuario.Location = new System.Drawing.Point(127, 27);
             this.gpBoxUsuario.Name = "gpBoxUsuario";
             this.gpBoxUsuario.Size = new System.Drawing.Size(1029, 580);
             this.gpBoxUsuario.TabIndex = 19;
@@ -673,6 +672,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 625);
+            this.Controls.Add(this.gpBoxUsuario);
             this.Controls.Add(this.groupBox_pedidos);
             this.Controls.Add(this.gpb_Cliente);
             this.Controls.Add(this.groupBox2);
