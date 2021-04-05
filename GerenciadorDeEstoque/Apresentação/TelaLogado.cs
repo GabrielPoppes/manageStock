@@ -401,17 +401,17 @@ namespace GerenciadorDeEstoque.Apresentação
         // Gerar as colunas da list view pedidos
         public void GerarColunasPedidos()
         {
-            listView_Pedido.Columns.Add("Data", 130).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Estado", 130).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Data", 120).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("ID", 40).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Estado", 85).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Quantidade", 90).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Valor unitário", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Quantidade", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Valor unitário", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Comprador", 180).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Plataforma", 130).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Forma pagamento", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Desconto (%)", 85).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Valor total", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Venda", 60).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Forma pagamento", 90).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Desconto (%)", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Valor total", 70).TextAlign = HorizontalAlignment.Center;
         }
 
         // Adicionar os itens na LIST VIEW de PEDIDOS
@@ -939,7 +939,6 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão usuário, quando clica exibe a tela
         private void picBoxUsuarios_Click(object sender, EventArgs e)
         {
-            
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
             EsconderTelaPedidos();
