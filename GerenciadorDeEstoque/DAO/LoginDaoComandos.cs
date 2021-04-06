@@ -403,8 +403,11 @@ namespace GerenciadorDeEstoque.DAO
                     // Se ele selecionou que o pedido está pago, executa estes comandos
                     if (pago == true)
                     {
-                        // Atualizando o estado do pedido para PAGO
-                        comando.CommandText = "update pedidos_encerrados set estado = 'Pago' where idpedido = @id;";
+                        // Tem três comandos:
+                        //1.  Atualizando o estado do pedido para PAGO
+                        //2. Formata todos os dados da tabela analisevendas (que é onde faz o analytics das vendas)
+                        //3. Passa todos os dados de valores para a tabela analisevendas
+                        comando.CommandText = "update pedidos_encerrados set estado = 'Pago' where idpedido = @id; truncate table analisevendas; INSERT INTO analisevendas(total) SELECT valortotal FROM pedidos_encerrados where estado = 'pago';";
                         comando.Parameters.AddWithValue("@id", id);
 
                         check = false;

@@ -84,6 +84,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listViewUsuario = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.gpBoxAnalise = new System.Windows.Forms.GroupBox();
+            this.listViewAnaliseVendas = new System.Windows.Forms.ListView();
+            this.listviewTotalVendas = new System.Windows.Forms.ListView();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).BeginInit();
@@ -108,6 +111,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.gpBoxAnalise.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -167,6 +171,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.imgSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgSuporte.TabIndex = 8;
             this.imgSuporte.TabStop = false;
+            this.imgSuporte.Click += new System.EventHandler(this.imgSuporte_Click);
             // 
             // lblUsuario
             // 
@@ -630,6 +635,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxUsuario
             // 
+            this.gpBoxUsuario.Controls.Add(this.gpBoxAnalise);
             this.gpBoxUsuario.Controls.Add(this.label16);
             this.gpBoxUsuario.Controls.Add(this.imagemRefreshList);
             this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
@@ -691,6 +697,36 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label15.TabIndex = 10;
             this.label15.Text = "Editar usuário";
             // 
+            // gpBoxAnalise
+            // 
+            this.gpBoxAnalise.Controls.Add(this.listviewTotalVendas);
+            this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
+            this.gpBoxAnalise.Location = new System.Drawing.Point(2, 0);
+            this.gpBoxAnalise.Name = "gpBoxAnalise";
+            this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
+            this.gpBoxAnalise.TabIndex = 20;
+            this.gpBoxAnalise.TabStop = false;
+            // 
+            // listViewAnaliseVendas
+            // 
+            this.listViewAnaliseVendas.HideSelection = false;
+            this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
+            this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
+            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 378);
+            this.listViewAnaliseVendas.TabIndex = 0;
+            this.listViewAnaliseVendas.UseCompatibleStateImageBehavior = false;
+            this.listViewAnaliseVendas.View = System.Windows.Forms.View.Details;
+            // 
+            // listviewTotalVendas
+            // 
+            this.listviewTotalVendas.HideSelection = false;
+            this.listviewTotalVendas.Location = new System.Drawing.Point(14, 472);
+            this.listviewTotalVendas.Name = "listviewTotalVendas";
+            this.listviewTotalVendas.Size = new System.Drawing.Size(990, 97);
+            this.listviewTotalVendas.TabIndex = 1;
+            this.listviewTotalVendas.UseCompatibleStateImageBehavior = false;
+            this.listviewTotalVendas.View = System.Windows.Forms.View.Details;
+            // 
             // TelaLogado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -735,6 +771,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.gpBoxAnalise.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,5 +834,8 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox imagemRefreshList;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.GroupBox gpBoxAnalise;
+        private System.Windows.Forms.ListView listviewTotalVendas;
+        private System.Windows.Forms.ListView listViewAnaliseVendas;
     }
 }

@@ -64,12 +64,15 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
+            EsconderAlaytics();
 
             // Métodos para gerar as colunas das List Views das forms escondidas
             GerarColunasClientes();
             GerarColunas();
             GerarColunasUsuarios();
             AdicionarItemListViewPedidos();
+            GerarColunaListViewAnaliseVendas();
+            GerarColunaTotalVendasAnalise();
         }
 
         // Esconder o Group Box Usuário
@@ -193,6 +196,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
             EsconderTelaPedidos();
+            EsconderAlaytics();
             RefreshList();
         }
 
@@ -260,6 +264,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             EsconderBotoesEstoque();
             EsconderGroupBoxUsuario();
+            EsconderAlaytics();
             MostrarBotoesCliente();
             EsconderTelaPedidos();
             AdicionarItemListViewCliente();
@@ -381,6 +386,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesEstoque();
             EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
+            EsconderAlaytics();
             MostrarTelaPedidos();
         }
 
@@ -942,6 +948,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
             EsconderTelaPedidos();
+            EsconderAlaytics();
             MostrarGroupBoxUsuario();
             AdicionarItensListaUsuario();
         }
@@ -990,6 +997,121 @@ namespace GerenciadorDeEstoque.Apresentação
         private void imagemRefreshList_Click(object sender, EventArgs e)
         {
             RefreshUsuario();
+        }
+
+        // método para mostrar a tela de Analise
+        private void MostrarAnalytics()
+        {
+            gpBoxAnalise.Show();
+        }
+
+        // método para esconder a tela de Analise
+        private void EsconderAlaytics()
+        {
+            gpBoxAnalise.Hide();
+        }
+
+        // Botão com imagem da Análise
+        private void imgSuporte_Click(object sender, EventArgs e)
+        {
+            EsconderBotoesEstoque();
+            EsconderBotoesCliente();
+            EsconderTelaPedidos();
+            EsconderGroupBoxUsuario();
+            MostrarGroupBoxUsuario();
+            MostrarAnalytics();
+            AdicionarItensColunaAnaliseDeVendas();
+            AdicionarItensTotalAnaliseVendas();
+
+        }
+
+        // Método para gerar as colunas da List View de Análise de vendas
+        public void GerarColunaListViewAnaliseVendas()
+        {
+            listViewAnaliseVendas.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listViewAnaliseVendas.Columns.Add("Data", 200).TextAlign = HorizontalAlignment.Center;
+            listViewAnaliseVendas.Columns.Add("Produto", 350).TextAlign = HorizontalAlignment.Center;
+            listViewAnaliseVendas.Columns.Add("Quantidade", 150).TextAlign = HorizontalAlignment.Center;
+            listViewAnaliseVendas.Columns.Add("Total", 150).TextAlign = HorizontalAlignment.Center;
+        }
+
+        public void AdicionarItensColunaAnaliseDeVendas()
+        {
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"select idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where estado = 'pago';", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+
+
+            }
+
+        }
+
+        // Método para gerar as colunas da List View de Análise de vendas (TOTAL DE VENDAS)
+        public void GerarColunaTotalVendasAnalise()
+        {
+            listviewTotalVendas.Columns.Add("Quantidade total", 150).TextAlign = HorizontalAlignment.Center;
+            listviewTotalVendas.Columns.Add("Valor total", 150).TextAlign = HorizontalAlignment.Center;
+        }
+
+        public void AdicionarItensTotalAnaliseVendas()
+        {
+            listviewTotalVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido = new SqlCommand($"select count(*), sum(total) from analisevendas;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listviewTotalVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+            }
+
         }
     }
 }
