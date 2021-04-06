@@ -79,14 +79,30 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listView_Pedido = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
             this.gpBoxUsuario = new System.Windows.Forms.GroupBox();
+            this.gpBoxAnalise = new System.Windows.Forms.GroupBox();
+            this.listviewTotalVendas = new System.Windows.Forms.ListView();
+            this.listViewAnaliseVendas = new System.Windows.Forms.ListView();
             this.label16 = new System.Windows.Forms.Label();
             this.imagemRefreshList = new System.Windows.Forms.PictureBox();
             this.listViewUsuario = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.gpBoxAnalise = new System.Windows.Forms.GroupBox();
-            this.listViewAnaliseVendas = new System.Windows.Forms.ListView();
-            this.listviewTotalVendas = new System.Windows.Forms.ListView();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnJaneiro = new System.Windows.Forms.Button();
+            this.btnFevereiro = new System.Windows.Forms.Button();
+            this.btnMarco = new System.Windows.Forms.Button();
+            this.btnJunho = new System.Windows.Forms.Button();
+            this.btnMaio = new System.Windows.Forms.Button();
+            this.btnAbril = new System.Windows.Forms.Button();
+            this.btnSetembro = new System.Windows.Forms.Button();
+            this.btnAgosto = new System.Windows.Forms.Button();
+            this.btnJulho = new System.Windows.Forms.Button();
+            this.btnNovembro = new System.Windows.Forms.Button();
+            this.btnOutubro = new System.Windows.Forms.Button();
+            this.btnDezembro = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btn2020 = new System.Windows.Forms.Button();
+            this.btn2021 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).BeginInit();
@@ -109,9 +125,9 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.pictureAlterarEstadoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
             this.gpBoxUsuario.SuspendLayout();
+            this.gpBoxAnalise.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.gpBoxAnalise.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -647,6 +663,52 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.TabIndex = 19;
             this.gpBoxUsuario.TabStop = false;
             // 
+            // gpBoxAnalise
+            // 
+            this.gpBoxAnalise.Controls.Add(this.btn2021);
+            this.gpBoxAnalise.Controls.Add(this.btn2020);
+            this.gpBoxAnalise.Controls.Add(this.label19);
+            this.gpBoxAnalise.Controls.Add(this.btnDezembro);
+            this.gpBoxAnalise.Controls.Add(this.btnNovembro);
+            this.gpBoxAnalise.Controls.Add(this.btnOutubro);
+            this.gpBoxAnalise.Controls.Add(this.btnSetembro);
+            this.gpBoxAnalise.Controls.Add(this.btnAgosto);
+            this.gpBoxAnalise.Controls.Add(this.btnJulho);
+            this.gpBoxAnalise.Controls.Add(this.btnJunho);
+            this.gpBoxAnalise.Controls.Add(this.btnMaio);
+            this.gpBoxAnalise.Controls.Add(this.btnAbril);
+            this.gpBoxAnalise.Controls.Add(this.btnMarco);
+            this.gpBoxAnalise.Controls.Add(this.btnFevereiro);
+            this.gpBoxAnalise.Controls.Add(this.btnJaneiro);
+            this.gpBoxAnalise.Controls.Add(this.label18);
+            this.gpBoxAnalise.Controls.Add(this.listviewTotalVendas);
+            this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
+            this.gpBoxAnalise.Location = new System.Drawing.Point(2, 0);
+            this.gpBoxAnalise.Name = "gpBoxAnalise";
+            this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
+            this.gpBoxAnalise.TabIndex = 20;
+            this.gpBoxAnalise.TabStop = false;
+            // 
+            // listviewTotalVendas
+            // 
+            this.listviewTotalVendas.HideSelection = false;
+            this.listviewTotalVendas.Location = new System.Drawing.Point(14, 472);
+            this.listviewTotalVendas.Name = "listviewTotalVendas";
+            this.listviewTotalVendas.Size = new System.Drawing.Size(990, 97);
+            this.listviewTotalVendas.TabIndex = 1;
+            this.listviewTotalVendas.UseCompatibleStateImageBehavior = false;
+            this.listviewTotalVendas.View = System.Windows.Forms.View.Details;
+            // 
+            // listViewAnaliseVendas
+            // 
+            this.listViewAnaliseVendas.HideSelection = false;
+            this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
+            this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
+            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 378);
+            this.listViewAnaliseVendas.TabIndex = 0;
+            this.listViewAnaliseVendas.UseCompatibleStateImageBehavior = false;
+            this.listViewAnaliseVendas.View = System.Windows.Forms.View.Details;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -697,35 +759,150 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label15.TabIndex = 10;
             this.label15.Text = "Editar usuário";
             // 
-            // gpBoxAnalise
+            // label18
             // 
-            this.gpBoxAnalise.Controls.Add(this.listviewTotalVendas);
-            this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
-            this.gpBoxAnalise.Location = new System.Drawing.Point(2, 0);
-            this.gpBoxAnalise.Name = "gpBoxAnalise";
-            this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
-            this.gpBoxAnalise.TabIndex = 20;
-            this.gpBoxAnalise.TabStop = false;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(14, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Filtrar por mês";
             // 
-            // listViewAnaliseVendas
+            // btnJaneiro
             // 
-            this.listViewAnaliseVendas.HideSelection = false;
-            this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
-            this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
-            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 378);
-            this.listViewAnaliseVendas.TabIndex = 0;
-            this.listViewAnaliseVendas.UseCompatibleStateImageBehavior = false;
-            this.listViewAnaliseVendas.View = System.Windows.Forms.View.Details;
+            this.btnJaneiro.Location = new System.Drawing.Point(90, 14);
+            this.btnJaneiro.Name = "btnJaneiro";
+            this.btnJaneiro.Size = new System.Drawing.Size(66, 23);
+            this.btnJaneiro.TabIndex = 3;
+            this.btnJaneiro.Text = "Janeiro";
+            this.btnJaneiro.UseVisualStyleBackColor = true;
+            this.btnJaneiro.Click += new System.EventHandler(this.btnJaneiro_Click);
             // 
-            // listviewTotalVendas
+            // btnFevereiro
             // 
-            this.listviewTotalVendas.HideSelection = false;
-            this.listviewTotalVendas.Location = new System.Drawing.Point(14, 472);
-            this.listviewTotalVendas.Name = "listviewTotalVendas";
-            this.listviewTotalVendas.Size = new System.Drawing.Size(990, 97);
-            this.listviewTotalVendas.TabIndex = 1;
-            this.listviewTotalVendas.UseCompatibleStateImageBehavior = false;
-            this.listviewTotalVendas.View = System.Windows.Forms.View.Details;
+            this.btnFevereiro.Location = new System.Drawing.Point(162, 14);
+            this.btnFevereiro.Name = "btnFevereiro";
+            this.btnFevereiro.Size = new System.Drawing.Size(66, 23);
+            this.btnFevereiro.TabIndex = 4;
+            this.btnFevereiro.Text = "Fevereiro";
+            this.btnFevereiro.UseVisualStyleBackColor = true;
+            // 
+            // btnMarco
+            // 
+            this.btnMarco.Location = new System.Drawing.Point(234, 14);
+            this.btnMarco.Name = "btnMarco";
+            this.btnMarco.Size = new System.Drawing.Size(66, 23);
+            this.btnMarco.TabIndex = 5;
+            this.btnMarco.Text = "Março";
+            this.btnMarco.UseVisualStyleBackColor = true;
+            // 
+            // btnJunho
+            // 
+            this.btnJunho.Location = new System.Drawing.Point(450, 14);
+            this.btnJunho.Name = "btnJunho";
+            this.btnJunho.Size = new System.Drawing.Size(66, 23);
+            this.btnJunho.TabIndex = 8;
+            this.btnJunho.Text = "Junho";
+            this.btnJunho.UseVisualStyleBackColor = true;
+            // 
+            // btnMaio
+            // 
+            this.btnMaio.Location = new System.Drawing.Point(378, 14);
+            this.btnMaio.Name = "btnMaio";
+            this.btnMaio.Size = new System.Drawing.Size(66, 23);
+            this.btnMaio.TabIndex = 7;
+            this.btnMaio.Text = "Maio";
+            this.btnMaio.UseVisualStyleBackColor = true;
+            // 
+            // btnAbril
+            // 
+            this.btnAbril.Location = new System.Drawing.Point(306, 14);
+            this.btnAbril.Name = "btnAbril";
+            this.btnAbril.Size = new System.Drawing.Size(66, 23);
+            this.btnAbril.TabIndex = 6;
+            this.btnAbril.Text = "Abril";
+            this.btnAbril.UseVisualStyleBackColor = true;
+            // 
+            // btnSetembro
+            // 
+            this.btnSetembro.Location = new System.Drawing.Point(666, 14);
+            this.btnSetembro.Name = "btnSetembro";
+            this.btnSetembro.Size = new System.Drawing.Size(66, 23);
+            this.btnSetembro.TabIndex = 11;
+            this.btnSetembro.Text = "Setembro";
+            this.btnSetembro.UseVisualStyleBackColor = true;
+            // 
+            // btnAgosto
+            // 
+            this.btnAgosto.Location = new System.Drawing.Point(594, 14);
+            this.btnAgosto.Name = "btnAgosto";
+            this.btnAgosto.Size = new System.Drawing.Size(66, 23);
+            this.btnAgosto.TabIndex = 10;
+            this.btnAgosto.Text = "Agosto";
+            this.btnAgosto.UseVisualStyleBackColor = true;
+            // 
+            // btnJulho
+            // 
+            this.btnJulho.Location = new System.Drawing.Point(522, 14);
+            this.btnJulho.Name = "btnJulho";
+            this.btnJulho.Size = new System.Drawing.Size(66, 23);
+            this.btnJulho.TabIndex = 9;
+            this.btnJulho.Text = "Julho";
+            this.btnJulho.UseVisualStyleBackColor = true;
+            // 
+            // btnNovembro
+            // 
+            this.btnNovembro.Location = new System.Drawing.Point(810, 14);
+            this.btnNovembro.Name = "btnNovembro";
+            this.btnNovembro.Size = new System.Drawing.Size(66, 23);
+            this.btnNovembro.TabIndex = 13;
+            this.btnNovembro.Text = "Novembro";
+            this.btnNovembro.UseVisualStyleBackColor = true;
+            // 
+            // btnOutubro
+            // 
+            this.btnOutubro.Location = new System.Drawing.Point(738, 14);
+            this.btnOutubro.Name = "btnOutubro";
+            this.btnOutubro.Size = new System.Drawing.Size(66, 23);
+            this.btnOutubro.TabIndex = 12;
+            this.btnOutubro.Text = "Outubro";
+            this.btnOutubro.UseVisualStyleBackColor = true;
+            // 
+            // btnDezembro
+            // 
+            this.btnDezembro.Location = new System.Drawing.Point(882, 14);
+            this.btnDezembro.Name = "btnDezembro";
+            this.btnDezembro.Size = new System.Drawing.Size(66, 23);
+            this.btnDezembro.TabIndex = 14;
+            this.btnDezembro.Text = "Dezembro";
+            this.btnDezembro.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(71, 13);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Filtrar por ano";
+            // 
+            // btn2020
+            // 
+            this.btn2020.Location = new System.Drawing.Point(90, 53);
+            this.btn2020.Name = "btn2020";
+            this.btn2020.Size = new System.Drawing.Size(66, 23);
+            this.btn2020.TabIndex = 16;
+            this.btn2020.Text = "2020";
+            this.btn2020.UseVisualStyleBackColor = true;
+            // 
+            // btn2021
+            // 
+            this.btn2021.Location = new System.Drawing.Point(162, 53);
+            this.btn2021.Name = "btn2021";
+            this.btn2021.Size = new System.Drawing.Size(66, 23);
+            this.btn2021.TabIndex = 17;
+            this.btn2021.Text = "2021";
+            this.btn2021.UseVisualStyleBackColor = true;
             // 
             // TelaLogado
             // 
@@ -769,9 +946,10 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).EndInit();
             this.gpBoxUsuario.ResumeLayout(false);
             this.gpBoxUsuario.PerformLayout();
+            this.gpBoxAnalise.ResumeLayout(false);
+            this.gpBoxAnalise.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagemRefreshList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.gpBoxAnalise.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -837,5 +1015,21 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.GroupBox gpBoxAnalise;
         private System.Windows.Forms.ListView listviewTotalVendas;
         private System.Windows.Forms.ListView listViewAnaliseVendas;
+        private System.Windows.Forms.Button btn2021;
+        private System.Windows.Forms.Button btn2020;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnDezembro;
+        private System.Windows.Forms.Button btnNovembro;
+        private System.Windows.Forms.Button btnOutubro;
+        private System.Windows.Forms.Button btnSetembro;
+        private System.Windows.Forms.Button btnAgosto;
+        private System.Windows.Forms.Button btnJulho;
+        private System.Windows.Forms.Button btnJunho;
+        private System.Windows.Forms.Button btnMaio;
+        private System.Windows.Forms.Button btnAbril;
+        private System.Windows.Forms.Button btnMarco;
+        private System.Windows.Forms.Button btnFevereiro;
+        private System.Windows.Forms.Button btnJaneiro;
+        private System.Windows.Forms.Label label18;
     }
 }

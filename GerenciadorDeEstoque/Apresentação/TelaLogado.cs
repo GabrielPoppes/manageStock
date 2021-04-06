@@ -1113,5 +1113,39 @@ namespace GerenciadorDeEstoque.Apresentação
             }
 
         }
+
+        // Botão para filtrar as vendas no mês de janeiro
+        private void btnJaneiro_Click(object sender, EventArgs e)
+        {
+            listviewTotalVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido = new SqlCommand($"select count(*), sum(total) from analisevendas;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listviewTotalVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+            }
+        }
     }
 }
