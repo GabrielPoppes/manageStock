@@ -1114,10 +1114,16 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
-        // Botão para filtrar as vendas no mês de janeiro
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  janeiro
         private void btnJaneiro_Click(object sender, EventArgs e)
         {
-            listviewTotalVendas.Items.Clear();
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
@@ -1128,8 +1134,7 @@ namespace GerenciadorDeEstoque.Apresentação
             con.Open();
 
             // Variável do tipo SqlCOmmand para executar os cmds do BD
-            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
-            SqlCommand cmdAddPedido = new SqlCommand($"select count(*), sum(total) from analisevendas;", con);
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/01/2021', 103); set @DataFinal= convert (datetime, '31/01/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
             ds = new DataSet();
@@ -1143,8 +1148,797 @@ namespace GerenciadorDeEstoque.Apresentação
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                listviewTotalVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                listviewTotalVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/01/2021', 103); set @DataFinal= convert (datetime, '31/01/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  fevereiro
+        private void btnFevereiro_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/02/2021', 103); set @DataFinal= convert (datetime, '28/02/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/02/2021', 103); set @DataFinal= convert (datetime, '28/02/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  março
+        private void btnMarco_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/03/2021', 103); set @DataFinal= convert (datetime, '31/03/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/03/2021', 103); set @DataFinal= convert (datetime, '31/03/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  abril
+        private void btnAbril_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/04/2021', 103); set @DataFinal= convert (datetime, '30/04/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/04/2021', 103); set @DataFinal= convert (datetime, '30/04/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  maio
+        private void btnMaio_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/05/2021', 103); set @DataFinal= convert (datetime, '31/05/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/05/2021', 103); set @DataFinal= convert (datetime, '31/05/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de  junho
+        private void btnJunho_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/06/2021', 103); set @DataFinal= convert (datetime, '30/06/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/06/2021', 103); set @DataFinal= convert (datetime, '30/06/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de julho
+        private void btnJulho_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/07/2021', 103); set @DataFinal= convert (datetime, '31/07/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/07/2021', 103); set @DataFinal= convert (datetime, '31/07/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de agosto
+        private void btnAgosto_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/08/2021', 103); set @DataFinal= convert (datetime, '31/08/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/08/2021', 103); set @DataFinal= convert (datetime, '31/08/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de setembro
+        private void btnSetembro_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/09/2021', 103); set @DataFinal= convert (datetime, '30/09/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/09/2021', 103); set @DataFinal= convert (datetime, '30/09/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de outubro
+        private void btnOutubro_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/10/2021', 103); set @DataFinal= convert (datetime, '31/10/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/10/2021', 103); set @DataFinal= convert (datetime, '31/10/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de novembro
+        private void btnNovembro_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/11/2021', 103); set @DataFinal= convert (datetime, '30/11/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/11/2021', 103); set @DataFinal= convert (datetime, '30/11/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
+            }
+        }
+
+        // Botão para fazer o filtro das datas na análise de vendas do mês de dezembro
+        private void btnDezembro_Click(object sender, EventArgs e)
+        {
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+
+            listViewAnaliseVendas.Items.Clear();
+
+            SqlDataAdapter da;
+            DataSet ds;
+
+            // Conectar com o BD
+            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            // Abrindo a conexão
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/12/2021', 103); set @DataFinal= convert (datetime, '31/12/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
+
+            da = new SqlDataAdapter(cmdAddPedido);
+            ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listViewAnaliseVendas.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+            }
+            // ***********************************************//
+            // ***********************************************//
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ***********************************************//
+            // ***********************************************//
+            listviewTotalVendas.Items.Clear();
+
+            con.Open();
+
+            // Variável do tipo SqlCOmmand para executar os cmds do BD
+            // Count(*) = vai pegar o total de registros cadastrados na tabela; sum() = vai fazer a soma do total de todos os valores da coluna
+            SqlCommand cmdAddPedido1 = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/12/2021', 103); set @DataFinal= convert (datetime, '31/12/2021', 103); SELECT count(*), sum(total) from analisevendas where convert (datetime, dataPedido, 121) between @DataInicial and @DataFinal;", con);
+
+            da = new SqlDataAdapter(cmdAddPedido1);
+            ds = new DataSet();
+
+            da.Fill(ds, "estoque");
+
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int j;
+            for (j = 0; j <= dt.Rows.Count - 1; j++)
+            {
+                listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
             }
         }
     }

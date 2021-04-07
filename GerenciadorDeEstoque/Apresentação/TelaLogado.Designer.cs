@@ -80,6 +80,22 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label8 = new System.Windows.Forms.Label();
             this.gpBoxUsuario = new System.Windows.Forms.GroupBox();
             this.gpBoxAnalise = new System.Windows.Forms.GroupBox();
+            this.btn2021 = new System.Windows.Forms.Button();
+            this.btn2020 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnDezembro = new System.Windows.Forms.Button();
+            this.btnNovembro = new System.Windows.Forms.Button();
+            this.btnOutubro = new System.Windows.Forms.Button();
+            this.btnSetembro = new System.Windows.Forms.Button();
+            this.btnAgosto = new System.Windows.Forms.Button();
+            this.btnJulho = new System.Windows.Forms.Button();
+            this.btnJunho = new System.Windows.Forms.Button();
+            this.btnMaio = new System.Windows.Forms.Button();
+            this.btnAbril = new System.Windows.Forms.Button();
+            this.btnMarco = new System.Windows.Forms.Button();
+            this.btnFevereiro = new System.Windows.Forms.Button();
+            this.btnJaneiro = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.listviewTotalVendas = new System.Windows.Forms.ListView();
             this.listViewAnaliseVendas = new System.Windows.Forms.ListView();
             this.label16 = new System.Windows.Forms.Label();
@@ -87,22 +103,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listViewUsuario = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnJaneiro = new System.Windows.Forms.Button();
-            this.btnFevereiro = new System.Windows.Forms.Button();
-            this.btnMarco = new System.Windows.Forms.Button();
-            this.btnJunho = new System.Windows.Forms.Button();
-            this.btnMaio = new System.Windows.Forms.Button();
-            this.btnAbril = new System.Windows.Forms.Button();
-            this.btnSetembro = new System.Windows.Forms.Button();
-            this.btnAgosto = new System.Windows.Forms.Button();
-            this.btnJulho = new System.Windows.Forms.Button();
-            this.btnNovembro = new System.Windows.Forms.Button();
-            this.btnOutubro = new System.Windows.Forms.Button();
-            this.btnDezembro = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btn2020 = new System.Windows.Forms.Button();
-            this.btn2021 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSuporte)).BeginInit();
@@ -172,7 +172,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblSuporte
             // 
             this.lblSuporte.AutoSize = true;
-            this.lblSuporte.Location = new System.Drawing.Point(11, 452);
+            this.lblSuporte.Location = new System.Drawing.Point(11, 354);
             this.lblSuporte.Name = "lblSuporte";
             this.lblSuporte.Size = new System.Drawing.Size(94, 13);
             this.lblSuporte.TabIndex = 9;
@@ -181,7 +181,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // imgSuporte
             // 
             this.imgSuporte.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_51_5027845;
-            this.imgSuporte.Location = new System.Drawing.Point(6, 384);
+            this.imgSuporte.Location = new System.Drawing.Point(6, 286);
             this.imgSuporte.Name = "imgSuporte";
             this.imgSuporte.Size = new System.Drawing.Size(100, 65);
             this.imgSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -192,7 +192,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(36, 357);
+            this.lblUsuario.Location = new System.Drawing.Point(36, 446);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 7;
@@ -201,7 +201,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // picBoxUsuarios
             // 
             this.picBoxUsuarios.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_user_285655;
-            this.picBoxUsuarios.Location = new System.Drawing.Point(8, 289);
+            this.picBoxUsuarios.Location = new System.Drawing.Point(8, 378);
             this.picBoxUsuarios.Name = "picBoxUsuarios";
             this.picBoxUsuarios.Size = new System.Drawing.Size(100, 65);
             this.picBoxUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -689,6 +689,162 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.TabIndex = 20;
             this.gpBoxAnalise.TabStop = false;
             // 
+            // btn2021
+            // 
+            this.btn2021.Location = new System.Drawing.Point(162, 53);
+            this.btn2021.Name = "btn2021";
+            this.btn2021.Size = new System.Drawing.Size(66, 23);
+            this.btn2021.TabIndex = 17;
+            this.btn2021.Text = "2021";
+            this.btn2021.UseVisualStyleBackColor = true;
+            // 
+            // btn2020
+            // 
+            this.btn2020.Location = new System.Drawing.Point(90, 53);
+            this.btn2020.Name = "btn2020";
+            this.btn2020.Size = new System.Drawing.Size(66, 23);
+            this.btn2020.TabIndex = 16;
+            this.btn2020.Text = "2020";
+            this.btn2020.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(71, 13);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Filtrar por ano";
+            // 
+            // btnDezembro
+            // 
+            this.btnDezembro.Location = new System.Drawing.Point(882, 14);
+            this.btnDezembro.Name = "btnDezembro";
+            this.btnDezembro.Size = new System.Drawing.Size(66, 23);
+            this.btnDezembro.TabIndex = 14;
+            this.btnDezembro.Text = "Dezembro";
+            this.btnDezembro.UseVisualStyleBackColor = true;
+            this.btnDezembro.Click += new System.EventHandler(this.btnDezembro_Click);
+            // 
+            // btnNovembro
+            // 
+            this.btnNovembro.Location = new System.Drawing.Point(810, 14);
+            this.btnNovembro.Name = "btnNovembro";
+            this.btnNovembro.Size = new System.Drawing.Size(66, 23);
+            this.btnNovembro.TabIndex = 13;
+            this.btnNovembro.Text = "Novembro";
+            this.btnNovembro.UseVisualStyleBackColor = true;
+            this.btnNovembro.Click += new System.EventHandler(this.btnNovembro_Click);
+            // 
+            // btnOutubro
+            // 
+            this.btnOutubro.Location = new System.Drawing.Point(738, 14);
+            this.btnOutubro.Name = "btnOutubro";
+            this.btnOutubro.Size = new System.Drawing.Size(66, 23);
+            this.btnOutubro.TabIndex = 12;
+            this.btnOutubro.Text = "Outubro";
+            this.btnOutubro.UseVisualStyleBackColor = true;
+            this.btnOutubro.Click += new System.EventHandler(this.btnOutubro_Click);
+            // 
+            // btnSetembro
+            // 
+            this.btnSetembro.Location = new System.Drawing.Point(666, 14);
+            this.btnSetembro.Name = "btnSetembro";
+            this.btnSetembro.Size = new System.Drawing.Size(66, 23);
+            this.btnSetembro.TabIndex = 11;
+            this.btnSetembro.Text = "Setembro";
+            this.btnSetembro.UseVisualStyleBackColor = true;
+            this.btnSetembro.Click += new System.EventHandler(this.btnSetembro_Click);
+            // 
+            // btnAgosto
+            // 
+            this.btnAgosto.Location = new System.Drawing.Point(594, 14);
+            this.btnAgosto.Name = "btnAgosto";
+            this.btnAgosto.Size = new System.Drawing.Size(66, 23);
+            this.btnAgosto.TabIndex = 10;
+            this.btnAgosto.Text = "Agosto";
+            this.btnAgosto.UseVisualStyleBackColor = true;
+            this.btnAgosto.Click += new System.EventHandler(this.btnAgosto_Click);
+            // 
+            // btnJulho
+            // 
+            this.btnJulho.Location = new System.Drawing.Point(522, 14);
+            this.btnJulho.Name = "btnJulho";
+            this.btnJulho.Size = new System.Drawing.Size(66, 23);
+            this.btnJulho.TabIndex = 9;
+            this.btnJulho.Text = "Julho";
+            this.btnJulho.UseVisualStyleBackColor = true;
+            this.btnJulho.Click += new System.EventHandler(this.btnJulho_Click);
+            // 
+            // btnJunho
+            // 
+            this.btnJunho.Location = new System.Drawing.Point(450, 14);
+            this.btnJunho.Name = "btnJunho";
+            this.btnJunho.Size = new System.Drawing.Size(66, 23);
+            this.btnJunho.TabIndex = 8;
+            this.btnJunho.Text = "Junho";
+            this.btnJunho.UseVisualStyleBackColor = true;
+            this.btnJunho.Click += new System.EventHandler(this.btnJunho_Click);
+            // 
+            // btnMaio
+            // 
+            this.btnMaio.Location = new System.Drawing.Point(378, 14);
+            this.btnMaio.Name = "btnMaio";
+            this.btnMaio.Size = new System.Drawing.Size(66, 23);
+            this.btnMaio.TabIndex = 7;
+            this.btnMaio.Text = "Maio";
+            this.btnMaio.UseVisualStyleBackColor = true;
+            this.btnMaio.Click += new System.EventHandler(this.btnMaio_Click);
+            // 
+            // btnAbril
+            // 
+            this.btnAbril.Location = new System.Drawing.Point(306, 14);
+            this.btnAbril.Name = "btnAbril";
+            this.btnAbril.Size = new System.Drawing.Size(66, 23);
+            this.btnAbril.TabIndex = 6;
+            this.btnAbril.Text = "Abril";
+            this.btnAbril.UseVisualStyleBackColor = true;
+            this.btnAbril.Click += new System.EventHandler(this.btnAbril_Click);
+            // 
+            // btnMarco
+            // 
+            this.btnMarco.Location = new System.Drawing.Point(234, 14);
+            this.btnMarco.Name = "btnMarco";
+            this.btnMarco.Size = new System.Drawing.Size(66, 23);
+            this.btnMarco.TabIndex = 5;
+            this.btnMarco.Text = "Março";
+            this.btnMarco.UseVisualStyleBackColor = true;
+            this.btnMarco.Click += new System.EventHandler(this.btnMarco_Click);
+            // 
+            // btnFevereiro
+            // 
+            this.btnFevereiro.Location = new System.Drawing.Point(162, 14);
+            this.btnFevereiro.Name = "btnFevereiro";
+            this.btnFevereiro.Size = new System.Drawing.Size(66, 23);
+            this.btnFevereiro.TabIndex = 4;
+            this.btnFevereiro.Text = "Fevereiro";
+            this.btnFevereiro.UseVisualStyleBackColor = true;
+            this.btnFevereiro.Click += new System.EventHandler(this.btnFevereiro_Click);
+            // 
+            // btnJaneiro
+            // 
+            this.btnJaneiro.Location = new System.Drawing.Point(90, 14);
+            this.btnJaneiro.Name = "btnJaneiro";
+            this.btnJaneiro.Size = new System.Drawing.Size(66, 23);
+            this.btnJaneiro.TabIndex = 3;
+            this.btnJaneiro.Text = "Janeiro";
+            this.btnJaneiro.UseVisualStyleBackColor = true;
+            this.btnJaneiro.Click += new System.EventHandler(this.btnJaneiro_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(14, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Filtrar por mês";
+            // 
             // listviewTotalVendas
             // 
             this.listviewTotalVendas.HideSelection = false;
@@ -758,151 +914,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label15.Size = new System.Drawing.Size(71, 13);
             this.label15.TabIndex = 10;
             this.label15.Text = "Editar usuário";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 13);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Filtrar por mês";
-            // 
-            // btnJaneiro
-            // 
-            this.btnJaneiro.Location = new System.Drawing.Point(90, 14);
-            this.btnJaneiro.Name = "btnJaneiro";
-            this.btnJaneiro.Size = new System.Drawing.Size(66, 23);
-            this.btnJaneiro.TabIndex = 3;
-            this.btnJaneiro.Text = "Janeiro";
-            this.btnJaneiro.UseVisualStyleBackColor = true;
-            this.btnJaneiro.Click += new System.EventHandler(this.btnJaneiro_Click);
-            // 
-            // btnFevereiro
-            // 
-            this.btnFevereiro.Location = new System.Drawing.Point(162, 14);
-            this.btnFevereiro.Name = "btnFevereiro";
-            this.btnFevereiro.Size = new System.Drawing.Size(66, 23);
-            this.btnFevereiro.TabIndex = 4;
-            this.btnFevereiro.Text = "Fevereiro";
-            this.btnFevereiro.UseVisualStyleBackColor = true;
-            // 
-            // btnMarco
-            // 
-            this.btnMarco.Location = new System.Drawing.Point(234, 14);
-            this.btnMarco.Name = "btnMarco";
-            this.btnMarco.Size = new System.Drawing.Size(66, 23);
-            this.btnMarco.TabIndex = 5;
-            this.btnMarco.Text = "Março";
-            this.btnMarco.UseVisualStyleBackColor = true;
-            // 
-            // btnJunho
-            // 
-            this.btnJunho.Location = new System.Drawing.Point(450, 14);
-            this.btnJunho.Name = "btnJunho";
-            this.btnJunho.Size = new System.Drawing.Size(66, 23);
-            this.btnJunho.TabIndex = 8;
-            this.btnJunho.Text = "Junho";
-            this.btnJunho.UseVisualStyleBackColor = true;
-            // 
-            // btnMaio
-            // 
-            this.btnMaio.Location = new System.Drawing.Point(378, 14);
-            this.btnMaio.Name = "btnMaio";
-            this.btnMaio.Size = new System.Drawing.Size(66, 23);
-            this.btnMaio.TabIndex = 7;
-            this.btnMaio.Text = "Maio";
-            this.btnMaio.UseVisualStyleBackColor = true;
-            // 
-            // btnAbril
-            // 
-            this.btnAbril.Location = new System.Drawing.Point(306, 14);
-            this.btnAbril.Name = "btnAbril";
-            this.btnAbril.Size = new System.Drawing.Size(66, 23);
-            this.btnAbril.TabIndex = 6;
-            this.btnAbril.Text = "Abril";
-            this.btnAbril.UseVisualStyleBackColor = true;
-            // 
-            // btnSetembro
-            // 
-            this.btnSetembro.Location = new System.Drawing.Point(666, 14);
-            this.btnSetembro.Name = "btnSetembro";
-            this.btnSetembro.Size = new System.Drawing.Size(66, 23);
-            this.btnSetembro.TabIndex = 11;
-            this.btnSetembro.Text = "Setembro";
-            this.btnSetembro.UseVisualStyleBackColor = true;
-            // 
-            // btnAgosto
-            // 
-            this.btnAgosto.Location = new System.Drawing.Point(594, 14);
-            this.btnAgosto.Name = "btnAgosto";
-            this.btnAgosto.Size = new System.Drawing.Size(66, 23);
-            this.btnAgosto.TabIndex = 10;
-            this.btnAgosto.Text = "Agosto";
-            this.btnAgosto.UseVisualStyleBackColor = true;
-            // 
-            // btnJulho
-            // 
-            this.btnJulho.Location = new System.Drawing.Point(522, 14);
-            this.btnJulho.Name = "btnJulho";
-            this.btnJulho.Size = new System.Drawing.Size(66, 23);
-            this.btnJulho.TabIndex = 9;
-            this.btnJulho.Text = "Julho";
-            this.btnJulho.UseVisualStyleBackColor = true;
-            // 
-            // btnNovembro
-            // 
-            this.btnNovembro.Location = new System.Drawing.Point(810, 14);
-            this.btnNovembro.Name = "btnNovembro";
-            this.btnNovembro.Size = new System.Drawing.Size(66, 23);
-            this.btnNovembro.TabIndex = 13;
-            this.btnNovembro.Text = "Novembro";
-            this.btnNovembro.UseVisualStyleBackColor = true;
-            // 
-            // btnOutubro
-            // 
-            this.btnOutubro.Location = new System.Drawing.Point(738, 14);
-            this.btnOutubro.Name = "btnOutubro";
-            this.btnOutubro.Size = new System.Drawing.Size(66, 23);
-            this.btnOutubro.TabIndex = 12;
-            this.btnOutubro.Text = "Outubro";
-            this.btnOutubro.UseVisualStyleBackColor = true;
-            // 
-            // btnDezembro
-            // 
-            this.btnDezembro.Location = new System.Drawing.Point(882, 14);
-            this.btnDezembro.Name = "btnDezembro";
-            this.btnDezembro.Size = new System.Drawing.Size(66, 23);
-            this.btnDezembro.TabIndex = 14;
-            this.btnDezembro.Text = "Dezembro";
-            this.btnDezembro.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(14, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(71, 13);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "Filtrar por ano";
-            // 
-            // btn2020
-            // 
-            this.btn2020.Location = new System.Drawing.Point(90, 53);
-            this.btn2020.Name = "btn2020";
-            this.btn2020.Size = new System.Drawing.Size(66, 23);
-            this.btn2020.TabIndex = 16;
-            this.btn2020.Text = "2020";
-            this.btn2020.UseVisualStyleBackColor = true;
-            // 
-            // btn2021
-            // 
-            this.btn2021.Location = new System.Drawing.Point(162, 53);
-            this.btn2021.Name = "btn2021";
-            this.btn2021.Size = new System.Drawing.Size(66, 23);
-            this.btn2021.TabIndex = 17;
-            this.btn2021.Text = "2021";
-            this.btn2021.UseVisualStyleBackColor = true;
             // 
             // TelaLogado
             // 
