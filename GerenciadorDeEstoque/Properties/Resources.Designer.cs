@@ -83,6 +83,16 @@ namespace GerenciadorDeEstoque.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contato {
+            get {
+                object obj = ResourceManager.GetObject("contato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_51_5027845 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_51_5027845", resourceCulture);
@@ -156,6 +166,16 @@ namespace GerenciadorDeEstoque.Properties {
         internal static System.Drawing.Bitmap iconfinder_user_male4_172628 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_user_male4_172628", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgsuporte {
+            get {
+                object obj = ResourceManager.GetObject("imgsuporte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

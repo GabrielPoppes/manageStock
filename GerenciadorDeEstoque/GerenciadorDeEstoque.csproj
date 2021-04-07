@@ -288,5 +288,11 @@
   <ItemGroup>
     <None Include="Resources\iconfinder_51_5027845.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgsuporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contato.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,6 +65,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
             EsconderAlaytics();
+            EsconderSuporteTecnico();
 
             // Métodos para gerar as colunas das List Views das forms escondidas
             GerarColunasClientes();
@@ -112,12 +113,12 @@ namespace GerenciadorDeEstoque.Apresentação
         // Exibir interface gráfica do estoque
         private void ExibirEstoque()
         {
+            gpb_Estoque.Show();
             listView_Cliente.Show();
             picture_AddProd.Show();
             picture_Edit.Show();
             label_AddProd.Show();
             label_EditEstoq.Show();
-            gpb_Estoque.Show();
         }
 
         // Gerar colunas da List View Produtos
@@ -197,6 +198,8 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             EsconderAlaytics();
+            EsconderSuporteTecnico();
+            ExibirEstoque();
             RefreshList();
         }
 
@@ -262,6 +265,7 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão imagem cliente
         private void btnImg_Cliente_Click(object sender, EventArgs e)
         {
+            EsconderSuporteTecnico();
             EsconderBotoesEstoque();
             EsconderGroupBoxUsuario();
             EsconderAlaytics();
@@ -387,6 +391,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
             EsconderAlaytics();
+            EsconderSuporteTecnico();
             MostrarTelaPedidos();
         }
 
@@ -949,6 +954,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             EsconderAlaytics();
+            EsconderSuporteTecnico();
             MostrarGroupBoxUsuario();
             AdicionarItensListaUsuario();
         }
@@ -1018,6 +1024,7 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderBotoesCliente();
             EsconderTelaPedidos();
             EsconderGroupBoxUsuario();
+            EsconderSuporteTecnico();
             MostrarGroupBoxUsuario();
             MostrarAnalytics();
             AdicionarItensColunaAnaliseDeVendas();
@@ -1940,6 +1947,28 @@ namespace GerenciadorDeEstoque.Apresentação
                 listviewTotalVendas.Items.Add(dt.Rows[j].ItemArray[0].ToString());
                 listviewTotalVendas.Items[j].SubItems.Add(dt.Rows[j].ItemArray[1].ToString());
             }
+        }
+
+        // Método para esconder o Group Box do Suporte técnico
+        private void EsconderSuporteTecnico()
+        {
+            gpBoxSuporte.Hide();
+        }
+
+        // Método para exibir o Group Box do suporte técnico
+        private void MostrarSuporteTecnico()
+        {
+            gpBoxSuporte.Show();
+        }
+
+        private void pictureBoxSuporte_Click(object sender, EventArgs e)
+        {
+            EsconderBotoesEstoque();
+            EsconderBotoesCliente();
+            EsconderTelaPedidos();
+            EsconderAlaytics();
+            EsconderGroupBoxUsuario();
+            MostrarSuporteTecnico();
         }
     }
 }
