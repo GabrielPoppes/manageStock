@@ -20,6 +20,7 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
+        
         // Thread da tela para editar usuários
         Thread EditarUsuario;
 

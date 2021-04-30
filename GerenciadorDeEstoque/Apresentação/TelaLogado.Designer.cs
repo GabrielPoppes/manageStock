@@ -690,7 +690,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.Controls.Add(this.label18);
             this.gpBoxAnalise.Controls.Add(this.listviewTotalVendas);
             this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
-            this.gpBoxAnalise.Location = new System.Drawing.Point(2, 0);
+            this.gpBoxAnalise.Location = new System.Drawing.Point(1, 0);
             this.gpBoxAnalise.Name = "gpBoxAnalise";
             this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
             this.gpBoxAnalise.TabIndex = 20;
@@ -926,7 +926,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.gpBoxSuporte.Controls.Add(this.pictureBox9);
             this.gpBoxSuporte.Controls.Add(this.pictureBox8);
-            this.gpBoxSuporte.Location = new System.Drawing.Point(126, 26);
+            this.gpBoxSuporte.Location = new System.Drawing.Point(126, 27);
             this.gpBoxSuporte.Name = "gpBoxSuporte";
             this.gpBoxSuporte.Size = new System.Drawing.Size(1011, 583);
             this.gpBoxSuporte.TabIndex = 20;
@@ -1019,13 +1019,11 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox picture_AddProd;
         private System.Windows.Forms.Label label_AddProd;
         private System.Windows.Forms.PictureBox picture_Edit;
-        private System.Windows.Forms.ListView listView_Cliente;
         private System.Windows.Forms.Label label_EditEstoq;
         private System.Windows.Forms.GroupBox gpb_Estoque;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnImg_Cliente;
         private System.Windows.Forms.GroupBox gpb_Cliente;
-        private System.Windows.Forms.ListView listView_Clientes;
         private System.Windows.Forms.PictureBox btn_NovoCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1036,7 +1034,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.PictureBox btn_criarPedido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListView listView_Pedido;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureAlterarEstadoPedido;
         private System.Windows.Forms.Label label10;
@@ -1057,14 +1054,12 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label lblSuporte;
         private System.Windows.Forms.PictureBox imgSuporte;
         private System.Windows.Forms.GroupBox gpBoxUsuario;
-        private System.Windows.Forms.ListView listViewUsuario;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox imagemRefreshList;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBoxSuporte;
-        private System.Windows.Forms.GroupBox gpBoxAnalise;
         private System.Windows.Forms.ListView listviewTotalVendas;
         private System.Windows.Forms.ListView listViewAnaliseVendas;
         private System.Windows.Forms.Button btn2021;
@@ -1083,8 +1078,13 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Button btnFevereiro;
         private System.Windows.Forms.Button btnJaneiro;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.GroupBox gpBoxSuporte;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        public System.Windows.Forms.ListView listView_Cliente;
+        public System.Windows.Forms.ListView listView_Clientes;
+        public System.Windows.Forms.ListView listView_Pedido;
+        public System.Windows.Forms.ListView listViewUsuario;
+        public System.Windows.Forms.GroupBox gpBoxAnalise;
+        public System.Windows.Forms.GroupBox gpBoxSuporte;
     }
 }
