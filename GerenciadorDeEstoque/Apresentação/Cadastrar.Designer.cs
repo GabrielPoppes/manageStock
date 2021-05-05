@@ -227,6 +227,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txb_return);
             this.Name = "Cadastrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -50,10 +50,6 @@ namespace GerenciadorDeEstoque.DAO
                     TelaLogado formLogado = new TelaLogado();
                     formLogado.Show();
                     Form1 telaForm1 = new Form1();
-                    // TelaInicial = new Thread(telaLogada);
-                    // TelaInicial.SetApartmentState(ApartmentState.MTA);
-                    // TelaInicial.Start();
-
                 }
 
                 conect.Desconectar();

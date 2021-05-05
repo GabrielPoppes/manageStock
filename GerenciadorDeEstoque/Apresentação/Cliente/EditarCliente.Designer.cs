@@ -299,6 +299,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.ClientSize = new System.Drawing.Size(800, 246);
             this.Controls.Add(this.groupBox1);
             this.Name = "EditarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Cliente";
             this.Load += new System.EventHandler(this.EditarCliente_Load);
             this.groupBox1.ResumeLayout(false);

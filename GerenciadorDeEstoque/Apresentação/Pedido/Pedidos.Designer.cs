@@ -31,6 +31,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxVenda = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbQnt = new System.Windows.Forms.TextBox();
@@ -70,8 +72,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientefisicoTableAdapter = new GerenciadorDeEstoque.estoqueDataSet1TableAdapters.clientefisicoTableAdapter();
-            this.comboBoxVenda = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientefisicoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet1)).BeginInit();
@@ -121,6 +121,27 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pedidos";
+            // 
+            // comboBoxVenda
+            // 
+            this.comboBoxVenda.FormattingEnabled = true;
+            this.comboBoxVenda.Items.AddRange(new object[] {
+            "Física",
+            "Virtual"});
+            this.comboBoxVenda.Location = new System.Drawing.Point(656, 47);
+            this.comboBoxVenda.Name = "comboBoxVenda";
+            this.comboBoxVenda.Size = new System.Drawing.Size(149, 21);
+            this.comboBoxVenda.TabIndex = 23;
+            this.comboBoxVenda.Text = "Selecione";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(548, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Venda";
             // 
             // txbValorPorUnidade
             // 
@@ -393,27 +414,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             this.clientefisicoTableAdapter.ClearBeforeFill = true;
             // 
-            // comboBoxVenda
-            // 
-            this.comboBoxVenda.FormattingEnabled = true;
-            this.comboBoxVenda.Items.AddRange(new object[] {
-            "Física",
-            "Virtual"});
-            this.comboBoxVenda.Location = new System.Drawing.Point(656, 47);
-            this.comboBoxVenda.Name = "comboBoxVenda";
-            this.comboBoxVenda.Size = new System.Drawing.Size(149, 21);
-            this.comboBoxVenda.TabIndex = 23;
-            this.comboBoxVenda.Text = "Selecione";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(548, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Venda";
-            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,6 +421,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.ClientSize = new System.Drawing.Size(897, 142);
             this.Controls.Add(this.groupBox1);
             this.Name = "Pedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar pedidos";
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.groupBox1.ResumeLayout(false);

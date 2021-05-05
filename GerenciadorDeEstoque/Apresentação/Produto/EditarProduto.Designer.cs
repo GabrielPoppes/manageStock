@@ -125,6 +125,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.ClientSize = new System.Drawing.Size(523, 285);
             this.Controls.Add(this.groupBox1);
             this.Name = "EditarProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

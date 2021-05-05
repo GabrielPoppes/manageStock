@@ -203,6 +203,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gpbox_CNPJ);
             this.Name = "AddClienteCNPJ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar cliente (jurídico)";
             this.gpbox_CNPJ.ResumeLayout(false);
             this.gpbox_CNPJ.PerformLayout();

@@ -31,6 +31,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
         {
             this.components = new System.ComponentModel.Container();
             this.gpBoxEditUsuario = new System.Windows.Forms.GroupBox();
+            this.txbCelular = new System.Windows.Forms.MaskedTextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txbEmail = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estoqueDataSet3 = new GerenciadorDeEstoque.estoqueDataSet3();
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.estoqueDataSet3TableAdapters.funcionarioTableAdapter();
-            this.txbCelular = new System.Windows.Forms.MaskedTextBox();
             this.gpBoxEditUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet3)).BeginInit();
@@ -60,6 +60,14 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.gpBoxEditUsuario.Size = new System.Drawing.Size(406, 191);
             this.gpBoxEditUsuario.TabIndex = 0;
             this.gpBoxEditUsuario.TabStop = false;
+            // 
+            // txbCelular
+            // 
+            this.txbCelular.Location = new System.Drawing.Point(99, 103);
+            this.txbCelular.Mask = "(999) 00000-0000";
+            this.txbCelular.Name = "txbCelular";
+            this.txbCelular.Size = new System.Drawing.Size(235, 20);
+            this.txbCelular.TabIndex = 1;
             // 
             // btnEditar
             // 
@@ -132,14 +140,6 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
-            // txbCelular
-            // 
-            this.txbCelular.Location = new System.Drawing.Point(99, 103);
-            this.txbCelular.Mask = "(999) 00000-0000";
-            this.txbCelular.Name = "txbCelular";
-            this.txbCelular.Size = new System.Drawing.Size(235, 20);
-            this.txbCelular.TabIndex = 1;
-            // 
             // EditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +147,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.ClientSize = new System.Drawing.Size(429, 221);
             this.Controls.Add(this.gpBoxEditUsuario);
             this.Name = "EditarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarUsuario";
             this.Load += new System.EventHandler(this.EditarUsuario_Load);
             this.gpBoxEditUsuario.ResumeLayout(false);
