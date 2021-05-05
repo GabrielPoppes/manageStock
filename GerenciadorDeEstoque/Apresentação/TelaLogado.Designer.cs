@@ -299,13 +299,13 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
             this.imprimirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -370,7 +370,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 17;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // picture_AddProd
             // 
@@ -596,7 +595,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label7
             // 
@@ -890,7 +888,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.imagemRefreshList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imagemRefreshList.TabIndex = 15;
             this.imagemRefreshList.TabStop = false;
-            this.imagemRefreshList.Click += new System.EventHandler(this.imagemRefreshList_Click);
             // 
             // listViewUsuario
             // 
@@ -966,6 +963,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.gpb_Estoque);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLogado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciador de estoque";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

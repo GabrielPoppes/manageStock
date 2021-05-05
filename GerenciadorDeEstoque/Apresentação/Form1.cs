@@ -53,7 +53,8 @@ namespace GerenciadorDeEstoque
             {
                 if (controle.verificacao)
                 {
-                    
+                    // Esconder a Form1 após o usuário validar o login
+                    this.Hide();
                 }
 
                 else

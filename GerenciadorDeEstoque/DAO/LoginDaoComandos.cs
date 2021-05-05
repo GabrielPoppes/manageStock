@@ -17,8 +17,6 @@ namespace GerenciadorDeEstoque.DAO
 {
     public class LoginDaoComandos : Cadastrar
     {
-        // tela após logar
-        Thread TelaInicial;
         public bool check = false;
         public string mensagem = "";
         SqlCommand comando = new SqlCommand();
@@ -49,9 +47,12 @@ namespace GerenciadorDeEstoque.DAO
                     check = true;
                     // Cmds para abrir a tela "TelaLogado" após a checagem dos logins
                     this.Visible = false;
-                    TelaInicial = new Thread(telaLogada);
-                    TelaInicial.SetApartmentState(ApartmentState.MTA);
-                    TelaInicial.Start();
+                    TelaLogado formLogado = new TelaLogado();
+                    formLogado.Show();
+                    Form1 telaForm1 = new Form1();
+                    // TelaInicial = new Thread(telaLogada);
+                    // TelaInicial.SetApartmentState(ApartmentState.MTA);
+                    // TelaInicial.Start();
 
                 }
 

@@ -20,30 +20,6 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
-        
-        // Thread da tela para editar usuários
-        Thread EditarUsuario;
-
-        // Thread da tela para editar clientes
-        Thread EditarCliente;
-
-        // Thread da tela para encerrar o pedido
-        Thread TelaEncerrarPedido;
-
-        // Thread da tela de adicionar novo cliente jurídico
-        Thread AddClientsCNPJ;
-
-        // Thread da tela de adicionar novo cliente físico
-        Thread AddClients;
-        // Thread da tela de adicionar novo produto no estoque
-        Thread AddProduto;
-
-        // Thraed da tela de editar produto no estoque;
-        Thread EditarProduto;
-
-        // Thread da tela adicionar pedido
-        Thread TelaAdicionarPedido;
-
         // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
 
@@ -75,6 +51,20 @@ namespace GerenciadorDeEstoque.Apresentação
             AdicionarItemListViewPedidos();
             GerarColunaListViewAnaliseVendas();
             GerarColunaTotalVendasAnalise();
+        }
+
+
+        public TelaLogado(AddProduct formProduct)
+        {
+            // Métodos para abrir a form TelaLogado na aba Produtos
+            AdicionarItemListView();
+            EsconderGroupBoxUsuario();
+            EsconderBotoesCliente();
+            EsconderTelaPedidos();
+            EsconderAlaytics();
+            EsconderSuporteTecnico();
+            ExibirEstoque();
+            RefreshList();
         }
 
         // Esconder o Group Box Usuário
@@ -207,19 +197,14 @@ namespace GerenciadorDeEstoque.Apresentação
         // Imagem do "Criar novo produto"
         private void picture_AddProd_Click(object sender, EventArgs e)
         {
-            AddProduto = new Thread(TelaAddProduct);
-            AddProduto.SetApartmentState(ApartmentState.MTA);
-            AddProduto.Start();
-        }
+            AddProduct telaProduto = new AddProduct();
+            telaProduto.ShowDialog();
+            RefreshList();
 
-        // Método para abrir a tela para Adicionar um novo produto
-        private void TelaAddProduct()
-        {
-            Application.Run(new AddProduct());
         }
 
         // Método para atualizar a ListView Produtos
-        private void RefreshList()
+        public void RefreshList()
         {
             // Limpar o campo da List View
             listView_Cliente.Items.Clear();
@@ -250,17 +235,9 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão Editar Produtos do estoque
         private void picture_Edit_Click(object sender, EventArgs e)
         {
-            // Lógica para chamar a tela (thread) editar produtos
-            EditarProduto = new Thread(EditProduct);
-            EditarProduto.SetApartmentState(ApartmentState.MTA);
-            EditarProduto.Start();
-        }
-
-
-        // Chamando a tela para Editar produtos do estoque
-        private void EditProduct()
-        {
-            Application.Run(new EditarProduto());
+            EditarProduto abrirfrmEditarProduto = new EditarProduto();
+            abrirfrmEditarProduto.ShowDialog();
+            RefreshList();
         }
 
         // Botão imagem cliente
@@ -276,29 +253,20 @@ namespace GerenciadorDeEstoque.Apresentação
             RefreshListClient();
         }
 
+        // Botão cadastrar novo cliente
         private void btn_NovoCliente_Click(object sender, EventArgs e)
         {
-            AddClients = new Thread(TelaAddClients);
-            AddClients.SetApartmentState(ApartmentState.MTA);
-            AddClients.Start();
+            AddClient abrirfrmAddCliente = new AddClient();
+            abrirfrmAddCliente.ShowDialog();
+            RefreshListClient(); // Método para atualizar a list view de clientes
         }
 
-        private void TelaAddClients()
-        {
-            Application.Run(new AddClient());
-        }
-
+        // Botão para cadastrar novo cliente jurídico
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            // Lógica para chamar a tela (thread) cliente novo juridico
-            AddClientsCNPJ = new Thread(AddClienteCNPJ);
-            AddClientsCNPJ.SetApartmentState(ApartmentState.MTA);
-            AddClientsCNPJ.Start();
-        }
-
-        private void AddClienteCNPJ()
-        {
-            Application.Run(new AddClienteCNPJ());
+            AddClienteCNPJ abrirfrmClienteCNPJ = new AddClienteCNPJ();
+            abrirfrmClienteCNPJ.ShowDialog();
+            RefreshListClient();
         }
 
         // Método para passar os dados do BD para a List View (clientes)
@@ -399,15 +367,9 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão para fazer um novo pedido, joga para a tela "Pedidos"
         private void btn_criarPedido_Click(object sender, EventArgs e)
         {
-            TelaAdicionarPedido = new Thread(NovaTelaPedido);
-            TelaAdicionarPedido.SetApartmentState(ApartmentState.MTA);
-            TelaAdicionarPedido.Start();
-        }
-
-        // Método para rodar a tela "Pedidos"
-        private void NovaTelaPedido()
-        {
-            Application.Run(new Pedidos());
+            Pedidos formPedidos = new Pedidos();
+            formPedidos.ShowDialog();
+            RefreshPedidos(); // Atualizar lista pedidos quando fecha a form
         }
 
         // Gerar as colunas da list view pedidos
@@ -510,20 +472,11 @@ namespace GerenciadorDeEstoque.Apresentação
 
         }
 
-        private void AbrirTelaEncerrarPedido()
-        {
-            Application.Run(new EncerrarPedido());
-        }
-
+        // Abrir Form Encerrar Pedido
         private void pictureAlterarEstadoPedido_Click(object sender, EventArgs e)
         {
-            TelaEncerrarPedido = new Thread(AbrirTelaEncerrarPedido);
-            TelaEncerrarPedido.SetApartmentState(ApartmentState.MTA);
-            TelaEncerrarPedido.Start();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
+            EncerrarPedido abrirfrmEncerrarPedido = new EncerrarPedido();
+            abrirfrmEncerrarPedido.ShowDialog();
             RefreshPedidos();
         }
 
@@ -928,24 +881,12 @@ namespace GerenciadorDeEstoque.Apresentação
             RefreshListClient();
         }
 
-        // Botão atualizar lista
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            RefreshList();
-        }
-
-        // Método para abrir a tela Editar Cliente
-        private void AbrirTelaEditarCliente()
-        {
-            Application.Run(new EditarCliente());
-        }
-
         // Método para abrir a tela Editar Cliente
         private void pictureBoxEditarCliente_Click(object sender, EventArgs e)
         {
-            EditarCliente = new Thread(AbrirTelaEditarCliente);
-            EditarCliente.SetApartmentState(ApartmentState.MTA);
-            EditarCliente.Start();
+            EditarCliente abrirfrmEditarCliente = new EditarCliente();
+            abrirfrmEditarCliente.ShowDialog();
+            RefreshListClient(); // Atualizar a list view de clientes
         }
 
         // Botão usuário, quando clica exibe a tela
@@ -963,15 +904,9 @@ namespace GerenciadorDeEstoque.Apresentação
         // Botão com imagem editar usuário
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            EditarUsuario = new Thread(TelaEditUser);
-            EditarUsuario.SetApartmentState(ApartmentState.MTA);
-            EditarUsuario.Start();
-        }
-
-        // Método para abrir a tela para editar um usuário
-        private void TelaEditUser()
-        {
-            Application.Run(new EditarUsuario());
+            EditarUsuario abrirfrmEditarUsuario = new EditarUsuario();
+            abrirfrmEditarUsuario.ShowDialog();
+            RefreshUsuario();
         }
 
         // Refresh para atualizar a list view de Usuário
@@ -981,7 +916,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
             // Lógica para atualizar a list view
             con.Open();
-            cmdListView = new SqlCommand("select * from funcionario;", con);
+            cmdListView = new SqlCommand("select idfuncionario, nome, email, celular from funcionario;", con);
             da = new SqlDataAdapter(cmdListView);
             ds = new DataSet();
             da.Fill(ds, "estoque");
@@ -998,12 +933,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
             }
-        }
-
-        // método para atualizar o list view dos usuários
-        private void imagemRefreshList_Click(object sender, EventArgs e)
-        {
-            RefreshUsuario();
         }
 
         // método para mostrar a tela de Analise
@@ -1302,7 +1231,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1334,7 +1263,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1371,7 +1300,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1403,7 +1332,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1440,7 +1369,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1472,7 +1401,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1509,7 +1438,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1541,7 +1470,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1578,7 +1507,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1610,7 +1539,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1647,7 +1576,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1679,7 +1608,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1716,7 +1645,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LISTA VIE PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1748,7 +1677,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1785,7 +1714,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1817,7 +1746,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1854,7 +1783,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();
@@ -1886,7 +1815,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA PRIMEIRA  LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA PRIMEIRA  LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
 
@@ -1923,7 +1852,7 @@ namespace GerenciadorDeEstoque.Apresentação
             }
             // ***********************************************//
             // ***********************************************//
-            // ATUALIZAÇÃO DA SEGUNDA LISTA VIEW PARA O FILTRO
+            // ATUALIZAÇÃO DA SEGUNDA LIST VIEW PARA O FILTRO
             // ***********************************************//
             // ***********************************************//
             listviewTotalVendas.Items.Clear();

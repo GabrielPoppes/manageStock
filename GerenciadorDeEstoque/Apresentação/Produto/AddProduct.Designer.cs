@@ -142,6 +142,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.groupBox1);
             this.Name = "AddProduct";
             this.Text = "Adicionar produto";
+            this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -152,7 +153,6 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private System.Windows.Forms.Label label_nome;
         private System.Windows.Forms.TextBox txb_NomeProduto;
-        private System.Windows.Forms.Button btn_Cadastrar;
         private System.Windows.Forms.TextBox txb_Cor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txb_Preco;
@@ -160,5 +160,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.TextBox txb_Quantidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Button btn_Cadastrar;
     }
 }
