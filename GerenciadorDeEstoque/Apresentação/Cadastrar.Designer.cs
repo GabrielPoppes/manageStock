@@ -168,7 +168,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_return.BackColor = System.Drawing.Color.IndianRed;
             this.txb_return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txb_return.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txb_return.Location = new System.Drawing.Point(701, 415);
+            this.txb_return.Location = new System.Drawing.Point(294, 358);
             this.txb_return.Name = "txb_return";
             this.txb_return.Size = new System.Drawing.Size(87, 23);
             this.txb_return.TabIndex = 20;
@@ -199,6 +199,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txb_password_c);
+            this.groupBox1.Controls.Add(this.txb_return);
             this.groupBox1.Controls.Add(this.txb_name);
             this.groupBox1.Controls.Add(this.txb_register);
             this.groupBox1.Controls.Add(this.label6);
@@ -211,9 +212,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txb_confirmpassword);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(201, 63);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 345);
+            this.groupBox1.Size = new System.Drawing.Size(387, 387);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
@@ -223,9 +224,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(410, 412);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txb_return);
             this.Name = "Cadastrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";

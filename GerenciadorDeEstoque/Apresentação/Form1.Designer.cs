@@ -89,6 +89,7 @@ namespace GerenciadorDeEstoque
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.txb_email);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txb_join);
             this.groupBox1.Controls.Add(this.txb_password);
             this.groupBox1.Controls.Add(this.txb_register);
@@ -104,7 +105,6 @@ namespace GerenciadorDeEstoque
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.groupBox1.ResumeLayout(false);
