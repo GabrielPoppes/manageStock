@@ -29,6 +29,7 @@ namespace GerenciadorDeEstoque.Apresentação
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBoxSuporte = new System.Windows.Forms.PictureBox();
@@ -73,6 +74,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label8 = new System.Windows.Forms.Label();
             this.gpBoxUsuario = new System.Windows.Forms.GroupBox();
             this.gpBoxAnalise = new System.Windows.Forms.GroupBox();
+            this.graficoVendas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btn2021 = new System.Windows.Forms.Button();
             this.btn2020 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -89,7 +91,6 @@ namespace GerenciadorDeEstoque.Apresentação
             this.btnFevereiro = new System.Windows.Forms.Button();
             this.btnJaneiro = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.listviewTotalVendas = new System.Windows.Forms.ListView();
             this.listViewAnaliseVendas = new System.Windows.Forms.ListView();
             this.listViewUsuario = new System.Windows.Forms.ListView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -117,6 +118,7 @@ namespace GerenciadorDeEstoque.Apresentação
             ((System.ComponentModel.ISupportInitialize)(this.btn_criarPedido)).BeginInit();
             this.gpBoxUsuario.SuspendLayout();
             this.gpBoxAnalise.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graficoVendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.gpBoxSuporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -284,7 +286,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -583,6 +585,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxAnalise
             // 
+            this.gpBoxAnalise.Controls.Add(this.graficoVendas);
             this.gpBoxAnalise.Controls.Add(this.btn2021);
             this.gpBoxAnalise.Controls.Add(this.btn2020);
             this.gpBoxAnalise.Controls.Add(this.label19);
@@ -599,13 +602,22 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.Controls.Add(this.btnFevereiro);
             this.gpBoxAnalise.Controls.Add(this.btnJaneiro);
             this.gpBoxAnalise.Controls.Add(this.label18);
-            this.gpBoxAnalise.Controls.Add(this.listviewTotalVendas);
             this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
             this.gpBoxAnalise.Location = new System.Drawing.Point(1, 0);
             this.gpBoxAnalise.Name = "gpBoxAnalise";
             this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
             this.gpBoxAnalise.TabIndex = 20;
             this.gpBoxAnalise.TabStop = false;
+            // 
+            // graficoVendas
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.graficoVendas.ChartAreas.Add(chartArea1);
+            this.graficoVendas.Location = new System.Drawing.Point(15, 319);
+            this.graficoVendas.Name = "graficoVendas";
+            this.graficoVendas.Size = new System.Drawing.Size(953, 266);
+            this.graficoVendas.TabIndex = 18;
+            this.graficoVendas.Text = "chart1";
             // 
             // btn2021
             // 
@@ -763,22 +775,12 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label18.TabIndex = 2;
             this.label18.Text = "Filtrar por mês";
             // 
-            // listviewTotalVendas
-            // 
-            this.listviewTotalVendas.HideSelection = false;
-            this.listviewTotalVendas.Location = new System.Drawing.Point(14, 472);
-            this.listviewTotalVendas.Name = "listviewTotalVendas";
-            this.listviewTotalVendas.Size = new System.Drawing.Size(990, 97);
-            this.listviewTotalVendas.TabIndex = 1;
-            this.listviewTotalVendas.UseCompatibleStateImageBehavior = false;
-            this.listviewTotalVendas.View = System.Windows.Forms.View.Details;
-            // 
             // listViewAnaliseVendas
             // 
             this.listViewAnaliseVendas.HideSelection = false;
             this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
             this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
-            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 378);
+            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 225);
             this.listViewAnaliseVendas.TabIndex = 0;
             this.listViewAnaliseVendas.UseCompatibleStateImageBehavior = false;
             this.listViewAnaliseVendas.View = System.Windows.Forms.View.Details;
@@ -817,7 +819,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.gpBoxSuporte.Controls.Add(this.pictureBox9);
             this.gpBoxSuporte.Controls.Add(this.pictureBox8);
-            this.gpBoxSuporte.Location = new System.Drawing.Point(126, 28);
+            this.gpBoxSuporte.Location = new System.Drawing.Point(125, 33);
             this.gpBoxSuporte.Name = "gpBoxSuporte";
             this.gpBoxSuporte.Size = new System.Drawing.Size(1011, 583);
             this.gpBoxSuporte.TabIndex = 20;
@@ -848,13 +850,13 @@ namespace GerenciadorDeEstoque.Apresentação
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 625);
-            this.Controls.Add(this.gpBoxSuporte);
             this.Controls.Add(this.gpBoxUsuario);
             this.Controls.Add(this.groupBox_pedidos);
             this.Controls.Add(this.gpb_Cliente);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gpb_Estoque);
+            this.Controls.Add(this.gpBoxSuporte);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLogado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -886,6 +888,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxUsuario.PerformLayout();
             this.gpBoxAnalise.ResumeLayout(false);
             this.gpBoxAnalise.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graficoVendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.gpBoxSuporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -939,7 +942,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBoxSuporte;
-        private System.Windows.Forms.ListView listviewTotalVendas;
         private System.Windows.Forms.ListView listViewAnaliseVendas;
         private System.Windows.Forms.Button btn2021;
         private System.Windows.Forms.Button btn2020;
@@ -965,5 +967,6 @@ namespace GerenciadorDeEstoque.Apresentação
         public System.Windows.Forms.ListView listViewUsuario;
         public System.Windows.Forms.GroupBox gpBoxAnalise;
         public System.Windows.Forms.GroupBox gpBoxSuporte;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficoVendas;
     }
 }
