@@ -605,7 +605,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
             this.gpBoxAnalise.Location = new System.Drawing.Point(1, 0);
             this.gpBoxAnalise.Name = "gpBoxAnalise";
-            this.gpBoxAnalise.Size = new System.Drawing.Size(1015, 588);
+            this.gpBoxAnalise.Size = new System.Drawing.Size(1040, 588);
             this.gpBoxAnalise.TabIndex = 20;
             this.gpBoxAnalise.TabStop = false;
             // 
@@ -615,7 +615,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.graficoVendas.ChartAreas.Add(chartArea1);
             this.graficoVendas.Location = new System.Drawing.Point(15, 319);
             this.graficoVendas.Name = "graficoVendas";
-            this.graficoVendas.Size = new System.Drawing.Size(953, 266);
+            this.graficoVendas.Size = new System.Drawing.Size(1007, 266);
             this.graficoVendas.TabIndex = 18;
             this.graficoVendas.Text = "chart1";
             // 
@@ -780,7 +780,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.listViewAnaliseVendas.HideSelection = false;
             this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
             this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
-            this.listViewAnaliseVendas.Size = new System.Drawing.Size(990, 225);
+            this.listViewAnaliseVendas.Size = new System.Drawing.Size(1008, 225);
             this.listViewAnaliseVendas.TabIndex = 0;
             this.listViewAnaliseVendas.UseCompatibleStateImageBehavior = false;
             this.listViewAnaliseVendas.View = System.Windows.Forms.View.Details;

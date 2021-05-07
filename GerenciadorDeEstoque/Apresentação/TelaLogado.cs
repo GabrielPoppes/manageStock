@@ -37,6 +37,9 @@ namespace GerenciadorDeEstoque.Apresentação
             // Método chamados na inicialização do programa
             InitializeComponent();
 
+            // Método para criar o gráfico de vendas
+            CriandoGraficoVendas();
+
             // Métodos pra esconder as telas da form TelaLogado
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
@@ -963,9 +966,7 @@ namespace GerenciadorDeEstoque.Apresentação
             GerarGraficoVendas();
 
         }
-
-
-        private void GerarGraficoVendas()
+        public void CriandoGraficoVendas()
         {
             Title title = new Title(); // Instanciando var do tipo title
 
@@ -973,11 +974,6 @@ namespace GerenciadorDeEstoque.Apresentação
             title.Font = new Font("Arial", 14, FontStyle.Bold); // Bold = negrito
             title.ForeColor = Color.Brown;
             title.Text = "Vendas mensais";
-
-            // Inserindo a legenda do gráfico
-            Legend legenda = new Legend();
-            graficoVendas.Legends.Add(legenda);
-            graficoVendas.Legends[0].Title = "Legenda";
 
             // Título do eixo X e Y; Eixo X = meses; Eixo Y = Valores
             // Eixo X
@@ -1003,7 +999,10 @@ namespace GerenciadorDeEstoque.Apresentação
             graficoVendas.Series["Vendas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             // Largura da barra do gráfico, no caso, defini como 4.
             graficoVendas.Series["Vendas"].BorderWidth = 4;
+        }
 
+        private void GerarGraficoVendas()
+        {
             // Comando para conectar com o banco de dados
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open(); // abrindo o banco de dados
@@ -1018,19 +1017,19 @@ namespace GerenciadorDeEstoque.Apresentação
 
             // Gerando o gráfico de meses, janeiro a dezembro
             // No primeiro vai o X (meses), e depois os valores que estão no banco de dados
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Janeiro", dt.Rows[0].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Fevereiro", dt.Rows[1].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Março", dt.Rows[2].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Abril", dt.Rows[3].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Maio", dt.Rows[4].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Junho", dt.Rows[5].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Julho", dt.Rows[6].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Agosto", dt.Rows[7].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Setembro", dt.Rows[8].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Outubro", dt.Rows[9].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Novembro", dt.Rows[10].ItemArray[0].ToString());
-            this.graficoVendas.Series["Vendas"].Points.AddXY("Dezembro", dt.Rows[11].ItemArray[0].ToString());
-            this.graficoVendas.DataBind();
+            graficoVendas.Series["Vendas"].Points.AddXY("Jan", dt.Rows[0].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Fev", dt.Rows[1].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Mar", dt.Rows[2].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Abr", dt.Rows[3].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Mai", dt.Rows[4].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Jun", dt.Rows[5].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Jul", dt.Rows[6].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Ago", dt.Rows[7].ItemArray[0].ToString());
+            graficoVendas.Series["Vendas"].Points.AddXY("Set", dt.Rows[8].ItemArray[0].ToString());
+            // graficoVendas.Series["Vendas"].Points.AddXY("Out", dt.Rows[9].ItemArray[0].ToString());
+            // graficoVendas.Series["Vendas"].Points.AddXY("Nov", dt.Rows[10].ItemArray[0].ToString());
+            // graficoVendas.Series["Vendas"].Points.AddXY("Dez", dt.Rows[11].ItemArray[0].ToString());
+
         }
 
         // Método para gerar as colunas da List View de Análise de vendas
