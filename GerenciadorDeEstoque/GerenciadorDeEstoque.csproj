@@ -305,5 +305,29 @@
   <ItemGroup>
     <None Include="Resources\contato.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\iconUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\iconUser24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\iconUser24White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\iconUser24Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\passwordBlue24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Session Manager_18215.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Session Manager_18215 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\TelaLogado\logo64x64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,5 +67,24 @@ namespace GerenciadorDeEstoque
                 MessageBox.Show(controle.mensagem);
             }
         }
+
+        // Quando altera o texto da text box senha
+        private void txb_password_TextChanged(object sender, EventArgs e)
+        {
+            // Os caracteres da senha saem com *
+            txb_password.PasswordChar = '*';
+        }
+
+        // Quando o user clica no text box senha, limpa a escrita "Senha"
+        private void txb_password_Click(object sender, EventArgs e)
+        {
+            txb_password.Clear();
+        }
+
+        // Quando o user clica no text box E-mail, limpa a escrita "Email"
+        private void txb_email_Click(object sender, EventArgs e)
+        {
+            txb_email.Clear();
+        }
     }
 }
