@@ -15,8 +15,6 @@ namespace GerenciadorDeEstoque.Apresentação
 {
     public partial class Cadastrar : Form
     {
-        Thread TelaLogin;
-
         public Cadastrar()
         {
             InitializeComponent();

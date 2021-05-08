@@ -50,7 +50,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_password_c.BackColor = System.Drawing.Color.SteelBlue;
             this.txb_password_c.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_password_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_password_c.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txb_password_c.ForeColor = System.Drawing.SystemColors.Window;
             this.txb_password_c.Location = new System.Drawing.Point(42, 103);
             this.txb_password_c.MaxLength = 25;
             this.txb_password_c.Name = "txb_password_c";
@@ -65,7 +65,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_email_c.BackColor = System.Drawing.Color.SteelBlue;
             this.txb_email_c.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_email_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_email_c.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txb_email_c.ForeColor = System.Drawing.SystemColors.Window;
             this.txb_email_c.Location = new System.Drawing.Point(42, 69);
             this.txb_email_c.MaxLength = 50;
             this.txb_email_c.Name = "txb_email_c";
@@ -93,7 +93,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_confirmpassword.BackColor = System.Drawing.Color.SteelBlue;
             this.txb_confirmpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_confirmpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_confirmpassword.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txb_confirmpassword.ForeColor = System.Drawing.SystemColors.Window;
             this.txb_confirmpassword.Location = new System.Drawing.Point(42, 134);
             this.txb_confirmpassword.MaxLength = 25;
             this.txb_confirmpassword.Name = "txb_confirmpassword";
@@ -108,7 +108,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txtb_reminderpassword.BackColor = System.Drawing.Color.SteelBlue;
             this.txtb_reminderpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtb_reminderpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_reminderpassword.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txtb_reminderpassword.ForeColor = System.Drawing.SystemColors.Window;
             this.txtb_reminderpassword.Location = new System.Drawing.Point(42, 199);
             this.txtb_reminderpassword.MaxLength = 50;
             this.txtb_reminderpassword.Name = "txtb_reminderpassword";
@@ -122,7 +122,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_celphone.BackColor = System.Drawing.Color.SteelBlue;
             this.txb_celphone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_celphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_celphone.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txb_celphone.ForeColor = System.Drawing.SystemColors.Window;
             this.txb_celphone.HideSelection = false;
             this.txb_celphone.Location = new System.Drawing.Point(42, 165);
             this.txb_celphone.Mask = "(999) 00000-0000";
@@ -135,7 +135,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.txb_name.BackColor = System.Drawing.Color.SteelBlue;
             this.txb_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_name.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txb_name.ForeColor = System.Drawing.SystemColors.Window;
             this.txb_name.Location = new System.Drawing.Point(42, 37);
             this.txb_name.MaxLength = 50;
             this.txb_name.Name = "txb_name";

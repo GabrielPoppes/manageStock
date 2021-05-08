@@ -29,7 +29,7 @@ namespace GerenciadorDeEstoque.Apresentação
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBoxSuporte = new System.Windows.Forms.PictureBox();
@@ -139,16 +139,17 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox2.Controls.Add(this.btnImg_Cliente);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Location = new System.Drawing.Point(1, 27);
+            this.groupBox2.Location = new System.Drawing.Point(-3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(119, 580);
+            this.groupBox2.Size = new System.Drawing.Size(119, 650);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(34, 536);
+            this.label17.ForeColor = System.Drawing.SystemColors.Window;
+            this.label17.Location = new System.Drawing.Point(37, 561);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(44, 13);
             this.label17.TabIndex = 11;
@@ -157,7 +158,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBoxSuporte
             // 
             this.pictureBoxSuporte.Image = global::GerenciadorDeEstoque.Properties.Resources._345523_suporte_tecnico_glyph_icons_grátis_vetor_removebg_preview;
-            this.pictureBoxSuporte.Location = new System.Drawing.Point(6, 468);
+            this.pictureBoxSuporte.Location = new System.Drawing.Point(9, 493);
             this.pictureBoxSuporte.Name = "pictureBoxSuporte";
             this.pictureBoxSuporte.Size = new System.Drawing.Size(100, 65);
             this.pictureBoxSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -168,7 +169,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblSuporte
             // 
             this.lblSuporte.AutoSize = true;
-            this.lblSuporte.Location = new System.Drawing.Point(11, 354);
+            this.lblSuporte.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSuporte.Location = new System.Drawing.Point(14, 379);
             this.lblSuporte.Name = "lblSuporte";
             this.lblSuporte.Size = new System.Drawing.Size(94, 13);
             this.lblSuporte.TabIndex = 9;
@@ -177,7 +179,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // imgSuporte
             // 
             this.imgSuporte.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_51_5027845;
-            this.imgSuporte.Location = new System.Drawing.Point(6, 286);
+            this.imgSuporte.Location = new System.Drawing.Point(9, 311);
             this.imgSuporte.Name = "imgSuporte";
             this.imgSuporte.Size = new System.Drawing.Size(100, 65);
             this.imgSuporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +190,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(36, 446);
+            this.lblUsuario.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUsuario.Location = new System.Drawing.Point(39, 471);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 7;
@@ -197,7 +200,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // picBoxUsuarios
             // 
             this.picBoxUsuarios.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_user_285655;
-            this.picBoxUsuarios.Location = new System.Drawing.Point(8, 378);
+            this.picBoxUsuarios.Location = new System.Drawing.Point(11, 403);
             this.picBoxUsuarios.Name = "picBoxUsuarios";
             this.picBoxUsuarios.Size = new System.Drawing.Size(100, 65);
             this.picBoxUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +211,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 174);
+            this.label6.ForeColor = System.Drawing.SystemColors.Window;
+            this.label6.Location = new System.Drawing.Point(39, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 5;
@@ -217,7 +221,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // btn_pedido
             // 
             this.btn_pedido.Image = global::GerenciadorDeEstoque.Properties.Resources._3688519_128;
-            this.btn_pedido.Location = new System.Drawing.Point(8, 106);
+            this.btn_pedido.Location = new System.Drawing.Point(11, 131);
             this.btn_pedido.Name = "btn_pedido";
             this.btn_pedido.Size = new System.Drawing.Size(100, 65);
             this.btn_pedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +232,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 263);
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(40, 288);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 3;
@@ -237,7 +242,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // btnImg_Cliente
             // 
             this.btnImg_Cliente.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_User_Customers_1218712;
-            this.btnImg_Cliente.Location = new System.Drawing.Point(8, 198);
+            this.btnImg_Cliente.Location = new System.Drawing.Point(11, 223);
             this.btnImg_Cliente.Name = "btnImg_Cliente";
             this.btnImg_Cliente.Size = new System.Drawing.Size(100, 65);
             this.btnImg_Cliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -248,7 +253,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 79);
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(40, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 1;
@@ -257,7 +263,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GerenciadorDeEstoque.Properties.Resources.iconfinder_kthememgr_7240;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -301,10 +307,12 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // listView_Cliente
             // 
+            this.listView_Cliente.BackColor = System.Drawing.SystemColors.Window;
+            this.listView_Cliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView_Cliente.HideSelection = false;
-            this.listView_Cliente.Location = new System.Drawing.Point(16, 106);
+            this.listView_Cliente.Location = new System.Drawing.Point(0, 106);
             this.listView_Cliente.Name = "listView_Cliente";
-            this.listView_Cliente.Size = new System.Drawing.Size(1013, 488);
+            this.listView_Cliente.Size = new System.Drawing.Size(1053, 504);
             this.listView_Cliente.TabIndex = 5;
             this.listView_Cliente.UseCompatibleStateImageBehavior = false;
             this.listView_Cliente.View = System.Windows.Forms.View.Details;
@@ -320,14 +328,15 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpb_Estoque
             // 
+            this.gpb_Estoque.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gpb_Estoque.Controls.Add(this.listView_Cliente);
             this.gpb_Estoque.Controls.Add(this.picture_AddProd);
             this.gpb_Estoque.Controls.Add(this.label_EditEstoq);
             this.gpb_Estoque.Controls.Add(this.label_AddProd);
             this.gpb_Estoque.Controls.Add(this.picture_Edit);
-            this.gpb_Estoque.Location = new System.Drawing.Point(126, 27);
+            this.gpb_Estoque.Location = new System.Drawing.Point(114, 18);
             this.gpb_Estoque.Name = "gpb_Estoque";
-            this.gpb_Estoque.Size = new System.Drawing.Size(1041, 634);
+            this.gpb_Estoque.Size = new System.Drawing.Size(1053, 646);
             this.gpb_Estoque.TabIndex = 8;
             this.gpb_Estoque.TabStop = false;
             // 
@@ -355,6 +364,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpb_Cliente
             // 
+            this.gpb_Cliente.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gpb_Cliente.Controls.Add(this.pictureBoxEditarCliente);
             this.gpb_Cliente.Controls.Add(this.label14);
             this.gpb_Cliente.Controls.Add(this.pictureBox2);
@@ -363,9 +373,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpb_Cliente.Controls.Add(this.label3);
             this.gpb_Cliente.Controls.Add(this.label4);
             this.gpb_Cliente.Controls.Add(this.listView_Clientes);
-            this.gpb_Cliente.Location = new System.Drawing.Point(126, 28);
+            this.gpb_Cliente.Location = new System.Drawing.Point(114, 19);
             this.gpb_Cliente.Name = "gpb_Cliente";
-            this.gpb_Cliente.Size = new System.Drawing.Size(1041, 625);
+            this.gpb_Cliente.Size = new System.Drawing.Size(1053, 625);
             this.gpb_Cliente.TabIndex = 8;
             this.gpb_Cliente.TabStop = false;
             // 
@@ -440,15 +450,16 @@ namespace GerenciadorDeEstoque.Apresentação
             // listView_Clientes
             // 
             this.listView_Clientes.HideSelection = false;
-            this.listView_Clientes.Location = new System.Drawing.Point(16, 97);
+            this.listView_Clientes.Location = new System.Drawing.Point(0, 97);
             this.listView_Clientes.Name = "listView_Clientes";
-            this.listView_Clientes.Size = new System.Drawing.Size(1001, 501);
+            this.listView_Clientes.Size = new System.Drawing.Size(1053, 517);
             this.listView_Clientes.TabIndex = 0;
             this.listView_Clientes.UseCompatibleStateImageBehavior = false;
             this.listView_Clientes.View = System.Windows.Forms.View.Details;
             // 
             // groupBox_pedidos
             // 
+            this.groupBox_pedidos.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox_pedidos.Controls.Add(this.label11);
             this.groupBox_pedidos.Controls.Add(this.checkBoxCancelados);
             this.groupBox_pedidos.Controls.Add(this.checkBoxPago);
@@ -459,9 +470,9 @@ namespace GerenciadorDeEstoque.Apresentação
             this.groupBox_pedidos.Controls.Add(this.label9);
             this.groupBox_pedidos.Controls.Add(this.listView_Pedido);
             this.groupBox_pedidos.Controls.Add(this.label8);
-            this.groupBox_pedidos.Location = new System.Drawing.Point(126, 28);
+            this.groupBox_pedidos.Location = new System.Drawing.Point(114, 16);
             this.groupBox_pedidos.Name = "groupBox_pedidos";
-            this.groupBox_pedidos.Size = new System.Drawing.Size(1023, 605);
+            this.groupBox_pedidos.Size = new System.Drawing.Size(1053, 605);
             this.groupBox_pedidos.TabIndex = 14;
             this.groupBox_pedidos.TabStop = false;
             // 
@@ -556,9 +567,9 @@ namespace GerenciadorDeEstoque.Apresentação
             // listView_Pedido
             // 
             this.listView_Pedido.HideSelection = false;
-            this.listView_Pedido.Location = new System.Drawing.Point(16, 97);
+            this.listView_Pedido.Location = new System.Drawing.Point(0, 97);
             this.listView_Pedido.Name = "listView_Pedido";
-            this.listView_Pedido.Size = new System.Drawing.Size(1001, 483);
+            this.listView_Pedido.Size = new System.Drawing.Size(1053, 515);
             this.listView_Pedido.TabIndex = 0;
             this.listView_Pedido.UseCompatibleStateImageBehavior = false;
             this.listView_Pedido.View = System.Windows.Forms.View.Details;
@@ -573,18 +584,20 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxUsuario
             // 
+            this.gpBoxUsuario.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gpBoxUsuario.Controls.Add(this.gpBoxAnalise);
             this.gpBoxUsuario.Controls.Add(this.listViewUsuario);
             this.gpBoxUsuario.Controls.Add(this.pictureBox6);
             this.gpBoxUsuario.Controls.Add(this.label15);
-            this.gpBoxUsuario.Location = new System.Drawing.Point(126, 28);
+            this.gpBoxUsuario.Location = new System.Drawing.Point(114, 12);
             this.gpBoxUsuario.Name = "gpBoxUsuario";
-            this.gpBoxUsuario.Size = new System.Drawing.Size(1023, 594);
+            this.gpBoxUsuario.Size = new System.Drawing.Size(1053, 616);
             this.gpBoxUsuario.TabIndex = 19;
             this.gpBoxUsuario.TabStop = false;
             // 
             // gpBoxAnalise
             // 
+            this.gpBoxAnalise.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gpBoxAnalise.Controls.Add(this.graficoVendas);
             this.gpBoxAnalise.Controls.Add(this.btn2021);
             this.gpBoxAnalise.Controls.Add(this.btn2020);
@@ -603,17 +616,17 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.Controls.Add(this.btnJaneiro);
             this.gpBoxAnalise.Controls.Add(this.label18);
             this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
-            this.gpBoxAnalise.Location = new System.Drawing.Point(1, 0);
+            this.gpBoxAnalise.Location = new System.Drawing.Point(0, 4);
             this.gpBoxAnalise.Name = "gpBoxAnalise";
-            this.gpBoxAnalise.Size = new System.Drawing.Size(1040, 588);
+            this.gpBoxAnalise.Size = new System.Drawing.Size(1041, 689);
             this.gpBoxAnalise.TabIndex = 20;
             this.gpBoxAnalise.TabStop = false;
             // 
             // graficoVendas
             // 
-            chartArea1.Name = "ChartArea1";
-            this.graficoVendas.ChartAreas.Add(chartArea1);
-            this.graficoVendas.Location = new System.Drawing.Point(15, 319);
+            chartArea3.Name = "ChartArea1";
+            this.graficoVendas.ChartAreas.Add(chartArea3);
+            this.graficoVendas.Location = new System.Drawing.Point(15, 334);
             this.graficoVendas.Name = "graficoVendas";
             this.graficoVendas.Size = new System.Drawing.Size(1007, 266);
             this.graficoVendas.TabIndex = 18;
@@ -621,7 +634,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btn2021
             // 
-            this.btn2021.Location = new System.Drawing.Point(162, 53);
+            this.btn2021.Location = new System.Drawing.Point(162, 68);
             this.btn2021.Name = "btn2021";
             this.btn2021.Size = new System.Drawing.Size(66, 23);
             this.btn2021.TabIndex = 17;
@@ -630,7 +643,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btn2020
             // 
-            this.btn2020.Location = new System.Drawing.Point(90, 53);
+            this.btn2020.Location = new System.Drawing.Point(90, 68);
             this.btn2020.Name = "btn2020";
             this.btn2020.Size = new System.Drawing.Size(66, 23);
             this.btn2020.TabIndex = 16;
@@ -640,7 +653,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(14, 58);
+            this.label19.Location = new System.Drawing.Point(14, 73);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(71, 13);
             this.label19.TabIndex = 15;
@@ -648,7 +661,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnDezembro
             // 
-            this.btnDezembro.Location = new System.Drawing.Point(882, 14);
+            this.btnDezembro.Location = new System.Drawing.Point(882, 29);
             this.btnDezembro.Name = "btnDezembro";
             this.btnDezembro.Size = new System.Drawing.Size(66, 23);
             this.btnDezembro.TabIndex = 14;
@@ -658,7 +671,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnNovembro
             // 
-            this.btnNovembro.Location = new System.Drawing.Point(810, 14);
+            this.btnNovembro.Location = new System.Drawing.Point(810, 29);
             this.btnNovembro.Name = "btnNovembro";
             this.btnNovembro.Size = new System.Drawing.Size(66, 23);
             this.btnNovembro.TabIndex = 13;
@@ -668,7 +681,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnOutubro
             // 
-            this.btnOutubro.Location = new System.Drawing.Point(738, 14);
+            this.btnOutubro.Location = new System.Drawing.Point(738, 29);
             this.btnOutubro.Name = "btnOutubro";
             this.btnOutubro.Size = new System.Drawing.Size(66, 23);
             this.btnOutubro.TabIndex = 12;
@@ -678,7 +691,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnSetembro
             // 
-            this.btnSetembro.Location = new System.Drawing.Point(666, 14);
+            this.btnSetembro.Location = new System.Drawing.Point(666, 29);
             this.btnSetembro.Name = "btnSetembro";
             this.btnSetembro.Size = new System.Drawing.Size(66, 23);
             this.btnSetembro.TabIndex = 11;
@@ -688,7 +701,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnAgosto
             // 
-            this.btnAgosto.Location = new System.Drawing.Point(594, 14);
+            this.btnAgosto.Location = new System.Drawing.Point(594, 29);
             this.btnAgosto.Name = "btnAgosto";
             this.btnAgosto.Size = new System.Drawing.Size(66, 23);
             this.btnAgosto.TabIndex = 10;
@@ -698,7 +711,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnJulho
             // 
-            this.btnJulho.Location = new System.Drawing.Point(522, 14);
+            this.btnJulho.Location = new System.Drawing.Point(522, 29);
             this.btnJulho.Name = "btnJulho";
             this.btnJulho.Size = new System.Drawing.Size(66, 23);
             this.btnJulho.TabIndex = 9;
@@ -708,7 +721,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnJunho
             // 
-            this.btnJunho.Location = new System.Drawing.Point(450, 14);
+            this.btnJunho.Location = new System.Drawing.Point(450, 29);
             this.btnJunho.Name = "btnJunho";
             this.btnJunho.Size = new System.Drawing.Size(66, 23);
             this.btnJunho.TabIndex = 8;
@@ -718,7 +731,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnMaio
             // 
-            this.btnMaio.Location = new System.Drawing.Point(378, 14);
+            this.btnMaio.Location = new System.Drawing.Point(378, 29);
             this.btnMaio.Name = "btnMaio";
             this.btnMaio.Size = new System.Drawing.Size(66, 23);
             this.btnMaio.TabIndex = 7;
@@ -728,7 +741,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnAbril
             // 
-            this.btnAbril.Location = new System.Drawing.Point(306, 14);
+            this.btnAbril.Location = new System.Drawing.Point(306, 29);
             this.btnAbril.Name = "btnAbril";
             this.btnAbril.Size = new System.Drawing.Size(66, 23);
             this.btnAbril.TabIndex = 6;
@@ -738,7 +751,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnMarco
             // 
-            this.btnMarco.Location = new System.Drawing.Point(234, 14);
+            this.btnMarco.Location = new System.Drawing.Point(234, 29);
             this.btnMarco.Name = "btnMarco";
             this.btnMarco.Size = new System.Drawing.Size(66, 23);
             this.btnMarco.TabIndex = 5;
@@ -748,7 +761,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnFevereiro
             // 
-            this.btnFevereiro.Location = new System.Drawing.Point(162, 14);
+            this.btnFevereiro.Location = new System.Drawing.Point(162, 29);
             this.btnFevereiro.Name = "btnFevereiro";
             this.btnFevereiro.Size = new System.Drawing.Size(66, 23);
             this.btnFevereiro.TabIndex = 4;
@@ -758,7 +771,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // btnJaneiro
             // 
-            this.btnJaneiro.Location = new System.Drawing.Point(90, 14);
+            this.btnJaneiro.Location = new System.Drawing.Point(90, 29);
             this.btnJaneiro.Name = "btnJaneiro";
             this.btnJaneiro.Size = new System.Drawing.Size(66, 23);
             this.btnJaneiro.TabIndex = 3;
@@ -769,7 +782,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 18);
+            this.label18.Location = new System.Drawing.Point(14, 33);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(72, 13);
             this.label18.TabIndex = 2;
@@ -778,7 +791,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // listViewAnaliseVendas
             // 
             this.listViewAnaliseVendas.HideSelection = false;
-            this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 88);
+            this.listViewAnaliseVendas.Location = new System.Drawing.Point(14, 103);
             this.listViewAnaliseVendas.Name = "listViewAnaliseVendas";
             this.listViewAnaliseVendas.Size = new System.Drawing.Size(1008, 225);
             this.listViewAnaliseVendas.TabIndex = 0;
@@ -788,9 +801,9 @@ namespace GerenciadorDeEstoque.Apresentação
             // listViewUsuario
             // 
             this.listViewUsuario.HideSelection = false;
-            this.listViewUsuario.Location = new System.Drawing.Point(16, 99);
+            this.listViewUsuario.Location = new System.Drawing.Point(0, 99);
             this.listViewUsuario.Name = "listViewUsuario";
-            this.listViewUsuario.Size = new System.Drawing.Size(990, 474);
+            this.listViewUsuario.Size = new System.Drawing.Size(1053, 517);
             this.listViewUsuario.TabIndex = 11;
             this.listViewUsuario.UseCompatibleStateImageBehavior = false;
             this.listViewUsuario.View = System.Windows.Forms.View.Details;
@@ -817,18 +830,19 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // gpBoxSuporte
             // 
+            this.gpBoxSuporte.BackColor = System.Drawing.Color.LightSteelBlue;
             this.gpBoxSuporte.Controls.Add(this.pictureBox9);
             this.gpBoxSuporte.Controls.Add(this.pictureBox8);
-            this.gpBoxSuporte.Location = new System.Drawing.Point(125, 33);
+            this.gpBoxSuporte.Location = new System.Drawing.Point(114, -13);
             this.gpBoxSuporte.Name = "gpBoxSuporte";
-            this.gpBoxSuporte.Size = new System.Drawing.Size(1011, 583);
+            this.gpBoxSuporte.Size = new System.Drawing.Size(1053, 647);
             this.gpBoxSuporte.TabIndex = 20;
             this.gpBoxSuporte.TabStop = false;
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::GerenciadorDeEstoque.Properties.Resources.contato;
-            this.pictureBox9.Location = new System.Drawing.Point(152, 175);
+            this.pictureBox9.Location = new System.Drawing.Point(150, 281);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(717, 205);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -838,7 +852,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // pictureBox8
             // 
             this.pictureBox8.Image = global::GerenciadorDeEstoque.Properties.Resources.imgsuporte;
-            this.pictureBox8.Location = new System.Drawing.Point(367, 15);
+            this.pictureBox8.Location = new System.Drawing.Point(365, 121);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(295, 144);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -849,13 +863,14 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1167, 625);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gpBoxUsuario);
             this.Controls.Add(this.groupBox_pedidos);
             this.Controls.Add(this.gpb_Cliente);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gpb_Estoque);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gpBoxSuporte);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLogado";
