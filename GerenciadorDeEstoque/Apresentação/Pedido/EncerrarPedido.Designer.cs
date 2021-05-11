@@ -29,7 +29,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcluirPedido = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox_Cancelado = new System.Windows.Forms.CheckBox();
@@ -37,49 +36,36 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.label2 = new System.Windows.Forms.Label();
             this.txb_Id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnExcluirPedido);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.checkBox_Cancelado);
-            this.groupBox1.Controls.Add(this.checkBox_Pago);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txb_Id);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(-5, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 198);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Identificação do pedido";
             // 
             // btnExcluirPedido
             // 
-            this.btnExcluirPedido.Location = new System.Drawing.Point(33, 163);
+            this.btnExcluirPedido.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnExcluirPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirPedido.Location = new System.Drawing.Point(9, 130);
             this.btnExcluirPedido.Name = "btnExcluirPedido";
             this.btnExcluirPedido.Size = new System.Drawing.Size(423, 23);
             this.btnExcluirPedido.TabIndex = 7;
             this.btnExcluirPedido.Text = "EXCLUIR PEDIDO";
-            this.btnExcluirPedido.UseVisualStyleBackColor = true;
+            this.btnExcluirPedido.UseVisualStyleBackColor = false;
             this.btnExcluirPedido.Click += new System.EventHandler(this.btnExcluirPedido_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 134);
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(9, 101);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(423, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "MUDAR STATUS DO PEDIDO";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox_Cancelado
             // 
             this.checkBox_Cancelado.AutoSize = true;
-            this.checkBox_Cancelado.Location = new System.Drawing.Point(261, 96);
+            this.checkBox_Cancelado.Location = new System.Drawing.Point(237, 63);
             this.checkBox_Cancelado.Name = "checkBox_Cancelado";
             this.checkBox_Cancelado.Size = new System.Drawing.Size(77, 17);
             this.checkBox_Cancelado.TabIndex = 5;
@@ -89,7 +75,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // checkBox_Pago
             // 
             this.checkBox_Pago.AutoSize = true;
-            this.checkBox_Pago.Location = new System.Drawing.Point(261, 73);
+            this.checkBox_Pago.Location = new System.Drawing.Point(237, 40);
             this.checkBox_Pago.Name = "checkBox_Pago";
             this.checkBox_Pago.Size = new System.Drawing.Size(51, 17);
             this.checkBox_Pago.TabIndex = 4;
@@ -99,7 +85,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 54);
+            this.label2.Location = new System.Drawing.Point(212, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 3;
@@ -107,7 +93,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txb_Id
             // 
-            this.txb_Id.Location = new System.Drawing.Point(101, 54);
+            this.txb_Id.Location = new System.Drawing.Point(77, 21);
             this.txb_Id.Name = "txb_Id";
             this.txb_Id.Size = new System.Drawing.Size(100, 20);
             this.txb_Id.TabIndex = 2;
@@ -115,7 +101,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 57);
+            this.label1.Location = new System.Drawing.Point(53, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 1;
@@ -125,20 +111,24 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 210);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(444, 163);
+            this.Controls.Add(this.btnExcluirPedido);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkBox_Cancelado);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkBox_Pago);
+            this.Controls.Add(this.txb_Id);
+            this.Controls.Add(this.label2);
             this.Name = "EncerrarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar status do pedido";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox_Cancelado;

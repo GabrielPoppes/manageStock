@@ -30,7 +30,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxVenda = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbValorPorUnidade = new System.Windows.Forms.TextBox();
@@ -72,7 +71,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.nomeClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientefisicoTableAdapter = new GerenciadorDeEstoque.estoqueDataSet1TableAdapters.clientefisicoTableAdapter();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientefisicoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource7)).BeginInit();
@@ -93,42 +91,13 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBoxVenda);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txbValorPorUnidade);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txbQnt);
-            this.groupBox1.Controls.Add(this.txb_QntEstoque);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txbValorTotal);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.btnAplicar);
-            this.groupBox1.Controls.Add(this.txbDesconto);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.btnPedido);
-            this.groupBox1.Controls.Add(this.comboBox_FormaPgt);
-            this.groupBox1.Controls.Add(this.label_formPagt);
-            this.groupBox1.Controls.Add(this.comboBox_Cliente);
-            this.groupBox1.Controls.Add(this.comboBox_Produto);
-            this.groupBox1.Controls.Add(this.label_cliente);
-            this.groupBox1.Controls.Add(this.label_Qnt);
-            this.groupBox1.Controls.Add(this.label_Produto);
-            this.groupBox1.Location = new System.Drawing.Point(3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(882, 436);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pedidos";
-            // 
             // comboBoxVenda
             // 
             this.comboBoxVenda.FormattingEnabled = true;
             this.comboBoxVenda.Items.AddRange(new object[] {
             "Física",
             "Virtual"});
-            this.comboBoxVenda.Location = new System.Drawing.Point(656, 47);
+            this.comboBoxVenda.Location = new System.Drawing.Point(646, 36);
             this.comboBoxVenda.Name = "comboBoxVenda";
             this.comboBoxVenda.Size = new System.Drawing.Size(149, 21);
             this.comboBoxVenda.TabIndex = 23;
@@ -137,7 +106,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(548, 50);
+            this.label3.Location = new System.Drawing.Point(538, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 22;
@@ -145,7 +114,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txbValorPorUnidade
             // 
-            this.txbValorPorUnidade.Location = new System.Drawing.Point(342, 76);
+            this.txbValorPorUnidade.Location = new System.Drawing.Point(332, 65);
             this.txbValorPorUnidade.Name = "txbValorPorUnidade";
             this.txbValorPorUnidade.ReadOnly = true;
             this.txbValorPorUnidade.Size = new System.Drawing.Size(87, 20);
@@ -154,7 +123,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(246, 78);
+            this.label2.Location = new System.Drawing.Point(236, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 20;
@@ -162,7 +131,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txbQnt
             // 
-            this.txbQnt.Location = new System.Drawing.Point(657, 23);
+            this.txbQnt.Location = new System.Drawing.Point(647, 12);
             this.txbQnt.Name = "txbQnt";
             this.txbQnt.Size = new System.Drawing.Size(148, 20);
             this.txbQnt.TabIndex = 19;
@@ -170,7 +139,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txb_QntEstoque
             // 
-            this.txb_QntEstoque.Location = new System.Drawing.Point(438, 23);
+            this.txb_QntEstoque.Location = new System.Drawing.Point(428, 12);
             this.txb_QntEstoque.Name = "txb_QntEstoque";
             this.txb_QntEstoque.ReadOnly = true;
             this.txb_QntEstoque.Size = new System.Drawing.Size(100, 20);
@@ -179,7 +148,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(312, 26);
+            this.label1.Location = new System.Drawing.Point(302, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 17;
@@ -187,7 +156,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txbValorTotal
             // 
-            this.txbValorTotal.Location = new System.Drawing.Point(709, 75);
+            this.txbValorTotal.Location = new System.Drawing.Point(699, 64);
             this.txbValorTotal.Name = "txbValorTotal";
             this.txbValorTotal.ReadOnly = true;
             this.txbValorTotal.Size = new System.Drawing.Size(96, 20);
@@ -196,7 +165,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(641, 78);
+            this.label6.Location = new System.Drawing.Point(631, 67);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 14;
@@ -204,7 +173,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // btnAplicar
             // 
-            this.btnAplicar.Location = new System.Drawing.Point(565, 73);
+            this.btnAplicar.Location = new System.Drawing.Point(555, 62);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(75, 23);
             this.btnAplicar.TabIndex = 13;
@@ -214,7 +183,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // txbDesconto
             // 
-            this.txbDesconto.Location = new System.Drawing.Point(505, 75);
+            this.txbDesconto.Location = new System.Drawing.Point(495, 64);
             this.txbDesconto.Name = "txbDesconto";
             this.txbDesconto.Size = new System.Drawing.Size(54, 20);
             this.txbDesconto.TabIndex = 12;
@@ -222,7 +191,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(435, 78);
+            this.label5.Location = new System.Drawing.Point(425, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 11;
@@ -230,12 +199,14 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             // btnPedido
             // 
-            this.btnPedido.Location = new System.Drawing.Point(24, 101);
+            this.btnPedido.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPedido.Location = new System.Drawing.Point(14, 90);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(781, 23);
             this.btnPedido.TabIndex = 8;
             this.btnPedido.Text = "CADASTRAR PEDIDO";
-            this.btnPedido.UseVisualStyleBackColor = true;
+            this.btnPedido.UseVisualStyleBackColor = false;
             this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
             // 
             // comboBox_FormaPgt
@@ -245,7 +216,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             "Dinheiro",
             "Cartão",
             "Boleto"});
-            this.comboBox_FormaPgt.Location = new System.Drawing.Point(129, 75);
+            this.comboBox_FormaPgt.Location = new System.Drawing.Point(119, 64);
             this.comboBox_FormaPgt.Name = "comboBox_FormaPgt";
             this.comboBox_FormaPgt.Size = new System.Drawing.Size(111, 21);
             this.comboBox_FormaPgt.TabIndex = 7;
@@ -254,7 +225,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_formPagt
             // 
             this.label_formPagt.AutoSize = true;
-            this.label_formPagt.Location = new System.Drawing.Point(21, 78);
+            this.label_formPagt.Location = new System.Drawing.Point(11, 67);
             this.label_formPagt.Name = "label_formPagt";
             this.label_formPagt.Size = new System.Drawing.Size(107, 13);
             this.label_formPagt.TabIndex = 6;
@@ -266,7 +237,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.comboBox_Cliente.DataSource = this.clientefisicoBindingSource;
             this.comboBox_Cliente.DisplayMember = "nome";
             this.comboBox_Cliente.FormattingEnabled = true;
-            this.comboBox_Cliente.Location = new System.Drawing.Point(71, 47);
+            this.comboBox_Cliente.Location = new System.Drawing.Point(61, 36);
             this.comboBox_Cliente.Name = "comboBox_Cliente";
             this.comboBox_Cliente.Size = new System.Drawing.Size(467, 21);
             this.comboBox_Cliente.TabIndex = 5;
@@ -288,7 +259,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.comboBox_Produto.DataSource = this.produtosBindingSource7;
             this.comboBox_Produto.DisplayMember = "nome";
             this.comboBox_Produto.FormattingEnabled = true;
-            this.comboBox_Produto.Location = new System.Drawing.Point(71, 23);
+            this.comboBox_Produto.Location = new System.Drawing.Point(61, 12);
             this.comboBox_Produto.Name = "comboBox_Produto";
             this.comboBox_Produto.Size = new System.Drawing.Size(235, 21);
             this.comboBox_Produto.TabIndex = 3;
@@ -313,7 +284,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_cliente
             // 
             this.label_cliente.AutoSize = true;
-            this.label_cliente.Location = new System.Drawing.Point(21, 50);
+            this.label_cliente.Location = new System.Drawing.Point(11, 39);
             this.label_cliente.Name = "label_cliente";
             this.label_cliente.Size = new System.Drawing.Size(39, 13);
             this.label_cliente.TabIndex = 2;
@@ -322,7 +293,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_Qnt
             // 
             this.label_Qnt.AutoSize = true;
-            this.label_Qnt.Location = new System.Drawing.Point(548, 25);
+            this.label_Qnt.Location = new System.Drawing.Point(538, 14);
             this.label_Qnt.Name = "label_Qnt";
             this.label_Qnt.Size = new System.Drawing.Size(112, 13);
             this.label_Qnt.TabIndex = 1;
@@ -331,7 +302,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // label_Produto
             // 
             this.label_Produto.AutoSize = true;
-            this.label_Produto.Location = new System.Drawing.Point(21, 26);
+            this.label_Produto.Location = new System.Drawing.Point(11, 15);
             this.label_Produto.Name = "label_Produto";
             this.label_Produto.Size = new System.Drawing.Size(44, 13);
             this.label_Produto.TabIndex = 0;
@@ -418,14 +389,32 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 142);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(822, 131);
+            this.Controls.Add(this.txbQnt);
+            this.Controls.Add(this.comboBoxVenda);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_Produto);
+            this.Controls.Add(this.txbValorPorUnidade);
+            this.Controls.Add(this.label_Qnt);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_cliente);
+            this.Controls.Add(this.comboBox_Produto);
+            this.Controls.Add(this.txb_QntEstoque);
+            this.Controls.Add(this.comboBox_Cliente);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_formPagt);
+            this.Controls.Add(this.txbValorTotal);
+            this.Controls.Add(this.comboBox_FormaPgt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnPedido);
+            this.Controls.Add(this.btnAplicar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txbDesconto);
             this.Name = "Pedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar pedidos";
             this.Load += new System.EventHandler(this.Pedidos_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientefisicoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource7)).EndInit();
@@ -445,12 +434,11 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.nomeClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txbValorTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAplicar;
