@@ -30,7 +30,6 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gpBoxEditUsuario = new System.Windows.Forms.GroupBox();
             this.txbCelular = new System.Windows.Forms.MaskedTextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,29 +40,13 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estoqueDataSet3 = new GerenciadorDeEstoque.estoqueDataSet3();
             this.funcionarioTableAdapter = new GerenciadorDeEstoque.estoqueDataSet3TableAdapters.funcionarioTableAdapter();
-            this.gpBoxEditUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
-            // gpBoxEditUsuario
-            // 
-            this.gpBoxEditUsuario.Controls.Add(this.txbCelular);
-            this.gpBoxEditUsuario.Controls.Add(this.btnEditar);
-            this.gpBoxEditUsuario.Controls.Add(this.label3);
-            this.gpBoxEditUsuario.Controls.Add(this.txbEmail);
-            this.gpBoxEditUsuario.Controls.Add(this.label2);
-            this.gpBoxEditUsuario.Controls.Add(this.label1);
-            this.gpBoxEditUsuario.Controls.Add(this.comboBox_Produto);
-            this.gpBoxEditUsuario.Location = new System.Drawing.Point(12, 12);
-            this.gpBoxEditUsuario.Name = "gpBoxEditUsuario";
-            this.gpBoxEditUsuario.Size = new System.Drawing.Size(406, 191);
-            this.gpBoxEditUsuario.TabIndex = 0;
-            this.gpBoxEditUsuario.TabStop = false;
-            // 
             // txbCelular
             // 
-            this.txbCelular.Location = new System.Drawing.Point(99, 103);
+            this.txbCelular.Location = new System.Drawing.Point(51, 82);
             this.txbCelular.Mask = "(999) 00000-0000";
             this.txbCelular.Name = "txbCelular";
             this.txbCelular.Size = new System.Drawing.Size(235, 20);
@@ -71,18 +54,20 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(99, 138);
+            this.btnEditar.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Location = new System.Drawing.Point(51, 117);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(235, 23);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "EDITAR";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 106);
+            this.label3.Location = new System.Drawing.Point(10, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 8;
@@ -90,7 +75,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(99, 68);
+            this.txbEmail.Location = new System.Drawing.Point(51, 47);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(235, 20);
             this.txbEmail.TabIndex = 7;
@@ -98,7 +83,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 71);
+            this.label2.Location = new System.Drawing.Point(10, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 6;
@@ -107,7 +92,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 35);
+            this.label1.Location = new System.Drawing.Point(10, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
@@ -119,7 +104,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.comboBox_Produto.DataSource = this.funcionarioBindingSource;
             this.comboBox_Produto.DisplayMember = "nome";
             this.comboBox_Produto.FormattingEnabled = true;
-            this.comboBox_Produto.Location = new System.Drawing.Point(99, 32);
+            this.comboBox_Produto.Location = new System.Drawing.Point(51, 11);
             this.comboBox_Produto.Name = "comboBox_Produto";
             this.comboBox_Produto.Size = new System.Drawing.Size(235, 21);
             this.comboBox_Produto.TabIndex = 4;
@@ -144,23 +129,27 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 221);
-            this.Controls.Add(this.gpBoxEditUsuario);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(299, 155);
+            this.Controls.Add(this.txbCelular);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox_Produto);
+            this.Controls.Add(this.txbEmail);
+            this.Controls.Add(this.label2);
             this.Name = "EditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarUsuario";
             this.Load += new System.EventHandler(this.EditarUsuario_Load);
-            this.gpBoxEditUsuario.ResumeLayout(false);
-            this.gpBoxEditUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estoqueDataSet3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gpBoxEditUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_Produto;
         private estoqueDataSet3 estoqueDataSet3;
