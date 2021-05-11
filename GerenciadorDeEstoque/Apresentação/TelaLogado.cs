@@ -990,6 +990,14 @@ namespace GerenciadorDeEstoque.Apresentação
             // Adicionando o título e a formatação no gráfico de vendas
             graficoVendas.Titles.Add(title);
 
+            
+        }
+
+        private void GerarGraficoVendas()
+        {
+            // Limpando o gráfico para não multiplicar os dados quando o usuário acessa várias vezes a sub tela
+            graficoVendas.Series.Clear();
+
             // Criando uma série chamada Vendas. Série = conjunto de barras do gráfico (jan, fev, mar, abr, ...)
             graficoVendas.Series.Add("Vendas");
             // Legenda sobre o gráfico
@@ -998,11 +1006,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // Tipo do gráfico é o "Column" se fosse o pizza seria outro nome
             graficoVendas.Series["Vendas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             // Largura da barra do gráfico, no caso, defini como 4.
-            graficoVendas.Series["Vendas"].BorderWidth = 4;
-        }
+            graficoVendas.Series["Vendas"].BorderWidth = 2;
 
-        private void GerarGraficoVendas()
-        {
             // Comando para conectar com o banco de dados
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open(); // abrindo o banco de dados
