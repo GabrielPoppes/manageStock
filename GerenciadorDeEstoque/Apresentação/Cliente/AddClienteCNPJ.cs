@@ -29,7 +29,5 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
                 MessageBox.Show("Cliente cadastrado!");
             }
         }
-
-
     }
 }
