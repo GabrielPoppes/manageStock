@@ -38,14 +38,12 @@ namespace GerenciadorDeEstoque.Apresentação
             this.label2 = new System.Windows.Forms.Label();
             this.txb_Quantidade = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_nome
             // 
             this.label_nome.AutoSize = true;
-            this.label_nome.Location = new System.Drawing.Point(116, 54);
+            this.label_nome.Location = new System.Drawing.Point(6, 13);
             this.label_nome.Name = "label_nome";
             this.label_nome.Size = new System.Drawing.Size(39, 13);
             this.label_nome.TabIndex = 0;
@@ -53,24 +51,26 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // txb_NomeProduto
             // 
-            this.txb_NomeProduto.Location = new System.Drawing.Point(199, 51);
+            this.txb_NomeProduto.Location = new System.Drawing.Point(89, 10);
             this.txb_NomeProduto.Name = "txb_NomeProduto";
             this.txb_NomeProduto.Size = new System.Drawing.Size(244, 20);
             this.txb_NomeProduto.TabIndex = 1;
             // 
             // btn_Cadastrar
             // 
-            this.btn_Cadastrar.Location = new System.Drawing.Point(199, 163);
+            this.btn_Cadastrar.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cadastrar.Location = new System.Drawing.Point(89, 122);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(244, 23);
             this.btn_Cadastrar.TabIndex = 2;
             this.btn_Cadastrar.Text = "CADASTRAR";
-            this.btn_Cadastrar.UseVisualStyleBackColor = true;
+            this.btn_Cadastrar.UseVisualStyleBackColor = false;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // txb_Cor
             // 
-            this.txb_Cor.Location = new System.Drawing.Point(199, 77);
+            this.txb_Cor.Location = new System.Drawing.Point(89, 36);
             this.txb_Cor.Name = "txb_Cor";
             this.txb_Cor.Size = new System.Drawing.Size(244, 20);
             this.txb_Cor.TabIndex = 4;
@@ -78,7 +78,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 80);
+            this.label1.Location = new System.Drawing.Point(6, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // txb_Preco
             // 
-            this.txb_Preco.Location = new System.Drawing.Point(199, 103);
+            this.txb_Preco.Location = new System.Drawing.Point(89, 62);
             this.txb_Preco.Name = "txb_Preco";
             this.txb_Preco.Size = new System.Drawing.Size(244, 20);
             this.txb_Preco.TabIndex = 6;
@@ -94,7 +94,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 106);
+            this.label2.Location = new System.Drawing.Point(6, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // txb_Quantidade
             // 
-            this.txb_Quantidade.Location = new System.Drawing.Point(199, 129);
+            this.txb_Quantidade.Location = new System.Drawing.Point(89, 88);
             this.txb_Quantidade.Name = "txb_Quantidade";
             this.txb_Quantidade.Size = new System.Drawing.Size(244, 20);
             this.txb_Quantidade.TabIndex = 8;
@@ -110,43 +110,33 @@ namespace GerenciadorDeEstoque.Apresentação
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 132);
+            this.label3.Location = new System.Drawing.Point(6, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "QUANTIDADE";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txb_Quantidade);
-            this.groupBox1.Controls.Add(this.label_nome);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txb_NomeProduto);
-            this.groupBox1.Controls.Add(this.txb_Preco);
-            this.groupBox1.Controls.Add(this.btn_Cadastrar);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txb_Cor);
-            this.groupBox1.Location = new System.Drawing.Point(0, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(525, 247);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cadastrar Produto";
-            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 276);
-            this.Controls.Add(this.groupBox1);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(354, 160);
+            this.Controls.Add(this.txb_Quantidade);
+            this.Controls.Add(this.label_nome);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txb_Cor);
+            this.Controls.Add(this.txb_NomeProduto);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txb_Preco);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_Cadastrar);
             this.Name = "AddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar produto";
             this.TopMost = true;
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,7 +150,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txb_Quantidade;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Button btn_Cadastrar;
     }
 }
