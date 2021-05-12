@@ -29,12 +29,29 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
         // Botão para editar o usuário
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text);
-            if (!comboBox_Produto.Text.Equals("") && !txbEmail.Text.Equals("") && !txbCelular.Text.Equals(""))
+            if (!comboBox_Produto.Text.Equals(""))
             {
-                MessageBox.Show("Usuário editado com sucesso!");
+                if (!txbEmail.Text.Equals(""))
+                {
+                    if (!txbCelular.Text.Equals("")){
+                        Controle controle = new Controle();
+                        string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text);
+                        MessageBox.Show("Usuário editado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, não deixe o campo CELULAR em branco!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, não deixe o campo E-MAIL em branco!");
+                }
             }
+            else
+            {
+                MessageBox.Show("Por favor, não deixe o campo NOME em branco!");
+            }           
         }
 
         // Método para exibir na list view o e-mail do usuário
