@@ -22,11 +22,36 @@ namespace GerenciadorDeEstoque.Apresentação
 
         public void btn_Cadastrar_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text);
-            if (!txb_NomeProduto.Text.Equals("") && !txb_Preco.Equals("") && !txb_Quantidade.Equals(""))
+            if (!txb_NomeProduto.Text.Equals(""))
             {
-                MessageBox.Show("Produto cadastrado!");
+                if (!txb_Cor.Text.Equals(""))
+                {
+                    if (!txb_Preco.Text.Equals(""))
+                    {
+                        if (!txb_Quantidade.Text.Equals(""))
+                        {
+                            Controle controle = new Controle();
+                            string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text);
+                            MessageBox.Show("Produto cadastrado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Por favor, adicione a quantidade do produto!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, adicione o preço do produto!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, adicione a cor do produto!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, adicione o nome do produto!");
             }
         }
     }

@@ -21,33 +21,60 @@ namespace GerenciadorDeEstoque.Apresentação
         // ADICIONAR QUANTIDADE DO PRODUTO
         private void btn_AddQnt_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.EditarProdutos(txb_idProduto.Text, txb_Quantidade.Text);
-            if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
+            if (!txb_idProduto.Text.Equals(""))
             {
-                MessageBox.Show("Quantidade adicionada com sucesso!");
+                if (!txb_Quantidade.Text.Equals(""))
+                {
+                    Controle controle = new Controle();
+                    string mensagem = controle.EditarProdutos(txb_idProduto.Text, txb_Quantidade.Text);
+                    MessageBox.Show("Quantidade adicionada com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, informe a quantidade do produto!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, informe a ID do produto!");
             }
         }
 
         // REMOVER QUANTIDADE DO PRODUTO
         private void btn_rmvQnt_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.EditarProdutosRemvQnt(txb_idProduto.Text, txb_Quantidade.Text);
-            if (!txb_idProduto.Text.Equals("") && !txb_Quantidade.Equals(""))
+            if (!txb_idProduto.Text.Equals(""))
             {
-                MessageBox.Show("Quantidade removida com sucesso!");
+                if (!txb_Quantidade.Text.Equals(""))
+                {
+                    Controle controle = new Controle();
+                    string mensagem = controle.EditarProdutosRemvQnt(txb_idProduto.Text, txb_Quantidade.Text);
+                    MessageBox.Show("Quantidade removida com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, informe a quantidade do produto!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, informe a ID do produto!");
             }
         }
 
         // BOTÃO REMOVER PRODUTO DO ESTOQUE
         private void btn_deleteProduto_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.RemoverProductEstoque(txb_idProduto.Text);
             if (!txb_idProduto.Text.Equals(""))
             {
+                Controle controle = new Controle();
+                string mensagem = controle.RemoverProductEstoque(txb_idProduto.Text);
                 MessageBox.Show("Produto removido com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Por favor, informe a ID do produto!");
             }
         }
     }
