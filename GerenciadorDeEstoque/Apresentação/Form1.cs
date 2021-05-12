@@ -46,26 +46,41 @@ namespace GerenciadorDeEstoque
         // Botão entrar
         private void txb_join_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            controle.Acessar(txb_email.Text, txb_password.Text);
-
-            if (controle.mensagem.Equals(""))
+            if (!txb_email.Text.Equals(""))
             {
-                if (controle.verificacao)
+                if (!txb_password.Text.Equals(""))
                 {
-                    // Esconder a Form1 após o usuário validar o login
-                    this.Hide();
-                }
+                    Controle controle = new Controle();
+                    controle.Acessar(txb_email.Text, txb_password.Text);
 
+                    if (controle.mensagem.Equals(""))
+                    {
+                        if (controle.verificacao)
+                        {
+                            // Esconder a Form1 após o usuário validar o login
+                            this.Hide();
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Dados incorretos!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(controle.mensagem);
+                    }
+                }
                 else
                 {
-                    MessageBox.Show("Dados incorretos!");
+                    MessageBox.Show("Por favor, digite uma senha!");
                 }
             }
             else
             {
-                MessageBox.Show(controle.mensagem);
+                MessageBox.Show("Por favor, digite um e-mail!");
             }
+            
         }
 
         // Quando altera o texto da text box senha
