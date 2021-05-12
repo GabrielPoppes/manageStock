@@ -70,7 +70,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
 
             int i;
-            for(i = 0; i <= dt.Rows.Count - 1; i++)
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 txb_QntEstoque.Text = dt.Rows[i].ItemArray[0].ToString();
             }
@@ -167,7 +167,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
             // Passamos o valor com desconto para a textbox do valor total, porem, convertendo para string novamente
             txbValorTotal.Text = Convert.ToString(valorcomdesconto);
-            
+
         }
 
         private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
                 // É exibido o valor total
                 ValorTotal();
             }
-            
+
         }
 
         // Botão para aplicar o desconto no valor total do pedido
@@ -195,20 +195,37 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             PorcentagemValorTotalProduto();
         }
 
+        // Botão cadastrar Pedido
         private void btnPedido_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-
-            string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBoxVenda.Text ,comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
-
-            if (controle.verificacao)
+            if (comboBoxVenda.Text != "Selecione")
             {
-                MessageBox.Show("Cadastrado com sucesso!");
-            }
+                if (comboBox_FormaPgt.Text != "Selecione")
+                {
+                    Controle controle = new Controle();
 
+                    string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBoxVenda.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
+
+                    if (controle.verificacao)
+                    {
+                        MessageBox.Show("Cadastrado com sucesso!");
+                    }
+
+
+                    else
+                    {
+                        MessageBox.Show("Erro ao realizar o cadastro!");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Selecione o meio do pagamento!");
+                }
+            }
             else
             {
-                MessageBox.Show("Erro ao realizar o cadastro!");
+                MessageBox.Show("Selecione o tipo da venda!");
             }
         }
     }

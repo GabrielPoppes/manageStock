@@ -20,30 +20,47 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
         private void CheckarCheckedBox()
         {
-            if(checkBox_Pago.Checked == true)
+            if (checkBox_Pago.Checked == true)
             {
                 checkBox_Cancelado.Checked = false;
             }
 
-            if(checkBox_Cancelado.Checked == true)
+            if (checkBox_Cancelado.Checked == true)
             {
                 checkBox_Cancelado.Checked = false;
             }
         }
 
+        // Botão para ALTERAR o ESTADO do PEDIDO
         private void button1_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.CadastrarPedidoEstado(txb_Id.Text, checkBox_Pago.Checked, checkBox_Cancelado.Checked);
-
-            if (controle.verificacao)
+            if (txb_Id.Text != "")
             {
-                MessageBox.Show("Cadastrado com sucesso!");
+                if (checkBox_Pago.Checked != false || checkBox_Cancelado.Checked != false)
+                {
+                    Controle controle = new Controle();
+                    string mensagem = controle.CadastrarPedidoEstado(txb_Id.Text, checkBox_Pago.Checked, checkBox_Cancelado.Checked);
+
+                    if (controle.verificacao)
+                    {
+                        MessageBox.Show("Cadastrado com sucesso!");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Erro ao realizar o cadastro!");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Por favor, selecione um estado para o pedido!");
+                }
             }
 
             else
             {
-                MessageBox.Show("Erro ao realizar o cadastro!");
+                MessageBox.Show("Por favor, informe a ID do pedido!");
             }
 
         }
@@ -51,11 +68,19 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         // Botão de remoção dos pedidos
         private void btnExcluirPedido_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.RemovePedidos(txb_Id.Text);
-            if (!txb_Id.Text.Equals(""))
+            if (txb_Id.Text != "")
             {
-                MessageBox.Show("Pedido removido com sucesso!");
+                Controle controle = new Controle();
+                string mensagem = controle.RemovePedidos(txb_Id.Text);
+                if (!txb_Id.Text.Equals(""))
+                {
+                    MessageBox.Show("Pedido removido com sucesso!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, informe a ID do pedido!");
             }
         }
     }
