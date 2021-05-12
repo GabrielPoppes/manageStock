@@ -20,21 +20,72 @@ namespace GerenciadorDeEstoque.Apresentação
             InitializeComponent();
         }
 
+        private void NotificacaoM(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha o {elemento}");
+        }
+
+        private void NotificacaoF(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha a {elemento}");
+        }
+
         // botão cadastre-se
         private void txb_register_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-
-            string mensagem = controle.Cadastrar(txb_name.Text, txb_email_c.Text, txb_password_c.Text, txb_confirmpassword.Text, txb_celphone.Text, txtb_reminderpassword.Text);
-
-            if (controle.verificacao)
+            if (!txb_name.Text.Equals(""))
             {
-                MessageBox.Show("Cadastro realizado!");
-            }
+                if (!txb_email_c.Text.Equals(""))
+                {
+                    if (!txb_password_c.Text.Equals(""))
+                    {
+                        if (!txb_confirmpassword.Text.Equals(""))
+                        {
+                            if (!txb_celphone.Text.Equals("") || !txb_celphone.Text.Contains("_"))
+                            {
+                                if (!txtb_reminderpassword.Text.Equals("") || !txtb_reminderpassword.Text.Equals("Lembrete da senha"))
+                                {
+                                    Controle controle = new Controle();
 
+                                    string mensagem = controle.Cadastrar(txb_name.Text, txb_email_c.Text, txb_password_c.Text, txb_confirmpassword.Text, txb_celphone.Text, txtb_reminderpassword.Text);
+
+                                    if (controle.verificacao)
+                                    {
+                                        MessageBox.Show("Cadastro realizado!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Erro ao realizar o cadastro!");
+                                    }
+                                }
+                                else
+                                {
+                                    NotificacaoM("lembrete da senha");
+                                }
+                            }
+                            else
+                            {
+                                NotificacaoM("celular");
+                            }
+                        }
+                        else
+                        {
+                            NotificacaoM("confirmar senha");
+                        }
+                    }
+                    else
+                    {
+                        NotificacaoM("senha");
+                    }
+                }
+                else
+                {
+                    NotificacaoM("e-mail");
+                }
+            }
             else
             {
-                MessageBox.Show("Erro ao realizar o cadastro!");
+                NotificacaoM("nome");
             }
         }
 
