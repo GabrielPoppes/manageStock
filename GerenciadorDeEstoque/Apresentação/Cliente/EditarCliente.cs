@@ -327,44 +327,68 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             }
         }
 
+        private void NotificacaoM(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha o {elemento}");
+        }
+
+        private void NotificacaoF(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha a {elemento}");
+        }
+
+        // EDITAR DADOS DO CLIENTE
         private void btnAlterarDados_Click(object sender, EventArgs e)
         {
-            // EDITAR DADOS DO CLIENTE
-            Controle controle = new Controle();
-            string mensagem = controle.EditarClientes(txbString.Text, txbNome.Text, txbDataNascimento.Text, txbTelefone.Text, txbCelular.Text, txbRG.Text, txbCPF.Text, txbEndereco.Text, txbEmail.Text, txbObservacoes.Text);
-            if (!txbString.Text.Equals("") && !txbNome.Text.Equals("") && !txbDataNascimento.Equals("") && !txbTelefone.Equals("") && !txbCelular.Equals("") && !txbRG.Equals("") && !txbCPF.Equals("") && !txbEndereco.Equals("") && !txbEmail.Equals("") && !txbObservacoes.Equals(""))
-            {
-                MessageBox.Show("Cliente editado!");
-            }
-            // Método para atualizar os clientes
-            RefreshCliente();
-        }
-
-        private void txbString_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Nome();
-            DataNascimento();
-            Telefone();
-            Celular();
-            RG();
-            CPF();
-            Endereco();
-            Email();
-            Observacoes();
-        }
-
-        private void btnRemoverProdutos_Click(object sender, EventArgs e)
-        {
-            // REMOVER CLIENTE
-            Controle controle = new Controle();
-            string mensagem = controle.RemoverClientes(txbString.Text);
             if (!txbString.Text.Equals(""))
             {
-                MessageBox.Show("Cliente removido!");
-            }
+                if (!txbNome.Text.Equals(""))
+                {
+                    if (!txbTelefone.Text.Equals(""))
+                    {
+                        if (!txbCelular.Text.Equals(""))
+                        {
+                            if (!txbEndereco.Text.Equals(""))
+                            {
+                                if (!txbEmail.Text.Equals(""))
+                                {
+                                    Controle controle = new Controle();
+                                    string mensagem = controle.EditarClientes(txbString.Text, txbNome.Text, txbDataNascimento.Text, txbTelefone.Text, txbCelular.Text, txbRG.Text, txbCPF.Text, txbEndereco.Text, txbEmail.Text, txbObservacoes.Text);
 
-            // método para atualizar a lista de cliente
-            RefreshCliente();
+                                    MessageBox.Show("Cliente editado!");
+                                    RefreshCliente();
+                                }
+                                else
+                                {
+                                    NotificacaoM("e-mail");
+                                }
+
+                            }
+                            else
+                            {
+                                NotificacaoM("endereço");
+                            }
+                        }
+                        else
+                        {
+                            NotificacaoM("celular");
+                        }
+
+                    }
+                    else
+                    {
+                        NotificacaoM("telefone");
+                    }
+                }
+                else
+                {
+                    NotificacaoM("nome");
+                }
+            }
+            else
+            {
+                NotificacaoM("ID");
+            }
         }
 
         // Refresh cliente
@@ -372,7 +396,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
         {
             SqlCommand comando = new SqlCommand();
             Conexao conect = new Conexao();
-            
+
 
             // Limpar os campos
             txbNome.Clear();
@@ -404,6 +428,38 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             }
 
             return mensagem;
+        }
+
+        // Passando os dados para os campos quando o usuário seleciona o ID
+        private void txbString_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            Nome();
+            DataNascimento();
+            Telefone();
+            Celular();
+            RG();
+            CPF();
+            Endereco();
+            Email();
+            Observacoes();
+        }
+
+        // Botão remover cliente
+        private void btnRemoverProdutos_Click_1(object sender, EventArgs e)
+        {
+            if (!txbString.Text.Equals(""))
+            {
+                Controle controle = new Controle();
+                string mensagem = controle.RemoverClientes(txbString.Text);
+                MessageBox.Show("Cliente removido!");
+            }
+            else
+            {
+                NotificacaoM("ID");
+            }
+
+            // método para atualizar a lista de cliente
+            RefreshCliente();
         }
     }
 }

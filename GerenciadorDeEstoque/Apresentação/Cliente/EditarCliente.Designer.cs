@@ -84,7 +84,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.txbString.Size = new System.Drawing.Size(56, 21);
             this.txbString.TabIndex = 0;
             this.txbString.ValueMember = "idclientefisico";
-            this.txbString.SelectedIndexChanged += new System.EventHandler(this.txbString_SelectedIndexChanged);
+            this.txbString.SelectedIndexChanged += new System.EventHandler(this.txbString_SelectedIndexChanged_1);
             // 
             // label1
             // 
@@ -261,7 +261,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.btnRemoverProdutos.TabIndex = 21;
             this.btnRemoverProdutos.Text = "REMOVER CLIENTE";
             this.btnRemoverProdutos.UseVisualStyleBackColor = false;
-            this.btnRemoverProdutos.Click += new System.EventHandler(this.btnRemoverProdutos_Click);
+            this.btnRemoverProdutos.Click += new System.EventHandler(this.btnRemoverProdutos_Click_1);
             // 
             // EditarCliente
             // 

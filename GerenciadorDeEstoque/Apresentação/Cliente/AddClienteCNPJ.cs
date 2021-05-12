@@ -18,15 +18,62 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             InitializeComponent();
         }
 
+        private void NotificacaoM(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha o {elemento}");
+        }
 
+        private void NotificacaoF(string elemento)
+        {
+            MessageBox.Show($"Por favor, preencha a {elemento}");
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Controle controle = new Controle();
-            string mensagem = controle.CadastrarClientesJuridicos(txb_NomeCNPJ.Text, txb_telefoneCNPJ.Text, txb_celularCNPJ.Text, txb_CNPJ.Text, txb_endereco.Text, txb_email.Text, txb_observacoes.Text);
-            if (!txb_NomeCNPJ.Text.Equals("") && !txb_telefoneCNPJ.Equals("") && !txb_celularCNPJ.Equals("") && !txb_CNPJ.Equals("") && !txb_endereco.Equals("") && !txb_email.Equals("") && !txb_observacoes.Equals(""))
+            if (!txb_NomeCNPJ.Text.Equals(""))
             {
-                MessageBox.Show("Cliente cadastrado!");
+                if (!txb_telefoneCNPJ.Text.Equals(""))
+                {
+                    if (!txb_celularCNPJ.Text.Equals(""))
+                    {
+                        if (!txb_CNPJ.Text.Equals(""))
+                        {
+                            if (!txb_endereco.Text.Equals(""))
+                            {
+                                if (!txb_email.Text.Equals(""))
+                                {
+                                    Controle controle = new Controle();
+                                    string mensagem = controle.CadastrarClientesJuridicos(txb_NomeCNPJ.Text, txb_telefoneCNPJ.Text, txb_celularCNPJ.Text, txb_CNPJ.Text, txb_endereco.Text, txb_email.Text, txb_observacoes.Text);
+                                    MessageBox.Show("Cliente cadastrado!");
+                                }
+                                else
+                                {
+                                    NotificacaoM("e-mail");
+                                }
+                            }
+                            else
+                            {
+                                NotificacaoM("endereço");
+                            }
+                        }
+                        else
+                        {
+                            NotificacaoM("CNPJ");
+                        }
+                    }
+                    else
+                    {
+                        NotificacaoM("celular");
+                    }
+                }
+                else
+                {
+                    NotificacaoM("telefone");
+                }
+            }
+            else
+            {
+                NotificacaoM("nome da empresa");
             }
         }
     }
