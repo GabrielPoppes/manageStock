@@ -618,7 +618,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.gpBoxAnalise.Controls.Add(this.listViewAnaliseVendas);
             this.gpBoxAnalise.Location = new System.Drawing.Point(0, 4);
             this.gpBoxAnalise.Name = "gpBoxAnalise";
-            this.gpBoxAnalise.Size = new System.Drawing.Size(1041, 689);
+            this.gpBoxAnalise.Size = new System.Drawing.Size(1053, 689);
             this.gpBoxAnalise.TabIndex = 20;
             this.gpBoxAnalise.TabStop = false;
             // 
