@@ -236,6 +236,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txb_RG);
             this.Controls.Add(this.txb_Observacoes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar cliente (Pessoa física)";

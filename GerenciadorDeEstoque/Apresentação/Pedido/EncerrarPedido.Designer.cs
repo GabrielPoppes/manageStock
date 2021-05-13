@@ -120,6 +120,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.Controls.Add(this.checkBox_Pago);
             this.Controls.Add(this.txb_Id);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EncerrarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar status do pedido";

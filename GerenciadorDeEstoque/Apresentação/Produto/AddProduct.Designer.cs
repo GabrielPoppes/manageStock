@@ -131,6 +131,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.txb_Preco);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Cadastrar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar produto";

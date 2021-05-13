@@ -138,6 +138,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             this.Controls.Add(this.comboBox_Produto);
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarUsuario";

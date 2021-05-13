@@ -29,7 +29,7 @@ namespace GerenciadorDeEstoque.Apresentação
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBoxSuporte = new System.Windows.Forms.PictureBox();
@@ -624,8 +624,8 @@ namespace GerenciadorDeEstoque.Apresentação
             // 
             // graficoVendas
             // 
-            chartArea3.Name = "ChartArea1";
-            this.graficoVendas.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.graficoVendas.ChartAreas.Add(chartArea1);
             this.graficoVendas.Location = new System.Drawing.Point(15, 334);
             this.graficoVendas.Name = "graficoVendas";
             this.graficoVendas.Size = new System.Drawing.Size(1007, 266);
@@ -872,6 +872,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.gpb_Estoque);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gpBoxSuporte);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaLogado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

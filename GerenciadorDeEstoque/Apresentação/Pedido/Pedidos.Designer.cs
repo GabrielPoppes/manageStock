@@ -411,6 +411,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txbDesconto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Pedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar pedidos";

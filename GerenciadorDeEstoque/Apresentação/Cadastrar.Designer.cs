@@ -226,6 +226,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.txb_email_c);
             this.Controls.Add(this.txtb_reminderpassword);
             this.Controls.Add(this.txb_celphone);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Cadastrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";

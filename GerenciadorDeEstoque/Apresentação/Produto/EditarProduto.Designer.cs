@@ -119,6 +119,7 @@ namespace GerenciadorDeEstoque.Apresentação
             this.Controls.Add(this.btn_AddQnt);
             this.Controls.Add(this.txb_idProduto);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar produto";

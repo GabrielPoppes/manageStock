@@ -291,6 +291,7 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             this.Controls.Add(this.txbRG);
             this.Controls.Add(this.txbCelular);
             this.Controls.Add(this.label6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Cliente";
