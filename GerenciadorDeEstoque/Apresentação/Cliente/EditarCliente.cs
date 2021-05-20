@@ -15,12 +15,22 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 {
     public partial class EditarCliente : Form
     {
-        public bool check = false;
-        public string mensagem = "";
         public EditarCliente()
         {
             InitializeComponent();
         }
+        public bool check = false;
+        public string mensagem = "";
+
+        // Variáveis para conexão com banco de dados
+        SqlDataAdapter da;
+        DataSet ds;
+        DataTable dt = new DataTable();
+        // Conectar com o BD
+        SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+
+        SqlCommand comando = new SqlCommand();
+        Conexao conect = new Conexao();
 
         private void EditarCliente_Load(object sender, EventArgs e)
         {
@@ -31,11 +41,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Nome()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -47,7 +52,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
@@ -64,11 +68,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void DataNascimento()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -80,13 +79,10 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -97,11 +93,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Telefone()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -113,13 +104,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -130,11 +119,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Celular()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -146,13 +130,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -163,11 +145,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void RG()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -179,13 +156,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -197,11 +172,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void CPF()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -213,13 +183,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -230,11 +198,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Endereco()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -246,13 +209,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -263,11 +224,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Email()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -279,13 +235,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -296,11 +250,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
         private void Observacoes()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
             con.Open();
 
@@ -312,13 +261,11 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
 
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -394,10 +341,6 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
         // Refresh cliente
         public string RefreshCliente()
         {
-            SqlCommand comando = new SqlCommand();
-            Conexao conect = new Conexao();
-
-
             // Limpar os campos
             txbNome.Clear();
             txbDataNascimento.Clear();

@@ -18,12 +18,12 @@ namespace GerenciadorDeEstoque.Apresentação.Cliente
             InitializeComponent();
         }
 
-        private void NotificacaoM(string elemento)
+        private void NotificacaoM(string elemento)// Notificação com palavra no masculino
         {
             MessageBox.Show($"Por favor, preencha o {elemento}");
         }
 
-        private void NotificacaoF(string elemento)
+        private void NotificacaoF(string elemento) // Notificação com palavra no feminino
         {
             MessageBox.Show($"Por favor, preencha a {elemento}");
         }

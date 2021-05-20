@@ -329,5 +329,6 @@
   <ItemGroup>
     <None Include="img\TelaLogado\logo64x64.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

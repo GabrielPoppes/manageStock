@@ -20,6 +20,9 @@ namespace GerenciadorDeEstoque.Apresentação
             InitializeComponent();
         }
 
+        // Variáveis para conexão com o banco de dados
+        Controle controle = new Controle();
+
         public void btn_Cadastrar_Click(object sender, EventArgs e)
         {
             if (!txb_NomeProduto.Text.Equals(""))
@@ -30,7 +33,6 @@ namespace GerenciadorDeEstoque.Apresentação
                     {
                         if (!txb_Quantidade.Text.Equals(""))
                         {
-                            Controle controle = new Controle();
                             string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text);
                             MessageBox.Show("Produto cadastrado com sucesso!");
                         }

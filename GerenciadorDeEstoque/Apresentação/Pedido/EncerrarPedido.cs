@@ -18,6 +18,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             InitializeComponent();
         }
 
+        Controle controle = new Controle(); // Instanciando a classe Controle
+
         private void CheckarCheckedBox()
         {
             if (checkBox_Pago.Checked == true)
@@ -38,31 +40,26 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             {
                 if (checkBox_Pago.Checked != false || checkBox_Cancelado.Checked != false)
                 {
-                    Controle controle = new Controle();
                     string mensagem = controle.CadastrarPedidoEstado(txb_Id.Text, checkBox_Pago.Checked, checkBox_Cancelado.Checked);
 
                     if (controle.verificacao)
                     {
                         MessageBox.Show("Cadastrado com sucesso!");
                     }
-
                     else
                     {
                         MessageBox.Show("Erro ao realizar o cadastro!");
                     }
                 }
-
                 else
                 {
                     MessageBox.Show("Por favor, selecione um estado para o pedido!");
                 }
             }
-
             else
             {
                 MessageBox.Show("Por favor, informe a ID do pedido!");
             }
-
         }
 
         // Botão de remoção dos pedidos
@@ -70,7 +67,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             if (txb_Id.Text != "")
             {
-                Controle controle = new Controle();
                 string mensagem = controle.RemovePedidos(txb_Id.Text);
                 if (!txb_Id.Text.Equals(""))
                 {

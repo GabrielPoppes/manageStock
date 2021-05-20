@@ -22,16 +22,20 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             QuantidadeDisponivel();
         }
 
-        // Método que adicionar os itens da Combo Box método de pagamento
-        private void ComboBoxFormaPgmt()
+        // Variáveis para conexão com o banco de dados
+        SqlDataAdapter da;
+        DataSet ds;
+        DataTable dt = new DataTable();
+        Controle controle = new Controle();
+
+        private void ComboBoxFormaPgmt() // Método que adicionar os itens da Combo Box método de pagamento
         {
             comboBox_FormaPgt.Items.Add("Dinheiro");
             comboBox_FormaPgt.Items.Add("Cartão");
             comboBox_FormaPgt.Items.Add("Boleto");
         }
 
-        // Método que carrega o nome dos Clientes e o nome dos produtos
-        private void Pedidos_Load(object sender, EventArgs e)
+        private void Pedidos_Load(object sender, EventArgs e) // Método que carrega o nome dos Clientes e o nome dos produtos
         {
             // TODO: esta linha de código carrega dados na tabela 'estoqueDataSet1.clientefisico'. Você pode movê-la ou removê-la conforme necessário.
             this.clientefisicoTableAdapter.Fill(this.estoqueDataSet1.clientefisico);
@@ -41,13 +45,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             this.produtosTableAdapter.Fill(this.estoqueDataSet.produtos);
         }
 
-
-
         private void QuantidadeDisponivel()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
             // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             // Abrindo a conexão
@@ -58,16 +57,13 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
             // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdComboBox = new SqlCommand($"select quantidade from produtos where nome = '{nome}';", con);
-
             da = new SqlDataAdapter(cmdComboBox);
             ds = new DataSet();
-            DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
+
             con.Close();
 
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -79,12 +75,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         // Método para exibir o valor total do pedido (preço do produto * quantidade do pedido)
         private void ValorTotal()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
+
             con.Open();
 
             // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
@@ -95,15 +87,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdComboBox = new SqlCommand($"select preco * {quantidade} from produtos where nome = '{nome}';", con);
 
-            da = new SqlDataAdapter(cmdComboBox);
-            ds = new DataSet();
-            DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -115,12 +101,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         // Método para exibir o valor da unidade do produto selecionado
         private void ValorProduto()
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
 
             // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
@@ -130,14 +111,9 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             SqlCommand cmdComboBox = new SqlCommand($"select preco from produtos where nome = '{produto}';", con);
 
             da = new SqlDataAdapter(cmdComboBox);
-            ds = new DataSet();
-            DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -149,9 +125,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         // Método para aplicar desconto no valorTotal do pedido
         private void PorcentagemValorTotalProduto()
         {
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
 
             // As strings abaixos pegam o valor da quantidade do item e do valor, para chegar no total
@@ -167,7 +141,6 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
 
             // Passamos o valor com desconto para a textbox do valor total, porem, convertendo para string novamente
             txbValorTotal.Text = Convert.ToString(valorcomdesconto);
-
         }
 
         private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,22 +175,17 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             {
                 if (comboBox_FormaPgt.Text != "Selecione")
                 {
-                    Controle controle = new Controle();
-
                     string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBoxVenda.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
-
                     if (controle.verificacao)
                     {
                         MessageBox.Show("Cadastrado com sucesso!");
                     }
-
 
                     else
                     {
                         MessageBox.Show("Erro ao realizar o cadastro!");
                     }
                 }
-
                 else
                 {
                     MessageBox.Show("Selecione o meio do pagamento!");

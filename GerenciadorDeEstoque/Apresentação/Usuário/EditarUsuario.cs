@@ -19,6 +19,12 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             InitializeComponent();
         }
 
+        // Variáveis para conexão com o banco de dados
+        Controle controle = new Controle();
+        SqlDataAdapter da;
+        DataSet ds;
+        DataTable dt = new DataTable();
+
         private void EditarUsuario_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'estoqueDataSet3.funcionario'. Você pode movê-la ou removê-la conforme necessário.
@@ -26,15 +32,15 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
 
         }
 
-        // Botão para editar o usuário
-        private void btnEditar_Click(object sender, EventArgs e)
+        
+        private void btnEditar_Click(object sender, EventArgs e) // Botão para editar o usuário
         {
             if (!comboBox_Produto.Text.Equals(""))
             {
                 if (!txbEmail.Text.Equals(""))
                 {
                     if (!txbCelular.Text.Equals("")){
-                        Controle controle = new Controle();
+                        
                         string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text);
                         MessageBox.Show("Usuário editado com sucesso!");
                     }
@@ -54,32 +60,20 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             }           
         }
 
-        // Método para exibir na list view o e-mail do usuário
-        private void EmailUsuario()
+        private void EmailUsuario() // Método para exibir na list view o e-mail do usuário
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
 
-            // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
-            string nome = Convert.ToString(comboBox_Produto.SelectedValue);
+            string nome = Convert.ToString(comboBox_Produto.SelectedValue); // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
 
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
-            SqlCommand cmdComboBox = new SqlCommand($"select email from funcionario where nome = '{nome}';", con);
+            
+            SqlCommand cmdComboBox = new SqlCommand($"select email from funcionario where nome = '{nome}';", con); // Variável do tipo SqlCOmmand para executar os cmds do BD
 
             da = new SqlDataAdapter(cmdComboBox);
-            ds = new DataSet();
-            DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
@@ -88,32 +82,18 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             }
         }
 
-        // Método para exibir na list view o e-mail do usuário
-        private void CelularUsuario()
+        private void CelularUsuario() // Método para exibir na list view o e-mail do usuário
         {
-            SqlDataAdapter da;
-            DataSet ds;
-
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
 
-            // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
-            string nome = Convert.ToString(comboBox_Produto.SelectedValue);
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
-            SqlCommand cmdComboBox = new SqlCommand($"select celular from funcionario where nome = '{nome}';", con);
-
+            string nome = Convert.ToString(comboBox_Produto.SelectedValue); // Criei a string nome, e estou convertendo o nome do produto selecionado pelo usuário na ComboBox para String
+            SqlCommand cmdComboBox = new SqlCommand($"select celular from funcionario where nome = '{nome}';", con); // Variável do tipo SqlCOmmand para executar os cmds do BD
+            
             da = new SqlDataAdapter(cmdComboBox);
-            ds = new DataSet();
-            DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
-
 
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)

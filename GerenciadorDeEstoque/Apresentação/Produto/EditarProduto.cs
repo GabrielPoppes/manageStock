@@ -17,6 +17,8 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             InitializeComponent();
         }
+        // Variáveis para conexão com o banco de dados
+        Controle controle = new Controle();
 
         // ADICIONAR QUANTIDADE DO PRODUTO
         private void btn_AddQnt_Click(object sender, EventArgs e)
@@ -25,7 +27,6 @@ namespace GerenciadorDeEstoque.Apresentação
             {
                 if (!txb_Quantidade.Text.Equals(""))
                 {
-                    Controle controle = new Controle();
                     string mensagem = controle.EditarProdutos(txb_idProduto.Text, txb_Quantidade.Text);
                     MessageBox.Show("Quantidade adicionada com sucesso!");
                 }
@@ -47,7 +48,6 @@ namespace GerenciadorDeEstoque.Apresentação
             {
                 if (!txb_Quantidade.Text.Equals(""))
                 {
-                    Controle controle = new Controle();
                     string mensagem = controle.EditarProdutosRemvQnt(txb_idProduto.Text, txb_Quantidade.Text);
                     MessageBox.Show("Quantidade removida com sucesso!");
                 }
@@ -67,11 +67,9 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             if (!txb_idProduto.Text.Equals(""))
             {
-                Controle controle = new Controle();
                 string mensagem = controle.RemoverProductEstoque(txb_idProduto.Text);
                 MessageBox.Show("Produto removido com sucesso!");
             }
-
             else
             {
                 MessageBox.Show("Por favor, informe a ID do produto!");
