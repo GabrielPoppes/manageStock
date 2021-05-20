@@ -1,18 +1,18 @@
 # Video showing the program
-[![Watch the video](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=svHJn3JN1zY)
+[![Watch the video](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/OronoEPT3DY)
 
 # Layout login
-![App 1](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/1.png)
+![App 1](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/Captura%20de%20tela%2013-05-2021%2011.48.30.png)
 # Layout stock
-![App 2](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/3%20(1).jpg)
+![App 2](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/PT1.png)
 # Layout orders
-![App 5](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/6.jpg)
+![App 5](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/PT2.png)
 # Layout client
-![App 8](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/9.jpg)
+![App 8](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/PT3.png)
 # Layout sales analysis
-![App 12](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/13.jpg)
+![App 12](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/PT5.png)
 # Layout user
-![App 13](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/Resources/ImgReadME/14.jpg)
+![App 13](https://raw.githubusercontent.com/GabrielPoppes/manageStock/master/GerenciadorDeEstoque/img/TelaLogado/PT4.png)
 
 ## About this Project
 The idea of the App is:
