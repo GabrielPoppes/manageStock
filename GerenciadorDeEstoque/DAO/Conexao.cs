@@ -10,14 +10,12 @@ namespace GerenciadorDeEstoque.DAO
     public class Conexao
     {
         SqlConnection conectar = new SqlConnection();
-
         public Conexao()
         {
-            conectar.ConnectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=estoque;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            conectar.ConnectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=estoque;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
         }
 
-        // Checando se o banco está fechado, antes de abri-lo
-        public SqlConnection Conectar()
+        public SqlConnection Conectar() // Checando se o banco está fechado, antes de abri-lo
         {
             if(conectar.State == System.Data.ConnectionState.Closed)
             {
@@ -25,9 +23,8 @@ namespace GerenciadorDeEstoque.DAO
             }
             return conectar;
         }
-
-        // Checando se o banco está aberto, antes de fecha-lo
-        public void Desconectar()
+                
+        public void Desconectar() // Checando se o banco está aberto, antes de fecha-lo
         {
             if(conectar.State == System.Data.ConnectionState.Open)
             {

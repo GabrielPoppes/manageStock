@@ -11,22 +11,18 @@ namespace GerenciadorDeEstoque.Modelo
     {
         public bool verificacao;
         public string mensagem = "";
-
-        // Método para acessar a acc
-        public bool Acessar(string login, string senha)
+        
+        public bool Acessar(string login, string senha) // Método para acessar a acc
         {
-            // Instanciando a classe LoginDaoComandos e checando se o user/password estão corretos
             LoginDaoComandos loginDao = new LoginDaoComandos();
             verificacao = loginDao.VerificarLogin(login, senha);
             
-            // Armazenando mensagem de erro
-            if (!loginDao.mensagem.Equals(""))
+            if (!loginDao.mensagem.Equals("")) // Armazenando mensagem de erro
             {
                 this.mensagem = loginDao.mensagem;
             }
             return verificacao;
         }
-
 
         // Método para cadastrar a acc
         public string Cadastrar(string nome, string email, string senha, string confirmarsenha, string celular, string lembretesenha)
@@ -41,8 +37,7 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para remover o produto do estoque
-        public string RemoverProductEstoque(string id)
+        public string RemoverProductEstoque(string id) // Método para remover o produto do estoque
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.RemoverProdutoEstoque(id);
@@ -53,8 +48,8 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
-        // Método para editar o produto no estoque (REMOVER QNT)
-        public string EditarProdutosRemvQnt(string id, string quantidade)
+        
+        public string EditarProdutosRemvQnt(string id, string quantidade) // Método para editar o produto no estoque (REMOVER QNT)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.EditarProdutoRemoverQnt(id, quantidade);
@@ -66,8 +61,7 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para editar o produto no estoque (ADICIONAR QNT)
-        public string EditarProdutos(string id, string quantidade)
+        public string EditarProdutos(string id, string quantidade) // Método para editar o produto no estoque (ADICIONAR QNT)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.EditarProduto(id, quantidade);
@@ -79,8 +73,7 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para cadastrar um produto novo no estoque
-        public string CadastrarProdutos(string nome, string cor, string preco, string quantidade)
+        public string CadastrarProdutos(string nome, string cor, string preco, string quantidade) // Método para cadastrar um produto novo no estoque
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.CadastrarProduto(nome, cor, preco, quantidade);

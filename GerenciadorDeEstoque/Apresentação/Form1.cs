@@ -15,15 +15,15 @@ namespace GerenciadorDeEstoque
 {
     public partial class Form1 : Form
     {
-        // Criando tela cadastro
-        Thread TelaCadastro;
+        Thread TelaCadastro; // Criando tela cadastro
         public Form1()
         {
             InitializeComponent();
         }
 
-        // Botão "Cadastrar"
-        private void txb_register_Click(object sender, EventArgs e)
+        Controle controle = new Controle(); // Instanciando a classe controle
+
+        private void txb_register_Click(object sender, EventArgs e) // Botão "Cadastrar"
         {
             TelaCadastro = new Thread(OpenCadastro);
             TelaCadastro.SetApartmentState(ApartmentState.MTA);
@@ -31,34 +31,29 @@ namespace GerenciadorDeEstoque
             this.Close();
         }
 
-        // Método para abrir a tela "Cadastrar"
-        public void OpenCadastro()
+        public void OpenCadastro() // Método para abrir a tela "Cadastrar"
         {
             Application.Run(new Cadastrar());
         }
 
-        // Botão sair
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // Botão sair
         {
             this.Close();
         }
 
-        // Botão entrar
-        private void txb_join_Click(object sender, EventArgs e)
+        private void txb_join_Click(object sender, EventArgs e) // Botão entrar
         {
             if (!txb_email.Text.Equals(""))
             {
                 if (!txb_password.Text.Equals(""))
                 {
-                    Controle controle = new Controle();
                     controle.Acessar(txb_email.Text, txb_password.Text);
 
                     if (controle.mensagem.Equals(""))
                     {
                         if (controle.verificacao)
                         {
-                            // Esconder a Form1 após o usuário validar o login
-                            this.Hide();
+                            this.Hide(); // Esconder a Form1 após o usuário validar o login
                         }
 
                         else
@@ -83,21 +78,17 @@ namespace GerenciadorDeEstoque
             
         }
 
-        // Quando altera o texto da text box senha
-        private void txb_password_TextChanged(object sender, EventArgs e)
+        private void txb_password_TextChanged(object sender, EventArgs e) // Quando altera o texto da text box senha
         {
-            // Os caracteres da senha saem com *
-            txb_password.PasswordChar = '*';
+            txb_password.PasswordChar = '*'; // Os caracteres da senha saem com *
         }
 
-        // Quando o user clica no text box senha, limpa a escrita "Senha"
-        private void txb_password_Click(object sender, EventArgs e)
+        private void txb_password_Click(object sender, EventArgs e) // Quando o user clica no text box senha, limpa a escrita "Senha"
         {
             txb_password.Clear();
         }
-
-        // Quando o user clica no text box E-mail, limpa a escrita "Email"
-        private void txb_email_Click(object sender, EventArgs e)
+        
+        private void txb_email_Click(object sender, EventArgs e) // Quando o user clica no text box E-mail, limpa a escrita "Email"
         {
             txb_email.Clear();
         }

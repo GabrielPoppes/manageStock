@@ -21,24 +21,17 @@ namespace GerenciadorDeEstoque.Apresentação
     // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
-        // Variável do tipo SqlCommand para executar os cmds do BD
         SqlCommand cmdListView = new SqlCommand();
-
-        // Conectando com o banco de dados ESTOQUE
         SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
         // variáveis necessárias para pegar os dados do BD e atribuir na list view
         DataTable dt;
         SqlDataAdapter da;
         DataSet ds;
-        // end 
 
         public TelaLogado()
         {
-            // Método chamados na inicialização do programa
-            InitializeComponent();
-
-            // Método para criar o gráfico de vendas
-            CriandoGraficoVendas();
+            InitializeComponent();   
+            CriandoGraficoVendas(); // Método para criar o gráfico de vendas
 
             // Métodos pra esconder as telas da form TelaLogado
             EsconderBotoesEstoque();
@@ -56,10 +49,8 @@ namespace GerenciadorDeEstoque.Apresentação
             GerarColunaListViewAnaliseVendas();
         }
 
-
-        public TelaLogado(AddProduct formProduct)
+        public TelaLogado(AddProduct formProduct) // Métodos para abrir a form TelaLogado na aba Produtos
         {
-            // Métodos para abrir a form TelaLogado na aba Produtos
             AdicionarItemListView();
             EsconderGroupBoxUsuario();
             EsconderBotoesCliente();
@@ -69,31 +60,28 @@ namespace GerenciadorDeEstoque.Apresentação
             ExibirEstoque();
             RefreshList();
         }
-
-        // Esconder o Group Box Usuário
-        private void EsconderGroupBoxUsuario()
+                
+        private void EsconderGroupBoxUsuario() // Esconder o Group Box Usuário
         {
             gpBoxUsuario.Hide();
         }
-
-        // Mostrar Group Box Usuário
-        private void MostrarGroupBoxUsuario()
+                
+        private void MostrarGroupBoxUsuario() // Mostrar Group Box Usuário
         {
             gpBoxUsuario.Show();
         }
-
-        // Mostrar interface gráfica do cliente
-        private void MostrarBotoesCliente()
+        
+        private void MostrarBotoesCliente() // Mostrar interface gráfica do cliente
         {
             gpb_Cliente.Show();
         }
-        // Esconder interface gráfica do cliente
-        private void EsconderBotoesCliente()
+        
+        private void EsconderBotoesCliente() // Esconder interface gráfica do cliente
         {
             gpb_Cliente.Hide();
         }
-        // Esconder interface gráfica do estoque
-        private void EsconderBotoesEstoque()
+        
+        private void EsconderBotoesEstoque() // Esconder interface gráfica do estoque
         {
             picture_AddProd.Hide();
             picture_Edit.Hide();
@@ -101,11 +89,9 @@ namespace GerenciadorDeEstoque.Apresentação
             label_EditEstoq.Hide();
             listView_Cliente.Hide();
             gpb_Estoque.Hide();
-
         }
-
-        // Exibir interface gráfica do estoque
-        private void ExibirEstoque()
+                 
+        private void ExibirEstoque() // Exibir interface gráfica do estoque
         {
             gpb_Estoque.Show();
             listView_Cliente.Show();
@@ -114,9 +100,8 @@ namespace GerenciadorDeEstoque.Apresentação
             label_AddProd.Show();
             label_EditEstoq.Show();
         }
-
-        // Gerar colunas da List View Produtos
-        private void GerarColunas()
+                
+        private void GerarColunas() // Gerar colunas da List View Produtos
         {
             listView_Cliente.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
             listView_Cliente.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
@@ -124,9 +109,8 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Cliente.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
             listView_Cliente.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
         }
-
-        // Gerar colunas da List View Clientes
-        private void GerarColunasClientes()
+                
+        private void GerarColunasClientes() // Gerar colunas da List View Clientes
         {
             listView_Clientes.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
             listView_Clientes.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
@@ -139,53 +123,36 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Clientes.Columns.Add("E-mail", 100).TextAlign = HorizontalAlignment.Center;
             listView_Clientes.Columns.Add("Observações", 100).TextAlign = HorizontalAlignment.Center;
         }
-
-
-
-        // Método para passar os dados do BD para a List View
-        public void AdicionarItemListView()
+        
+        public void AdicionarItemListView() // Método para passar os dados do BD para a List View
         {
-            // método para exibir os botões visuais do estoque
             ExibirEstoque();
-
-            // Conectar com o banco de dados
             con.Open();
-            // Instrução SQL para executar
             cmdListView = new SqlCommand("select * from produtos", con);
             da = new SqlDataAdapter(cmdListView);
             ds = new DataSet();
-            // Fill, que passar os dados da tabela "estoque" para o data set = ds
-            // estoque = nome da tabela
-            da.Fill(ds, "estoque");
 
-            // fechar conexão
+            da.Fill(ds, "estoque");
             con.Close();
-            // o data set (ds) não consegue passar os dados no "visual" do programa, então, passando para o data table (dt)
-            // estoque = tabela do bd
             dt = ds.Tables["estoque"];
 
-            // lógica com o for para atribuir os dados do bd nas colunas do list view do programa
             int i;
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 listView_Cliente.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
-
             }
         }
-
-        // Botão sair do menu
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+                
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) // Botão sair do menu
         {
             Application.Exit();
         }
-
-        // Botão com imagem (ESTOQUE)
-        private void pictureBox1_Click(object sender, EventArgs e)
+                
+        private void pictureBox1_Click(object sender, EventArgs e) // Botão com imagem (ESTOQUE)
         {
             AdicionarItemListView();
             EsconderGroupBoxUsuario();
@@ -196,23 +163,17 @@ namespace GerenciadorDeEstoque.Apresentação
             ExibirEstoque();
             RefreshList();
         }
-
-        // Imagem do "Criar novo produto"
-        private void picture_AddProd_Click(object sender, EventArgs e)
+        
+        private void picture_AddProd_Click(object sender, EventArgs e) // Imagem do "Criar novo produto"
         {
             AddProduct telaProduto = new AddProduct();
             telaProduto.ShowDialog();
             RefreshList();
-
         }
-
-        // Método para atualizar a ListView Produtos
-        public void RefreshList()
+                
+        public void RefreshList() // Método para atualizar a ListView Produtos
         {
-            // Limpar o campo da List View
-            listView_Cliente.Items.Clear();
-
-            // Lógica para atualizar a list view
+            listView_Cliente.Items.Clear(); // Limpar o campo da List View
             con.Open();
             cmdListView = new SqlCommand("select * from produtos", con);
             da = new SqlDataAdapter(cmdListView);
@@ -226,7 +187,6 @@ namespace GerenciadorDeEstoque.Apresentação
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 listView_Cliente.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
@@ -234,17 +194,15 @@ namespace GerenciadorDeEstoque.Apresentação
 
             }
         }
-
-        // Botão Editar Produtos do estoque
-        private void picture_Edit_Click(object sender, EventArgs e)
+        
+        private void picture_Edit_Click(object sender, EventArgs e) // Botão Editar Produtos do estoque
         {
             EditarProduto abrirfrmEditarProduto = new EditarProduto();
             abrirfrmEditarProduto.ShowDialog();
             RefreshList();
         }
-
-        // Botão imagem cliente
-        private void btnImg_Cliente_Click(object sender, EventArgs e)
+                
+        private void btnImg_Cliente_Click(object sender, EventArgs e) // Botão imagem cliente
         {
             EsconderSuporteTecnico();
             EsconderBotoesEstoque();
@@ -255,68 +213,24 @@ namespace GerenciadorDeEstoque.Apresentação
             AdicionarItemListViewCliente();
             RefreshListClient();
         }
-
-        // Botão cadastrar novo cliente
-        private void btn_NovoCliente_Click(object sender, EventArgs e)
+                
+        private void btn_NovoCliente_Click(object sender, EventArgs e) // Botão cadastrar novo cliente
         {
             AddClient abrirfrmAddCliente = new AddClient();
             abrirfrmAddCliente.ShowDialog();
             RefreshListClient(); // Método para atualizar a list view de clientes
         }
-
-        // Botão para cadastrar novo cliente jurídico
-        private void pictureBox2_Click(object sender, EventArgs e)
+                
+        private void pictureBox2_Click(object sender, EventArgs e) // Botão para cadastrar novo cliente jurídico
         {
             AddClienteCNPJ abrirfrmClienteCNPJ = new AddClienteCNPJ();
             abrirfrmClienteCNPJ.ShowDialog();
             RefreshListClient();
         }
 
-        // Método para passar os dados do BD para a List View (clientes)
-        public void AdicionarItemListViewCliente()
+        
+        public void AdicionarItemListViewCliente() // Método para passar os dados do BD para a List View (clientes)
         {
-            // Conectar com o banco de dados
-            con.Open();
-            // Instrução SQL para executar
-            cmdListView = new SqlCommand("select * from clientefisico", con);
-            da = new SqlDataAdapter(cmdListView);
-            ds = new DataSet();
-            // Fill, que passar os dados da tabela "estoque" para o data set = ds
-            // estoque = nome da tabela
-            da.Fill(ds, "estoque");
-
-            // fechar conexão
-            con.Close();
-            // o data set (ds) não consegue passar os dados no "visual" do programa, então, passando para o data table (dt)
-            // estoque = tabela do bd
-            dt = ds.Tables["estoque"];
-
-            // lógica com o for para atribuir os dados do bd nas colunas do list view do programa
-            int i;
-            for (i = 0; i <= dt.Rows.Count - 1; i++)
-            {
-                listView_Clientes.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                // temos 10 colunas (sendo uma a ID), então aqui só criamos 9, a ID vai automática
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
-                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
-
-            }
-        }
-
-        // Método para atualizar a ListView Cliente
-        private void RefreshListClient()
-        {
-            // Limpar o campo da List View
-            listView_Clientes.Items.Clear();
-
-            // Lógica para atualizar a list view
             con.Open();
             cmdListView = new SqlCommand("select * from clientefisico", con);
             da = new SqlDataAdapter(cmdListView);
@@ -330,7 +244,34 @@ namespace GerenciadorDeEstoque.Apresentação
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 listView_Clientes.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
+                listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
+            }
+        }
+
+        private void RefreshListClient() // Método para atualizar a ListView Cliente
+        {
+            
+            listView_Clientes.Items.Clear(); // Limpar o campo da List View
+            con.Open();
+            cmdListView = new SqlCommand("select * from clientefisico", con);
+            da = new SqlDataAdapter(cmdListView);
+            ds = new DataSet();
+            da.Fill(ds, "estoque");
+            con.Close();
+            dt = ds.Tables["estoque"];
+
+            int i;
+            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                listView_Clientes.Items.Add(dt.Rows[i].ItemArray[0].ToString());
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
@@ -343,21 +284,18 @@ namespace GerenciadorDeEstoque.Apresentação
 
             }
         }
-
-        // Método para esconder a tela de pedidos
-        private void EsconderTelaPedidos()
+                
+        private void EsconderTelaPedidos() // Método para esconder a tela de pedidos
         {
             groupBox_pedidos.Hide();
         }
-
-        // Método para mostrar a tela de pedidos
-        private void MostrarTelaPedidos()
+                
+        private void MostrarTelaPedidos() // Método para mostrar a tela de pedidos
         {
             groupBox_pedidos.Show();
         }
-
-        // Botão com imagem dos pedidos
-        private void btn_pedido_Click(object sender, EventArgs e)
+                
+        private void btn_pedido_Click(object sender, EventArgs e) // Botão com imagem dos pedidos
         {
             EsconderBotoesEstoque();
             EsconderGroupBoxUsuario();
@@ -366,17 +304,15 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderSuporteTecnico();
             MostrarTelaPedidos();
         }
-
-        // Botão para fazer um novo pedido, joga para a tela "Pedidos"
-        private void btn_criarPedido_Click(object sender, EventArgs e)
+                
+        private void btn_criarPedido_Click(object sender, EventArgs e) // Botão para fazer um novo pedido, joga para a tela "Pedidos"
         {
             Pedidos formPedidos = new Pedidos();
             formPedidos.ShowDialog();
             RefreshPedidos(); // Atualizar lista pedidos quando fecha a form
         }
-
-        // Gerar as colunas da list view pedidos
-        public void GerarColunasPedidos()
+                
+        public void GerarColunasPedidos() // Gerar as colunas da list view pedidos
         {
             listView_Pedido.Columns.Add("Data", 120).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("ID", 40).TextAlign = HorizontalAlignment.Center;
@@ -390,20 +326,15 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Pedido.Columns.Add("Desconto (%)", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Valor total", 70).TextAlign = HorizontalAlignment.Center;
         }
-
-        // Adicionar os itens na LIST VIEW de PEDIDOS
-        public void AdicionarItemListViewPedidos()
+                
+        public void AdicionarItemListViewPedidos() // Adicionar os itens na LIST VIEW de PEDIDOS
         {
             GerarColunasPedidos();
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -411,7 +342,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -430,22 +360,16 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
             }
-
         }
 
-        // Refresh na LIST VIEW de PEDIDOS
-        public void RefreshPedidos()
+        public void RefreshPedidos() // Refresh na LIST VIEW de PEDIDOS
         {
             listView_Pedido.Items.Clear();
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -453,7 +377,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -474,17 +397,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
 
         }
-
-        // Abrir Form Encerrar Pedido
-        private void pictureAlterarEstadoPedido_Click(object sender, EventArgs e)
+        
+        private void pictureAlterarEstadoPedido_Click(object sender, EventArgs e) // Abrir Form Encerrar Pedido
         {
             EncerrarPedido abrirfrmEncerrarPedido = new EncerrarPedido();
             abrirfrmEncerrarPedido.ShowDialog();
             RefreshPedidos();
         }
 
-        // Método para exibir somente pedidos PENDENTES, PAGOS ou CANCELADOS
-        private void MetodoExibirPedidosporEstado()
+        private void MetodoExibirPedidosporEstado() // Método para exibir somente pedidos PENDENTES, PAGOS ou CANCELADOS
         {
             // Se TODAS AS BOX tiverem desmarcadas
             if (checkBoxPendentes.Checked == false && checkBoxPago.Checked == false && checkBoxCancelados.Checked == false)
@@ -493,12 +414,8 @@ namespace GerenciadorDeEstoque.Apresentação
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -506,7 +423,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -527,19 +443,14 @@ namespace GerenciadorDeEstoque.Apresentação
                 }
             }
 
-            // Se marcar somente a BOX PENDENTES
-            if (checkBoxPendentes.Checked == true)
+            if (checkBoxPendentes.Checked == true) // Se marcar somente a BOX PENDENTES
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%';", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -547,7 +458,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -567,20 +477,15 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
-
-            // Se marcar somente a BOX PAGO
-            if (checkBoxPago.Checked == true)
+                        
+            if (checkBoxPago.Checked == true) // Se marcar somente a BOX PAGO
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%';", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -588,7 +493,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -609,19 +513,14 @@ namespace GerenciadorDeEstoque.Apresentação
                 }
             }
 
-            // Se marcar somente a BOX CANCELADO
-            if (checkBoxCancelados.Checked == true)
+            if (checkBoxCancelados.Checked == true) // Se marcar somente a BOX CANCELADO
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Cancelado%';", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -629,7 +528,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -649,20 +547,15 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
-
-            // Se marcar somente a BOX PAGO e a PENDENTE
-            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true)
+                        
+            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true) // Se marcar somente a BOX PAGO e a PENDENTE
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' order by estado desc;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -670,7 +563,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -690,20 +582,15 @@ namespace GerenciadorDeEstoque.Apresentação
                     listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
                 }
             }
-
-            // Se marcar somente a BOX PAGO e CANCELADO
-            if (checkBoxPago.Checked == true && checkBoxCancelados.Checked == true)
+                        
+            if (checkBoxPago.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PAGO e CANCELADO
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -711,7 +598,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -732,19 +618,14 @@ namespace GerenciadorDeEstoque.Apresentação
                 }
             }
 
-            // Se marcar somente a BOX PENDENTE e CANCELADO
-            if (checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true)
+            if (checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PENDENTE e CANCELADO
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -752,7 +633,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -773,19 +653,14 @@ namespace GerenciadorDeEstoque.Apresentação
                 }
             }
 
-            // Se marcar somente a BOX PAGO, PENDENTE e CANCELADO
-            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true)
+            if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PAGO, PENDENTE e CANCELADO
             {
                 listView_Pedido.Items.Clear();
                 SqlDataAdapter da;
                 DataSet ds;
 
-                // Conectar com o BD
                 SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-                // Abrindo a conexão
                 con.Open();
-
-                // Variável do tipo SqlCOmmand para executar os cmds do BD
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
                 da = new SqlDataAdapter(cmdAddPedido);
@@ -793,7 +668,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 DataTable dt = new DataTable();
 
                 da.Fill(ds, "estoque");
-
                 con.Close();
                 dt = ds.Tables["estoque"];
 
@@ -830,12 +704,8 @@ namespace GerenciadorDeEstoque.Apresentação
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"select idfuncionario, nome, email, celular from funcionario;", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -843,7 +713,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -855,45 +724,36 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
             }
-
         }
 
-
-
-        // Check box pendentes
-        private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e) // Check box pendentes
         {
             MetodoExibirPedidosporEstado();
         }
 
-        // Check box pagos
-        private void checkBoxPago_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxPago_CheckedChanged(object sender, EventArgs e) // Check box pagos
         {
             MetodoExibirPedidosporEstado();
         }
 
-        // Check box cancelados
-        private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e) // Check box cancelados
         {
             MetodoExibirPedidosporEstado();
         }
 
-        // Botão para atualizar a lista de clientes
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e) // Botão para atualizar a lista de clientes
         {
             RefreshListClient();
         }
 
-        // Método para abrir a tela Editar Cliente
-        private void pictureBoxEditarCliente_Click(object sender, EventArgs e)
+        private void pictureBoxEditarCliente_Click(object sender, EventArgs e) // Método para abrir a tela Editar Cliente
         {
             EditarCliente abrirfrmEditarCliente = new EditarCliente();
             abrirfrmEditarCliente.ShowDialog();
             RefreshListClient(); // Atualizar a list view de clientes
         }
 
-        // Botão usuário, quando clica exibe a tela
-        private void picBoxUsuarios_Click(object sender, EventArgs e)
+        private void picBoxUsuarios_Click(object sender, EventArgs e) // Botão usuário, quando clica exibe a tela
         {
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
@@ -904,16 +764,14 @@ namespace GerenciadorDeEstoque.Apresentação
             AdicionarItensListaUsuario();
         }
 
-        // Botão com imagem editar usuário
-        private void pictureBox6_Click(object sender, EventArgs e)
+        private void pictureBox6_Click(object sender, EventArgs e) // Botão com imagem editar usuário
         {
             EditarUsuario abrirfrmEditarUsuario = new EditarUsuario();
             abrirfrmEditarUsuario.ShowDialog();
             RefreshUsuario();
         }
 
-        // Refresh para atualizar a list view de Usuário
-        private void RefreshUsuario()
+        private void RefreshUsuario() // Refresh para atualizar a list view de Usuário
         {
             listViewUsuario.Items.Clear();
 
@@ -923,7 +781,6 @@ namespace GerenciadorDeEstoque.Apresentação
             da = new SqlDataAdapter(cmdListView);
             ds = new DataSet();
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -931,27 +788,23 @@ namespace GerenciadorDeEstoque.Apresentação
             for (i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 listViewUsuario.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                // temos 4 colunas (sendo uma a ID), então aqui só criamos 3, a ID vai automática
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
             }
         }
 
-        // método para mostrar a tela de Analise
-        private void MostrarAnalytics()
+        private void MostrarAnalytics() // método para mostrar a tela de Analise
         {
             gpBoxAnalise.Show();
         }
 
-        // método para esconder a tela de Analise
-        private void EsconderAlaytics()
+        private void EsconderAlaytics() // método para esconder a tela de Analise
         {
             gpBoxAnalise.Hide();
         }
 
-        // Botão com imagem da Análise
-        private void imgSuporte_Click(object sender, EventArgs e)
+        private void imgSuporte_Click(object sender, EventArgs e) // Botão com imagem da Análise
         {
             EsconderBotoesEstoque();
             EsconderBotoesCliente();
@@ -961,16 +814,13 @@ namespace GerenciadorDeEstoque.Apresentação
             MostrarGroupBoxUsuario();
             MostrarAnalytics();
             AdicionarItensColunaAnaliseDeVendas();
-
-            // Codificação do gráfico de vendas
             GerarGraficoVendas();
 
         }
-        public void CriandoGraficoVendas()
+        public void CriandoGraficoVendas() // Método para criar o gráfico de vendas (informações da formatação)
         {
             Title title = new Title(); // Instanciando var do tipo title
 
-            // Formatando e definindo valores do título
             title.Font = new Font("Arial", 14, FontStyle.Bold); // Bold = negrito
             title.ForeColor = Color.Brown;
             title.Text = "Vendas mensais";
@@ -984,40 +834,27 @@ namespace GerenciadorDeEstoque.Apresentação
             graficoVendas.ChartAreas["ChartArea1"].AxisY.Title = "Faturamento (R$)";
             graficoVendas.ChartAreas["ChartArea1"].AxisY.TitleFont = new Font("Arial", 12, FontStyle.Bold);
 
-            // Removendo as "grades" verticais que aparecem de fundo do eixo X
-            graficoVendas.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
-
-            // Adicionando o título e a formatação no gráfico de vendas
-            graficoVendas.Titles.Add(title);
-
             
+            graficoVendas.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0; // Removendo as "grades" verticais que aparecem de fundo do eixo X
+            graficoVendas.Titles.Add(title); // Adicionando o título e a formatação no gráfico de vendas
         }
 
         private void GerarGraficoVendas()
         {
-            // Limpando o gráfico para não multiplicar os dados quando o usuário acessa várias vezes a sub tela
-            graficoVendas.Series.Clear();
+            graficoVendas.Series.Clear(); // Limpando o gráfico para não multiplicar os dados quando o usuário acessa várias vezes a sub tela
+            graficoVendas.Series.Add("Vendas"); // Criando uma série chamada Vendas. Série = conjunto de barras do gráfico (jan, fev, mar, abr, ...)
+            graficoVendas.Series["Vendas"].LegendText = "Faturamento"; // Legenda sobre o gráfico
+            graficoVendas.Series["Vendas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column; // Tipo do gráfico é o "Column" se fosse o pizza seria outro nome
+            graficoVendas.Series["Vendas"].BorderWidth = 2; // Largura da barra do gráfico, no caso, defini como 4.
 
-            // Criando uma série chamada Vendas. Série = conjunto de barras do gráfico (jan, fev, mar, abr, ...)
-            graficoVendas.Series.Add("Vendas");
-            // Legenda sobre o gráfico
-            graficoVendas.Series["Vendas"].LegendText = "Faturamento";
-
-            // Tipo do gráfico é o "Column" se fosse o pizza seria outro nome
-            graficoVendas.Series["Vendas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            // Largura da barra do gráfico, no caso, defini como 4.
-            graficoVendas.Series["Vendas"].BorderWidth = 2;
-
-            // Comando para conectar com o banco de dados
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            con.Open(); // abrindo o banco de dados
+            con.Open(); 
             SqlCommand cmdAddPedido = new SqlCommand($"select sum(total) from analisevendas where dataPedido BETWEEN '01/01/2021' AND '31/01/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/02/2021' AND '28/02/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/03/2021' AND '31/03/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/04/2021' AND '30/04/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/05/2021' AND '30/05/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/06/2021' AND '30/06/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/07/2021' AND '31/07/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/08/2021' AND '31/08/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/09/2021' AND '30/09/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/10/2021' AND '31/10/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/11/2021' AND '30/11/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/12/2021' AND '31/12/2021';", con);
             da = new SqlDataAdapter(cmdAddPedido);
             ds = new DataSet();
 
             da.Fill(ds, "estoque");
             con.Close();
-
             dt = ds.Tables["estoque"];
 
             // Gerando o gráfico de meses, janeiro a dezembro
@@ -1031,14 +868,9 @@ namespace GerenciadorDeEstoque.Apresentação
             graficoVendas.Series["Vendas"].Points.AddXY("Jul", dt.Rows[6].ItemArray[0].ToString());
             graficoVendas.Series["Vendas"].Points.AddXY("Ago", dt.Rows[7].ItemArray[0].ToString());
             graficoVendas.Series["Vendas"].Points.AddXY("Set", dt.Rows[8].ItemArray[0].ToString());
-            // graficoVendas.Series["Vendas"].Points.AddXY("Out", dt.Rows[9].ItemArray[0].ToString());
-            // graficoVendas.Series["Vendas"].Points.AddXY("Nov", dt.Rows[10].ItemArray[0].ToString());
-            // graficoVendas.Series["Vendas"].Points.AddXY("Dez", dt.Rows[11].ItemArray[0].ToString());
-
         }
 
-        // Método para gerar as colunas da List View de Análise de vendas
-        public void GerarColunaListViewAnaliseVendas()
+        public void GerarColunaListViewAnaliseVendas() // Método para gerar as colunas da List View de Análise de vendas
         {
             listViewAnaliseVendas.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
             listViewAnaliseVendas.Columns.Add("Data", 200).TextAlign = HorizontalAlignment.Center;
@@ -1054,12 +886,8 @@ namespace GerenciadorDeEstoque.Apresentação
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"select idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where estado = 'pago';", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1067,7 +895,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1079,26 +906,18 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
-
-
             }
-
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de  janeiro
-        private void btnJaneiro_Click(object sender, EventArgs e)
+        private void btnJaneiro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  janeiro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/01/2021', 103); set @DataFinal= convert (datetime, '31/01/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1106,7 +925,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1121,20 +939,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de  fevereiro
-        private void btnFevereiro_Click(object sender, EventArgs e)
+        private void btnFevereiro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  fevereiro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/02/2021', 103); set @DataFinal= convert (datetime, '28/02/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1142,7 +955,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1157,20 +969,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de  março
-        private void btnMarco_Click(object sender, EventArgs e)
+        private void btnMarco_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  março
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/03/2021', 103); set @DataFinal= convert (datetime, '31/03/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1178,7 +985,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1193,20 +999,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de  abril
-        private void btnAbril_Click(object sender, EventArgs e)
+        private void btnAbril_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  abril
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/04/2021', 103); set @DataFinal= convert (datetime, '30/04/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1214,7 +1015,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1229,20 +1029,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de  maio
-        private void btnMaio_Click(object sender, EventArgs e)
+        private void btnMaio_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  maio
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/05/2021', 103); set @DataFinal= convert (datetime, '31/05/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1250,7 +1045,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1273,12 +1067,8 @@ namespace GerenciadorDeEstoque.Apresentação
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/06/2021', 103); set @DataFinal= convert (datetime, '30/06/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1286,7 +1076,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1301,20 +1090,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de julho
-        private void btnJulho_Click(object sender, EventArgs e)
+        private void btnJulho_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de julho
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/07/2021', 103); set @DataFinal= convert (datetime, '31/07/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1322,7 +1106,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1337,20 +1120,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de agosto
-        private void btnAgosto_Click(object sender, EventArgs e)
+        private void btnAgosto_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de agosto
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/08/2021', 103); set @DataFinal= convert (datetime, '31/08/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1358,7 +1136,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1373,20 +1150,15 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de setembro
-        private void btnSetembro_Click(object sender, EventArgs e)
+        private void btnSetembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de setembro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/09/2021', 103); set @DataFinal= convert (datetime, '30/09/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1394,7 +1166,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1409,26 +1180,20 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        // Botão para fazer o filtro das datas na análise de vendas do mês de outubro
-        private void btnOutubro_Click(object sender, EventArgs e)
+        private void btnOutubro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de outubro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/10/2021', 103); set @DataFinal= convert (datetime, '31/10/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
             ds = new DataSet();
             DataTable dt = new DataTable();
-
             da.Fill(ds, "estoque");
 
             con.Close();
@@ -1444,21 +1209,16 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
             }
         }
-
-        // Botão para fazer o filtro das datas na análise de vendas do mês de novembro
-        private void btnNovembro_Click(object sender, EventArgs e)
+                
+        private void btnNovembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de novembro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/11/2021', 103); set @DataFinal= convert (datetime, '30/11/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1480,21 +1240,16 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
             }
         }
-
-        // Botão para fazer o filtro das datas na análise de vendas do mês de dezembro
-        private void btnDezembro_Click(object sender, EventArgs e)
+        
+        private void btnDezembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de dezembro
         {
             listViewAnaliseVendas.Items.Clear();
 
             SqlDataAdapter da;
             DataSet ds;
 
-            // Conectar com o BD
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
-            // Abrindo a conexão
             con.Open();
-
-            // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/12/2021', 103); set @DataFinal= convert (datetime, '31/12/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
@@ -1516,15 +1271,13 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
             }
         }
-
-        // Método para esconder o Group Box do Suporte técnico
-        private void EsconderSuporteTecnico()
+                
+        private void EsconderSuporteTecnico() // Método para esconder o Group Box do Suporte técnico
         {
             gpBoxSuporte.Hide();
         }
-
-        // Método para exibir o Group Box do suporte técnico
-        private void MostrarSuporteTecnico()
+                
+        private void MostrarSuporteTecnico() // Método para exibir o Group Box do suporte técnico
         {
             gpBoxSuporte.Show();
         }
