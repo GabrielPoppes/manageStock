@@ -191,7 +191,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
-
             }
         }
         
@@ -227,7 +226,6 @@ namespace GerenciadorDeEstoque.Apresentação
             abrirfrmClienteCNPJ.ShowDialog();
             RefreshListClient();
         }
-
         
         public void AdicionarItemListViewCliente() // Método para passar os dados do BD para a List View (clientes)
         {
@@ -257,8 +255,7 @@ namespace GerenciadorDeEstoque.Apresentação
         }
 
         private void RefreshListClient() // Método para atualizar a ListView Cliente
-        {
-            
+        {            
             listView_Clientes.Items.Clear(); // Limpar o campo da List View
             con.Open();
             cmdListView = new SqlCommand("select * from clientefisico", con);
@@ -281,7 +278,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
-
             }
         }
                 
@@ -330,7 +326,6 @@ namespace GerenciadorDeEstoque.Apresentação
         public void AdicionarItemListViewPedidos() // Adicionar os itens na LIST VIEW de PEDIDOS
         {
             GerarColunasPedidos();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
@@ -362,7 +357,6 @@ namespace GerenciadorDeEstoque.Apresentação
         public void RefreshPedidos() // Refresh na LIST VIEW de PEDIDOS
         {
             listView_Pedido.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
@@ -389,7 +383,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
             }
-
         }
         
         private void pictureAlterarEstadoPedido_Click(object sender, EventArgs e) // Abrir Form Encerrar Pedido
@@ -405,7 +398,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPendentes.Checked == false && checkBoxPago.Checked == false && checkBoxCancelados.Checked == false)
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
 
@@ -437,7 +429,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPendentes.Checked == true) // Se marcar somente a BOX PENDENTES
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%';", con);
 
@@ -469,7 +460,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPago.Checked == true) // Se marcar somente a BOX PAGO
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%';", con);
 
@@ -501,7 +491,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxCancelados.Checked == true) // Se marcar somente a BOX CANCELADO
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Cancelado%';", con);
 
@@ -533,7 +522,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true) // Se marcar somente a BOX PAGO e a PENDENTE
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' order by estado desc;", con);
 
@@ -565,7 +553,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPago.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PAGO e CANCELADO
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
@@ -597,7 +584,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PENDENTE e CANCELADO
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
@@ -629,7 +615,6 @@ namespace GerenciadorDeEstoque.Apresentação
             if (checkBoxPago.Checked == true && checkBoxPendentes.Checked == true && checkBoxCancelados.Checked == true) // Se marcar somente a BOX PAGO, PENDENTE e CANCELADO
             {
                 listView_Pedido.Items.Clear();
-                SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 con.Open();
                 SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados where estado LIKE '%Pago%' or estado LIKE '%Pendente%' or estado LIKE '%Cancelado%' order by estado desc;", con);
 
@@ -670,7 +655,6 @@ namespace GerenciadorDeEstoque.Apresentação
         public void AdicionarItensListaUsuario()
         {
             listViewUsuario.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"select idfuncionario, nome, email, celular from funcionario;", con);
 
@@ -740,8 +724,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private void RefreshUsuario() // Refresh para atualizar a list view de Usuário
         {
             listViewUsuario.Items.Clear();
-
-            // Lógica para atualizar a list view
             con.Open();
             cmdListView = new SqlCommand("select idfuncionario, nome, email, celular from funcionario;", con);
             da = new SqlDataAdapter(cmdListView);
@@ -781,12 +763,10 @@ namespace GerenciadorDeEstoque.Apresentação
             MostrarAnalytics();
             AdicionarItensColunaAnaliseDeVendas();
             GerarGraficoVendas();
-
         }
         public void CriandoGraficoVendas() // Método para criar o gráfico de vendas (informações da formatação)
         {
             Title title = new Title(); // Instanciando var do tipo title
-
             title.Font = new Font("Arial", 14, FontStyle.Bold); // Bold = negrito
             title.ForeColor = Color.Brown;
             title.Text = "Vendas mensais";
@@ -799,7 +779,6 @@ namespace GerenciadorDeEstoque.Apresentação
             // Eixo Y
             graficoVendas.ChartAreas["ChartArea1"].AxisY.Title = "Faturamento (R$)";
             graficoVendas.ChartAreas["ChartArea1"].AxisY.TitleFont = new Font("Arial", 12, FontStyle.Bold);
-
             
             graficoVendas.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0; // Removendo as "grades" verticais que aparecem de fundo do eixo X
             graficoVendas.Titles.Add(title); // Adicionando o título e a formatação no gráfico de vendas
@@ -813,7 +792,6 @@ namespace GerenciadorDeEstoque.Apresentação
             graficoVendas.Series["Vendas"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column; // Tipo do gráfico é o "Column" se fosse o pizza seria outro nome
             graficoVendas.Series["Vendas"].BorderWidth = 2; // Largura da barra do gráfico, no caso, defini como 4.
 
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open(); 
             SqlCommand cmdAddPedido = new SqlCommand($"select sum(total) from analisevendas where dataPedido BETWEEN '01/01/2021' AND '31/01/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/02/2021' AND '28/02/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/03/2021' AND '31/03/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/04/2021' AND '30/04/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/05/2021' AND '30/05/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/06/2021' AND '30/06/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/07/2021' AND '31/07/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/08/2021' AND '31/08/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/09/2021' AND '30/09/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/10/2021' AND '31/10/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/11/2021' AND '30/11/2021' UNION ALL select sum(total) from analisevendas where dataPedido BETWEEN '01/12/2021' AND '31/12/2021';", con);
             da = new SqlDataAdapter(cmdAddPedido);
@@ -848,7 +826,6 @@ namespace GerenciadorDeEstoque.Apresentação
         public void AdicionarItensColunaAnaliseDeVendas()
         {
             listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"select idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where estado = 'pago';", con);
 
@@ -874,7 +851,6 @@ namespace GerenciadorDeEstoque.Apresentação
         private void btnJaneiro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  janeiro
         {
             listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/01/2021', 103); set @DataFinal= convert (datetime, '31/01/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -899,8 +875,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnFevereiro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  fevereiro
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/02/2021', 103); set @DataFinal= convert (datetime, '28/02/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -925,8 +900,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnMarco_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  março
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/03/2021', 103); set @DataFinal= convert (datetime, '31/03/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -951,8 +925,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnAbril_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  abril
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/04/2021', 103); set @DataFinal= convert (datetime, '30/04/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -977,8 +950,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnMaio_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  maio
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/05/2021', 103); set @DataFinal= convert (datetime, '31/05/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1000,12 +972,10 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
             }
         }
-
-        
+                
         private void btnJunho_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de  junho
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/06/2021', 103); set @DataFinal= convert (datetime, '30/06/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1030,8 +1000,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnJulho_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de julho
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/07/2021', 103); set @DataFinal= convert (datetime, '31/07/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1056,8 +1025,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnAgosto_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de agosto
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/08/2021', 103); set @DataFinal= convert (datetime, '31/08/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1082,8 +1050,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnSetembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de setembro
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/09/2021', 103); set @DataFinal= convert (datetime, '30/09/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1108,8 +1075,7 @@ namespace GerenciadorDeEstoque.Apresentação
 
         private void btnOutubro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de outubro
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/10/2021', 103); set @DataFinal= convert (datetime, '31/10/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1134,8 +1100,7 @@ namespace GerenciadorDeEstoque.Apresentação
                 
         private void btnNovembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de novembro
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/11/2021', 103); set @DataFinal= convert (datetime, '30/11/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1144,7 +1109,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
@@ -1161,8 +1125,7 @@ namespace GerenciadorDeEstoque.Apresentação
         
         private void btnDezembro_Click(object sender, EventArgs e) // Botão para fazer o filtro das datas na análise de vendas do mês de dezembro
         {
-            listViewAnaliseVendas.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            listViewAnaliseVendas.Items.Clear();            
             con.Open();
             SqlCommand cmdAddPedido = new SqlCommand($"declare @DataInicial datetime, @DataFinal datetime; set @DataInicial= convert (datetime, '01/12/2021', 103); set @DataFinal= convert (datetime, '31/12/2021', 103); SELECT idpedido, dataAddPedido, produto, quantidade, valortotal from pedidos_encerrados where convert(datetime, dataAddPedido, 121) between @DataInicial and @DataFinal AND estado = 'pago'; ", con);
 
@@ -1171,7 +1134,6 @@ namespace GerenciadorDeEstoque.Apresentação
             DataTable dt = new DataTable();
 
             da.Fill(ds, "estoque");
-
             con.Close();
             dt = ds.Tables["estoque"];
 
