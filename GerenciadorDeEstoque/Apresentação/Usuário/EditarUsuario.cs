@@ -24,6 +24,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
         SqlDataAdapter da;
         DataSet ds;
         DataTable dt = new DataTable();
+        string nomeantigo;
 
         private void EditarUsuario_Load(object sender, EventArgs e)
         {
@@ -33,7 +34,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
         }
 
         
-        private void btnEditar_Click(object sender, EventArgs e) // Botão para editar o usuário
+        public void btnEditar_Click(object sender, EventArgs e) // Botão para editar o usuário
         {
             if (!comboBox_Produto.Text.Equals(""))
             {
@@ -41,7 +42,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
                 {
                     if (!txbCelular.Text.Equals("")){
                         
-                        string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text);
+                        string mensagem = controle.EditarUsuarios(comboBox_Produto.Text, txbEmail.Text, txbCelular.Text, nomeantigo);
                         MessageBox.Show("Usuário editado com sucesso!");
                     }
                     else
@@ -71,6 +72,7 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             SqlCommand cmdComboBox = new SqlCommand($"select email from funcionario where nome = '{nome}';", con); // Variável do tipo SqlCOmmand para executar os cmds do BD
 
             da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
             da.Fill(ds, "estoque");
             con.Close();
             dt = ds.Tables["estoque"];
@@ -91,19 +93,20 @@ namespace GerenciadorDeEstoque.Apresentação.Usuário
             SqlCommand cmdComboBox = new SqlCommand($"select celular from funcionario where nome = '{nome}';", con); // Variável do tipo SqlCOmmand para executar os cmds do BD
             
             da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
             da.Fill(ds, "estoque");
             con.Close();
             dt = ds.Tables["estoque"];
 
-            int i;
-            for (i = 0; i <= dt.Rows.Count - 1; i++)
+            for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
                 txbCelular.Text = dt.Rows[i].ItemArray[0].ToString();
             }
         }
 
-        private void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboBox_Produto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            nomeantigo = comboBox_Produto.Text;
             EmailUsuario();
             CelularUsuario();
         }

@@ -535,16 +535,17 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        public string EditarUsuario(string nome, string email, string celular) // Método para Editar Usuário
+        public string EditarUsuario(string nome, string email, string celular, string nomeantigo) // Método para Editar Usuário
         {
             if (!nome.Equals("") && !email.Equals("") && !celular.Equals(""))
             {
                 // A variável name eu passo da form EditarUsuario, pois é o valor do nome sem edição que o usuário selecionou
-                comando.CommandText = $"update funcionario set nome = @nome, email = @email, celular = @celular where nome = @nome;";
-                ;
+                comando.CommandText = $"update funcionario set nome = @nome, email = @email, celular = @celular where nome = @nomeantigo;";
+                
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@email", email);
                 comando.Parameters.AddWithValue("@celular", celular);
+                comando.Parameters.AddWithValue("@nomeantigo", nomeantigo);
 
                 check = false;
                 try

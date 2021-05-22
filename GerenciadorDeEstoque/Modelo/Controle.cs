@@ -173,10 +173,10 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        public string EditarUsuarios(string nome, string email, string celular) // Método para editar usuário
+        public string EditarUsuarios(string nome, string email, string celular, string nomeantigo) // Método para editar usuário
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
-            this.mensagem = loginDao.EditarUsuario(nome, email, celular);
+            this.mensagem = loginDao.EditarUsuario(nome, email, celular, nomeantigo);
 
             if (loginDao.check)
             {
