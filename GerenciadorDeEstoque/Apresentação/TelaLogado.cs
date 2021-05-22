@@ -311,13 +311,14 @@ namespace GerenciadorDeEstoque.Apresentação
         public void GerarColunasPedidos() // Gerar as colunas da list view pedidos
         {
             listView_Pedido.Columns.Add("Data", 120).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("ID", 40).TextAlign = HorizontalAlignment.Center;
-            listView_Pedido.Columns.Add("Estado", 85).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("ID", 35).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Estado", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Produto", 100).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Quantidade", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Valor unitário", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Comprador", 180).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Venda", 60).TextAlign = HorizontalAlignment.Center;
+            listView_Pedido.Columns.Add("Marketplace", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Forma pagamento", 90).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Desconto (%)", 80).TextAlign = HorizontalAlignment.Center;
             listView_Pedido.Columns.Add("Valor total", 70).TextAlign = HorizontalAlignment.Center;
@@ -327,7 +328,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             GerarColunasPedidos();
             con.Open();
-            SqlCommand cmdAddPedido = new SqlCommand($"select * from pedidos_encerrados;", con);
+            SqlCommand cmdAddPedido = new SqlCommand($"select dataAddPedido, idpedido, estado, produto, quantidade, valorunitario, comprador, plataforma, marketplace, formapgt, desconto, valortotal from pedidos_encerrados;", con);
 
             da = new SqlDataAdapter(cmdAddPedido);
             ds = new DataSet();
@@ -351,6 +352,7 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[8].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
                 listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[10].ToString());
+                listView_Pedido.Items[i].SubItems.Add(dt.Rows[i].ItemArray[11].ToString());
             }
         }
 
