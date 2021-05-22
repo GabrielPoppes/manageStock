@@ -20,6 +20,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         {
             InitializeComponent();
             QuantidadeDisponivel();
+            comboBoxPlataformaVirtual.Enabled = false;
+            ComboBoxPlataformaVendaOnline();
         }
 
         // Variáveis para conexão com o banco de dados
@@ -27,6 +29,30 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
         DataSet ds;
         DataTable dt = new DataTable();
         Controle controle = new Controle();
+
+        private void ComboBoxPlataformaVendaOnline() // Criando as opções da Combo Box para o Marketplace
+        {
+            comboBoxPlataformaVirtual.Items.Add("Mercado Livre");
+            comboBoxPlataformaVirtual.Items.Add("OLX");
+            comboBoxPlataformaVirtual.Items.Add("Shopee");
+            comboBoxPlataformaVirtual.Items.Add("Enjoei");
+            comboBoxPlataformaVirtual.Items.Add("Amazon");
+            comboBoxPlataformaVirtual.Items.Add("Craigslist");
+            comboBoxPlataformaVirtual.Items.Add("Submarino");
+            comboBoxPlataformaVirtual.Items.Add("Skina");
+            comboBoxPlataformaVirtual.Items.Add("Elo7");
+            comboBoxPlataformaVirtual.Items.Add("Extra");
+            comboBoxPlataformaVirtual.Items.Add("Casas Bahia");
+            comboBoxPlataformaVirtual.Items.Add("Ponto Frio");
+            comboBoxPlataformaVirtual.Items.Add("Tanlup");
+            comboBoxPlataformaVirtual.Items.Add("Holipet");
+            comboBoxPlataformaVirtual.Items.Add("Hotmart");
+            comboBoxPlataformaVirtual.Items.Add("Netshoes");
+            comboBoxPlataformaVirtual.Items.Add("Magazine Luiza");
+            comboBoxPlataformaVirtual.Items.Add("Facebook");
+            comboBoxPlataformaVirtual.Items.Add("E-commerce");
+
+        }
 
         private void ComboBoxFormaPgmt() // Método que adicionar os itens da Combo Box método de pagamento
         {
@@ -194,6 +220,21 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             else
             {
                 MessageBox.Show("Selecione o tipo da venda!");
+            }
+        }
+
+        private void comboBoxVenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxVenda.SelectedIndex == 1)
+            {
+                comboBoxPlataformaVirtual.Enabled = true;
+            }
+
+            if(comboBoxVenda.SelectedIndex == 0)
+            {
+                comboBoxPlataformaVirtual.Text = "";
+                comboBoxPlataformaVirtual.Enabled = false;
+
             }
         }
     }
