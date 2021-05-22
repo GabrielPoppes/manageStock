@@ -113,6 +113,8 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             // Variável do tipo SqlCOmmand para executar os cmds do BD
             SqlCommand cmdComboBox = new SqlCommand($"select preco * {quantidade} from produtos where nome = '{nome}';", con);
 
+            da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
             da.Fill(ds, "estoque");
             con.Close();
             dt = ds.Tables["estoque"];
@@ -124,8 +126,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             }
         }
 
-        // Método para exibir o valor da unidade do produto selecionado
-        private void ValorProduto()
+        private void ValorProduto() // Método para exibir o valor da unidade do produto selecionado
         {
             SqlConnection con = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = estoque; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
             con.Open();
@@ -137,6 +138,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             SqlCommand cmdComboBox = new SqlCommand($"select preco from produtos where nome = '{produto}';", con);
 
             da = new SqlDataAdapter(cmdComboBox);
+            ds = new DataSet();
             da.Fill(ds, "estoque");
             con.Close();
             dt = ds.Tables["estoque"];
@@ -201,7 +203,7 @@ namespace GerenciadorDeEstoque.Apresentação.Pedido
             {
                 if (comboBox_FormaPgt.Text != "Selecione")
                 {
-                    string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBoxVenda.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text);
+                    string mensagem = controle.CadastrarPedidoCliente(comboBox_Produto.Text, txb_QntEstoque.Text, txbQnt.Text, txbValorPorUnidade.Text, comboBox_Cliente.Text, comboBoxVenda.Text, comboBox_FormaPgt.Text, txbDesconto.Text, txbValorTotal.Text, comboBoxPlataformaVirtual.Text);
                     if (controle.verificacao)
                     {
                         MessageBox.Show("Cadastrado com sucesso!");

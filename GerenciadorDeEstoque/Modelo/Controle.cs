@@ -125,10 +125,10 @@ namespace GerenciadorDeEstoque.Modelo
         }
 
         // Método para cadastrar pedido do cliente
-        public string CadastrarPedidoCliente(string produto, string qntestoque, string qntproduto, string valorproduto, string nomecliente, string tipodevenda, string formapgt, string desconto, string valortotalpedido)
+        public string CadastrarPedidoCliente(string produto, string qntestoque, string qntproduto, string valorproduto, string nomecliente, string tipodevenda, string formapgt, string desconto, string valortotalpedido, string marketplace)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
-            this.mensagem = loginDao.CadastrarPedidos(produto, qntestoque, qntproduto, valorproduto, nomecliente, tipodevenda, formapgt, desconto, valortotalpedido);
+            this.mensagem = loginDao.CadastrarPedidos(produto, qntestoque, qntproduto, valorproduto, nomecliente, tipodevenda, formapgt, desconto, valortotalpedido, marketplace);
 
             if (loginDao.check)
             {

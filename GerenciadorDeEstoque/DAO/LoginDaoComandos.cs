@@ -315,7 +315,7 @@ namespace GerenciadorDeEstoque.DAO
         }
 
         // Método para cadastrar o Pedidos de clientes
-        public string CadastrarPedidos(string produto, string qntestoque, string qntproduto, string valorproduto, string nomecliente, string tipodevenda, string formapgt, string desconto, string valortotalpedido)
+        public string CadastrarPedidos(string produto, string qntestoque, string qntproduto, string valorproduto, string nomecliente, string tipodevenda, string formapgt, string desconto, string valortotalpedido, string marketplace)
         {
             if (!produto.Equals("") && !qntproduto.Equals("") && !valorproduto.Equals("") && !nomecliente.Equals("") && !formapgt.Equals("") && !valortotalpedido.Equals(""))
             {
@@ -337,7 +337,7 @@ namespace GerenciadorDeEstoque.DAO
                     comandoVar.Parameters.AddWithValue("@quantidadepedido", qntotal_);
                     comandoVar.Parameters.AddWithValue("@produto", produto);
 
-                    comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, plataforma, formapgt, desconto, valortotal) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @tipodevenda, @formadepgt, @desconto, @valortotalpedido);";
+                    comando.CommandText = "insert into pedidos_encerrados(estado, produto, quantidade, valorunitario, comprador, plataforma, formapgt, desconto, valortotal, marketplace) values('Pendente', @produto, @quantidadepedido, @valorunitario, @cliente, @tipodevenda, @formadepgt, @desconto, @valortotalpedido, @marketplace);";
                     comando.Parameters.AddWithValue("@produto", produto);
                     comando.Parameters.AddWithValue("@quantidadepedido", qntproduto);
                     comando.Parameters.AddWithValue("@valorunitario", valorproduto);
@@ -346,6 +346,7 @@ namespace GerenciadorDeEstoque.DAO
                     comando.Parameters.AddWithValue("@formadepgt", formapgt);
                     comando.Parameters.AddWithValue("@desconto", desconto);
                     comando.Parameters.AddWithValue("@valortotalpedido", valortotalpedido);
+                    comando.Parameters.AddWithValue("@marketplace", marketplace);
 
                     check = false;
                     try
