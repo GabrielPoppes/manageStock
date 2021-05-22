@@ -24,14 +24,12 @@ namespace GerenciadorDeEstoque.DAO
         Conexao conect = new Conexao();
         SqlDataReader armazenardados;
 
-        // Método para abrir a tela após logar
-        private void telaLogada()
+        private void telaLogada() // Método para abrir a tela após logar
         {
             Application.Run(new TelaLogado());
         }
 
-        // Método que verifica se login e senha estão corretos, passando a string true or false
-        public bool VerificarLogin(string login, string senha)
+        public bool VerificarLogin(string login, string senha) // Método que verifica se login e senha estão corretos, passando a string true or false
         {
             comando.CommandText = "select * from funcionario where email = @login and senha = @senha";
             comando.Parameters.AddWithValue("@login", login);
@@ -63,8 +61,7 @@ namespace GerenciadorDeEstoque.DAO
             return check;
         }
 
-        // Método para remover o produto do estoque
-        public string RemoverProdutoEstoque(string id)
+        public string RemoverProdutoEstoque(string id) // Método para remover o produto do estoque
         {
             if (!id.Equals(""))
             {
@@ -90,8 +87,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para editar o Produto no estoque (EDITAR)
-        public string EditarProdutoRemoverQnt(string id, string quantidade)
+        public string EditarProdutoRemoverQnt(string id, string quantidade) // Método para editar o Produto no estoque (EDITAR)
         {
             if (!id.Equals("") && !quantidade.Equals(""))
             {
@@ -118,8 +114,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para editar o Produto no estoque (ADICIONAR)
-        public string EditarProduto(string id, string quantidade)
+        public string EditarProduto(string id, string quantidade) // Método para editar o Produto no estoque (ADICIONAR)
         {
             if (!id.Equals("") && !quantidade.Equals(""))
             {
@@ -146,8 +141,8 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para cadastrar o Produto no estoque
-        public string CadastrarProduto(string nome, string cor, string preco, string quantidade)
+
+        public string CadastrarProduto(string nome, string cor, string preco, string quantidade) // Método para cadastrar o Produto no estoque
         {
             if (!nome.Equals("") && !preco.Equals("") && !quantidade.Equals(""))
             {
@@ -311,9 +306,7 @@ namespace GerenciadorDeEstoque.DAO
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
             // LoginDaoComandos
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "LoginDaoComandos";
@@ -381,8 +374,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para cadastrar pedidos encerrados
-        public string PedidosEncerrados(string id, Boolean pago, Boolean cancelado)
+        public string PedidosEncerrados(string id, Boolean pago, Boolean cancelado) // Método para cadastrar pedidos encerrados
         {
             // Se o campo ID do pedido não estiver em branco
             if (!id.Equals(""))
@@ -490,8 +482,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para remover cliente
-        public string RemoverCliente(string id)
+        public string RemoverCliente(string id) // Método para remover cliente
         {
             if (!id.Equals(""))
             {
@@ -517,8 +508,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para remover Pedido
-        public string RemoverPedido(string id)
+        public string RemoverPedido(string id) // Método para remover Pedido
         {
             if (!id.Equals(""))
             {
@@ -544,8 +534,7 @@ namespace GerenciadorDeEstoque.DAO
             return mensagem;
         }
 
-        // Método para Editar Usuário
-        public string EditarUsuario(string nome, string email, string celular)
+        public string EditarUsuario(string nome, string email, string celular) // Método para Editar Usuário
         {
             if (!nome.Equals("") && !email.Equals("") && !celular.Equals(""))
             {
@@ -571,6 +560,31 @@ namespace GerenciadorDeEstoque.DAO
                 {
                     this.mensagem = "Erro na edição do cliente!";
                 }
+            }
+            return mensagem;
+        }
+
+        public string SalvarDados(string email, string senha, string salvar) // Método para checar se é para salvar dados do login
+        {
+            // comando.CommandText = "insert into salvar_dados(email, senha, salvar)values(@email, @senha, @salvar);";
+            comando.CommandText = "update salvar_dados set EMAIL = @email, SENHA = @senha, SALVAR = @salvar where ID = 1";
+            comando.Parameters.AddWithValue("@email", email);
+            comando.Parameters.AddWithValue("@senha", senha);
+            comando.Parameters.AddWithValue("@salvar", salvar);
+
+            check = false;
+            try
+            {
+                comando.Connection = conect.Conectar();
+                comando.ExecuteNonQuery();
+                conect.Desconectar();
+                this.mensagem = "Usuário memorizado!";
+                check = true;
+            }
+
+            catch (SqlException)
+            {
+                this.mensagem = "Erro!";
             }
             return mensagem;
         }

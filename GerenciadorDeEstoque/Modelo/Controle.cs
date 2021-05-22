@@ -137,8 +137,7 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para alterar estado do pedido
-        public string CadastrarPedidoEstado(string id, Boolean pago, Boolean cancelado)
+        public string CadastrarPedidoEstado(string id, Boolean pago, Boolean cancelado) // Método para alterar estado do pedido
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.PedidosEncerrados(id, pago, cancelado);
@@ -149,9 +148,8 @@ namespace GerenciadorDeEstoque.Modelo
             }
             return mensagem;
         }
-
-        // Método para remover cliente
-        public string RemoverClientes(string id)
+        
+        public string RemoverClientes(string id) // Método para remover cliente
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.RemoverCliente(id);
@@ -163,8 +161,7 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para remover pedido
-        public string RemovePedidos(string id)
+        public string RemovePedidos(string id) // Método para remover pedido
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.RemoverPedido(id);
@@ -176,11 +173,22 @@ namespace GerenciadorDeEstoque.Modelo
             return mensagem;
         }
 
-        // Método para editar usuário
-        public string EditarUsuarios(string nome, string email, string celular)
+        public string EditarUsuarios(string nome, string email, string celular) // Método para editar usuário
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
             this.mensagem = loginDao.EditarUsuario(nome, email, celular);
+
+            if (loginDao.check)
+            {
+                this.verificacao = true;
+            }
+            return mensagem;
+        }
+
+        public string ChecarSaveDadosLogin(string email, string senha, string salvar)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            this.mensagem = loginDao.SalvarDados(email, senha, salvar);
 
             if (loginDao.check)
             {
