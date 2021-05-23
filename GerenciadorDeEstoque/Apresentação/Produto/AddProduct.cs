@@ -33,8 +33,29 @@ namespace GerenciadorDeEstoque.Apresentação
                     {
                         if (!txb_Quantidade.Text.Equals(""))
                         {
-                            string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text);
-                            MessageBox.Show("Produto cadastrado com sucesso!");
+                            if (!txbPrecoVenda.Text.Equals(""))
+                            {
+                                if (!txbTamanho.Text.Equals(""))
+                                {
+                                    if (!txbCustoMarketPlace.Text.Equals("")){
+                                        string precoVenda = Convert.ToString(txbPrecoVenda.Text);
+                                        string mensagem = controle.CadastrarProdutos(txb_NomeProduto.Text, txb_Cor.Text, txb_Preco.Text, txb_Quantidade.Text, txbTamanho.Text, txbPrecoVenda.Text, txbCustoMarketPlace.Text);
+                                        MessageBox.Show("Produto cadastrado com sucesso!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Por favor, informe o custo do MarketPlace! Caso não possua, coloque: 0");
+                                    }                                    
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Por favor, selecione o tamanho! Caso não possua, coloque: ÚNICO");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Por favor, adicione o preço de venda do produto!");
+                            }
                         }
                         else
                         {
@@ -43,7 +64,7 @@ namespace GerenciadorDeEstoque.Apresentação
                     }
                     else
                     {
-                        MessageBox.Show("Por favor, adicione o preço do produto!");
+                        MessageBox.Show("Por favor, adicione o preço de custo do produto!");
                     }
                 }
                 else

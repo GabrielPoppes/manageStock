@@ -142,15 +142,24 @@ namespace GerenciadorDeEstoque.DAO
         }
 
 
-        public string CadastrarProduto(string nome, string cor, string preco, string quantidade) // Método para cadastrar o Produto no estoque
+        public string CadastrarProduto(string nome, string cor, string preco, string quantidade, string tamanho, string preco_custo, string custo_marketplace) // Método para cadastrar o Produto no estoque
         {
+            // Lógica para calcular o lucro da venda (preço da venda - custo da peça - custo marketplace)
+            double precocusto = Convert.ToDouble(preco); // convertendo valor preço custo para int
+            double precovenda = Convert.ToDouble(preco_custo); // convertendo valor preço venda para int
+            double lucrodavenda = precovenda - precocusto; // efetuando a conta
+
             if (!nome.Equals("") && !preco.Equals("") && !quantidade.Equals(""))
             {
-                comando.CommandText = "insert into produtos(nome, cor, preco, quantidade)values(@nome, @cor, @preco, @quantidade);";
+                comando.CommandText = "insert into produtos(nome, cor, preco, quantidade, tamanho, preco_custo, custo_marketplace, lucro_venda)values(@nome, @cor, @preco_custo, @quantidade, @tamanho, @preco, @custo_marketplace, @lucrodavenda);";
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@cor", cor);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@quantidade", quantidade);
+                comando.Parameters.AddWithValue("@tamanho", tamanho);
+                comando.Parameters.AddWithValue("@preco_custo", preco_custo);
+                comando.Parameters.AddWithValue("@custo_marketplace", custo_marketplace);
+                comando.Parameters.AddWithValue("@lucrodavenda", lucrodavenda);
 
                 check = false;
                 try

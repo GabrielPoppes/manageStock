@@ -104,10 +104,13 @@ namespace GerenciadorDeEstoque.Apresentação
         private void GerarColunas() // Gerar colunas da List View Produtos
         {
             listView_Cliente.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Cliente.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Nome", 220).TextAlign = HorizontalAlignment.Center;
             listView_Cliente.Columns.Add("Cor", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Cliente.Columns.Add("Preço", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Cliente.Columns.Add("Quantidade", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Tamanho", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Quantidade", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Preço venda", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Preço custo", 80).TextAlign = HorizontalAlignment.Center;
+            listView_Cliente.Columns.Add("Lucro", 80).TextAlign = HorizontalAlignment.Center;
         }
                 
         private void GerarColunasClientes() // Gerar colunas da List View Clientes
@@ -128,7 +131,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             ExibirEstoque();
             con.Open();
-            cmdListView = new SqlCommand("select * from produtos", con);
+            cmdListView = new SqlCommand("select idproduto, nome, cor, tamanho, quantidade, preco, preco_custo, lucro_venda from produtos;", con);
             da = new SqlDataAdapter(cmdListView);
             ds = new DataSet();
 
@@ -144,6 +147,9 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
             }
         }
                 
@@ -175,7 +181,7 @@ namespace GerenciadorDeEstoque.Apresentação
         {
             listView_Cliente.Items.Clear(); // Limpar o campo da List View
             con.Open();
-            cmdListView = new SqlCommand("select * from produtos", con);
+            cmdListView = new SqlCommand("select idproduto, nome, cor, tamanho, quantidade, preco, preco_custo, lucro_venda from produtos", con);
             da = new SqlDataAdapter(cmdListView);
             ds = new DataSet();
             da.Fill(ds, "estoque");
@@ -191,6 +197,9 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[5].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
+                listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
             }
         }
         
