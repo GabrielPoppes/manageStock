@@ -18,7 +18,6 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace GerenciadorDeEstoque.Apresentação
 {
     // NOME DO BANCO DE DADOS: ESTOQUE
-    // NOME DA TABELA: PRODUTOS
     public partial class TelaLogado : Form
     {
         SqlCommand cmdListView = new SqlCommand();
@@ -60,27 +59,12 @@ namespace GerenciadorDeEstoque.Apresentação
             ExibirEstoque();
             RefreshList();
         }
-                
-        private void EsconderGroupBoxUsuario() // Esconder o Group Box Usuário
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) // Botão sair do menu superior (arquivo --> sair)
         {
-            gpBoxUsuario.Hide();
+            Application.Exit();
         }
-                
-        private void MostrarGroupBoxUsuario() // Mostrar Group Box Usuário
-        {
-            gpBoxUsuario.Show();
-        }
-        
-        private void MostrarBotoesCliente() // Mostrar interface gráfica do cliente
-        {
-            gpb_Cliente.Show();
-        }
-        
-        private void EsconderBotoesCliente() // Esconder interface gráfica do cliente
-        {
-            gpb_Cliente.Hide();
-        }
-        
+
+        #region Estoque
         private void EsconderBotoesEstoque() // Esconder interface gráfica do estoque
         {
             picture_AddProd.Hide();
@@ -90,7 +74,7 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Cliente.Hide();
             gpb_Estoque.Hide();
         }
-                 
+
         private void ExibirEstoque() // Exibir interface gráfica do estoque
         {
             gpb_Estoque.Show();
@@ -100,7 +84,7 @@ namespace GerenciadorDeEstoque.Apresentação
             label_AddProd.Show();
             label_EditEstoq.Show();
         }
-                
+
         private void GerarColunas() // Gerar colunas da List View Produtos
         {
             listView_Cliente.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
@@ -112,21 +96,7 @@ namespace GerenciadorDeEstoque.Apresentação
             listView_Cliente.Columns.Add("Preço custo", 80).TextAlign = HorizontalAlignment.Center;
             listView_Cliente.Columns.Add("Lucro", 80).TextAlign = HorizontalAlignment.Center;
         }
-                
-        private void GerarColunasClientes() // Gerar colunas da List View Clientes
-        {
-            listView_Clientes.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Data de nascimento", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Telefone", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Celular", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("RG", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("CPF / CNPJ", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Endereço", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("E-mail", 100).TextAlign = HorizontalAlignment.Center;
-            listView_Clientes.Columns.Add("Observações", 100).TextAlign = HorizontalAlignment.Center;
-        }
-        
+
         public void AdicionarItemListView() // Método para passar os dados do BD para a List View
         {
             ExibirEstoque();
@@ -151,11 +121,6 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[6].ToString());
                 listView_Cliente.Items[i].SubItems.Add(dt.Rows[i].ItemArray[7].ToString());
             }
-        }
-                
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e) // Botão sair do menu
-        {
-            Application.Exit();
         }
                 
         private void pictureBox1_Click(object sender, EventArgs e) // Botão com imagem (ESTOQUE)
@@ -209,7 +174,40 @@ namespace GerenciadorDeEstoque.Apresentação
             abrirfrmEditarProduto.ShowDialog();
             RefreshList();
         }
-                
+        #endregion
+
+        #region Clientes
+        private void MostrarBotoesCliente() // Mostrar interface gráfica do cliente
+        {
+            gpb_Cliente.Show();
+        }
+
+        private void EsconderBotoesCliente() // Esconder interface gráfica do cliente
+        {
+            gpb_Cliente.Hide();
+        }
+
+        private void GerarColunasClientes() // Gerar colunas da List View Clientes
+        {
+            listView_Clientes.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Nome", 250).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Data de nascimento", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Telefone", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Celular", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("RG", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("CPF / CNPJ", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Endereço", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("E-mail", 100).TextAlign = HorizontalAlignment.Center;
+            listView_Clientes.Columns.Add("Observações", 100).TextAlign = HorizontalAlignment.Center;
+        }
+
+        private void pictureBoxEditarCliente_Click(object sender, EventArgs e) // Método para abrir a tela Editar Cliente
+        {
+            EditarCliente abrirfrmEditarCliente = new EditarCliente();
+            abrirfrmEditarCliente.ShowDialog();
+            RefreshListClient(); // Atualizar a list view de clientes
+        }
+
         private void btnImg_Cliente_Click(object sender, EventArgs e) // Botão imagem cliente
         {
             EsconderSuporteTecnico();
@@ -289,7 +287,9 @@ namespace GerenciadorDeEstoque.Apresentação
                 listView_Clientes.Items[i].SubItems.Add(dt.Rows[i].ItemArray[9].ToString());
             }
         }
-                
+        #endregion
+
+        #region Pedidos
         private void EsconderTelaPedidos() // Método para esconder a tela de pedidos
         {
             groupBox_pedidos.Hide();
@@ -656,6 +656,33 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
+        private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e) // Check box pendentes
+        {
+            MetodoExibirPedidosporEstado();
+        }
+
+        private void checkBoxPago_CheckedChanged(object sender, EventArgs e) // Check box pagos
+        {
+            MetodoExibirPedidosporEstado();
+        }
+
+        private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e) // Check box cancelados
+        {
+            MetodoExibirPedidosporEstado();
+        }
+        #endregion
+
+        #region Usuário
+        private void EsconderGroupBoxUsuario() // Esconder o Group Box Usuário
+        {
+            gpBoxUsuario.Hide();
+        }
+
+        private void MostrarGroupBoxUsuario() // Mostrar Group Box Usuário
+        {
+            gpBoxUsuario.Show();
+        }
+
         public void GerarColunasUsuarios()
         {
             listViewUsuario.Columns.Add("ID", 50).TextAlign = HorizontalAlignment.Center;
@@ -688,31 +715,9 @@ namespace GerenciadorDeEstoque.Apresentação
             }
         }
 
-        private void checkBoxPendentes_CheckedChanged(object sender, EventArgs e) // Check box pendentes
-        {
-            MetodoExibirPedidosporEstado();
-        }
-
-        private void checkBoxPago_CheckedChanged(object sender, EventArgs e) // Check box pagos
-        {
-            MetodoExibirPedidosporEstado();
-        }
-
-        private void checkBoxCancelados_CheckedChanged(object sender, EventArgs e) // Check box cancelados
-        {
-            MetodoExibirPedidosporEstado();
-        }
-
         private void pictureBox4_Click(object sender, EventArgs e) // Botão para atualizar a lista de clientes
         {
             RefreshListClient();
-        }
-
-        private void pictureBoxEditarCliente_Click(object sender, EventArgs e) // Método para abrir a tela Editar Cliente
-        {
-            EditarCliente abrirfrmEditarCliente = new EditarCliente();
-            abrirfrmEditarCliente.ShowDialog();
-            RefreshListClient(); // Atualizar a list view de clientes
         }
 
         private void picBoxUsuarios_Click(object sender, EventArgs e) // Botão usuário, quando clica exibe a tela
@@ -753,12 +758,9 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewUsuario.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
             }
         }
+        #endregion
 
-        private void MostrarAnalytics() // método para mostrar a tela de Analise
-        {
-            gpBoxAnalise.Show();
-        }
-
+        #region Analise de vendas
         private void EsconderAlaytics() // método para esconder a tela de Analise
         {
             gpBoxAnalise.Hide();
@@ -776,6 +778,12 @@ namespace GerenciadorDeEstoque.Apresentação
             AdicionarItensColunaAnaliseDeVendas();
             GerarGraficoVendas();
         }
+
+        private void MostrarAnalytics() // método para mostrar a tela de Analise
+        {
+            gpBoxAnalise.Show();
+        }
+
         public void CriandoGraficoVendas() // Método para criar o gráfico de vendas (informações da formatação)
         {
             Title title = new Title(); // Instanciando var do tipo title
@@ -1159,7 +1167,9 @@ namespace GerenciadorDeEstoque.Apresentação
                 listViewAnaliseVendas.Items[i].SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
             }
         }
-                
+        #endregion
+
+        #region Suporte
         private void EsconderSuporteTecnico() // Método para esconder o Group Box do Suporte técnico
         {
             gpBoxSuporte.Hide();
@@ -1179,5 +1189,6 @@ namespace GerenciadorDeEstoque.Apresentação
             EsconderGroupBoxUsuario();
             MostrarSuporteTecnico();
         }
+        #endregion
     }
 }
